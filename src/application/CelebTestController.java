@@ -34,7 +34,7 @@ public class CelebTestController {
 	@FXML
 	private Button DoneButton;
 	
-	//this method does not work for some reason
+	//this method does not work for some reason, please check
 	@FXML 
 	void changeToFinal(ActionEvent event) {
 		try {
