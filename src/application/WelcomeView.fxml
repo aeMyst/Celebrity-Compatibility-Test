@@ -6,15 +6,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController">
    <children>
       <Label alignment="CENTER" text="WELCOME" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" mnemonicParsing="false" text="Click Here To Start" textAlignment="CENTER">
+      <Button fx:id="startButton" alignment="CENTER" mnemonicParsing="false" onAction="#changeToQuestions" text="Click Here To Start" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
