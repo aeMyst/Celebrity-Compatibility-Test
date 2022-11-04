@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -128,7 +129,10 @@ public class CelebTestController {
 	@FXML
 	private Slider IntroExtroSlider;
 	
-
+	@FXML
+	private Label DisplayCompatibilityScoreLabel;
+	
+	
 
 	@FXML
 	private Button DoneButton;
@@ -137,6 +141,7 @@ public class CelebTestController {
 	@FXML 
 	void changeToFinal(ActionEvent event) {
 		try {
+			
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/FinalView.fxml"));
 			Scene finalScene = new Scene(root,1024,768);
