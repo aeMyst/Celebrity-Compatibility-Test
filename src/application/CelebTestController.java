@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -14,6 +16,16 @@ public class CelebTestController {
     
 	@FXML
     private Button startButton;
+	
+	@FXML
+	private Slider SpontaneousSlider;
+	
+	@FXML
+	private ChoiceBox<?> ZodiacSignChoiceBox;
+	
+	@FXML
+	private Slider IntroExtroSlider;
+	
 
     @FXML
     void changeToQuestions(ActionEvent event) {
