@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.collections.FXCollections?>
 
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController">
    <children>
@@ -13,50 +15,353 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="24.0" prefWidth="283.0">
          <children>
-            <Label text="question here" />
+            <Label text="What is your full name (First and Last)? ">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children></HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="31.0" prefWidth="283.0">
          <children>
-            <Label text="question here" />
-         </children></HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+            <TextField>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="23.0" prefWidth="283.0">
          <children>
-            <Label text="question here" />
+            <Label text="What is your age?">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children></HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="32.0" prefWidth="283.0">
          <children>
-            <Label text="question here" />
-         </children></HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+            <TextField>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="24.0" prefWidth="283.0">
          <children>
-            <Label text="question here" />
+            <Label text="What is your favorite food?">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children></HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+         <HBox prefHeight="32.0" prefWidth="283.0">
          <children>
-            <Label text="question here" />
-         </children></HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+            <Button fx:id="PizzaFoodButton" mnemonicParsing="false" onAction="#setFoodAnswer" text="Pizza" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+         </Button>
+            <Button fx:id="PastaFoodButton" mnemonicParsing="false" onAction="#setFoodAnswer" text="Pasta" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="SushiFoodButton" mnemonicParsing="false" onAction="#setFoodAnswer" text="Sushi" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="IceCreamFoodButton" mnemonicParsing="false" onAction="#setFoodAnswer" text="Ice Cream" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </HBox>
+      <HBox prefHeight="21.0" prefWidth="283.0">
          <children>
-            <Label text="question here" />
+            <Label text="What is your favorite season?" textAlignment="RIGHT">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children></HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="32.0" prefWidth="283.0">
          <children>
-            <Label text="question here" />
-         </children></HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+            <Button fx:id="FallSeasonButton" mnemonicParsing="false" onAction="#setSeasonAnswer" text="Fall" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="WinterSeasonButton" mnemonicParsing="false" onAction="#setSeasonAnswer" text="Winter" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="SpringSeasonButton" mnemonicParsing="false" onAction="#setSeasonAnswer" text="Spring" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="SummerSeasonButton" mnemonicParsing="false" onAction="#setSeasonAnswer" text="Summer" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </HBox>
+      <HBox prefHeight="24.0" prefWidth="283.0">
          <children>
-            <Label text="question here" />
+            <Label text="What is your favorite color? ">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children></HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="32.0" prefWidth="283.0">
          <children>
-            <Label text="question here" />
+            <Button fx:id="RedColourButton" mnemonicParsing="false" onAction="#setColourAnswer" text="Red" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="GreenColourButton" mnemonicParsing="false" onAction="#setColourAnswer" text="Green" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="BlueColourButton" mnemonicParsing="false" onAction="#setColourAnswer" text="Blue" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="YellowColourButton" mnemonicParsing="false" onAction="#setColourAnswer" text="Yellow" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </HBox>
+      <HBox prefHeight="22.0" prefWidth="283.0">
+         <children>
+            <Label text="What is your favorite genre of music?">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children></HBox>
-      <Button fx:id="DoneButton" mnemonicParsing="false" onAction="#changeToFinal" text="Done" textAlignment="CENTER">
+      <HBox prefHeight="32.0" prefWidth="283.0">
+         <children>
+            <Button fx:id="RapMusicButton" mnemonicParsing="false" onAction="#setMusicAnswer" text="Rap " textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="PopMusicButton" mnemonicParsing="false" onAction="#setMusicAnswer" text="Pop" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="IndieMusicButton" mnemonicParsing="false" onAction="#setMusicAnswer" text="Indie" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="ClassicalMusicButton" mnemonicParsing="false" onAction="#setMusicAnswer" text="Classical" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </HBox>
+      <HBox prefHeight="35.0" prefWidth="283.0">
+         <children>
+            <Label text="Are you a cat or a dog person?">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
+         </children></HBox>
+      <HBox prefHeight="32.0" prefWidth="283.0">
+         <children>
+            <Button fx:id="CatAnimalButton" mnemonicParsing="false" onAction="#setAnimalAnswer" text="Cats" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="50.0" right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="DogAnimalButton" mnemonicParsing="false" onAction="#setAnimalAnswer" text="Dogs" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="40.0" right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox prefHeight="24.0" prefWidth="283.0">
+         <children>
+            <Label text="How introverted or extroverted are you? ">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
+         </children></HBox>
+      <HBox prefHeight="45.0" prefWidth="283.0">
+         <children>
+            <Slider majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Slider>
+         </children>
+      </HBox>
+      <HBox prefHeight="27.0" prefWidth="283.0">
+         <children>
+            <Label text="What is your zodiac sign? ">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
+         </children></HBox>
+      <HBox prefHeight="37.0" prefWidth="283.0">
+         <children>
+            <ChoiceBox fx:id="ZodiacSignChoiceBox" prefWidth="150.0">
+               <items>
+               <FXCollections fx:factory="observableArrayList">
+            	
+            		<String fx:value="Sagittarius" />
+            		<String fx:value="Capricorn" />
+            		<String fx:value="Aquarius" />
+            		<String fx:value="Virgo" />
+            		<String fx:value="Libra" />
+            		<String fx:value="Aries" />
+            		<String fx:value="Scorpio" />
+            		<String fx:value="Taurus" />
+            		<String fx:value="Pisces" />
+            		<String fx:value="Gemini" />
+            		<String fx:value="Leo" />
+            		<String fx:value="Cancer" />
+       	
+            	  	</FXCollections>
+            </items>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ChoiceBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="33.0" prefWidth="283.0">
+         <children>
+            <Label text="How spontaneous are you?">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
+         </children></HBox>
+      <HBox prefHeight="45.0" prefWidth="283.0">
+         <children>
+            <Slider majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Slider>
+         </children>
+      </HBox>
+      <Button fx:id="DoneButton" mnemonicParsing="false" onAction="#changeToFinal" text="Calculate Compatibility" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets left="50.0" />
+         </VBox.margin>
       </Button>
    </children>
 </VBox>

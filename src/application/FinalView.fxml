@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -8,10 +9,19 @@
 
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" text="FINAL DONE">
+      <Label alignment="CENTER" text="Congratulations!">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id= "DisplayCompatibilityScoreLabel" text="Compatibility score will appear here">
+               <HBox.margin>
+                  <Insets left="90.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </VBox>
