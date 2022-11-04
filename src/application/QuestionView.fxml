@@ -6,6 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.collections.FXCollections?>
 
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController">
    <children>
@@ -294,7 +295,7 @@
          </children></HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
          <children>
-            <Slider fx:id = "IntroExtroSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
+            <Slider majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -310,7 +311,25 @@
          </children></HBox>
       <HBox prefHeight="37.0" prefWidth="283.0">
          <children>
-            <ChoiceBox fx:id = "ZodiacSignChoiceBox" prefWidth="150.0">
+            <ChoiceBox fx:id="ZodiacSignChoiceBox" prefWidth="150.0">
+               <items>
+               <FXCollections fx:factory="observableArrayList">
+            	
+            		<String fx:value="Sagittarius" />
+            		<String fx:value="Capricorn" />
+            		<String fx:value="Aquarius" />
+            		<String fx:value="Virgo" />
+            		<String fx:value="Libra" />
+            		<String fx:value="Aries" />
+            		<String fx:value="Scorpio" />
+            		<String fx:value="Taurus" />
+            		<String fx:value="Pisces" />
+            		<String fx:value="Gemini" />
+            		<String fx:value="Leo" />
+            		<String fx:value="Cancer" />
+       	
+            	  	</FXCollections>
+            </items>
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -326,7 +345,7 @@
          </children></HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
          <children>
-            <Slider fx:id = "SpontaneousSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
+            <Slider majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
                <padding>
                   <Insets left="10.0" />
                </padding>
