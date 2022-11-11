@@ -1,6 +1,8 @@
 package application;
 
 import java.io.FileInputStream;
+import java.util.HashMap;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,9 @@ import javafx.stage.Stage;
 
 public class CelebTestController {
 	Stage applicationStage;
+	HashMap<String, Double> celebList = new HashMap<String, Double>();
+	
+
     
 	@FXML
     private Button startButton;
@@ -31,6 +36,7 @@ public class CelebTestController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
     }
 
 	
