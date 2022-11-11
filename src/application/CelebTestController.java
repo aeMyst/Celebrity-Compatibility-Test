@@ -32,6 +32,7 @@ public class CelebTestController {
 			e.printStackTrace();
 		}
     }
+
 	
 	//food buttons
 	@FXML 
@@ -133,6 +134,7 @@ public class CelebTestController {
 	private Label DisplayCompatibilityScoreLabel;
 	
 	
+
 
 	@FXML
 	private Button DoneButton;
