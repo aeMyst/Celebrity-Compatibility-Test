@@ -17,7 +17,7 @@ public class CelebTestController {
     
 	@FXML
     private Button startButton;
-	
+	//sup guys its julii
     @FXML
     void changeToQuestions(ActionEvent event) {
 		try {
