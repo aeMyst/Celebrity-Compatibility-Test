@@ -8,7 +8,7 @@
 
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController">
    <children>
-      <Label alignment="CENTER" text="WELCOME" textAlignment="CENTER">
+      <Label alignment="CENTER" text="Test Your Compatibility!" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
