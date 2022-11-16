@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 public class CelebTestController {
 	Stage applicationStage;
-	HashMap<String, Double> celebList = new HashMap<String, Double>();
+	HashMap<String, Double> celebDictionary = new HashMap<String, Double>();
 	
 
     
@@ -145,21 +145,81 @@ public class CelebTestController {
 	@FXML
 	private Button DoneButton;
 	
+	void getZodiacSignAnswer (String signSelected) {
+		
+
+		if(signSelected.equals("Sagittarius")) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+			//match with Jennifer Lopez who is Leo
+		}
+		if(signSelected.equals("Capricorn")) {
+			celebDictionary.put("", 0.0);
+			//no match
+		}
+		if(signSelected.equals("Aquarius")) {
+			celebDictionary.put("Kanye West", 10.0);
+			//you match with Kanye cause he is Gemini
+		}
+		if(signSelected.equals("Virgo")) {
+			celebDictionary.put("", 0.0);
+			//no match 
+		}
+		if(signSelected.equals("Libra")) {
+			celebDictionary.put("Kanye West", 10.0);
+			//match with Kanye who is Gemini
+		}
+		if(signSelected.equals("Aries")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			//match with taylor swift who is sagittarus
+		}
+		if(signSelected.equals("Scorpio")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			//match with Justin who is Pisces 
+		}
+		if(signSelected.equals("Taurus")) {
+			celebDictionary.put("", 0.0);
+			// no match
+		}
+		if(signSelected.equals("Pisces")) {
+			celebDictionary.put("", 0.0);
+			//no match
+		}
+		if(signSelected.equals("Gemini")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			//match with Taylor swift who is sagittarus
+		}
+		if(signSelected.equals("Leo")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			//you match with Taylor Swift who is a Sagittarus 
+		}
+		if(signSelected.equals("Cancer")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			//you match with Justin bieber who is Pisces
+		}	
+	}
+	
+	
 	//this method does not work for some reason, please check
 	@FXML 
 	void changeToFinal(ActionEvent event) {
-		try {
+		
+		String sign = ZodiacSignChoiceBox.getValue();
+		getZodiacSignAnswer(sign);
+		
+		//celebDictionary.put("a", 0.0);
+		System.out.println(celebDictionary);
+		//try {
 			
-			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/application/FinalView.fxml"));
-			Scene finalScene = new Scene(root,1024,768);
+			//FXMLLoader loader = new FXMLLoader();
+			//VBox root = loader.load(new FileInputStream("src/application/FinalView.fxml"));
+			//Scene finalScene = new Scene(root,1024,768);
 			
-			applicationStage.setScene(finalScene);
-			applicationStage.setTitle("Results");
-			applicationStage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			//applicationStage.setScene(finalScene);
+			//applicationStage.setTitle("Results");
+			//applicationStage.show();
+		//} catch (Exception e) {
+			//e.printStackTrace();
+		//}
 		
 	}
 }
