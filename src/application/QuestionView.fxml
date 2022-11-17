@@ -29,7 +29,10 @@
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></TextField>
-            <Label fx:id="nameErrorLabel" />
+            <Label fx:id="nameErrorLabel" textFill="RED">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children>
       </HBox>
       <HBox prefHeight="23.0" prefWidth="283.0">
@@ -45,7 +48,10 @@
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></TextField>
-            <Label fx:id="ageErrorLabel" />
+            <Label fx:id="ageErrorLabel" textFill="RED">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children>
       </HBox>
       <HBox prefHeight="24.0" prefWidth="283.0">

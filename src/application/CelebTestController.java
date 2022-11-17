@@ -154,13 +154,14 @@ public class CelebTestController {
 	@FXML
 	private Button DoneButton;
 	
-	@FXML
+	
 	String verifyNames(String personName) {
 		// initialization of variables
 		boolean validName = true;
 		char invalidChar = Character.MIN_VALUE;
 		
 		for (char c : personName.toCharArray()) {
+			// if the current character c has an ASCII table value of the following, do this
    	  		if  ((c >= '!' && c <= '@') || (c >= '[' && c <= '`') || (c >= '{' && c <= '~') ) {
    	  			validName = false;
    	  			invalidChar = c;
@@ -170,13 +171,16 @@ public class CelebTestController {
    	  		} 
 	    }
 		if (validName) {
+			nameErrorLabel.setText("");
 			return personName;
 		} else {
 			return "";
 		}
 	}
 	
+	
 	void calculateNames(String personName) {
+		// inialization of variables
 		ArrayList<Integer> countList = new ArrayList<Integer>();
 		int charCountJB = 0;
 		int charCountKW = 0;
@@ -188,9 +192,10 @@ public class CelebTestController {
 		String jl = "Jennifer Lopez";
 		String ts = "Taylor Swift";
 		
+		// to test matching, all characters should be in lowercase
 		personName = personName.toLowerCase();
 		
-		// loop for jb
+		// loop for testing character match (Justin Bieber)
 		for (int i = 0; i < personName.length(); i++) { 
 			for (int p = 0; p < jb.length(); p++) {
 				if (personName.charAt(i) == jb.charAt(p)) {
@@ -200,7 +205,7 @@ public class CelebTestController {
 		}
 		System.out.print("Justin Bieber " + charCountJB + '\n');
 		
-		// loop for kw
+		// loop for testing character match (Kanye West)
 		for (int i = 0; i < personName.length(); i++) { 
 			for (int p = 0; p < kw.length(); p++) {
 				if (personName.charAt(i) == kw.charAt(p)) {
@@ -210,7 +215,7 @@ public class CelebTestController {
 		}
 		System.out.print("Kanye West " + charCountKW + '\n');
 		
-		// loop for jl
+		// loop for testing character match (Jennifer Lopez)
 		for (int i = 0; i < personName.length(); i++) { 
 			for (int p = 0; p < jl.length(); p++) {
 				if (personName.charAt(i) == jl.charAt(p)) {
@@ -220,7 +225,7 @@ public class CelebTestController {
 		}
 		System.out.print("Jennifer Lopez " + charCountJL + '\n');
 		
-		// loop for ts
+		// loop for testing character match (Taylor Swift)
 		for (int i = 0; i < personName.length(); i++) { 
 			for (int p = 0; p < ts.length(); p++) {
 				if (personName.charAt(i) == ts.charAt(p)) {
@@ -230,27 +235,88 @@ public class CelebTestController {
 		}
 		System.out.print("Taylor Swift " + charCountTS + '\n');
 		
+		// adding all counting elements to my list
 		countList.add(charCountJB);
 		countList.add(charCountKW);
 		countList.add(charCountJL);
 		countList.add(charCountTS);
 		
+		// sorting my list from greatest to smallest
 		countList.sort(Collections.reverseOrder());
-		System.out.print("My counts from Highest to Lowest " + countList);
+		System.out.print("My counts from Highest to Lowest " + countList);	
 		
+		//!!!!!!!!!!HELP!!!!!!!!!!
+		// can someone figure out what I need to do with the dictionary stuff, I'm not understanding what I need to add to dictionary,
+		// since we want it so that every person is calculated and not just the top, do I add all elements to dictionary?
 	}
+	
+	double verifyAge(String personAge) {
+			// initialization of variables
+			boolean validAge = true;
+			char invalidChar = Character.MIN_VALUE;
+			double age = 0.0;
+				
+			for (char c : personAge.toCharArray()) {
+				// testing if inputed age is actually a number
+		   	  	if  (!(c >= '0' && c <= '9')) {
+		   	  		validAge = false;
+		   	  		invalidChar = c;
+		   	  	} else {
+		   	  		validAge = true;
+		   	  	}
+		   	  	if (!(validAge)) {
+		   	  		ageErrorLabel.setText("Do not use " + invalidChar + " in your Age. Please enter a valid Age.");
+		   	  	} 
+			}
+			if (validAge) {
+				Double doubleAge = Double.parseDouble(personAge);	
+				if (doubleAge < 16) { // must be 16+
+					ageErrorLabel.setText("Sorry, you are too young to take this test. Please try again.");
+				} else if (doubleAge > 60) { //must be 60-
+					ageErrorLabel.setText("Sorry, you are old asf (60 or less). Please try again.");
+				} else {
+					age = age + doubleAge;
+					ageErrorLabel.setText("");
+				}
+			}
+			return age;
+	}
+	double calculateAge(double age) {
+		// this method should calculate how close user is to a certain celebrity.
+		// reminder to consider that whatever age they input, should have a weight towards each celebrity rather than
+		// giving a certain user 0% to the other celebrities other than their top.
+		return age;
+	}
+	
 	
 	//this method does not work for some reason, please check
 	@FXML 
 	void changeToFinal(ActionEvent event) {
 		
-		String personName = nameTextField.getText();
-		String verifiedPersonName = verifyNames(personName);
-		if (verifiedPersonName.equals("")) {
-			System.out.print('\n' + verifiedPersonName + '\n');
+		// testing person name
+		if (nameTextField.getText().equals("")) {
+			nameErrorLabel.setText("Please enter your first and last name.");
 		} else {
-			System.out.print('\n' + verifiedPersonName + '\n');
-			calculateNames(verifiedPersonName);
-		}		
+			String personName = nameTextField.getText();
+			String verifiedPersonName = verifyNames(personName);
+			if (verifiedPersonName.equals("")) {
+				System.out.print('\n' + verifiedPersonName + '\n');
+			} else {
+				System.out.print('\n' + verifiedPersonName + '\n');
+				calculateNames(verifiedPersonName);
+			}	
+			System.out.print('\n' + "---Split---");
+			
+		}
+		
+		// testing person age
+		if (ageTextField.getText().equals("")) {
+			ageErrorLabel.setText("Please enter your age.");
+		} else {
+			String personAge = ageTextField.getText();
+			double verifiedPersonAge = verifyAge(personAge);
+			System.out.print('\n' + "User is: "  + verifiedPersonAge + " Years old" + '\n');
+			calculateAge(verifiedPersonAge);
+		}
 	}
 }
