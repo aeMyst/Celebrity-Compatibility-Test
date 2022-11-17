@@ -1,6 +1,8 @@
 package application;
 
 import java.io.FileInputStream;
+import java.util.HashMap;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,8 @@ import javafx.stage.Stage;
 
 public class CelebTestController {
 	Stage applicationStage;
+	
+	HashMap<String, Double> celebDictionary = new HashMap<String, Double>();
     
 	@FXML
     private Button startButton;
@@ -134,14 +138,23 @@ public class CelebTestController {
 	private Label DisplayCompatibilityScoreLabel;
 	
 	
-
+     
 
 	@FXML
 	private Button DoneButton;
 	
+	
 	//this method does not work for some reason, please check
 	@FXML 
 	void changeToFinal(ActionEvent event) {
+		double valueSpon = SpontaneousSlider.getValue();
+		sponSlider(valueSpon);
+		
+		
+		
+		double valueIntro = IntroExtroSlider.getValue();
+		introSlider(valueIntro);
+		System.out.println(celebDictionary);
 		try {
 			
 			FXMLLoader loader = new FXMLLoader();
@@ -149,13 +162,75 @@ public class CelebTestController {
 			Scene finalScene = new Scene(root,1024,768);
 			
 			applicationStage.setScene(finalScene);
-			applicationStage.setTitle("Results");
+		    applicationStage.setTitle("Results");
 			applicationStage.show();
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace();}
 		}
 		
+		
+		//Spontaneous Slider Method
+		void sponSlider (double sliderValue) {
+//			double sliding = sliderValue;
+			String celeb = "";
+			double percentage = 0.0; 
+			if (sliderValue >= 0 && sliderValue <= 2.5) {
+				celeb = "Jennifer Lopez";
+				percentage = 10.0;
+						
+			}
+			if (sliderValue >= 2.5 && sliderValue <= 5) {
+				celeb = "Justin Bieber";
+				percentage = 10.0;
+						
+			}
+			if (sliderValue >= 5 && sliderValue <= 7.5) {
+				celeb = "Taylor Swift";
+				percentage = 100;
+						
+			}
+			if (sliderValue >= 7.5 && sliderValue <= 10) {
+				celeb = "Kanye West";
+				percentage = 10.0;
+						
+			}
+			System.out.println("" + celeb +"" + percentage);
+			celebDictionary.put(celeb, percentage);
+			
+		}
+		//Intro/Extro Slider Method 
+		void introSlider (double sliderValue) {
+//			double sliding = sliderValue;
+			String celeb = "";
+			double percentage = 0.0; 
+			if (sliderValue >= 0 && sliderValue <= 2.5) {
+				celeb = "Taylor Swift";
+				percentage = 10.0;
+						
+			}
+			if (sliderValue >= 2.5 && sliderValue <= 5) {
+				celeb = "Jennifer Lopez";
+				percentage = 10.0;
+						
+			}
+			if (sliderValue >= 5 && sliderValue <= 7.5) {
+				celeb = "Justin Bieber";
+				percentage = 10.0;
+						
+			}
+			if (sliderValue >= 7.5 && sliderValue <= 10) {
+				celeb = "Kanye West";
+				percentage = 10.0;
+						
+			}
+			System.out.println("" + celeb +"" + percentage);
+			celebDictionary.put(celeb, percentage);
+		
+			
+		
+		
 	}
+
+
+   
 }
-
-
