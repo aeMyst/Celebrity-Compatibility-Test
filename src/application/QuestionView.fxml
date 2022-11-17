@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -24,10 +25,11 @@
          </children></HBox>
       <HBox prefHeight="31.0" prefWidth="283.0">
          <children>
-            <TextField>
+            <TextField fx:id="nameTextField">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></TextField>
+            <Label fx:id="nameErrorLabel" />
          </children>
       </HBox>
       <HBox prefHeight="23.0" prefWidth="283.0">
@@ -39,10 +41,11 @@
          </children></HBox>
       <HBox prefHeight="32.0" prefWidth="283.0">
          <children>
-            <TextField>
+            <TextField fx:id="ageTextField">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></TextField>
+            <Label fx:id="ageErrorLabel" />
          </children>
       </HBox>
       <HBox prefHeight="24.0" prefWidth="283.0">
