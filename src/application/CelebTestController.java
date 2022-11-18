@@ -53,9 +53,51 @@ public class CelebTestController {
 	@FXML 
 	private Button IceCreamFoodButton;
 	
+	
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
-		//enter code that will match users answer with canidate's answer and increase compatibility %
+		//this is able to tell me what button was pressed by returning the fx id
+		Button btn = (Button) event.getSource();
+		String id = btn.getId();
+		//System.out.println(id);
+
+		if (id.equals("PizzaFoodButton")) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+			PizzaFoodButton.setStyle("-fx-background-color: White");
+			//if this button gets pressed I am disabling all the other ones so it is impossible to 
+			//click another
+			SushiFoodButton.setDisable(true);
+			IceCreamFoodButton.setDisable(true);
+			PastaFoodButton.setDisable(true);
+		}
+		if (id.equals("SushiFoodButton")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			SushiFoodButton.setStyle("-fx-background-color: White");
+			
+			PizzaFoodButton.setDisable(true);
+			IceCreamFoodButton.setDisable(true);
+			PastaFoodButton.setDisable(true);
+		}
+		if (id.equals("PastaFoodButton")) {
+			celebDictionary.put("Kanye West", 10.0);
+			PastaFoodButton.setStyle("-fx-background-color: White");
+			
+			SushiFoodButton.setDisable(true);
+			IceCreamFoodButton.setDisable(true);
+			PizzaFoodButton.setDisable(true);
+		}
+		if (id.equals("IceCreamFoodButton")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			IceCreamFoodButton.setStyle("-fx-background-color: White");
+			
+			SushiFoodButton.setDisable(true);
+			PizzaFoodButton.setDisable(true);
+			PastaFoodButton.setDisable(true);
+		}
+		
+		//System.out.println(celebDictionary);
+	
+	
 	}
 	
 	//season buttons
@@ -73,9 +115,44 @@ public class CelebTestController {
 	
 	@FXML
 	void setSeasonAnswer (ActionEvent event) {
-		//enter code that will match users answer with canidate's answer and increase compatibility %
-		//change text colour or something of whatever button is pressed to show what answer 
-		//has been selected
+		Button btn = (Button) event.getSource();
+		String id = btn.getId();
+		//System.out.println(id);
+
+		if (id.equals("FallSeasonButton")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			FallSeasonButton.setStyle("-fx-background-color: Orange");
+			//if this button gets pressed I am disabling all the other ones so it is impossible to 
+			//click another
+			WinterSeasonButton.setDisable(true);
+			SpringSeasonButton.setDisable(true);
+			SummerSeasonButton.setDisable(true);
+		}
+		if (id.equals("WinterSeasonButton")) {
+			celebDictionary.put("Kanye West", 10.0);
+			WinterSeasonButton.setStyle("-fx-background-color: Turquoise");
+			
+			FallSeasonButton.setDisable(true);
+			SpringSeasonButton.setDisable(true);
+			SummerSeasonButton.setDisable(true);
+		}
+		if (id.equals("SpringSeasonButton")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			SpringSeasonButton.setStyle("-fx-background-color: Pink");
+			
+			WinterSeasonButton.setDisable(true);
+			FallSeasonButton.setDisable(true);
+			SummerSeasonButton.setDisable(true);
+		}
+		if (id.equals("SummerSeasonButton")) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+			SummerSeasonButton.setStyle("-fx-background-color: Yellow");
+			
+			WinterSeasonButton.setDisable(true);
+			SpringSeasonButton.setDisable(true);
+			FallSeasonButton.setDisable(true);
+		}
+		
 	}
 	
 	//colour buttons
@@ -93,7 +170,43 @@ public class CelebTestController {
 	
 	@FXML
 	void setColourAnswer (ActionEvent event) {
-		//enter code that will match users answer with canidate's answer and increase compatibility %
+		Button btn = (Button) event.getSource();
+		String id = btn.getId();
+		//System.out.println(id);
+
+		if (id.equals("RedColourButton")) {
+			celebDictionary.put("Kanye West", 10.0);
+			RedColourButton.setStyle("-fx-background-color: Red");
+			//if this button gets pressed I am disabling all the other ones so it is impossible to 
+			//click another
+			GreenColourButton.setDisable(true);
+			BlueColourButton.setDisable(true);
+			YellowColourButton.setDisable(true);
+		}
+		if (id.equals("GreenColourButton")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			GreenColourButton.setStyle("-fx-background-color: Green");
+			
+			RedColourButton.setDisable(true);
+			BlueColourButton.setDisable(true);
+			YellowColourButton.setDisable(true);
+		}
+		if (id.equals("YellowColourButton")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			YellowColourButton.setStyle("-fx-background-color: Yellow");
+			
+			GreenColourButton.setDisable(true);
+			BlueColourButton.setDisable(true);
+			RedColourButton.setDisable(true);
+		}
+		if (id.equals("BlueColourButton")) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+			BlueColourButton.setStyle("-fx-background-color: Turquoise");
+			
+			GreenColourButton.setDisable(true);
+			RedColourButton.setDisable(true);
+			YellowColourButton.setDisable(true);
+		}
 	}
 	
 	//music buttons
@@ -111,7 +224,43 @@ public class CelebTestController {
 	
 	@FXML
 	void setMusicAnswer (ActionEvent event) {
-		//enter code that will match users answer with canidate's answer and increase compatibility %
+		Button btn = (Button) event.getSource();
+		String id = btn.getId();
+		//System.out.println(id);
+
+		if (id.equals("RapMusicButton")) {
+			celebDictionary.put("Kanye West", 10.0);
+			RapMusicButton.setStyle("-fx-background-color: White");
+			//if this button gets pressed I am disabling all the other ones so it is impossible to 
+			//click another
+			PopMusicButton.setDisable(true);
+			IndieMusicButton.setDisable(true);
+			ClassicalMusicButton.setDisable(true);
+		}
+		if (id.equals("PopMusicButton")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			PopMusicButton.setStyle("-fx-background-color: White");
+			
+			RapMusicButton.setDisable(true);
+			IndieMusicButton.setDisable(true);
+			ClassicalMusicButton.setDisable(true);
+		}
+		if (id.equals("IndieMusicButton")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			IndieMusicButton.setStyle("-fx-background-color: White");
+			
+			PopMusicButton.setDisable(true);
+			RapMusicButton.setDisable(true);
+			ClassicalMusicButton.setDisable(true);
+		}
+		if (id.equals("ClassicalMusicButton")) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+			ClassicalMusicButton.setStyle("-fx-background-color: White");
+			
+			PopMusicButton.setDisable(true);
+			IndieMusicButton.setDisable(true);
+			RapMusicButton.setDisable(true);
+		}
 	}
 	
 	//animal buttons
@@ -123,7 +272,26 @@ public class CelebTestController {
 	
 	@FXML
 	void setAnimalAnswer (ActionEvent event) {
-		//enter code that will match users answer with canidate's answer and increase compatibility %
+		Button btn = (Button) event.getSource();
+		String id = btn.getId();
+		//System.out.println(id);
+
+		if (id.equals("CatAnimalButton")) {
+			//there are two celebs who like cats so I split the percentage in half equally
+			celebDictionary.put("Justin Beiber", 5.0);
+			celebDictionary.put("Jennifer Lopez", 5.0);
+			CatAnimalButton.setStyle("-fx-background-color: White");
+			//if this button gets pressed I am disabling all the other ones so it is impossible to 
+			//click another
+			DogAnimalButton.setDisable(true);
+		}
+		if (id.equals("DogAnimalButton")) {
+			celebDictionary.put("Taylor Swift", 5.0);
+			celebDictionary.put("Kanye West", 5.0);
+			DogAnimalButton.setStyle("-fx-background-color: White");
+			
+			CatAnimalButton.setDisable(true);
+		}
 	}
 	
 	//other components of questions
@@ -133,17 +301,6 @@ public class CelebTestController {
 	@FXML
 	private ChoiceBox<String> ZodiacSignChoiceBox;
 	
-	@FXML
-	private Slider IntroExtroSlider;
-	
-	@FXML
-	private Label DisplayCompatibilityScoreLabel;
-	
-	
-
-
-	@FXML
-	private Button DoneButton;
 	
 	void getZodiacSignAnswer (String signSelected) {
 		
@@ -198,15 +355,27 @@ public class CelebTestController {
 		}	
 	}
 	
+	@FXML
+	private Slider IntroExtroSlider;
+	
+	@FXML
+	private Label DisplayCompatibilityScoreLabel;
+	
+	
+
+
+	@FXML
+	private Button DoneButton;
 	
 	//this method does not work for some reason, please check
 	@FXML 
 	void changeToFinal(ActionEvent event) {
 		
+		//calling zodiac method
 		String sign = ZodiacSignChoiceBox.getValue();
 		getZodiacSignAnswer(sign);
 		
-		//celebDictionary.put("a", 0.0);
+		//testing to see if method worked
 		System.out.println(celebDictionary);
 		//try {
 			
