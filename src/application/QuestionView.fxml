@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -24,10 +25,14 @@
          </children></HBox>
       <HBox prefHeight="31.0" prefWidth="283.0">
          <children>
-            <TextField>
+            <TextField fx:id="nameTextField">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></TextField>
+            <Label fx:id="nameErrorLabel" textFill="RED">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children>
       </HBox>
       <HBox prefHeight="23.0" prefWidth="283.0">
@@ -39,10 +44,14 @@
          </children></HBox>
       <HBox prefHeight="32.0" prefWidth="283.0">
          <children>
-            <TextField>
+            <TextField fx:id="ageTextField">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></TextField>
+            <Label fx:id="ageErrorLabel" textFill="RED">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children>
       </HBox>
       <HBox prefHeight="24.0" prefWidth="283.0">
@@ -295,7 +304,7 @@
          </children></HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
          <children>
-            <Slider majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
+            <Slider  fx:id="IntroExtroSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -345,7 +354,7 @@
          </children></HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
          <children>
-            <Slider majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
+            <Slider fx:id="SpontaneousSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
                <padding>
                   <Insets left="10.0" />
                </padding>
