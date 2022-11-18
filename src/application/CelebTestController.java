@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +18,8 @@ import javafx.stage.Stage;
 
 public class CelebTestController {
 	Stage applicationStage;
-	HashMap<String, Double> celebDictionary = new  HashMap<String, Double>();
+
+	HashMap<String, Double> celebDictionary = new HashMap<String, Double>();
 	
 	@FXML
 	private TextField nameTextField;
@@ -32,7 +32,7 @@ public class CelebTestController {
 	
 	@FXML
 	private Label ageErrorLabel;
-    
+   
 	@FXML
     private Button startButton;
 	
@@ -151,10 +151,75 @@ public class CelebTestController {
 	@FXML
 	private Label DisplayCompatibilityScoreLabel;
 	
+
 	@FXML
 	private Button DoneButton;
-	
-	
+
+	//this method does not work for some reason, please check
+	@FXML 
+  
+		//Spontaneous Slider Method
+		void sponSlider (double sliderValue) {
+//			double sliding = sliderValue;
+			String celeb = "";
+			double percentage = 0.0; 
+			if (sliderValue >= 0 && sliderValue <= 2.5) {
+				celeb = "Jennifer Lopez";
+				percentage = 10.0;
+						
+			}
+			if (sliderValue >= 2.5 && sliderValue <= 5) {
+				celeb = "Justin Bieber";
+				percentage = 10.0;
+						
+			}
+			if (sliderValue >= 5 && sliderValue <= 7.5) {
+				celeb = "Taylor Swift";
+				percentage = 100;
+						
+			}
+			if (sliderValue >= 7.5 && sliderValue <= 10) {
+				celeb = "Kanye West";
+				percentage = 10.0;
+						
+			}
+			System.out.println("" + celeb +"" + percentage);
+			celebDictionary.put(celeb, percentage);
+			
+		}
+		//Intro/Extro Slider Method 
+		void introSlider (double sliderValue) {
+			String celeb = "";
+			double percentage = 0.0; 
+			if (sliderValue >= 0 && sliderValue <= 2.5) {
+				celeb = "Taylor Swift";
+				percentage = 10.0;
+						
+			}
+			if (sliderValue >= 2.5 && sliderValue <= 5) {
+				celeb = "Jennifer Lopez";
+				percentage = 10.0;
+						
+			}
+			if (sliderValue >= 5 && sliderValue <= 7.5) {
+				celeb = "Justin Bieber";
+				percentage = 10.0;
+						
+			}
+			if (sliderValue >= 7.5 && sliderValue <= 10) {
+				celeb = "Kanye West";
+				percentage = 10.0;
+						
+			}
+			System.out.println("" + celeb +"" + percentage);
+			celebDictionary.put(celeb, percentage);
+		
+			
+		
+		
+	}
+
+//this method does not work for some reason, please check
 	String verifyNames(String personName) {
 		// initialization of variables
 		boolean validName = true;
@@ -292,6 +357,26 @@ public class CelebTestController {
 	//this method does not work for some reason, please check
 	@FXML 
 	void changeToFinal(ActionEvent event) {
+  
+  	//Testing Slider Methods 
+    double valueSpon = SpontaneousSlider.getValue();
+		sponSlider(valueSpon);
+		
+		double valueIntro = IntroExtroSlider.getValue();
+		introSlider(valueIntro);
+		System.out.println(celebDictionary);
+		try {
+			
+			FXMLLoader loader = new FXMLLoader();
+			VBox root = loader.load(new FileInputStream("src/application/FinalView.fxml"));
+			Scene finalScene = new Scene(root,1024,768);
+			
+			applicationStage.setScene(finalScene);
+		    applicationStage.setTitle("Results");
+			applicationStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();}
+		}
 		
 		// testing person name
 		if (nameTextField.getText().equals("")) {
@@ -319,4 +404,5 @@ public class CelebTestController {
 			calculateAge(verifiedPersonAge);
 		}
 	}
+
 }
