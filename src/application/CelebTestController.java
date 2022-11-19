@@ -22,11 +22,6 @@ public class CelebTestController {
 
 	HashMap<String, Double> celebDictionary = new HashMap<String, Double>();
 	
-
-    
-
-
-	HashMap<String, Double> celebDictionary = new HashMap<String, Double>();
 	
 	@FXML
 	private TextField nameTextField;
@@ -386,12 +381,10 @@ public class CelebTestController {
 	@FXML
 	private Button DoneButton;
 
-	//this method does not work for some reason, please check
 	@FXML 
   
 		//Spontaneous Slider Method
 		void sponSlider (double sliderValue) {
-//			double sliding = sliderValue;
 			String celeb = "";
 			double percentage = 0.0; 
 			if (sliderValue >= 0 && sliderValue <= 2.5) {
@@ -483,10 +476,10 @@ public class CelebTestController {
 		int charCountJL = 0;
 		int charCountTS = 0;
 		
-		String jb = "Jennifer Lopez";
-		String kw = "Kanye West";		
-		String jl = "Jennifer Lopez";
-		String ts = "Taylor Swift";
+		String jb = "jennifer lopez";
+		String kw = "kanye west";		
+		String jl = "jennifer lopez";
+		String ts = "taylor swift";
 		
 		// to test matching, all characters should be in lowercase
 		personName = personName.toLowerCase();
@@ -497,8 +490,10 @@ public class CelebTestController {
 				if (personName.charAt(i) == jb.charAt(p)) {
 					charCountJB += 1; 
 				}	
-			}	
+			}
 		}
+		//-1 for the white space
+		charCountJB = charCountJB-1;
 		System.out.print("Justin Bieber " + charCountJB + '\n');
 		
 		// loop for testing character match (Kanye West)
@@ -509,6 +504,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
+		charCountKW = charCountKW-1;
 		System.out.print("Kanye West " + charCountKW + '\n');
 		
 		// loop for testing character match (Jennifer Lopez)
@@ -519,6 +515,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
+		charCountJL = charCountJL-1;
 		System.out.print("Jennifer Lopez " + charCountJL + '\n');
 		
 		// loop for testing character match (Taylor Swift)
@@ -529,6 +526,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
+		charCountTS = charCountTS-1;
 		System.out.print("Taylor Swift " + charCountTS + '\n');
 		
 		// adding all counting elements to my list
@@ -577,18 +575,31 @@ public class CelebTestController {
 			}
 			return age;
 	}
-	double calculateAge(double age) {
-		// this method should calculate how close user is to a certain celebrity.
-		// reminder to consider that whatever age they input, should have a weight towards each celebrity rather than
-		// giving a certain user 0% to the other celebrities other than their top.
-		return age;
+	void calculateAge(double age) {
+	
+		if(age<=50 && age>40) {
+			celebDictionary.put("Kanye West", 10.0);
+		}
+		if(age<=30 && age >= 18) {
+			celebDictionary.put("Justin Beiber", 10.0);
+		}
+		if(age>30 && age<=40) {
+			celebDictionary.put("Taylor Swift", 10.0);
+		}
+		if(age<60 && age>50 ) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+		}
+		System.out.println("Age match" + celebDictionary);
+
 	}
 	
 	
 	//this method does not work for some reason, please check
 	@FXML 
 	void changeToFinal(ActionEvent event) {
-
+		//checking calculate age method
+		Double age = Double.parseDouble(ageTextField.getText());
+		calculateAge(age);
 		
 		//calling zodiac method
 		String sign = ZodiacSignChoiceBox.getValue();
@@ -600,13 +611,13 @@ public class CelebTestController {
 
   
   	//Testing Slider Methods 
-    double valueSpon = SpontaneousSlider.getValue();
+		double valueSpon = SpontaneousSlider.getValue();
 		sponSlider(valueSpon);
 		
 		double valueIntro = IntroExtroSlider.getValue();
 		introSlider(valueIntro);
 		System.out.println(celebDictionary);
-		try {
+		//try {
 
 			
 			//FXMLLoader loader = new FXMLLoader();
@@ -621,12 +632,8 @@ public class CelebTestController {
 			//e.printStackTrace();
 		//}
 
-			applicationStage.setScene(finalScene);
-		    applicationStage.setTitle("Results");
-			applicationStage.show();
-		} catch (Exception e) {
-			e.printStackTrace();}
-		}
+		
+
 		
 		// testing person name
 		if (nameTextField.getText().equals("")) {
