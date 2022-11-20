@@ -493,7 +493,7 @@ public class CelebTestController {
 			}
 		}
 		//-1 for the white space
-		charCountJB = charCountJB-1;
+		//charCountJB = charCountJB-1;
 		System.out.print("Justin Bieber " + charCountJB + '\n');
 		
 		// loop for testing character match (Kanye West)
@@ -504,7 +504,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
-		charCountKW = charCountKW-1;
+		//charCountKW = charCountKW-1;
 		System.out.print("Kanye West " + charCountKW + '\n');
 		
 		// loop for testing character match (Jennifer Lopez)
@@ -515,7 +515,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
-		charCountJL = charCountJL-1;
+		//charCountJL = charCountJL-1;
 		System.out.print("Jennifer Lopez " + charCountJL + '\n');
 		
 		// loop for testing character match (Taylor Swift)
@@ -526,7 +526,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
-		charCountTS = charCountTS-1;
+		//charCountTS = charCountTS-1;
 		System.out.print("Taylor Swift " + charCountTS + '\n');
 		
 		// adding all counting elements to my list
@@ -589,7 +589,7 @@ public class CelebTestController {
 		if(age<60 && age>50 ) {
 			celebDictionary.put("Jennifer Lopez", 10.0);
 		}
-		System.out.println("Age match" + celebDictionary);
+		//System.out.println("Age match" + celebDictionary);
 
 	}
 	
@@ -597,6 +597,8 @@ public class CelebTestController {
 	//this method does not work for some reason, please check
 	@FXML 
 	void changeToFinal(ActionEvent event) {
+	
+		
 		//checking calculate age method
 		Double age = Double.parseDouble(ageTextField.getText());
 		calculateAge(age);
@@ -606,7 +608,7 @@ public class CelebTestController {
 		getZodiacSignAnswer(sign);
 		
 		//testing to see if method worked
-		System.out.println(celebDictionary);
+		//System.out.println(celebDictionary);
 		//try {
 
   
@@ -616,7 +618,7 @@ public class CelebTestController {
 		
 		double valueIntro = IntroExtroSlider.getValue();
 		introSlider(valueIntro);
-		System.out.println(celebDictionary);
+	
 		//try {
 
 			
