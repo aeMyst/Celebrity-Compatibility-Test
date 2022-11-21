@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.collections.FXCollections?>
 
-<VBox fx:id="questionViewScene" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController">
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController">
    <children>
       <Label alignment="TOP_LEFT" text="Please Answer The Following Questions:">
          <font>
@@ -304,7 +304,7 @@
          </children></HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
          <children>
-            <Slider fx:id="IntroExtroSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
+            <Slider  fx:id="IntroExtroSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -374,4 +374,3 @@
       </Button>
    </children>
 </VBox>
-
