@@ -1,30 +1,38 @@
 package application;
 
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.net.URL;
+import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import java.io.IOException;
+import java.net.URL;
+
+
 
 public class CelebTestController {
 	Stage applicationStage;
+  
+  private Parent root;
+	
+	private Stage stage;
+	
+	private Scene scene;
+	
 
 	HashMap<String, Double> celebDictionary = new HashMap<String, Double>();
+	
 	
 	@FXML
 	private TextField nameTextField;
@@ -38,9 +46,10 @@ public class CelebTestController {
 	@FXML
 	private Label ageErrorLabel;
    
+
 	@FXML
     private Button startButton;
-	
+	//sup guys its julii
     @FXML
     void changeToQuestions(ActionEvent event) {
 		try {
@@ -54,6 +63,7 @@ public class CelebTestController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
     }
 
 	
@@ -70,9 +80,51 @@ public class CelebTestController {
 	@FXML 
 	private Button IceCreamFoodButton;
 	
+	
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
-		//enter code that will match users answer with canidate's answer and increase compatibility %
+		//this is able to tell me what button was pressed by returning the fx id
+		Button btn = (Button) event.getSource();
+		String id = btn.getId();
+		//System.out.println(id);
+
+		if (id.equals("PizzaFoodButton")) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+			PizzaFoodButton.setStyle("-fx-background-color: White");
+			//if this button gets pressed I am disabling all the other ones so it is impossible to 
+			//click another
+			SushiFoodButton.setDisable(true);
+			IceCreamFoodButton.setDisable(true);
+			PastaFoodButton.setDisable(true);
+		}
+		if (id.equals("SushiFoodButton")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			SushiFoodButton.setStyle("-fx-background-color: White");
+			
+			PizzaFoodButton.setDisable(true);
+			IceCreamFoodButton.setDisable(true);
+			PastaFoodButton.setDisable(true);
+		}
+		if (id.equals("PastaFoodButton")) {
+			celebDictionary.put("Kanye West", 10.0);
+			PastaFoodButton.setStyle("-fx-background-color: White");
+			
+			SushiFoodButton.setDisable(true);
+			IceCreamFoodButton.setDisable(true);
+			PizzaFoodButton.setDisable(true);
+		}
+		if (id.equals("IceCreamFoodButton")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			IceCreamFoodButton.setStyle("-fx-background-color: White");
+			
+			SushiFoodButton.setDisable(true);
+			PizzaFoodButton.setDisable(true);
+			PastaFoodButton.setDisable(true);
+		}
+		
+		//System.out.println(celebDictionary);
+	
+	
 	}
 	
 	//season buttons
@@ -90,9 +142,44 @@ public class CelebTestController {
 	
 	@FXML
 	void setSeasonAnswer (ActionEvent event) {
-		//enter code that will match users answer with canidate's answer and increase compatibility %
-		//change text colour or something of whatever button is pressed to show what answer 
-		//has been selected
+		Button btn = (Button) event.getSource();
+		String id = btn.getId();
+		//System.out.println(id);
+
+		if (id.equals("FallSeasonButton")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			FallSeasonButton.setStyle("-fx-background-color: Orange");
+			//if this button gets pressed I am disabling all the other ones so it is impossible to 
+			//click another
+			WinterSeasonButton.setDisable(true);
+			SpringSeasonButton.setDisable(true);
+			SummerSeasonButton.setDisable(true);
+		}
+		if (id.equals("WinterSeasonButton")) {
+			celebDictionary.put("Kanye West", 10.0);
+			WinterSeasonButton.setStyle("-fx-background-color: Turquoise");
+			
+			FallSeasonButton.setDisable(true);
+			SpringSeasonButton.setDisable(true);
+			SummerSeasonButton.setDisable(true);
+		}
+		if (id.equals("SpringSeasonButton")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			SpringSeasonButton.setStyle("-fx-background-color: Pink");
+			
+			WinterSeasonButton.setDisable(true);
+			FallSeasonButton.setDisable(true);
+			SummerSeasonButton.setDisable(true);
+		}
+		if (id.equals("SummerSeasonButton")) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+			SummerSeasonButton.setStyle("-fx-background-color: Yellow");
+			
+			WinterSeasonButton.setDisable(true);
+			SpringSeasonButton.setDisable(true);
+			FallSeasonButton.setDisable(true);
+		}
+		
 	}
 	
 	//colour buttons
@@ -110,7 +197,43 @@ public class CelebTestController {
 	
 	@FXML
 	void setColourAnswer (ActionEvent event) {
-		//enter code that will match users answer with canidate's answer and increase compatibility %
+		Button btn = (Button) event.getSource();
+		String id = btn.getId();
+		//System.out.println(id);
+
+		if (id.equals("RedColourButton")) {
+			celebDictionary.put("Kanye West", 10.0);
+			RedColourButton.setStyle("-fx-background-color: Red");
+			//if this button gets pressed I am disabling all the other ones so it is impossible to 
+			//click another
+			GreenColourButton.setDisable(true);
+			BlueColourButton.setDisable(true);
+			YellowColourButton.setDisable(true);
+		}
+		if (id.equals("GreenColourButton")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			GreenColourButton.setStyle("-fx-background-color: Green");
+			
+			RedColourButton.setDisable(true);
+			BlueColourButton.setDisable(true);
+			YellowColourButton.setDisable(true);
+		}
+		if (id.equals("YellowColourButton")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			YellowColourButton.setStyle("-fx-background-color: Yellow");
+			
+			GreenColourButton.setDisable(true);
+			BlueColourButton.setDisable(true);
+			RedColourButton.setDisable(true);
+		}
+		if (id.equals("BlueColourButton")) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+			BlueColourButton.setStyle("-fx-background-color: Turquoise");
+			
+			GreenColourButton.setDisable(true);
+			RedColourButton.setDisable(true);
+			YellowColourButton.setDisable(true);
+		}
 	}
 	
 	//music buttons
@@ -128,7 +251,43 @@ public class CelebTestController {
 	
 	@FXML
 	void setMusicAnswer (ActionEvent event) {
-		//enter code that will match users answer with canidate's answer and increase compatibility %
+		Button btn = (Button) event.getSource();
+		String id = btn.getId();
+		//System.out.println(id);
+
+		if (id.equals("RapMusicButton")) {
+			celebDictionary.put("Kanye West", 10.0);
+			RapMusicButton.setStyle("-fx-background-color: White");
+			//if this button gets pressed I am disabling all the other ones so it is impossible to 
+			//click another
+			PopMusicButton.setDisable(true);
+			IndieMusicButton.setDisable(true);
+			ClassicalMusicButton.setDisable(true);
+		}
+		if (id.equals("PopMusicButton")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			PopMusicButton.setStyle("-fx-background-color: White");
+			
+			RapMusicButton.setDisable(true);
+			IndieMusicButton.setDisable(true);
+			ClassicalMusicButton.setDisable(true);
+		}
+		if (id.equals("IndieMusicButton")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			IndieMusicButton.setStyle("-fx-background-color: White");
+			
+			PopMusicButton.setDisable(true);
+			RapMusicButton.setDisable(true);
+			ClassicalMusicButton.setDisable(true);
+		}
+		if (id.equals("ClassicalMusicButton")) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+			ClassicalMusicButton.setStyle("-fx-background-color: White");
+			
+			PopMusicButton.setDisable(true);
+			IndieMusicButton.setDisable(true);
+			RapMusicButton.setDisable(true);
+		}
 	}
 	
 	//animal buttons
@@ -140,7 +299,26 @@ public class CelebTestController {
 	
 	@FXML
 	void setAnimalAnswer (ActionEvent event) {
-		//enter code that will match users answer with canidate's answer and increase compatibility %
+		Button btn = (Button) event.getSource();
+		String id = btn.getId();
+		//System.out.println(id);
+
+		if (id.equals("CatAnimalButton")) {
+			//there are two celebs who like cats so I split the percentage in half equally
+			celebDictionary.put("Justin Beiber", 5.0);
+			celebDictionary.put("Jennifer Lopez", 5.0);
+			CatAnimalButton.setStyle("-fx-background-color: White");
+			//if this button gets pressed I am disabling all the other ones so it is impossible to 
+			//click another
+			DogAnimalButton.setDisable(true);
+		}
+		if (id.equals("DogAnimalButton")) {
+			celebDictionary.put("Taylor Swift", 5.0);
+			celebDictionary.put("Kanye West", 5.0);
+			DogAnimalButton.setStyle("-fx-background-color: White");
+			
+			CatAnimalButton.setDisable(true);
+		}
 	}
 	
 	//other components of questions
@@ -150,30 +328,74 @@ public class CelebTestController {
 	@FXML
 	private ChoiceBox<String> ZodiacSignChoiceBox;
 	
+	
+	void getZodiacSignAnswer (String signSelected) {
+		
+
+		if(signSelected.equals("Sagittarius")) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+			//match with Jennifer Lopez who is Leo
+		}
+		if(signSelected.equals("Capricorn")) {
+			celebDictionary.put("", 0.0);
+			//no match
+		}
+		if(signSelected.equals("Aquarius")) {
+			celebDictionary.put("Kanye West", 10.0);
+			//you match with Kanye cause he is Gemini
+		}
+		if(signSelected.equals("Virgo")) {
+			celebDictionary.put("", 0.0);
+			//no match 
+		}
+		if(signSelected.equals("Libra")) {
+			celebDictionary.put("Kanye West", 10.0);
+			//match with Kanye who is Gemini
+		}
+		if(signSelected.equals("Aries")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			//match with taylor swift who is sagittarus
+		}
+		if(signSelected.equals("Scorpio")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			//match with Justin who is Pisces 
+		}
+		if(signSelected.equals("Taurus")) {
+			celebDictionary.put("", 0.0);
+			// no match
+		}
+		if(signSelected.equals("Pisces")) {
+			celebDictionary.put("", 0.0);
+			//no match
+		}
+		if(signSelected.equals("Gemini")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			//match with Taylor swift who is sagittarus
+		}
+		if(signSelected.equals("Leo")) {
+			celebDictionary.put("Taylor Swift", 10.0);
+			//you match with Taylor Swift who is a Sagittarus 
+		}
+		if(signSelected.equals("Cancer")) {
+			celebDictionary.put("Justin Beiber", 10.0);
+			//you match with Justin bieber who is Pisces
+		}	
+	}
+	
 	@FXML
 	private Slider IntroExtroSlider;
 	
 	@FXML
 	private Label DisplayCompatibilityScoreLabel;
 	
-	private Parent root;
-	
-	private Stage stage;
-	
-	private Scene scene;
-	
 
 	@FXML
 	private Button DoneButton;
-	
-	
 
-	//this method does not work for some reason, please check
 	@FXML 
   
 		//Spontaneous Slider Method
 		void sponSlider (double sliderValue) {
-//			double sliding = sliderValue;
 			String celeb = "";
 			double percentage = 0.0; 
 			if (sliderValue >= 0 && sliderValue <= 2.5) {
@@ -265,10 +487,10 @@ public class CelebTestController {
 		int charCountJL = 0;
 		int charCountTS = 0;
 		
-		String jb = "Jennifer Lopez";
-		String kw = "Kanye West";		
-		String jl = "Jennifer Lopez";
-		String ts = "Taylor Swift";
+		String jb = "jennifer lopez";
+		String kw = "kanye west";		
+		String jl = "jennifer lopez";
+		String ts = "taylor swift";
 		
 		// to test matching, all characters should be in lowercase
 		personName = personName.toLowerCase();
@@ -279,8 +501,10 @@ public class CelebTestController {
 				if (personName.charAt(i) == jb.charAt(p)) {
 					charCountJB += 1; 
 				}	
-			}	
+			}
 		}
+		//-1 for the white space
+		//charCountJB = charCountJB-1;
 		System.out.print("Justin Bieber " + charCountJB + '\n');
 		
 		// loop for testing character match (Kanye West)
@@ -291,6 +515,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
+		//charCountKW = charCountKW-1;
 		System.out.print("Kanye West " + charCountKW + '\n');
 		
 		// loop for testing character match (Jennifer Lopez)
@@ -301,6 +526,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
+		//charCountJL = charCountJL-1;
 		System.out.print("Jennifer Lopez " + charCountJL + '\n');
 		
 		// loop for testing character match (Taylor Swift)
@@ -311,6 +537,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
+		//charCountTS = charCountTS-1;
 		System.out.print("Taylor Swift " + charCountTS + '\n');
 		
 		// adding all counting elements to my list
@@ -359,18 +586,30 @@ public class CelebTestController {
 			}
 			return age;
 	}
-	double calculateAge(double age) {
-		// this method should calculate how close user is to a certain celebrity.
-		// reminder to consider that whatever age they input, should have a weight towards each celebrity rather than
-		// giving a certain user 0% to the other celebrities other than their top.
-		return age;
+	void calculateAge(double age) {
+	
+		if(age<=50 && age>40) {
+			celebDictionary.put("Kanye West", 10.0);
+		}
+		if(age<=30 && age >= 18) {
+			celebDictionary.put("Justin Beiber", 10.0);
+		}
+		if(age>30 && age<=40) {
+			celebDictionary.put("Taylor Swift", 10.0);
+		}
+		if(age<=60 && age>50 ) {
+			celebDictionary.put("Jennifer Lopez", 10.0);
+		}
+		//System.out.println("Age match" + celebDictionary);
+
 	}
 	
 	
-	
-	//this method does not work for some reason, please check
+
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
+  
+   //Changes screen to final view scene
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
 		root = loader.load();
 		
@@ -380,18 +619,29 @@ public class CelebTestController {
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-			
-  	//Testing Slider Methods 
-	    double valueSpon = SpontaneousSlider.getValue();
-			sponSlider(valueSpon);
-			
-			double valueIntro = IntroExtroSlider.getValue();
-			introSlider(valueIntro);
-			System.out.println(celebDictionary);
-			
+
 		
-	
-			
+		//checking calculate age method
+		Double age = Double.parseDouble(ageTextField.getText());
+		calculateAge(age);
+		
+		//calling zodiac method
+		String sign = ZodiacSignChoiceBox.getValue();
+		getZodiacSignAnswer(sign);
+		
+		//testing to see if method worked
+		System.out.println(celebDictionary);
+
+
+  
+  	//Testing Slider Methods 
+		double valueSpon = SpontaneousSlider.getValue();
+		sponSlider(valueSpon);
+		
+		double valueIntro = IntroExtroSlider.getValue();
+		introSlider(valueIntro);	
+
+		
 		// testing person name
 		if (nameTextField.getText().equals("")) {
 			nameErrorLabel.setText("Please enter your first and last name.");
@@ -407,8 +657,9 @@ public class CelebTestController {
 			System.out.print('\n' + "---Split---");
 			
 		}
+
 		
-		 //testing person age
+		// testing person age
 		if (ageTextField.getText().equals("")) {
 			ageErrorLabel.setText("Please enter your age.");
 		} else {
@@ -418,4 +669,6 @@ public class CelebTestController {
 			calculateAge(verifiedPersonAge);
 		}
 	}
+
 }
+
