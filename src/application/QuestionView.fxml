@@ -304,7 +304,7 @@
          </children></HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
          <children>
-            <Slider majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
+            <Slider  fx:id="IntroExtroSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -354,7 +354,7 @@
          </children></HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
          <children>
-            <Slider majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
+            <Slider fx:id="SpontaneousSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
                <padding>
                   <Insets left="10.0" />
                </padding>
