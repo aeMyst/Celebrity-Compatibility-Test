@@ -1,18 +1,23 @@
 package application;
 
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -151,9 +156,17 @@ public class CelebTestController {
 	@FXML
 	private Label DisplayCompatibilityScoreLabel;
 	
+	private Parent root;
+	
+	private Stage stage;
+	
+	private Scene scene;
+	
 
 	@FXML
 	private Button DoneButton;
+	
+	
 
 	//this method does not work for some reason, please check
 	@FXML 
@@ -354,30 +367,31 @@ public class CelebTestController {
 	}
 	
 	
+	
 	//this method does not work for some reason, please check
 	@FXML 
-	void changeToFinal(ActionEvent event) {
-  
+	void changeToFinal(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+		root = loader.load();
+		
+		FinalViewController finalViewController = loader.getController();
+		
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+			
   	//Testing Slider Methods 
-    double valueSpon = SpontaneousSlider.getValue();
-		sponSlider(valueSpon);
-		
-		double valueIntro = IntroExtroSlider.getValue();
-		introSlider(valueIntro);
-		System.out.println(celebDictionary);
-		try {
+	    double valueSpon = SpontaneousSlider.getValue();
+			sponSlider(valueSpon);
 			
-			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/application/FinalView.fxml"));
-			Scene finalScene = new Scene(root,1024,768);
+			double valueIntro = IntroExtroSlider.getValue();
+			introSlider(valueIntro);
+			System.out.println(celebDictionary);
 			
-			applicationStage.setScene(finalScene);
-		    applicationStage.setTitle("Results");
-			applicationStage.show();
-		} catch (Exception e) {
-			e.printStackTrace();}
-		}
 		
+	
+			
 		// testing person name
 		if (nameTextField.getText().equals("")) {
 			nameErrorLabel.setText("Please enter your first and last name.");
@@ -394,7 +408,7 @@ public class CelebTestController {
 			
 		}
 		
-		// testing person age
+		 //testing person age
 		if (ageTextField.getText().equals("")) {
 			ageErrorLabel.setText("Please enter your age.");
 		} else {
@@ -404,5 +418,4 @@ public class CelebTestController {
 			calculateAge(verifiedPersonAge);
 		}
 	}
-
 }
