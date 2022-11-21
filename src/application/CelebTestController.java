@@ -16,9 +16,20 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import java.io.IOException;
+import java.net.URL;
+
+
 
 public class CelebTestController {
 	Stage applicationStage;
+  
+  private Parent root;
+	
+	private Stage stage;
+	
+	private Scene scene;
+	
 
 	HashMap<String, Double> celebDictionary = new HashMap<String, Double>();
 	
@@ -594,10 +605,21 @@ public class CelebTestController {
 	}
 	
 	
-	//this method does not work for some reason, please check
+
 	@FXML 
-	void changeToFinal(ActionEvent event) {
-	
+	void changeToFinal(ActionEvent event) throws IOException {
+  
+   //Changes screen to final view scene
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+		root = loader.load();
+		
+		FinalViewController finalViewController = loader.getController();
+		
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+
 		
 		//checking calculate age method
 		Double age = Double.parseDouble(ageTextField.getText());
@@ -608,8 +630,8 @@ public class CelebTestController {
 		getZodiacSignAnswer(sign);
 		
 		//testing to see if method worked
-		//System.out.println(celebDictionary);
-		//try {
+		System.out.println(celebDictionary);
+
 
   
   	//Testing Slider Methods 
@@ -617,24 +639,7 @@ public class CelebTestController {
 		sponSlider(valueSpon);
 		
 		double valueIntro = IntroExtroSlider.getValue();
-		introSlider(valueIntro);
-	
-		//try {
-
-			
-			//FXMLLoader loader = new FXMLLoader();
-			//VBox root = loader.load(new FileInputStream("src/application/FinalView.fxml"));
-			//Scene finalScene = new Scene(root,1024,768);
-			
-
-			//applicationStage.setScene(finalScene);
-			//applicationStage.setTitle("Results");
-			//applicationStage.show();
-		//} catch (Exception e) {
-			//e.printStackTrace();
-		//}
-
-		
+		introSlider(valueIntro);	
 
 		
 		// testing person name
@@ -666,3 +671,4 @@ public class CelebTestController {
 	}
 
 }
+
