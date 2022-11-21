@@ -586,7 +586,7 @@ public class CelebTestController {
 		if(age>30 && age<=40) {
 			celebDictionary.put("Taylor Swift", 10.0);
 		}
-		if(age<60 && age>50 ) {
+		if(age<=60 && age>50 ) {
 			celebDictionary.put("Jennifer Lopez", 10.0);
 		}
 		//System.out.println("Age match" + celebDictionary);
