@@ -19,15 +19,12 @@ import javafx.stage.Stage;
 
 public class CelebTestController {
 	Stage applicationStage;
-
-	HashMap<String, Double> celebDictionary = new HashMap<String, Double>();
 	
-
-    
-
-
-	HashMap<String, Double> celebDictionary = new HashMap<String, Double>();
-	
+	ArrayList<Double> jbList = new ArrayList<Double>();
+	ArrayList<Double> jloList = new ArrayList<Double>();
+	ArrayList<Double> tsList = new ArrayList<Double>();
+	ArrayList<Double> kwList = new ArrayList<Double>();
+		
 	@FXML
 	private TextField nameTextField;
 	
@@ -83,7 +80,7 @@ public class CelebTestController {
 		//System.out.println(id);
 
 		if (id.equals("PizzaFoodButton")) {
-			celebDictionary.put("Jennifer Lopez", 10.0);
+			jloList.add(10.0);
 			PizzaFoodButton.setStyle("-fx-background-color: White");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
@@ -92,7 +89,7 @@ public class CelebTestController {
 			PastaFoodButton.setDisable(true);
 		}
 		if (id.equals("SushiFoodButton")) {
-			celebDictionary.put("Justin Beiber", 10.0);
+			jbList.add(10.0);
 			SushiFoodButton.setStyle("-fx-background-color: White");
 			
 			PizzaFoodButton.setDisable(true);
@@ -100,7 +97,7 @@ public class CelebTestController {
 			PastaFoodButton.setDisable(true);
 		}
 		if (id.equals("PastaFoodButton")) {
-			celebDictionary.put("Kanye West", 10.0);
+			kwList.add(10.0);
 			PastaFoodButton.setStyle("-fx-background-color: White");
 			
 			SushiFoodButton.setDisable(true);
@@ -108,7 +105,7 @@ public class CelebTestController {
 			PizzaFoodButton.setDisable(true);
 		}
 		if (id.equals("IceCreamFoodButton")) {
-			celebDictionary.put("Taylor Swift", 10.0);
+			tsList.add(10.0);
 			IceCreamFoodButton.setStyle("-fx-background-color: White");
 			
 			SushiFoodButton.setDisable(true);
@@ -141,7 +138,7 @@ public class CelebTestController {
 		//System.out.println(id);
 
 		if (id.equals("FallSeasonButton")) {
-			celebDictionary.put("Justin Beiber", 10.0);
+			jbList.add(10.0);
 			FallSeasonButton.setStyle("-fx-background-color: Orange");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
@@ -150,7 +147,7 @@ public class CelebTestController {
 			SummerSeasonButton.setDisable(true);
 		}
 		if (id.equals("WinterSeasonButton")) {
-			celebDictionary.put("Kanye West", 10.0);
+			kwList.add(10.0);
 			WinterSeasonButton.setStyle("-fx-background-color: Turquoise");
 			
 			FallSeasonButton.setDisable(true);
@@ -158,7 +155,7 @@ public class CelebTestController {
 			SummerSeasonButton.setDisable(true);
 		}
 		if (id.equals("SpringSeasonButton")) {
-			celebDictionary.put("Taylor Swift", 10.0);
+			tsList.add(10.0);
 			SpringSeasonButton.setStyle("-fx-background-color: Pink");
 			
 			WinterSeasonButton.setDisable(true);
@@ -166,7 +163,7 @@ public class CelebTestController {
 			SummerSeasonButton.setDisable(true);
 		}
 		if (id.equals("SummerSeasonButton")) {
-			celebDictionary.put("Jennifer Lopez", 10.0);
+			jloList.add(10.0);
 			SummerSeasonButton.setStyle("-fx-background-color: Yellow");
 			
 			WinterSeasonButton.setDisable(true);
@@ -196,7 +193,7 @@ public class CelebTestController {
 		//System.out.println(id);
 
 		if (id.equals("RedColourButton")) {
-			celebDictionary.put("Kanye West", 10.0);
+			kwList.add(10.0);
 			RedColourButton.setStyle("-fx-background-color: Red");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
@@ -205,7 +202,7 @@ public class CelebTestController {
 			YellowColourButton.setDisable(true);
 		}
 		if (id.equals("GreenColourButton")) {
-			celebDictionary.put("Justin Beiber", 10.0);
+			jbList.add(10.0);
 			GreenColourButton.setStyle("-fx-background-color: Green");
 			
 			RedColourButton.setDisable(true);
@@ -213,7 +210,7 @@ public class CelebTestController {
 			YellowColourButton.setDisable(true);
 		}
 		if (id.equals("YellowColourButton")) {
-			celebDictionary.put("Taylor Swift", 10.0);
+			tsList.add(10.0);
 			YellowColourButton.setStyle("-fx-background-color: Yellow");
 			
 			GreenColourButton.setDisable(true);
@@ -221,7 +218,7 @@ public class CelebTestController {
 			RedColourButton.setDisable(true);
 		}
 		if (id.equals("BlueColourButton")) {
-			celebDictionary.put("Jennifer Lopez", 10.0);
+			jloList.add(10.0);
 			BlueColourButton.setStyle("-fx-background-color: Turquoise");
 			
 			GreenColourButton.setDisable(true);
@@ -250,7 +247,8 @@ public class CelebTestController {
 		//System.out.println(id);
 
 		if (id.equals("RapMusicButton")) {
-			celebDictionary.put("Kanye West", 10.0);
+			kwList.add(10.0);
+			//celebDictionary.put("Kanye West", 10.0);
 			RapMusicButton.setStyle("-fx-background-color: White");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
@@ -259,7 +257,8 @@ public class CelebTestController {
 			ClassicalMusicButton.setDisable(true);
 		}
 		if (id.equals("PopMusicButton")) {
-			celebDictionary.put("Justin Beiber", 10.0);
+			jbList.add(10.0);
+			//celebDictionary.put("Justin Beiber", 10.0);
 			PopMusicButton.setStyle("-fx-background-color: White");
 			
 			RapMusicButton.setDisable(true);
@@ -267,7 +266,8 @@ public class CelebTestController {
 			ClassicalMusicButton.setDisable(true);
 		}
 		if (id.equals("IndieMusicButton")) {
-			celebDictionary.put("Taylor Swift", 10.0);
+			tsList.add(10.0);
+			//celebDictionary.put("Taylor Swift", 10.0);
 			IndieMusicButton.setStyle("-fx-background-color: White");
 			
 			PopMusicButton.setDisable(true);
@@ -275,7 +275,8 @@ public class CelebTestController {
 			ClassicalMusicButton.setDisable(true);
 		}
 		if (id.equals("ClassicalMusicButton")) {
-			celebDictionary.put("Jennifer Lopez", 10.0);
+			jloList.add(10.0);
+			//celebDictionary.put("Jennifer Lopez", 10.0);
 			ClassicalMusicButton.setStyle("-fx-background-color: White");
 			
 			PopMusicButton.setDisable(true);
@@ -299,16 +300,17 @@ public class CelebTestController {
 
 		if (id.equals("CatAnimalButton")) {
 			//there are two celebs who like cats so I split the percentage in half equally
-			celebDictionary.put("Justin Beiber", 5.0);
-			celebDictionary.put("Jennifer Lopez", 5.0);
+			jbList.add(5.0);
+			jloList.add(5.0);
+		
 			CatAnimalButton.setStyle("-fx-background-color: White");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
 			DogAnimalButton.setDisable(true);
 		}
 		if (id.equals("DogAnimalButton")) {
-			celebDictionary.put("Taylor Swift", 5.0);
-			celebDictionary.put("Kanye West", 5.0);
+			tsList.add(5.0);
+			kwList.add(5.0);
 			DogAnimalButton.setStyle("-fx-background-color: White");
 			
 			CatAnimalButton.setDisable(true);
@@ -327,51 +329,38 @@ public class CelebTestController {
 		
 
 		if(signSelected.equals("Sagittarius")) {
-			celebDictionary.put("Jennifer Lopez", 10.0);
+			jloList.add(10.0);
 			//match with Jennifer Lopez who is Leo
 		}
-		if(signSelected.equals("Capricorn")) {
-			celebDictionary.put("", 0.0);
-			//no match
-		}
+
 		if(signSelected.equals("Aquarius")) {
-			celebDictionary.put("Kanye West", 10.0);
+			kwList.add(10.0);
 			//you match with Kanye cause he is Gemini
 		}
-		if(signSelected.equals("Virgo")) {
-			celebDictionary.put("", 0.0);
-			//no match 
-		}
+	
 		if(signSelected.equals("Libra")) {
-			celebDictionary.put("Kanye West", 10.0);
+			kwList.add(10.0);
 			//match with Kanye who is Gemini
 		}
 		if(signSelected.equals("Aries")) {
-			celebDictionary.put("Taylor Swift", 10.0);
+			tsList.add(10.0);
 			//match with taylor swift who is sagittarus
 		}
 		if(signSelected.equals("Scorpio")) {
-			celebDictionary.put("Justin Beiber", 10.0);
+			jbList.add(10.0);
 			//match with Justin who is Pisces 
 		}
-		if(signSelected.equals("Taurus")) {
-			celebDictionary.put("", 0.0);
-			// no match
-		}
-		if(signSelected.equals("Pisces")) {
-			celebDictionary.put("", 0.0);
-			//no match
-		}
+	
 		if(signSelected.equals("Gemini")) {
-			celebDictionary.put("Taylor Swift", 10.0);
+			tsList.add(10.0);
 			//match with Taylor swift who is sagittarus
 		}
 		if(signSelected.equals("Leo")) {
-			celebDictionary.put("Taylor Swift", 10.0);
+			tsList.add(10.0);
 			//you match with Taylor Swift who is a Sagittarus 
 		}
 		if(signSelected.equals("Cancer")) {
-			celebDictionary.put("Justin Beiber", 10.0);
+			jbList.add(10.0);
 			//you match with Justin bieber who is Pisces
 		}	
 	}
@@ -386,68 +375,44 @@ public class CelebTestController {
 	@FXML
 	private Button DoneButton;
 
-	//this method does not work for some reason, please check
 	@FXML 
   
 		//Spontaneous Slider Method
 		void sponSlider (double sliderValue) {
-//			double sliding = sliderValue;
-			String celeb = "";
-			double percentage = 0.0; 
+	
 			if (sliderValue >= 0 && sliderValue <= 2.5) {
-				celeb = "Jennifer Lopez";
-				percentage = 10.0;
-						
+				jloList.add(10.0);			
 			}
 			if (sliderValue >= 2.5 && sliderValue <= 5) {
-				celeb = "Justin Bieber";
-				percentage = 10.0;
-						
+				jbList.add(10.0);			
 			}
 			if (sliderValue >= 5 && sliderValue <= 7.5) {
-				celeb = "Taylor Swift";
-				percentage = 100;
-						
+				tsList.add(10.0);			
 			}
 			if (sliderValue >= 7.5 && sliderValue <= 10) {
-				celeb = "Kanye West";
-				percentage = 10.0;
+				kwList.add(10.0);
 						
 			}
-			System.out.println("" + celeb +"" + percentage);
-			celebDictionary.put(celeb, percentage);
-			
 		}
 		//Intro/Extro Slider Method 
 		void introSlider (double sliderValue) {
-			String celeb = "";
-			double percentage = 0.0; 
+	
 			if (sliderValue >= 0 && sliderValue <= 2.5) {
-				celeb = "Taylor Swift";
-				percentage = 10.0;
+				tsList.add(10.0);
 						
 			}
 			if (sliderValue >= 2.5 && sliderValue <= 5) {
-				celeb = "Jennifer Lopez";
-				percentage = 10.0;
+				jloList.add(10.0);
 						
 			}
 			if (sliderValue >= 5 && sliderValue <= 7.5) {
-				celeb = "Justin Bieber";
-				percentage = 10.0;
+				jbList.add(10.0);
 						
 			}
 			if (sliderValue >= 7.5 && sliderValue <= 10) {
-				celeb = "Kanye West";
-				percentage = 10.0;
+				kwList.add(10.0);
 						
-			}
-			System.out.println("" + celeb +"" + percentage);
-			celebDictionary.put(celeb, percentage);
-		
-			
-		
-		
+			}	
 	}
 
 //this method does not work for some reason, please check
@@ -483,10 +448,10 @@ public class CelebTestController {
 		int charCountJL = 0;
 		int charCountTS = 0;
 		
-		String jb = "Jennifer Lopez";
-		String kw = "Kanye West";		
-		String jl = "Jennifer Lopez";
-		String ts = "Taylor Swift";
+		String jb = "jennifer lopez";
+		String kw = "kanye west";		
+		String jl = "jennifer lopez";
+		String ts = "taylor swift";
 		
 		// to test matching, all characters should be in lowercase
 		personName = personName.toLowerCase();
@@ -497,8 +462,10 @@ public class CelebTestController {
 				if (personName.charAt(i) == jb.charAt(p)) {
 					charCountJB += 1; 
 				}	
-			}	
+			}
 		}
+		//-1 for the white space
+		//charCountJB = charCountJB-1;
 		System.out.print("Justin Bieber " + charCountJB + '\n');
 		
 		// loop for testing character match (Kanye West)
@@ -509,6 +476,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
+		//charCountKW = charCountKW-1;
 		System.out.print("Kanye West " + charCountKW + '\n');
 		
 		// loop for testing character match (Jennifer Lopez)
@@ -519,6 +487,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
+		//charCountJL = charCountJL-1;
 		System.out.print("Jennifer Lopez " + charCountJL + '\n');
 		
 		// loop for testing character match (Taylor Swift)
@@ -529,6 +498,7 @@ public class CelebTestController {
 				}	
 			}	
 		}
+		//charCountTS = charCountTS-1;
 		System.out.print("Taylor Swift " + charCountTS + '\n');
 		
 		// adding all counting elements to my list
@@ -577,36 +547,49 @@ public class CelebTestController {
 			}
 			return age;
 	}
-	double calculateAge(double age) {
-		// this method should calculate how close user is to a certain celebrity.
-		// reminder to consider that whatever age they input, should have a weight towards each celebrity rather than
-		// giving a certain user 0% to the other celebrities other than their top.
-		return age;
-	}
+	void calculateAge(double age) {
 	
+		if(age<=50 && age>40) {
+			kwList.add(10.0);
+		}
+		if(age<=30 && age >= 18) {
+			jbList.add(10.0);
+		}
+		if(age>30 && age<=40) {
+			tsList.add(10.0);
+		}
+		if(age<=60 && age>50 ) {
+			jloList.add(10.0);
+		}
+		//System.out.println("Age match" + celebDictionary);
+
+	}
 	
 	//this method does not work for some reason, please check
 	@FXML 
 	void changeToFinal(ActionEvent event) {
-
+		
+		//checking calculate age method
+		Double age = Double.parseDouble(ageTextField.getText());
+		calculateAge(age);
 		
 		//calling zodiac method
 		String sign = ZodiacSignChoiceBox.getValue();
 		getZodiacSignAnswer(sign);
 		
 		//testing to see if method worked
-		System.out.println(celebDictionary);
+		//System.out.println(celebDictionary);
 		//try {
 
   
   	//Testing Slider Methods 
-    double valueSpon = SpontaneousSlider.getValue();
+		double valueSpon = SpontaneousSlider.getValue();
 		sponSlider(valueSpon);
 		
 		double valueIntro = IntroExtroSlider.getValue();
 		introSlider(valueIntro);
-		System.out.println(celebDictionary);
-		try {
+	
+		//try {
 
 			
 			//FXMLLoader loader = new FXMLLoader();
@@ -621,12 +604,8 @@ public class CelebTestController {
 			//e.printStackTrace();
 		//}
 
-			applicationStage.setScene(finalScene);
-		    applicationStage.setTitle("Results");
-			applicationStage.show();
-		} catch (Exception e) {
-			e.printStackTrace();}
-		}
+		
+
 		
 		// testing person name
 		if (nameTextField.getText().equals("")) {
