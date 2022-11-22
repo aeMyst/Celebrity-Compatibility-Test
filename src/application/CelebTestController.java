@@ -81,7 +81,6 @@ public class CelebTestController {
 
 		if (id.equals("PizzaFoodButton")) {
 			jloList.add(10.0);
-			//celebDictionary.put("Jennifer Lopez", 10.0);
 			PizzaFoodButton.setStyle("-fx-background-color: White");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
@@ -91,7 +90,6 @@ public class CelebTestController {
 		}
 		if (id.equals("SushiFoodButton")) {
 			jbList.add(10.0);
-			//celebDictionary.put("Justin Beiber", 10.0);
 			SushiFoodButton.setStyle("-fx-background-color: White");
 			
 			PizzaFoodButton.setDisable(true);
@@ -100,7 +98,6 @@ public class CelebTestController {
 		}
 		if (id.equals("PastaFoodButton")) {
 			kwList.add(10.0);
-			//celebDictionary.put("Kanye West", 10.0);
 			PastaFoodButton.setStyle("-fx-background-color: White");
 			
 			SushiFoodButton.setDisable(true);
@@ -109,7 +106,6 @@ public class CelebTestController {
 		}
 		if (id.equals("IceCreamFoodButton")) {
 			tsList.add(10.0);
-			//celebDictionary.put("Taylor Swift", 10.0);
 			IceCreamFoodButton.setStyle("-fx-background-color: White");
 			
 			SushiFoodButton.setDisable(true);
@@ -143,7 +139,6 @@ public class CelebTestController {
 
 		if (id.equals("FallSeasonButton")) {
 			jbList.add(10.0);
-			//celebDictionary.put("Justin Beiber", 10.0);
 			FallSeasonButton.setStyle("-fx-background-color: Orange");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
@@ -153,7 +148,6 @@ public class CelebTestController {
 		}
 		if (id.equals("WinterSeasonButton")) {
 			kwList.add(10.0);
-			//celebDictionary.put("Kanye West", 10.0);
 			WinterSeasonButton.setStyle("-fx-background-color: Turquoise");
 			
 			FallSeasonButton.setDisable(true);
@@ -162,7 +156,6 @@ public class CelebTestController {
 		}
 		if (id.equals("SpringSeasonButton")) {
 			tsList.add(10.0);
-			//celebDictionary.put("Taylor Swift", 10.0);
 			SpringSeasonButton.setStyle("-fx-background-color: Pink");
 			
 			WinterSeasonButton.setDisable(true);
@@ -171,7 +164,6 @@ public class CelebTestController {
 		}
 		if (id.equals("SummerSeasonButton")) {
 			jloList.add(10.0);
-			//celebDictionary.put("Jennifer Lopez", 10.0);
 			SummerSeasonButton.setStyle("-fx-background-color: Yellow");
 			
 			WinterSeasonButton.setDisable(true);
@@ -202,7 +194,6 @@ public class CelebTestController {
 
 		if (id.equals("RedColourButton")) {
 			kwList.add(10.0);
-			//celebDictionary.put("Kanye West", 10.0);
 			RedColourButton.setStyle("-fx-background-color: Red");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
@@ -212,7 +203,6 @@ public class CelebTestController {
 		}
 		if (id.equals("GreenColourButton")) {
 			jbList.add(10.0);
-			//celebDictionary.put("Justin Beiber", 10.0);
 			GreenColourButton.setStyle("-fx-background-color: Green");
 			
 			RedColourButton.setDisable(true);
@@ -221,7 +211,6 @@ public class CelebTestController {
 		}
 		if (id.equals("YellowColourButton")) {
 			tsList.add(10.0);
-			//celebDictionary.put("Taylor Swift", 10.0);
 			YellowColourButton.setStyle("-fx-background-color: Yellow");
 			
 			GreenColourButton.setDisable(true);
@@ -230,8 +219,7 @@ public class CelebTestController {
 		}
 		if (id.equals("BlueColourButton")) {
 			jloList.add(10.0);
-			celebDictionary.put("Jennifer Lopez", 10.0);
-			//BlueColourButton.setStyle("-fx-background-color: Turquoise");
+			BlueColourButton.setStyle("-fx-background-color: Turquoise");
 			
 			GreenColourButton.setDisable(true);
 			RedColourButton.setDisable(true);
