@@ -442,11 +442,10 @@ public class CelebTestController {
 	
 	void calculateNames(String personName) {
 		// inialization of variables
-		ArrayList<Integer> countList = new ArrayList<Integer>();
-		int charCountJB = 0;
-		int charCountKW = 0;
-		int charCountJL = 0;
-		int charCountTS = 0;
+		double charCountJB = 0;
+		double charCountKW = 0;
+		double charCountJL = 0;
+		double charCountTS = 0;
 		
 		String jb = "jenniferlopez";
 		String kw = "kanyewest";		
@@ -516,16 +515,11 @@ public class CelebTestController {
 		}
 		System.out.print("Taylor Swift " + charCountTS + '\n');
 		
-		// adding all counting elements to my list
-		countList.add(charCountJB);
-		countList.add(charCountKW);
-		countList.add(charCountJL);
-		countList.add(charCountTS);
-		
-		// sorting my list from greatest to smallest
-		countList.sort(Collections.reverseOrder());
-		System.out.print("My counts from Highest to Lowest " + countList);	
-		
+		// adding all counting elements to my lists
+		jbList.add(charCountJB);
+		kwList.add(charCountKW);
+		 jloList.add(charCountJL);
+		 tsList.add(charCountTS);
 	}
 	
 	double verifyAge(String personAge) {
@@ -619,6 +613,10 @@ public class CelebTestController {
 			System.out.print('\n' + "User is: "  + verifiedPersonAge + " Years old" + '\n');
 			calculateAge(verifiedPersonAge);
 		}
+		System.out.println("---Our Final list Results---");
+		System.out.println("Justin Bieber List: " + jbList);
+		System.out.println("Jennifer Lopez List: " + jloList);
+		System.out.println("Taylor Swift list: " + tsList);
+		System.out.println("Kanye West list: " + kwList);
 	}
-
 }
