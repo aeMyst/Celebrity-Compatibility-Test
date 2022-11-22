@@ -448,13 +448,29 @@ public class CelebTestController {
 		int charCountJL = 0;
 		int charCountTS = 0;
 		
-		String jb = "jennifer lopez";
-		String kw = "kanye west";		
-		String jl = "jennifer lopez";
-		String ts = "taylor swift";
+		String jb = "jenniferlopez";
+		String kw = "kanyewest";		
+		String jl = "jenniferlopez";
+		String ts = "taylorswift";
 		
-		// to test matching, all characters should be in lowercase
+		// to test matching, all characters should be in lowercase and removing white spaces
 		personName = personName.toLowerCase();
+		personName = personName.replaceAll("\\s", "");
+		
+		// loop for removing duplicate letters in order to test similar letters
+		for (int i = 0; i < personName.length(); i++) {
+			for (int j = 0; j < i; j++) {
+				if (personName.charAt(i) == personName.charAt(j)) {
+					char[] chars = personName.toCharArray();
+					chars[j] = '*';
+					personName = String.valueOf(chars);
+					System.out.println("person name after changes: " + personName);
+				}
+			}
+		}
+		System.out.println("person name after removing: " + personName);
+		
+		
 		
 		// loop for testing character match (Justin Bieber)
 		for (int i = 0; i < personName.length(); i++) { 
@@ -498,7 +514,6 @@ public class CelebTestController {
 				}	
 			}	
 		}
-		//charCountTS = charCountTS-1;
 		System.out.print("Taylor Swift " + charCountTS + '\n');
 		
 		// adding all counting elements to my list
@@ -511,9 +526,6 @@ public class CelebTestController {
 		countList.sort(Collections.reverseOrder());
 		System.out.print("My counts from Highest to Lowest " + countList);	
 		
-		//!!!!!!!!!!HELP!!!!!!!!!!
-		// can someone figure out what I need to do with the dictionary stuff, I'm not understanding what I need to add to dictionary,
-		// since we want it so that every person is calculated and not just the top, do I add all elements to dictionary?
 	}
 	
 	double verifyAge(String personAge) {
@@ -539,7 +551,7 @@ public class CelebTestController {
 				if (doubleAge < 16) { // must be 16+
 					ageErrorLabel.setText("Sorry, you are too young to take this test. Please try again.");
 				} else if (doubleAge > 60) { //must be 60-
-					ageErrorLabel.setText("Sorry, you are old asf (60 or less). Please try again.");
+					ageErrorLabel.setText("Sorry, Unfortunately you are too old to take this test (60 or less). Please try again.");
 				} else {
 					age = age + doubleAge;
 					ageErrorLabel.setText("");
@@ -561,52 +573,27 @@ public class CelebTestController {
 		if(age<=60 && age>50 ) {
 			jloList.add(10.0);
 		}
-		//System.out.println("Age match" + celebDictionary);
 
 	}
 	
-	//this method does not work for some reason, please check
 	@FXML 
 	void changeToFinal(ActionEvent event) {
-		
-		//checking calculate age method
-		Double age = Double.parseDouble(ageTextField.getText());
-		calculateAge(age);
 		
 		//calling zodiac method
 		String sign = ZodiacSignChoiceBox.getValue();
 		getZodiacSignAnswer(sign);
-		
-		//testing to see if method worked
-		//System.out.println(celebDictionary);
-		//try {
 
-  
-  	//Testing Slider Methods 
+  	    // Testing Slider Methods 
 		double valueSpon = SpontaneousSlider.getValue();
 		sponSlider(valueSpon);
 		
 		double valueIntro = IntroExtroSlider.getValue();
 		introSlider(valueIntro);
-	
-		//try {
-
-			
-			//FXMLLoader loader = new FXMLLoader();
-			//VBox root = loader.load(new FileInputStream("src/application/FinalView.fxml"));
-			//Scene finalScene = new Scene(root,1024,768);
-			
-
-			//applicationStage.setScene(finalScene);
-			//applicationStage.setTitle("Results");
-			//applicationStage.show();
-		//} catch (Exception e) {
-			//e.printStackTrace();
-		//}
-
 		
+		//checking calculate age method
+			Double age = Double.parseDouble(ageTextField.getText());
+			calculateAge(age);
 
-		
 		// testing person name
 		if (nameTextField.getText().equals("")) {
 			nameErrorLabel.setText("Please enter your first and last name.");
@@ -623,7 +610,6 @@ public class CelebTestController {
 			
 		}
 
-		
 		// testing person age
 		if (ageTextField.getText().equals("")) {
 			ageErrorLabel.setText("Please enter your age.");
