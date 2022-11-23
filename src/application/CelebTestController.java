@@ -554,7 +554,7 @@ public class CelebTestController {
 				if (doubleAge < 16) { // must be 16+
 					ageErrorLabel.setText("Sorry, you are too young to take this test. Please try again.");
 				} else if (doubleAge > 60) { //must be 60-
-					ageErrorLabel.setText("Sorry, Unfortunately you are too old to take this test (60 or less). Please try again.");
+					ageErrorLabel.setText("Sorry, unfortunately you are too old to take this test (60 or less). Please try again.");
 				} else {
 					age = age + doubleAge;
 					ageErrorLabel.setText("");
@@ -578,6 +578,14 @@ public class CelebTestController {
 		}
 
 	}
+	double calculateCompatibility(ArrayList<Double> celebList) {
+		double totalPercent = 0.0;
+		for (int i=0; i<celebList.size(); i++ ) {
+			double percent = celebList.get(i);
+			totalPercent += percent;
+		}
+		return totalPercent;
+	}
 	
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
@@ -591,6 +599,8 @@ public class CelebTestController {
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
+
+			
 		
 		//calling zodiac method
 		String sign = ZodiacSignChoiceBox.getValue();
@@ -637,5 +647,18 @@ public class CelebTestController {
 		System.out.println("Jennifer Lopez List: " + jloList);
 		System.out.println("Taylor Swift list: " + tsList);
 		System.out.println("Kanye West list: " + kwList);
+		
+		//calculating final compatibility
+		   double jb = calculateCompatibility(jbList);
+		   double jlo = calculateCompatibility(jloList);
+		   double ts = calculateCompatibility(tsList);
+		   double kw = calculateCompatibility(kwList);
+		   System.out.println("Justin Bieber Compatibility: " + jb);
+		   System.out.println("Jennifer Lopez Compatibility: " + jlo);
+		   System.out.println("Taylor Swift Compatibility: " + ts);
+		   System.out.println("Kanye West Compatibility: " + kw);
 	}
+
+
+
 }
