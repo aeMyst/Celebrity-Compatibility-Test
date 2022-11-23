@@ -657,6 +657,8 @@ public class CelebTestController {
 		   System.out.println("Jennifer Lopez Compatibility: " + jlo);
 		   System.out.println("Taylor Swift Compatibility: " + ts);
 		   System.out.println("Kanye West Compatibility: " + kw);
+		   //creating the bar graph 
+		   finalViewController.createBarGraph(jb, jlo, kw, ts);
 	}
 
 
