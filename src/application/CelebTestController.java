@@ -1,6 +1,7 @@
 package application;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,6 +9,8 @@ import java.util.HashMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -19,6 +22,12 @@ import javafx.stage.Stage;
 
 public class CelebTestController {
 	Stage applicationStage;
+	
+	private Parent root;
+	
+	private Stage stage;
+	
+	private Scene scene; 
 	
 	ArrayList<Double> jbList = new ArrayList<Double>();
 	ArrayList<Double> jloList = new ArrayList<Double>();
@@ -518,8 +527,8 @@ public class CelebTestController {
 		// adding all counting elements to my lists
 		jbList.add(charCountJB);
 		kwList.add(charCountKW);
-		 jloList.add(charCountJL);
-		 tsList.add(charCountTS);
+		jloList.add(charCountJL);
+		tsList.add(charCountTS);
 	}
 	
 	double verifyAge(String personAge) {
@@ -571,7 +580,17 @@ public class CelebTestController {
 	}
 	
 	@FXML 
-	void changeToFinal(ActionEvent event) {
+	void changeToFinal(ActionEvent event) throws IOException {
+		  //Changes screen to final view scene
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+			root = loader.load();
+				
+			FinalViewController finalViewController = loader.getController();
+				
+			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 		
 		//calling zodiac method
 		String sign = ZodiacSignChoiceBox.getValue();

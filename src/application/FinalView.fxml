@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FinalViewController">
    <children>
       <Label alignment="CENTER" text="Congratulations!">
          <font>
@@ -16,7 +16,7 @@
       </Label>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id= "DisplayCompatibilityScoreLabel" text="Compatibility score will appear here">
+            <Label fx:id="DisplayCompatibilityScoreLabel" text="Compatibility score will appear here">
                <HBox.margin>
                   <Insets left="90.0" />
                </HBox.margin>
