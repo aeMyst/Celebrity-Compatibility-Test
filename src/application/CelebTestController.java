@@ -51,6 +51,7 @@ public class CelebTestController {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/QuestionView.fxml"));
 			Scene secondaryScene = new Scene(root,600,675);
+			secondaryScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			applicationStage.setScene(secondaryScene);
 			applicationStage.setTitle("Quiz Questions");

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.collections.FXCollections?>
 
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController">
+<VBox fx:id="rooter" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController" >
    <children>
       <Label alignment="TOP_LEFT" text="Please Answer The Following Questions:">
          <font>
@@ -18,7 +18,7 @@
       </Label>
       <HBox prefHeight="24.0" prefWidth="283.0">
          <children>
-            <Label text="What is your full name (First and Last)? ">
+            <Label fx:id="nameLabel" text="What is your full name (First and Last)? ">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></Label>
@@ -37,7 +37,7 @@
       </HBox>
       <HBox prefHeight="23.0" prefWidth="283.0">
          <children>
-            <Label text="What is your age?">
+            <Label fx:id="ageLabel" text="What is your age?">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></Label>
@@ -56,7 +56,7 @@
       </HBox>
       <HBox prefHeight="24.0" prefWidth="283.0">
          <children>
-            <Label text="What is your favorite food?">
+            <Label fx:id="foodLabel" text="What is your favorite food?">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></Label>
@@ -108,7 +108,7 @@
       </HBox>
       <HBox prefHeight="21.0" prefWidth="283.0">
          <children>
-            <Label text="What is your favorite season?" textAlignment="RIGHT">
+            <Label fx:id="seasonLabel" text="What is your favorite season?" textAlignment="RIGHT">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></Label>
@@ -160,7 +160,7 @@
       </HBox>
       <HBox prefHeight="24.0" prefWidth="283.0">
          <children>
-            <Label text="What is your favorite color? ">
+            <Label fx:id="colorLabel" text="What is your favorite color? ">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></Label>
@@ -212,7 +212,7 @@
       </HBox>
       <HBox prefHeight="22.0" prefWidth="283.0">
          <children>
-            <Label text="What is your favorite genre of music?">
+            <Label fx:id="musicLabel" text="What is your favorite genre of music?">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></Label>
@@ -264,7 +264,7 @@
       </HBox>
       <HBox prefHeight="35.0" prefWidth="283.0">
          <children>
-            <Label text="Are you a cat or a dog person?">
+            <Label fx:id="dogPerson" text="Are you a cat or a dog person?">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></Label>
@@ -297,14 +297,14 @@
       </HBox>
       <HBox prefHeight="24.0" prefWidth="283.0">
          <children>
-            <Label text="How introverted or extroverted are you? ">
+            <Label fx:id="introLabel" text="How introverted or extroverted are you? ">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></Label>
          </children></HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
          <children>
-            <Slider  fx:id="IntroExtroSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
+            <Slider fx:id="IntroExtroSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -313,7 +313,7 @@
       </HBox>
       <HBox prefHeight="27.0" prefWidth="283.0">
          <children>
-            <Label text="What is your zodiac sign? ">
+            <Label fx:id="zodiacLabel" text="What is your zodiac sign? ">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></Label>
@@ -347,7 +347,7 @@
       </HBox>
       <HBox prefHeight="33.0" prefWidth="283.0">
          <children>
-            <Label text="How spontaneous are you?">
+            <Label fx:id="sponLabel" text="How spontaneous are you?">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></Label>
