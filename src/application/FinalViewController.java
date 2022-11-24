@@ -1,12 +1,16 @@
 package application;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class FinalViewController{
 	@FXML 
@@ -20,6 +24,9 @@ public class FinalViewController{
 	
 	@FXML
 	private Label congratsLabel;
+	
+	@FXML
+	private Button restartButton;
 	
 	public void createBarGraph(double jbData, double jloData, double kwData, double tsData) {
 		XYChart.Series series = new XYChart.Series<>();
@@ -56,4 +63,14 @@ public class FinalViewController{
 		
 		congratsLabel.setText(String.format("Congratulations %s" + "!", name));
 	}
+	
+	@FXML
+	void restart(ActionEvent event) {
+		Stage stage = (Stage) restartButton.getScene().getWindow();
+		stage.close();
+		Stage newStage = new Stage();
+		new main().start(newStage);
+	}
+	
+	
 }

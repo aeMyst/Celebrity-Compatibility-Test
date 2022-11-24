@@ -22,7 +22,7 @@
                   <Insets />
                </HBox.margin>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
          </children>
@@ -40,5 +40,15 @@
             <PieChart fx:id="pieChart" title="Celebrity Compatibility in % on PieChart" />
          </children>
       </HBox>
+      <Label text="Would you like to do the test again?">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="restartButton" mnemonicParsing="false" onAction="#restart" text="Click Here to Restart">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </VBox>
