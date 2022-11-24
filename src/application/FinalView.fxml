@@ -15,9 +15,9 @@
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="DisplayCompatibilityScoreLabel" text="Compatibility score will appear here">
+            <Label fx:id="DisplayCompatibilityScoreLabel" alignment="CENTER" contentDisplay="CENTER">
                <HBox.margin>
                   <Insets left="90.0" />
                </HBox.margin>

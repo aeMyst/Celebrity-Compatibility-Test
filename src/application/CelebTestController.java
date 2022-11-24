@@ -652,6 +652,7 @@ public class CelebTestController {
 		//creating the bar graph & pieChart
 		finalViewController.createBarGraph(jb, jlo, kw, ts);
 		finalViewController.createPieChart(jb, jlo, kw, ts);
+		finalViewController.setLabel(jb, jlo, kw, ts);
 	}
 
 

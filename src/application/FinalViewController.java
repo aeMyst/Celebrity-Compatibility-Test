@@ -12,6 +12,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -22,6 +23,9 @@ public class FinalViewController{
 	
 	@FXML
 	private PieChart pieChart; 
+	
+	@FXML
+	private Label DisplayCompatibilityScoreLabel;
 	
 	public void createBarGraph(double jbData, double jloData, double kwData, double tsData) {
 		XYChart.Series series = new XYChart.Series<>();
@@ -47,5 +51,13 @@ public class FinalViewController{
 				new PieChart.Data("Taylor Swift" , tsData));
 		
 		pieChart.setData(pieChartData);
+	}
+	
+	public void setLabel(double jbData, double jloData, double kwData, double tsData) {
+		DisplayCompatibilityScoreLabel.setText(String.format("Justin Bieber: %.2f   "
+				+ "  Jennifer Lopez: %.2f "
+				+ "  Kanye West: %.2f "
+				+ "  Taylor Swift: %.2f ", 
+				jbData, jloData, kwData, tsData));
 	}
 }
