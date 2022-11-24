@@ -47,6 +47,5 @@ public class FinalViewController{
 				new PieChart.Data("Taylor Swift" , tsData));
 		
 		pieChart.setData(pieChartData);
-		pieChart.setTitle("Celebrity Compatibility in % on PieChart");
 	}
 }
