@@ -10,27 +10,45 @@
 
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FinalViewController">
    <children>
-      <Label alignment="CENTER" text="Congratulations!">
+      <Label fx:id="congratsLabel" alignment="CENTER" text="Congratulations!">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER">
          <children>
-            <Label fx:id="DisplayCompatibilityScoreLabel" text="Compatibility score will appear here">
+            <Label fx:id="DisplayCompatibilityScoreLabel" alignment="CENTER" text="sample">
                <HBox.margin>
-                  <Insets left="90.0" />
+                  <Insets />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
             </Label>
          </children>
       </HBox>
-      <BarChart fx:id="barChart" title="Celebrity Compatibility">
-        <xAxis>
-          <CategoryAxis animated="false" label="Celebrities" side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis autoRanging="false" label="Match Percentage" prefHeight="287.0" prefWidth="49.0" side="LEFT" />
-        </yAxis>
-      </BarChart>
+      <HBox>
+         <children>
+            <BarChart fx:id="barChart" title="Celebrity Compatibility in % on BarGraph">
+              <xAxis>
+                <CategoryAxis animated="false" label="Celebrities" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis autoRanging="false" label="Match Percentage" prefHeight="287.0" prefWidth="49.0" side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <PieChart fx:id="pieChart" title="Celebrity Compatibility in % on PieChart" />
+         </children>
+      </HBox>
+      <Label text="Would you like to do the test again?">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="restartButton" mnemonicParsing="false" onAction="#restart" text="Click Here to Restart">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </VBox>

@@ -2,10 +2,7 @@ package application;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,9 +21,7 @@ public class CelebTestController {
 	Stage applicationStage;
 	
 	private Parent root;
-	
 	private Stage stage;
-	
 	private Scene scene; 
 	
 	ArrayList<Double> jbList = new ArrayList<Double>();
@@ -49,8 +44,8 @@ public class CelebTestController {
 
 	@FXML
     private Button startButton;
-	//sup guys its julii
-    @FXML
+   
+	@FXML
     void changeToQuestions(ActionEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -121,10 +116,6 @@ public class CelebTestController {
 			PizzaFoodButton.setDisable(true);
 			PastaFoodButton.setDisable(true);
 		}
-		
-		//System.out.println(celebDictionary);
-	
-	
 	}
 	
 	//season buttons
@@ -144,7 +135,6 @@ public class CelebTestController {
 	void setSeasonAnswer (ActionEvent event) {
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-		//System.out.println(id);
 
 		if (id.equals("FallSeasonButton")) {
 			jbList.add(10.0);
@@ -199,7 +189,6 @@ public class CelebTestController {
 	void setColourAnswer (ActionEvent event) {
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-		//System.out.println(id);
 
 		if (id.equals("RedColourButton")) {
 			kwList.add(10.0);
@@ -326,7 +315,6 @@ public class CelebTestController {
 		}
 	}
 	
-	//other components of questions
 	@FXML
 	private Slider SpontaneousSlider;
 	
@@ -580,6 +568,7 @@ public class CelebTestController {
 	}
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
+		
 		for (int i=0; i<celebList.size(); i++ ) {
 			double percent = celebList.get(i);
 			totalPercent += percent;
@@ -649,16 +638,21 @@ public class CelebTestController {
 		System.out.println("Kanye West list: " + kwList);
 		
 		//calculating final compatibility
-		   double jb = calculateCompatibility(jbList);
-		   double jlo = calculateCompatibility(jloList);
-		   double ts = calculateCompatibility(tsList);
-		   double kw = calculateCompatibility(kwList);
-		   System.out.println("Justin Bieber Compatibility: " + jb);
-		   System.out.println("Jennifer Lopez Compatibility: " + jlo);
-		   System.out.println("Taylor Swift Compatibility: " + ts);
-		   System.out.println("Kanye West Compatibility: " + kw);
-		   //creating the bar graph 
-		   finalViewController.createBarGraph(jb, jlo, kw, ts);
+		double jb = calculateCompatibility(jbList);
+		double jlo = calculateCompatibility(jloList);
+		double ts = calculateCompatibility(tsList);
+		double kw = calculateCompatibility(kwList);
+		   
+		// final compatibility scores
+		System.out.println("Justin Bieber Compatibility: " + jb);
+		System.out.println("Jennifer Lopez Compatibility: " + jlo);
+		System.out.println("Taylor Swift Compatibility: " + ts);
+		System.out.println("Kanye West Compatibility: " + kw);
+		
+		//creating the bar graph & pieChart
+		finalViewController.createBarGraph(jb, jlo, kw, ts);
+		finalViewController.createPieChart(jb, jlo, kw, ts);
+		finalViewController.setLabel(jb, jlo, kw, ts, nameTextField.getText());
 	}
 
 
