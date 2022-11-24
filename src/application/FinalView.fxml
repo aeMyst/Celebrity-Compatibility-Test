@@ -24,13 +24,18 @@
             </Label>
          </children>
       </HBox>
-      <BarChart fx:id="barChart" title="Celebrity Compatibility">
-        <xAxis>
-          <CategoryAxis animated="false" label="Celebrities" side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis autoRanging="false" label="Match Percentage" prefHeight="287.0" prefWidth="49.0" side="LEFT" />
-        </yAxis>
-      </BarChart>
+      <HBox>
+         <children>
+            <BarChart fx:id="barChart" title="Celebrity Compatibility in % on BarGraph">
+              <xAxis>
+                <CategoryAxis animated="false" label="Celebrities" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis autoRanging="false" label="Match Percentage" prefHeight="287.0" prefWidth="49.0" side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <PieChart fx:id="pieChart" title="Celebrity PieChart" />
+         </children>
+      </HBox>
    </children>
 </VBox>
