@@ -29,7 +29,7 @@
           <CategoryAxis animated="false" label="Celebrities" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis label="Match Percentage" prefHeight="287.0" prefWidth="49.0" side="LEFT" />
+          <NumberAxis autoRanging="false" label="Match Percentage" prefHeight="287.0" prefWidth="49.0" side="LEFT" />
         </yAxis>
       </BarChart>
    </children>
