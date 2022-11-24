@@ -54,10 +54,10 @@ public class FinalViewController{
 	}
 	
 	public void setLabel(double jbData, double jloData, double kwData, double tsData) {
-		DisplayCompatibilityScoreLabel.setText(String.format("Justin Bieber: %.2f   "
-				+ "  Jennifer Lopez: %.2f "
-				+ "  Kanye West: %.2f "
-				+ "  Taylor Swift: %.2f ", 
+		DisplayCompatibilityScoreLabel.setText(String.format("Justin Bieber: %.2f"
+				+ "    Jennifer Lopez: %.2f"
+				+ "    Kanye West: %.2f"
+				+ "    Taylor Swift: %.2f", 
 				jbData, jloData, kwData, tsData));
 	}
 }
