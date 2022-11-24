@@ -19,9 +19,6 @@ public class FinalViewController{
 	private Label DisplayCompatibilityScoreLabel;
 	
 	@FXML
-	private Label highestLabel;
-	
-	@FXML
 	private Label congratsLabel;
 	
 	public void createBarGraph(double jbData, double jloData, double kwData, double tsData) {
@@ -58,8 +55,5 @@ public class FinalViewController{
 				jbData, jloData, kwData, tsData));
 		
 		congratsLabel.setText(String.format("Congratulations %s" + "!", name));
-		
-		
-//		highestLabel.setText(String.format("You are you compatible with: %s" , ));
 	}
 }
