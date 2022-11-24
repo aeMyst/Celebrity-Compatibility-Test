@@ -1,21 +1,12 @@
 package application;
 
-import java.io.FileInputStream;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-
 
 public class FinalViewController{
 	@FXML 
@@ -26,6 +17,12 @@ public class FinalViewController{
 	
 	@FXML
 	private Label DisplayCompatibilityScoreLabel;
+	
+	@FXML
+	private Label highestLabel;
+	
+	@FXML
+	private Label congratsLabel;
 	
 	public void createBarGraph(double jbData, double jloData, double kwData, double tsData) {
 		XYChart.Series series = new XYChart.Series<>();
@@ -53,11 +50,16 @@ public class FinalViewController{
 		pieChart.setData(pieChartData);
 	}
 	
-	public void setLabel(double jbData, double jloData, double kwData, double tsData) {
+	public void setLabel(double jbData, double jloData, double kwData, double tsData, String name) {
 		DisplayCompatibilityScoreLabel.setText(String.format("Justin Bieber: %.2f"
 				+ "    Jennifer Lopez: %.2f"
 				+ "    Kanye West: %.2f"
 				+ "    Taylor Swift: %.2f", 
 				jbData, jloData, kwData, tsData));
+		
+		congratsLabel.setText(String.format("Congratulations %s" + "!", name));
+		
+		
+//		highestLabel.setText(String.format("You are you compatible with: %s" , ));
 	}
 }
