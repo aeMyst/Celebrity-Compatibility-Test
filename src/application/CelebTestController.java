@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class CelebTestController {
@@ -636,11 +637,7 @@ public class CelebTestController {
 		
 		//checking calculate age method
 	
-		if( ZodiacSignChoiceBox.getValue() == null) {
-        	answerAllQuestions = false; 
-        }else {
-		String sign = ZodiacSignChoiceBox.getValue();
-		getZodiacSignAnswer(sign);}
+		
 
 		// testing person name
 		if (nameTextField.getText().equals("")) {
@@ -671,6 +668,12 @@ public class CelebTestController {
 			System.out.print('\n' + "User is: "  + verifiedPersonAge + " Years old" + '\n');
 			calculateAge(verifiedPersonAge);
 		}
+		
+		if( ZodiacSignChoiceBox.getValue() == null) {
+        	answerAllQuestions = false; 
+        }else {
+		String sign = ZodiacSignChoiceBox.getValue();
+		getZodiacSignAnswer(sign);}
 		
 		  
 		System.out.println("---Our Final list Results---");
@@ -715,6 +718,7 @@ public class CelebTestController {
 
 	} else {
 		System.out.println("failed");
+		 mainErrorLabel.setTextFill(Color.DARKRED);
 		 mainErrorLabel.setText("Please Answer All Questions");
 	}
 	   
