@@ -43,7 +43,7 @@ public class CelebTestController {
    
 
 	@FXML
-    private Button startButton;
+    	private Button startButton;
    
 	@FXML
     void changeToQuestions(ActionEvent event) {
@@ -412,7 +412,6 @@ public class CelebTestController {
 			}	
 	}
 
-//this method does not work for some reason, please check
 	String verifyNames(String personName) {
 		// initialization of variables
 		boolean validName = true;
@@ -578,24 +577,22 @@ public class CelebTestController {
 	
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
-		  //Changes screen to final view scene
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
-			root = loader.load();
+		//Changes screen to final view scene
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+		root = loader.load();
 				
-			FinalViewController finalViewController = loader.getController();
+		FinalViewController finalViewController = loader.getController();
 				
-			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 
-			
-		
 		//calling zodiac method
 		String sign = ZodiacSignChoiceBox.getValue();
 		getZodiacSignAnswer(sign);
 
-  	    // Testing Slider Methods 
+  	        // Testing Slider Methods 
 		double valueSpon = SpontaneousSlider.getValue();
 		sponSlider(valueSpon);
 		
@@ -603,8 +600,8 @@ public class CelebTestController {
 		introSlider(valueIntro);
 		
 		//checking calculate age method
-			Double age = Double.parseDouble(ageTextField.getText());
-			calculateAge(age);
+		Double age = Double.parseDouble(ageTextField.getText());
+		calculateAge(age);
 
 		// testing person name
 		if (nameTextField.getText().equals("")) {
