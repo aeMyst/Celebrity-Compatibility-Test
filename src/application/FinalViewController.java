@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
@@ -40,6 +41,15 @@ public class FinalViewController{
 		
 		barChart.getData().addAll(series);
 		barChart.setLegendVisible(false);
+		
+		 Node n = barChart.lookup(".data0.chart-bar");
+		    n.setStyle("-fx-bar-fill: darkcyan");
+		    n = barChart.lookup(".data1.chart-bar");
+		    n.setStyle("-fx-bar-fill: mediumorchid");
+		    n = barChart.lookup(".data2.chart-bar");
+		    n.setStyle("-fx-bar-fill: turquoise");
+		    n = barChart.lookup(".data3.chart-bar");
+		    n.setStyle("-fx-bar-fill: orchid");
 		
 
 	}

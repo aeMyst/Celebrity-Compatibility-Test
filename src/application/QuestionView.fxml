@@ -325,7 +325,7 @@
          <children>
             <ChoiceBox fx:id="ZodiacSignChoiceBox" prefWidth="150.0">
                <items>
-               <FXCollections fx:factory="observableArrayList" fx:id="forcss">
+               <FXCollections fx:id="forcss" fx:factory="observableArrayList">
             	
             		<String fx:value="Sagittarius" />
             		<String fx:value="Capricorn" />
@@ -375,7 +375,7 @@
             <Insets />
          </opaqueInsets>
          <VBox.margin>
-            <Insets left="50.0" />
+            <Insets left="80.0" />
          </VBox.margin>
       </Button>
    </children>

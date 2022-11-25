@@ -50,7 +50,7 @@ public class CelebTestController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/QuestionView.fxml"));
-			Scene secondaryScene = new Scene(root,350,700);
+			Scene secondaryScene = new Scene(root,300,700);
 			secondaryScene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 			
 			applicationStage.setScene(secondaryScene);
@@ -139,7 +139,7 @@ public class CelebTestController {
 
 		if (id.equals("FallSeasonButton")) {
 			jbList.add(10.0);
-			FallSeasonButton.setStyle("-fx-background-color: Orange");
+			FallSeasonButton.setStyle("-fx-background-color: Coral");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
 			WinterSeasonButton.setDisable(true);
@@ -164,7 +164,7 @@ public class CelebTestController {
 		}
 		if (id.equals("SummerSeasonButton")) {
 			jloList.add(10.0);
-			SummerSeasonButton.setStyle("-fx-background-color: Yellow");
+			SummerSeasonButton.setStyle("-fx-background-color: Khaki");
 			
 			WinterSeasonButton.setDisable(true);
 			SpringSeasonButton.setDisable(true);
@@ -193,7 +193,7 @@ public class CelebTestController {
 
 		if (id.equals("RedColourButton")) {
 			kwList.add(10.0);
-			RedColourButton.setStyle("-fx-background-color: Red");
+			RedColourButton.setStyle("-fx-background-color: firebrick");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
 			GreenColourButton.setDisable(true);
@@ -202,7 +202,7 @@ public class CelebTestController {
 		}
 		if (id.equals("GreenColourButton")) {
 			jbList.add(10.0);
-			GreenColourButton.setStyle("-fx-background-color: Green");
+			GreenColourButton.setStyle("-fx-background-color: mediumseagreen");
 			
 			RedColourButton.setDisable(true);
 			BlueColourButton.setDisable(true);
@@ -210,7 +210,7 @@ public class CelebTestController {
 		}
 		if (id.equals("YellowColourButton")) {
 			tsList.add(10.0);
-			YellowColourButton.setStyle("-fx-background-color: Yellow");
+			YellowColourButton.setStyle("-fx-background-color: Khaki");
 			
 			GreenColourButton.setDisable(true);
 			BlueColourButton.setDisable(true);

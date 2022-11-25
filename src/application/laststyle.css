@@ -40,3 +40,25 @@
 }
 
 
+
+ .default-color0.chart-pie { -fx-pie-color: paleturquoise;}
+.default-color1.chart-pie { -fx-pie-color: palegreen; }
+.default-color2.chart-pie { -fx-pie-color: plum; }
+.default-color3.chart-pie { -fx-pie-color: hotpink; }
+.default-color4.chart-pie { -fx-pie-color: hotpink; }
+ 
+.chart-pie-label-line {
+    -fx-stroke: #8b4513;
+    -fx-fill: black;
+}
+ 
+.chart-pie-label {
+    -fx-fill: black;
+    -fx-font-size: 1em;
+} 
+.chart-legend {
+   -fx-background-color:  white;
+   -fx-stroke: #daa520;
+}
+
+
