@@ -2,10 +2,7 @@ package application;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,9 +21,7 @@ public class CelebTestController {
 	Stage applicationStage;
 	
 	private Parent root;
-	
 	private Stage stage;
-	
 	private Scene scene; 
 	
 	ArrayList<Double> jbList = new ArrayList<Double>();
@@ -48,14 +43,15 @@ public class CelebTestController {
    
 
 	@FXML
-    private Button startButton;
-	//sup guys its julii
-    @FXML
+    	private Button startButton;
+   
+	@FXML
     void changeToQuestions(ActionEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/QuestionView.fxml"));
-			Scene secondaryScene = new Scene(root,600,675);
+			Scene secondaryScene = new Scene(root,300,700);
+			secondaryScene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 			
 			applicationStage.setScene(secondaryScene);
 			applicationStage.setTitle("Quiz Questions");
@@ -121,10 +117,6 @@ public class CelebTestController {
 			PizzaFoodButton.setDisable(true);
 			PastaFoodButton.setDisable(true);
 		}
-		
-		//System.out.println(celebDictionary);
-	
-	
 	}
 	
 	//season buttons
@@ -144,11 +136,10 @@ public class CelebTestController {
 	void setSeasonAnswer (ActionEvent event) {
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-		//System.out.println(id);
 
 		if (id.equals("FallSeasonButton")) {
 			jbList.add(10.0);
-			FallSeasonButton.setStyle("-fx-background-color: Orange");
+			FallSeasonButton.setStyle("-fx-background-color: Coral");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
 			WinterSeasonButton.setDisable(true);
@@ -173,7 +164,7 @@ public class CelebTestController {
 		}
 		if (id.equals("SummerSeasonButton")) {
 			jloList.add(10.0);
-			SummerSeasonButton.setStyle("-fx-background-color: Yellow");
+			SummerSeasonButton.setStyle("-fx-background-color: Khaki");
 			
 			WinterSeasonButton.setDisable(true);
 			SpringSeasonButton.setDisable(true);
@@ -199,11 +190,10 @@ public class CelebTestController {
 	void setColourAnswer (ActionEvent event) {
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-		//System.out.println(id);
 
 		if (id.equals("RedColourButton")) {
 			kwList.add(10.0);
-			RedColourButton.setStyle("-fx-background-color: Red");
+			RedColourButton.setStyle("-fx-background-color: firebrick");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
 			GreenColourButton.setDisable(true);
@@ -212,7 +202,7 @@ public class CelebTestController {
 		}
 		if (id.equals("GreenColourButton")) {
 			jbList.add(10.0);
-			GreenColourButton.setStyle("-fx-background-color: Green");
+			GreenColourButton.setStyle("-fx-background-color: mediumseagreen");
 			
 			RedColourButton.setDisable(true);
 			BlueColourButton.setDisable(true);
@@ -220,7 +210,7 @@ public class CelebTestController {
 		}
 		if (id.equals("YellowColourButton")) {
 			tsList.add(10.0);
-			YellowColourButton.setStyle("-fx-background-color: Yellow");
+			YellowColourButton.setStyle("-fx-background-color: Khaki");
 			
 			GreenColourButton.setDisable(true);
 			BlueColourButton.setDisable(true);
@@ -326,7 +316,6 @@ public class CelebTestController {
 		}
 	}
 	
-	//other components of questions
 	@FXML
 	private Slider SpontaneousSlider;
 	
@@ -424,7 +413,6 @@ public class CelebTestController {
 			}	
 	}
 
-//this method does not work for some reason, please check
 	String verifyNames(String personName) {
 		// initialization of variables
 		boolean validName = true;
@@ -580,6 +568,7 @@ public class CelebTestController {
 	}
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
+		
 		for (int i=0; i<celebList.size(); i++ ) {
 			double percent = celebList.get(i);
 			totalPercent += percent;
@@ -589,24 +578,24 @@ public class CelebTestController {
 	
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
-		  //Changes screen to final view scene
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
-			root = loader.load();
+		//Changes screen to final view scene
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+		root = loader.load();
 				
-			FinalViewController finalViewController = loader.getController();
-				
+		FinalViewController finalViewController = loader.getController();
+
 			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
 			stage.setScene(scene);
 			stage.show();
 
-			
-		
+
 		//calling zodiac method
 		String sign = ZodiacSignChoiceBox.getValue();
 		getZodiacSignAnswer(sign);
 
-  	    // Testing Slider Methods 
+  	        // Testing Slider Methods 
 		double valueSpon = SpontaneousSlider.getValue();
 		sponSlider(valueSpon);
 		
@@ -614,8 +603,8 @@ public class CelebTestController {
 		introSlider(valueIntro);
 		
 		//checking calculate age method
-			Double age = Double.parseDouble(ageTextField.getText());
-			calculateAge(age);
+		Double age = Double.parseDouble(ageTextField.getText());
+		calculateAge(age);
 
 		// testing person name
 		if (nameTextField.getText().equals("")) {
@@ -649,16 +638,21 @@ public class CelebTestController {
 		System.out.println("Kanye West list: " + kwList);
 		
 		//calculating final compatibility
-		   double jb = calculateCompatibility(jbList);
-		   double jlo = calculateCompatibility(jloList);
-		   double ts = calculateCompatibility(tsList);
-		   double kw = calculateCompatibility(kwList);
-		   System.out.println("Justin Bieber Compatibility: " + jb);
-		   System.out.println("Jennifer Lopez Compatibility: " + jlo);
-		   System.out.println("Taylor Swift Compatibility: " + ts);
-		   System.out.println("Kanye West Compatibility: " + kw);
-		   //creating the bar graph 
-		   finalViewController.createBarGraph(jb, jlo, kw, ts);
+		double jb = calculateCompatibility(jbList);
+		double jlo = calculateCompatibility(jloList);
+		double ts = calculateCompatibility(tsList);
+		double kw = calculateCompatibility(kwList);
+		   
+		// final compatibility scores
+		System.out.println("Justin Bieber Compatibility: " + jb);
+		System.out.println("Jennifer Lopez Compatibility: " + jlo);
+		System.out.println("Taylor Swift Compatibility: " + ts);
+		System.out.println("Kanye West Compatibility: " + kw);
+		
+		//creating the bar graph & pieChart
+		finalViewController.createBarGraph(jb, jlo, kw, ts);
+		finalViewController.createPieChart(jb, jlo, kw, ts);
+		finalViewController.setLabel(jb, jlo, kw, ts, nameTextField.getText());
 	}
 
 
