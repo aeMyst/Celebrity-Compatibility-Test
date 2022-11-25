@@ -24,6 +24,10 @@ public class CelebTestController {
 	private Stage stage;
 	private Scene scene; 
 	
+	boolean answerAllQuestions = false;
+	
+	boolean allButtonsPressed = true;
+	
 	ArrayList<Double> jbList = new ArrayList<Double>();
 	ArrayList<Double> jloList = new ArrayList<Double>();
 	ArrayList<Double> tsList = new ArrayList<Double>();
@@ -43,7 +47,7 @@ public class CelebTestController {
    
 
 	@FXML
-    private Button startButton;
+    	private Button startButton;
    
 	@FXML
     void changeToQuestions(ActionEvent event) {
@@ -79,6 +83,8 @@ public class CelebTestController {
 	
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
+		
+		answerAllQuestions = true;
 		//this is able to tell me what button was pressed by returning the fx id
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
@@ -134,6 +140,7 @@ public class CelebTestController {
 	
 	@FXML
 	void setSeasonAnswer (ActionEvent event) {
+		answerAllQuestions = true;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 
@@ -188,6 +195,7 @@ public class CelebTestController {
 	
 	@FXML
 	void setColourAnswer (ActionEvent event) {
+		answerAllQuestions = true;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 
@@ -241,6 +249,7 @@ public class CelebTestController {
 	
 	@FXML
 	void setMusicAnswer (ActionEvent event) {
+		answerAllQuestions = true;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 		//System.out.println(id);
@@ -293,6 +302,7 @@ public class CelebTestController {
 	
 	@FXML
 	void setAnimalAnswer (ActionEvent event) {
+		answerAllQuestions = false;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 		//System.out.println(id);
@@ -301,19 +311,22 @@ public class CelebTestController {
 			//there are two celebs who like cats so I split the percentage in half equally
 			jbList.add(5.0);
 			jloList.add(5.0);
+			answerAllQuestions = true;
 		
 			CatAnimalButton.setStyle("-fx-background-color: White");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
 			DogAnimalButton.setDisable(true);
-		}
+		} 
 		if (id.equals("DogAnimalButton")) {
 			tsList.add(5.0);
 			kwList.add(5.0);
 			DogAnimalButton.setStyle("-fx-background-color: White");
+			answerAllQuestions = true;
 			
 			CatAnimalButton.setDisable(true);
 		}
+		
 	}
 	
 	@FXML
@@ -324,6 +337,7 @@ public class CelebTestController {
 	
 	
 	void getZodiacSignAnswer (String signSelected) {
+		answerAllQuestions = true;
 		
 
 		if(signSelected.equals("Sagittarius")) {
@@ -377,6 +391,7 @@ public class CelebTestController {
   
 		//Spontaneous Slider Method
 		void sponSlider (double sliderValue) {
+		answerAllQuestions = true;
 	
 			if (sliderValue >= 0 && sliderValue <= 2.5) {
 				jloList.add(10.0);			
@@ -394,6 +409,7 @@ public class CelebTestController {
 		}
 		//Intro/Extro Slider Method 
 		void introSlider (double sliderValue) {
+			answerAllQuestions = true;
 	
 			if (sliderValue >= 0 && sliderValue <= 2.5) {
 				tsList.add(10.0);
@@ -413,17 +429,18 @@ public class CelebTestController {
 			}	
 	}
 
-//this method does not work for some reason, please check
 	String verifyNames(String personName) {
 		// initialization of variables
 		boolean validName = true;
 		char invalidChar = Character.MIN_VALUE;
+	
 		
 		for (char c : personName.toCharArray()) {
 			// if the current character c has an ASCII table value of the following, do this
    	  		if  ((c >= '!' && c <= '@') || (c >= '[' && c <= '`') || (c >= '{' && c <= '~') ) {
    	  			validName = false;
    	  			invalidChar = c;
+   	  		    answerAllQuestions = false;
    	  		} 
    	  		if (!(validName)) {
    	  			nameErrorLabel.setText("Do not use " + invalidChar + " in your name. Please enter a valid name.");
@@ -431,6 +448,7 @@ public class CelebTestController {
 	    }
 		if (validName) {
 			nameErrorLabel.setText("");
+			answerAllQuestions = true;
 			return personName;
 		} else {
 			return "";
@@ -439,6 +457,7 @@ public class CelebTestController {
 	
 	
 	void calculateNames(String personName) {
+		
 		// inialization of variables
 		double charCountJB = 0;
 		double charCountKW = 0;
@@ -531,14 +550,17 @@ public class CelebTestController {
 		   	  	if  (!(c >= '0' && c <= '9')) {
 		   	  		validAge = false;
 		   	  		invalidChar = c;
+		   	 	    answerAllQuestions = false;
 		   	  	} else {
 		   	  		validAge = true;
 		   	  	}
 		   	  	if (!(validAge)) {
 		   	  		ageErrorLabel.setText("Do not use " + invalidChar + " in your Age. Please enter a valid Age.");
+		   	 	    answerAllQuestions = false;
 		   	  	} 
 			}
 			if (validAge) {
+				answerAllQuestions = true;
 				Double doubleAge = Double.parseDouble(personAge);	
 				if (doubleAge < 16) { // must be 16+
 					ageErrorLabel.setText("Sorry, you are too young to take this test. Please try again.");
@@ -570,6 +592,7 @@ public class CelebTestController {
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
 		
+		
 		for (int i=0; i<celebList.size(); i++ ) {
 			double percent = celebList.get(i);
 			totalPercent += percent;
@@ -579,25 +602,31 @@ public class CelebTestController {
 	
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
-		  //Changes screen to final view scene
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
-			root = loader.load();
-				
-			FinalViewController finalViewController = loader.getController();
-				
-			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
-			stage.setScene(scene);
-			stage.show();
-
-			
+		System.out.println(jbList);
+		System.out.println(jloList);
+		System.out.println(tsList);
+		System.out.println(kwList);
 		
+ArrayList<Double> totalList = new ArrayList<Double>();
+		
+		totalList.addAll(jbList);
+		totalList.addAll(jloList);
+		totalList.addAll(tsList);
+		totalList.addAll(kwList);
+		System.out.println(totalList + "TotalList");
+		if(totalList.size() <= 5) {
+			allButtonsPressed = false;
+		}else {
+			allButtonsPressed = true;
+		}
+		
+		
+
 		//calling zodiac method
 		String sign = ZodiacSignChoiceBox.getValue();
 		getZodiacSignAnswer(sign);
 
-  	    // Testing Slider Methods 
+  	        // Testing Slider Methods 
 		double valueSpon = SpontaneousSlider.getValue();
 		sponSlider(valueSpon);
 		
@@ -605,8 +634,8 @@ public class CelebTestController {
 		introSlider(valueIntro);
 		
 		//checking calculate age method
-			Double age = Double.parseDouble(ageTextField.getText());
-			calculateAge(age);
+		Double age = Double.parseDouble(ageTextField.getText());
+		calculateAge(age);
 
 		// testing person name
 		if (nameTextField.getText().equals("")) {
@@ -639,12 +668,29 @@ public class CelebTestController {
 		System.out.println("Taylor Swift list: " + tsList);
 		System.out.println("Kanye West list: " + kwList);
 		
+		
+		
 		//calculating final compatibility
 		double jb = calculateCompatibility(jbList);
 		double jlo = calculateCompatibility(jloList);
 		double ts = calculateCompatibility(tsList);
 		double kw = calculateCompatibility(kwList);
 		   
+		if(answerAllQuestions == true  && allButtonsPressed == true) {
+	
+		//Changes screen to final view scene
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+		root = loader.load();
+				
+		FinalViewController finalViewController = loader.getController();
+
+			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
+			stage.setScene(scene);
+			stage.show();
+
+
 		// final compatibility scores
 		System.out.println("Justin Bieber Compatibility: " + jb);
 		System.out.println("Jennifer Lopez Compatibility: " + jlo);
@@ -655,8 +701,11 @@ public class CelebTestController {
 		finalViewController.createBarGraph(jb, jlo, kw, ts);
 		finalViewController.createPieChart(jb, jlo, kw, ts);
 		finalViewController.setLabel(jb, jlo, kw, ts, nameTextField.getText());
-	}
 
+	} else {
+		System.out.println("failed");
+	}
+	}
 
 
 }
