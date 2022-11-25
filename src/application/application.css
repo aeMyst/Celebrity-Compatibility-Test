@@ -1,8 +1,49 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 #rooter{
-	-fx-background-color:"purple";
+    -fx-background-image: url(https://wallpapercave.com/wp/wp3288221.jpg);
 }
 
+
 .label{
-	
+	-fx-text-fill: white;
+	 -fx-font-size: 14px;
 }
+
+.button{
+	    -fx-background-color: white;
+        
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+   
+    -fx-text-fill: #242d35;
+    -fx-font-size: 12px;
+     
+      -fx-padding: 6 10 10 10;
+}
+
+#ZodiacSignChoiceBox{
+	-fx-text-fill: black;
+}
+
+ h1{
+font-family: 'Montserrat', sans-serif;
+font-weight: 900;
+ }
+
+.text {
+    -fx-font-family: "Montserrat";
+}
+
+input[type="range"]::-webkit-slider-thumb {
+ -webkit-appearance: none;
+ height: 15px;
+ width: 15px;
+ background: pink;
+ margin-top: -5px;
+ border-radius: 50%;
+}
+
+.slider.thumb{
+	-fx-pref-height:30px;
+}
+

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.collections.FXCollections?>
 
-<VBox fx:id="rooter" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController" >
+<VBox fx:id="rooter" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController">
    <children>
       <Label alignment="TOP_LEFT" text="Please Answer The Following Questions:">
          <font>
@@ -20,14 +20,14 @@
          <children>
             <Label fx:id="nameLabel" text="What is your full name (First and Last)? ">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="30.0" />
                </HBox.margin></Label>
          </children></HBox>
       <HBox prefHeight="31.0" prefWidth="283.0">
          <children>
             <TextField fx:id="nameTextField">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="60.0" />
                </HBox.margin></TextField>
             <Label fx:id="nameErrorLabel" textFill="RED">
                <HBox.margin>
@@ -39,14 +39,14 @@
          <children>
             <Label fx:id="ageLabel" text="What is your age?">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="80.0" />
                </HBox.margin></Label>
          </children></HBox>
       <HBox prefHeight="32.0" prefWidth="283.0">
          <children>
             <TextField fx:id="ageTextField">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="60.0" />
                </HBox.margin></TextField>
             <Label fx:id="ageErrorLabel" textFill="RED">
                <HBox.margin>
@@ -58,12 +58,12 @@
          <children>
             <Label fx:id="foodLabel" text="What is your favorite food?">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="65.0" />
                </HBox.margin></Label>
          </children></HBox>
          <HBox prefHeight="32.0" prefWidth="283.0">
          <children>
-            <Button fx:id="PizzaFoodButton" mnemonicParsing="false" onAction="#setFoodAnswer" text="Pizza" textAlignment="CENTER">
+            <Button fx:id="PizzaFoodButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setFoodAnswer" text="Pizza" textAlignment="CENTER">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
@@ -71,10 +71,10 @@
             <Insets />
          </opaqueInsets>
                <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
+                  <Insets left="35.0" right="10.0" />
                </HBox.margin>
          </Button>
-            <Button fx:id="PastaFoodButton" mnemonicParsing="false" onAction="#setFoodAnswer" text="Pasta" textAlignment="CENTER">
+            <Button fx:id="PastaFoodButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setFoodAnswer" text="Pasta" textAlignment="CENTER">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
@@ -110,7 +110,7 @@
          <children>
             <Label fx:id="seasonLabel" text="What is your favorite season?" textAlignment="RIGHT">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="65.0" />
                </HBox.margin></Label>
          </children></HBox>
       <HBox prefHeight="32.0" prefWidth="283.0">
@@ -123,7 +123,7 @@
                   <Insets />
                </opaqueInsets>
                <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
+                  <Insets left="35.0" right="10.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="WinterSeasonButton" mnemonicParsing="false" onAction="#setSeasonAnswer" text="Winter" textAlignment="CENTER">
@@ -162,7 +162,7 @@
          <children>
             <Label fx:id="colorLabel" text="What is your favorite color? ">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="65.0" />
                </HBox.margin></Label>
          </children></HBox>
       <HBox prefHeight="32.0" prefWidth="283.0">
@@ -175,7 +175,7 @@
                   <Insets />
                </opaqueInsets>
                <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
+                  <Insets left="35.0" right="10.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="GreenColourButton" mnemonicParsing="false" onAction="#setColourAnswer" text="Green" textAlignment="CENTER">
@@ -214,7 +214,7 @@
          <children>
             <Label fx:id="musicLabel" text="What is your favorite genre of music?">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="45.0" />
                </HBox.margin></Label>
          </children></HBox>
       <HBox prefHeight="32.0" prefWidth="283.0">
@@ -227,7 +227,7 @@
                   <Insets />
                </opaqueInsets>
                <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
+                  <Insets left="35.0" right="10.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="PopMusicButton" mnemonicParsing="false" onAction="#setMusicAnswer" text="Pop" textAlignment="CENTER">
@@ -266,7 +266,7 @@
          <children>
             <Label fx:id="dogPerson" text="Are you a cat or a dog person?">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="60.0" />
                </HBox.margin></Label>
          </children></HBox>
       <HBox prefHeight="32.0" prefWidth="283.0">
@@ -279,7 +279,7 @@
                   <Insets />
                </opaqueInsets>
                <HBox.margin>
-                  <Insets left="50.0" right="10.0" />
+                  <Insets bottom="10.0" left="80.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="DogAnimalButton" mnemonicParsing="false" onAction="#setAnimalAnswer" text="Dogs" textAlignment="CENTER">
@@ -290,7 +290,7 @@
                   <Insets />
                </opaqueInsets>
                <HBox.margin>
-                  <Insets left="40.0" right="10.0" />
+                  <Insets bottom="20.0" left="40.0" right="10.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -299,7 +299,7 @@
          <children>
             <Label fx:id="introLabel" text="How introverted or extroverted are you? ">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="35.0" />
                </HBox.margin></Label>
          </children></HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
@@ -308,6 +308,9 @@
                <padding>
                   <Insets left="10.0" />
                </padding>
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
             </Slider>
          </children>
       </HBox>
@@ -315,14 +318,14 @@
          <children>
             <Label fx:id="zodiacLabel" text="What is your zodiac sign? ">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="75.0" />
                </HBox.margin></Label>
          </children></HBox>
       <HBox prefHeight="37.0" prefWidth="283.0">
          <children>
             <ChoiceBox fx:id="ZodiacSignChoiceBox" prefWidth="150.0">
                <items>
-               <FXCollections fx:factory="observableArrayList">
+               <FXCollections fx:factory="observableArrayList" fx:id="forcss">
             	
             		<String fx:value="Sagittarius" />
             		<String fx:value="Capricorn" />
@@ -340,7 +343,7 @@
             	  	</FXCollections>
             </items>
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="70.0" />
                </HBox.margin>
             </ChoiceBox>
          </children>
@@ -349,7 +352,7 @@
          <children>
             <Label fx:id="sponLabel" text="How spontaneous are you?">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="75.0" />
                </HBox.margin></Label>
          </children></HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
@@ -358,6 +361,9 @@
                <padding>
                   <Insets left="10.0" />
                </padding>
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
             </Slider>
          </children>
       </HBox>

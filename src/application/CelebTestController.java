@@ -50,7 +50,7 @@ public class CelebTestController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/QuestionView.fxml"));
-			Scene secondaryScene = new Scene(root,600,675);
+			Scene secondaryScene = new Scene(root,300,675);
 			secondaryScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			applicationStage.setScene(secondaryScene);
