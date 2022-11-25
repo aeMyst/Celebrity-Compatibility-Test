@@ -1,0 +1,42 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#rooter{
+    -fx-background-image: url(https://wallpapercave.com/wp/wp3288221.jpg);
+}
+
+
+@font-face {
+    src: url(Montserrat-Regular.ttf),
+}
+
+
+
+.label{
+	-fx-text-fill: white;
+	 -fx-font-size: 15px;
+	  -fx-font-family: "Candara";
+}
+
+.button{
+	    -fx-background-color: white;
+        
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+    -fx-font-family: "Candara";
+     -fx-font-weight: bold;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 12px;
+     
+      -fx-padding: 6 10 10 10;
+}
+
+.choice-box .menu-item > .label { -fx-text-fill: black; }
+
+.choice-box { -fx-background-color: violet; }
+
+
+.slider .thumb{
+	-fx-pref-height:30px;
+}
+
+
+

@@ -1,0 +1,64 @@
+.root{
+    -fx-background-image: url(https://wallpapercave.com/wp/wp7952905.jpg);
+}
+
+.label{
+	 -fx-font-family: "Candara";
+}
+
+#logoImage{
+	-fx-background-image: url(https://cdn3.iconfinder.com/data/icons/cinema-linear-outline/300/17342988Untitled-3-512.png);
+	
+	
+}
+
+.button{
+	    -fx-background-color: white;
+        
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+    -fx-font-family: "Candara";
+     -fx-font-weight: bold;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 12px;
+     
+      -fx-padding: 6 10 10 10;
+}
+
+#startButton{
+	 -fx-background-color: white;
+        
+        -fx-background-insets: 0,1,4,5,6;
+    -fx-background-radius: 9,8,5,4,3;
+    -fx-padding: 15 30 15 30;
+    -fx-font-family: "Candara";
+     -fx-font-weight: bold;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 12px;
+     
+    
+}
+
+
+
+ .default-color0.chart-pie { -fx-pie-color: paleturquoise;}
+.default-color1.chart-pie { -fx-pie-color: palegreen; }
+.default-color2.chart-pie { -fx-pie-color: plum; }
+.default-color3.chart-pie { -fx-pie-color: hotpink; }
+.default-color4.chart-pie { -fx-pie-color: hotpink; }
+ 
+.chart-pie-label-line {
+    -fx-stroke: #8b4513;
+    -fx-fill: black;
+}
+ 
+.chart-pie-label {
+    -fx-fill: black;
+    -fx-font-size: 1em;
+} 
+.chart-legend {
+   -fx-background-color:  white;
+   -fx-stroke: #daa520;
+}
+
+
