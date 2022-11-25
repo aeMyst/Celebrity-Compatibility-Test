@@ -23,6 +23,7 @@ public class main extends Application {
 			controller.applicationStage = primaryStage;
 			
 			Scene primaryScene = new Scene(root,1024,768);
+			primaryScene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
 			
 		
 		

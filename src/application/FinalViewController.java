@@ -48,7 +48,7 @@ public class FinalViewController{
 		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
 				new PieChart.Data("Justin Bieber" , jbData),
 				new PieChart.Data("Jennnifer Lopez" , jloData),
-				new PieChart.Data("Kanye West" , kwData),
+				new PieChart.Data("KanyeWest" , kwData),
 				new PieChart.Data("Taylor Swift" , tsData));
 		
 		pieChart.setData(pieChartData);

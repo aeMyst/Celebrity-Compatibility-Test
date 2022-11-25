@@ -29,27 +29,10 @@
       -fx-padding: 6 10 10 10;
 }
 
-#ZodiacSignChoiceBox{
-	-fx-text-fill: black;
-}
+.choice-box .menu-item > .label { -fx-text-fill: black; }
 
- h1{
-font-family: 'Montserrat', sans-serif;
-font-weight: 900;
- }
+.choice-box { -fx-background-color: violet; }
 
-.text {
-    -fx-font-family: "Montserrat";
-}
-
-input[type="range"]::-webkit-slider-thumb {
- -webkit-appearance: none;
- height: 15px;
- width: 15px;
- background: pink;
- margin-top: -5px;
- border-radius: 50%;
-}
 
 .slider .thumb{
 	-fx-pref-height:30px;
