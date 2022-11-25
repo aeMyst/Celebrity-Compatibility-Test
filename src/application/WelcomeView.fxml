@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController">
+<VBox alignment="CENTER" prefHeight="332.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CelebTestController">
    <children>
-      <Label alignment="CENTER" text="Test Your Compatibility!" textAlignment="CENTER">
+      <Label alignment="CENTER" text="Welcome!" textAlignment="CENTER">
          <font>
-            <Font name="System Bold" size="50.0" />
+            <Font name="Segoe Print Bold" size="50.0" />
          </font>
+      </Label>
+      <Label text="Test your Compatibility with famous Celebs!">
+         <VBox.margin>
+            <Insets bottom="60.0" />
+         </VBox.margin>
       </Label>
       <Button fx:id="startButton" alignment="CENTER" mnemonicParsing="false" onAction="#changeToQuestions" text="Click Here To Start" textAlignment="CENTER">
          <font>
