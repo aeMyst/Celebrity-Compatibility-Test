@@ -27,6 +27,12 @@ public class CelebTestController {
 	
 	boolean answerAllQuestions = false;
 	
+	boolean answerZodaic = false;
+	
+	boolean answerName = false;
+	
+	boolean answerAge = false;
+	
 	double allButtonsPressed = 0;
 	
 	boolean buttonsPressed = false;
@@ -320,7 +326,7 @@ public class CelebTestController {
 			//there are two celebs who like cats so I split the percentage in half equally
 			jbList.add(5.0);
 			jloList.add(5.0);
-			answerAllQuestions = true;
+			
 		
 			CatAnimalButton.setStyle("-fx-background-color: White");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
@@ -331,7 +337,7 @@ public class CelebTestController {
 			tsList.add(5.0);
 			kwList.add(5.0);
 			DogAnimalButton.setStyle("-fx-background-color: White");
-			answerAllQuestions = true;
+			
 			
 			CatAnimalButton.setDisable(true);
 		}
@@ -346,7 +352,6 @@ public class CelebTestController {
 	
 	
 	void getZodiacSignAnswer (String signSelected) {
-		answerAllQuestions = true;
 		
 
 		if(signSelected.equals("Sagittarius")) {
@@ -449,15 +454,16 @@ public class CelebTestController {
    	  		if  ((c >= '!' && c <= '@') || (c >= '[' && c <= '`') || (c >= '{' && c <= '~') ) {
    	  			validName = false;
    	  			invalidChar = c;
-   	  		    answerAllQuestions = false;
+   	  	
    	  		} 
    	  		if (!(validName)) {
+   	  		    nameErrorLabel.setTextFill(Color.DARKRED);
    	  			nameErrorLabel.setText("Do not use " + invalidChar + " in your name. Please enter a valid name.");
    	  		} 
 	    }
 		if (validName) {
 			nameErrorLabel.setText("");
-			answerAllQuestions = true;
+			
 			return personName;
 		} else {
 			return "";
@@ -559,22 +565,24 @@ public class CelebTestController {
 		   	  	if  (!(c >= '0' && c <= '9')) {
 		   	  		validAge = false;
 		   	  		invalidChar = c;
-		   	 	    answerAllQuestions = false;
+		   	 	  
 		   	  	} else {
 		   	  		validAge = true;
 		   	  	}
 		   	  	if (!(validAge)) {
 		   	  		ageErrorLabel.setText("Do not use " + invalidChar + " in your Age. Please enter a valid Age.");
-		   	 	    answerAllQuestions = false;
+		   	 	   
 		   	  	} 
 			}
 			if (validAge) {
 				answerAllQuestions = true;
 				Double doubleAge = Double.parseDouble(personAge);	
 				if (doubleAge < 16) { // must be 16+
-					ageErrorLabel.setText("Sorry, you are too young to take this test. Please try again.");
+					ageErrorLabel.setTextFill(Color.DARKRED);				
+					ageErrorLabel.setText("Sorry, must be 16+");
 				} else if (doubleAge > 60) { //must be 60-
-					ageErrorLabel.setText("Sorry, unfortunately you are too old to take this test (60 or less). Please try again.");
+					ageErrorLabel.setTextFill(Color.DARKRED);
+					ageErrorLabel.setText("Sorry, must be 60-");
 				} else {
 					age = age + doubleAge;
 					ageErrorLabel.setText("");
@@ -642,11 +650,11 @@ public class CelebTestController {
 		// testing person name
 		if (nameTextField.getText().equals("")) {
 			nameErrorLabel.setText("Please enter your first and last name.");
-			answerAllQuestions = false;
+			answerName = false;
 		} else {
 			String personName = nameTextField.getText();
 			String verifiedPersonName = verifyNames(personName);
-			answerAllQuestions = true;
+			answerName = true;
 			if (verifiedPersonName.equals("")) {
 				System.out.print('\n' + verifiedPersonName + '\n');
 			} else {
@@ -660,19 +668,22 @@ public class CelebTestController {
 		// testing person age
 		if (ageTextField.getText().equals("")) {
 			ageErrorLabel.setText("Please enter your age.");
-			answerAllQuestions = false;
+			answerAge = false;
+			
 		} else {
 			String personAge = ageTextField.getText();
 			double verifiedPersonAge = verifyAge(personAge);
-			answerAllQuestions = true;
+			answerAge = true;
+			
 			System.out.print('\n' + "User is: "  + verifiedPersonAge + " Years old" + '\n');
 			calculateAge(verifiedPersonAge);
 		}
 		
 		if( ZodiacSignChoiceBox.getValue() == null) {
-        	answerAllQuestions = false; 
+			 answerZodaic = false;
         }else {
 		String sign = ZodiacSignChoiceBox.getValue();
+		 answerZodaic = true;
 		getZodiacSignAnswer(sign);}
 		
 		  
@@ -691,7 +702,8 @@ public class CelebTestController {
 		double kw = calculateCompatibility(kwList);
 		   
 		
-	   if (buttonsPressed == true && answerAllQuestions == true) {
+	   if (buttonsPressed == true &&  answerZodaic == true && answerName == true
+			&&   answerAge == true) {
 		//Changes screen to final view scene
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
 		root = loader.load();
