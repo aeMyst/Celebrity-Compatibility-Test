@@ -26,12 +26,16 @@ public class CelebTestController {
 	
 	boolean answerAllQuestions = false;
 	
-	boolean allButtonsPressed = true;
+	double allButtonsPressed = 0;
+	
+	boolean buttonsPressed = false;
 	
 	ArrayList<Double> jbList = new ArrayList<Double>();
 	ArrayList<Double> jloList = new ArrayList<Double>();
 	ArrayList<Double> tsList = new ArrayList<Double>();
 	ArrayList<Double> kwList = new ArrayList<Double>();
+	
+	
 		
 	@FXML
 	private TextField nameTextField;
@@ -84,7 +88,7 @@ public class CelebTestController {
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
 		
-		answerAllQuestions = true;
+	     allButtonsPressed += 1;
 		//this is able to tell me what button was pressed by returning the fx id
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
@@ -140,7 +144,7 @@ public class CelebTestController {
 	
 	@FXML
 	void setSeasonAnswer (ActionEvent event) {
-		answerAllQuestions = true;
+		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 
@@ -195,7 +199,7 @@ public class CelebTestController {
 	
 	@FXML
 	void setColourAnswer (ActionEvent event) {
-		answerAllQuestions = true;
+		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 
@@ -249,7 +253,7 @@ public class CelebTestController {
 	
 	@FXML
 	void setMusicAnswer (ActionEvent event) {
-		answerAllQuestions = true;
+		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 		//System.out.println(id);
@@ -302,7 +306,7 @@ public class CelebTestController {
 	
 	@FXML
 	void setAnimalAnswer (ActionEvent event) {
-		answerAllQuestions = false;
+		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 		//System.out.println(id);
@@ -607,19 +611,13 @@ public class CelebTestController {
 		System.out.println(tsList);
 		System.out.println(kwList);
 		
-ArrayList<Double> totalList = new ArrayList<Double>();
+		System.out.println(allButtonsPressed);
 		
-		totalList.addAll(jbList);
-		totalList.addAll(jloList);
-		totalList.addAll(tsList);
-		totalList.addAll(kwList);
-		System.out.println(totalList + "TotalList");
-		if(totalList.size() <= 5) {
-			allButtonsPressed = false;
-		}else {
-			allButtonsPressed = true;
-		}
-		
+        if(allButtonsPressed <5) {
+        	buttonsPressed = false;
+        } else {
+        	buttonsPressed = true;
+        }
 		
 
 		//calling zodiac method
@@ -676,8 +674,8 @@ ArrayList<Double> totalList = new ArrayList<Double>();
 		double ts = calculateCompatibility(tsList);
 		double kw = calculateCompatibility(kwList);
 		   
-		if(answerAllQuestions == true  && allButtonsPressed == true) {
-	
+		
+	   if (answerAllQuestions == true && buttonsPressed == true) {
 		//Changes screen to final view scene
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
 		root = loader.load();
