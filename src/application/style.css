@@ -12,8 +12,8 @@
 
 .label{
 	-fx-text-fill: white;
-	 -fx-font-size: 14px;
-	  -fx-font-family: "Monserrat";
+	 -fx-font-size: 15px;
+	  -fx-font-family: "Candara";
 }
 
 .button{
@@ -21,7 +21,8 @@
         
     -fx-background-radius: 30;
     -fx-background-insets: 0,1,1;
-   
+    -fx-font-family: "Candara";
+     -fx-font-weight: bold;
     -fx-text-fill: #242d35;
     -fx-font-size: 12px;
      

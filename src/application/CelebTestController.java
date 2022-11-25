@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 public class CelebTestController {
 	Stage applicationStage;
-	//Heya party Ppl
+	
 	private Parent root;
 	private Stage stage;
 	private Scene scene; 
@@ -50,7 +50,7 @@ public class CelebTestController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/QuestionView.fxml"));
-			Scene secondaryScene = new Scene(root,300,675);
+			Scene secondaryScene = new Scene(root,350,700);
 			secondaryScene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 			
 			applicationStage.setScene(secondaryScene);
@@ -587,6 +587,7 @@ public class CelebTestController {
 				
 			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
 			stage.setScene(scene);
 			stage.show();
 
