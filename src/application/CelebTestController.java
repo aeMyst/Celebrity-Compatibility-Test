@@ -48,6 +48,10 @@ public class CelebTestController {
 	
 	@FXML
 	private Label ageErrorLabel;
+	
+	@FXML
+	
+	private Label mainErrorLabel;
    
 
 	@FXML
@@ -58,7 +62,7 @@ public class CelebTestController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/QuestionView.fxml"));
-			Scene secondaryScene = new Scene(root,300,700);
+			Scene secondaryScene = new Scene(root,400,700);
 			secondaryScene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 			
 			applicationStage.setScene(secondaryScene);
@@ -621,8 +625,7 @@ public class CelebTestController {
 		
 
 		//calling zodiac method
-		String sign = ZodiacSignChoiceBox.getValue();
-		getZodiacSignAnswer(sign);
+      
 
   	        // Testing Slider Methods 
 		double valueSpon = SpontaneousSlider.getValue();
@@ -632,15 +635,21 @@ public class CelebTestController {
 		introSlider(valueIntro);
 		
 		//checking calculate age method
-		Double age = Double.parseDouble(ageTextField.getText());
-		calculateAge(age);
+	
+		if( ZodiacSignChoiceBox.getValue() == null) {
+        	answerAllQuestions = false; 
+        }else {
+		String sign = ZodiacSignChoiceBox.getValue();
+		getZodiacSignAnswer(sign);}
 
 		// testing person name
 		if (nameTextField.getText().equals("")) {
 			nameErrorLabel.setText("Please enter your first and last name.");
+			answerAllQuestions = false;
 		} else {
 			String personName = nameTextField.getText();
 			String verifiedPersonName = verifyNames(personName);
+			answerAllQuestions = true;
 			if (verifiedPersonName.equals("")) {
 				System.out.print('\n' + verifiedPersonName + '\n');
 			} else {
@@ -654,12 +663,16 @@ public class CelebTestController {
 		// testing person age
 		if (ageTextField.getText().equals("")) {
 			ageErrorLabel.setText("Please enter your age.");
+			answerAllQuestions = false;
 		} else {
 			String personAge = ageTextField.getText();
 			double verifiedPersonAge = verifyAge(personAge);
+			answerAllQuestions = true;
 			System.out.print('\n' + "User is: "  + verifiedPersonAge + " Years old" + '\n');
 			calculateAge(verifiedPersonAge);
 		}
+		
+		  
 		System.out.println("---Our Final list Results---");
 		System.out.println("Justin Bieber List: " + jbList);
 		System.out.println("Jennifer Lopez List: " + jloList);
@@ -675,7 +688,7 @@ public class CelebTestController {
 		double kw = calculateCompatibility(kwList);
 		   
 		
-	   if (answerAllQuestions == true && buttonsPressed == true) {
+	   if (buttonsPressed == true && answerAllQuestions == true) {
 		//Changes screen to final view scene
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
 		root = loader.load();
@@ -702,7 +715,9 @@ public class CelebTestController {
 
 	} else {
 		System.out.println("failed");
+		 mainErrorLabel.setText("Please Answer All Questions");
 	}
+	   
 	}
 
 
