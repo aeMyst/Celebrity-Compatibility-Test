@@ -43,6 +43,8 @@ public class CelebTestController {
 	ArrayList<Double> kwList = new ArrayList<Double>();
 	
 	
+	
+	
 		
 	@FXML
 	private TextField nameTextField;
@@ -649,7 +651,7 @@ public class CelebTestController {
 
 		// testing person name
 		if (nameTextField.getText().equals("")) {
-			nameErrorLabel.setText("Please enter your first and last name.");
+			nameErrorLabel.setText("Please enter your full name.");
 			answerName = false;
 		} else {
 			String personName = nameTextField.getText();
