@@ -2,6 +2,10 @@
     -fx-background-image: url(https://wallpapercave.com/wp/wp7952905.jpg);
 }
 
+#mainErrorLabel{
+	 -fx-text-fill: crimson;
+}
+
 .label{
 	 -fx-font-family: "Candara";
 }
