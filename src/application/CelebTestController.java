@@ -50,8 +50,9 @@ public class CelebTestController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/QuestionView.fxml"));
-			Scene secondaryScene = new Scene(root,300,700);
-			secondaryScene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+			Scene secondaryScene = new Scene(root,600,675);
+			
+			
 			
 			applicationStage.setScene(secondaryScene);
 			applicationStage.setTitle("Quiz Questions");
@@ -117,6 +118,9 @@ public class CelebTestController {
 			PizzaFoodButton.setDisable(true);
 			PastaFoodButton.setDisable(true);
 		}
+		if (id.equals("")) {
+			//do something
+		}
 	}
 	
 	//season buttons
@@ -139,7 +143,7 @@ public class CelebTestController {
 
 		if (id.equals("FallSeasonButton")) {
 			jbList.add(10.0);
-			FallSeasonButton.setStyle("-fx-background-color: Coral");
+			FallSeasonButton.setStyle("-fx-background-color: Orange");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
 			WinterSeasonButton.setDisable(true);
@@ -164,13 +168,15 @@ public class CelebTestController {
 		}
 		if (id.equals("SummerSeasonButton")) {
 			jloList.add(10.0);
-			SummerSeasonButton.setStyle("-fx-background-color: Khaki");
+			SummerSeasonButton.setStyle("-fx-background-color: Yellow");
 			
 			WinterSeasonButton.setDisable(true);
 			SpringSeasonButton.setDisable(true);
 			FallSeasonButton.setDisable(true);
 		}
-		
+		if (id.equals("")) {
+			//do something
+		}
 	}
 	
 	//colour buttons
@@ -193,7 +199,7 @@ public class CelebTestController {
 
 		if (id.equals("RedColourButton")) {
 			kwList.add(10.0);
-			RedColourButton.setStyle("-fx-background-color: firebrick");
+			RedColourButton.setStyle("-fx-background-color: Red");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
 			GreenColourButton.setDisable(true);
@@ -202,7 +208,7 @@ public class CelebTestController {
 		}
 		if (id.equals("GreenColourButton")) {
 			jbList.add(10.0);
-			GreenColourButton.setStyle("-fx-background-color: mediumseagreen");
+			GreenColourButton.setStyle("-fx-background-color: Green");
 			
 			RedColourButton.setDisable(true);
 			BlueColourButton.setDisable(true);
@@ -210,7 +216,7 @@ public class CelebTestController {
 		}
 		if (id.equals("YellowColourButton")) {
 			tsList.add(10.0);
-			YellowColourButton.setStyle("-fx-background-color: Khaki");
+			YellowColourButton.setStyle("-fx-background-color: Yellow");
 			
 			GreenColourButton.setDisable(true);
 			BlueColourButton.setDisable(true);
@@ -223,6 +229,9 @@ public class CelebTestController {
 			GreenColourButton.setDisable(true);
 			RedColourButton.setDisable(true);
 			YellowColourButton.setDisable(true);
+		}
+		if (id.equals("")) {
+			//do something
 		}
 	}
 	
@@ -282,6 +291,9 @@ public class CelebTestController {
 			IndieMusicButton.setDisable(true);
 			RapMusicButton.setDisable(true);
 		}
+		if (id.equals("")) {
+			//do something
+		}
 	}
 	
 	//animal buttons
@@ -313,6 +325,9 @@ public class CelebTestController {
 			DogAnimalButton.setStyle("-fx-background-color: White");
 			
 			CatAnimalButton.setDisable(true);
+		}
+		if (id.equals("")) {
+			//do something
 		}
 	}
 	
@@ -361,6 +376,9 @@ public class CelebTestController {
 			jbList.add(10.0);
 			//you match with Justin bieber who is Pisces
 		}	
+		if (signSelected.equals(null) || signSelected.equals("")) {
+			//there is an error, display such error.
+		}
 	}
 	
 	@FXML
@@ -372,9 +390,8 @@ public class CelebTestController {
 
 	@FXML
 	private Button DoneButton;
-
-	@FXML 
-  
+ 
+ 
 		//Spontaneous Slider Method
 		void sponSlider (double sliderValue) {
 	
@@ -583,19 +600,17 @@ public class CelebTestController {
 		root = loader.load();
 				
 		FinalViewController finalViewController = loader.getController();
-
-			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
-			stage.setScene(scene);
-			stage.show();
-
+				
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 
 		//calling zodiac method
 		String sign = ZodiacSignChoiceBox.getValue();
 		getZodiacSignAnswer(sign);
 
-  	        // Testing Slider Methods 
+  	    // Testing Slider Methods 
 		double valueSpon = SpontaneousSlider.getValue();
 		sponSlider(valueSpon);
 		

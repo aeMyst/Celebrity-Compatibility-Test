@@ -41,7 +41,7 @@
 
 
 
- .default-color0.chart-pie { -fx-pie-color: paleturquoise;}
+.default-color0.chart-pie { -fx-pie-color: paleturquoise;}
 .default-color1.chart-pie { -fx-pie-color: palegreen; }
 .default-color2.chart-pie { -fx-pie-color: plum; }
 .default-color3.chart-pie { -fx-pie-color: hotpink; }
