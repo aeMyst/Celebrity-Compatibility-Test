@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class CelebTestController {
@@ -28,6 +29,7 @@ public class CelebTestController {
 	ArrayList<Double> jloList = new ArrayList<Double>();
 	ArrayList<Double> tsList = new ArrayList<Double>();
 	ArrayList<Double> kwList = new ArrayList<Double>();
+
 		
 	@FXML
 	private TextField nameTextField;
@@ -40,7 +42,6 @@ public class CelebTestController {
 	
 	@FXML
 	private Label ageErrorLabel;
-   
 
 	@FXML
     	private Button startButton;
@@ -59,8 +60,9 @@ public class CelebTestController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
     }
+	
 
 	
 	//food buttons
@@ -243,11 +245,9 @@ public class CelebTestController {
 	void setMusicAnswer (ActionEvent event) {
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-		//System.out.println(id);
 
 		if (id.equals("RapMusicButton")) {
 			kwList.add(10.0);
-			//celebDictionary.put("Kanye West", 10.0);
 			RapMusicButton.setStyle("-fx-background-color: White");
 			//if this button gets pressed I am disabling all the other ones so it is impossible to 
 			//click another
@@ -257,7 +257,6 @@ public class CelebTestController {
 		}
 		if (id.equals("PopMusicButton")) {
 			jbList.add(10.0);
-			//celebDictionary.put("Justin Beiber", 10.0);
 			PopMusicButton.setStyle("-fx-background-color: White");
 			
 			RapMusicButton.setDisable(true);
@@ -266,7 +265,6 @@ public class CelebTestController {
 		}
 		if (id.equals("IndieMusicButton")) {
 			tsList.add(10.0);
-			//celebDictionary.put("Taylor Swift", 10.0);
 			IndieMusicButton.setStyle("-fx-background-color: White");
 			
 			PopMusicButton.setDisable(true);
@@ -275,7 +273,6 @@ public class CelebTestController {
 		}
 		if (id.equals("ClassicalMusicButton")) {
 			jloList.add(10.0);
-			//celebDictionary.put("Jennifer Lopez", 10.0);
 			ClassicalMusicButton.setStyle("-fx-background-color: White");
 			
 			PopMusicButton.setDisable(true);

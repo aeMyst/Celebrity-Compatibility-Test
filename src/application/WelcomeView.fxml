@@ -12,17 +12,20 @@
    <children>
       <Label alignment="CENTER" text="Welcome!" textAlignment="CENTER">
          <font>
-            <Font name="Segoe Print Bold" size="50.0" />
+            <Font name="Ink Free" size="64.0" />
          </font>
       </Label>
       <Label text="Test your Compatibility with famous Celebs!">
          <VBox.margin>
             <Insets bottom="60.0" />
          </VBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
       </Label>
       <Button fx:id="startButton" alignment="CENTER" mnemonicParsing="false" onAction="#changeToQuestions" text="Click Here To Start" textAlignment="CENTER">
          <font>
-            <Font size="20.0" />
+            <Font name="Ink Free" size="20.0" />
          </font>
       </Button>
    </children>
