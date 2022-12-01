@@ -1,16 +1,16 @@
 .root{
-    -fx-background-image: url(https://wallpapercave.com/wp/wp7952905.jpg);
+   
+     -fx-background-color: linear-gradient(to bottom,#ff7f50,#6a5acd);
+}
+
+#mainErrorLabel{
+	 -fx-text-fill: crimson;
 }
 
 .label{
 	 -fx-font-family: "Candara";
 }
 
-#logoImage{
-	-fx-background-image: url(https://cdn3.iconfinder.com/data/icons/cinema-linear-outline/300/17342988Untitled-3-512.png);
-	
-	
-}
 
 .button{
 	    -fx-background-color: white;
