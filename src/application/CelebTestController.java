@@ -533,7 +533,7 @@ public class CelebTestController {
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
 		
-		for (int i=0; i<celebList.size(); i++ ) {
+		for (int i=0; i<celebList.size(); i++) {
 			double percent = celebList.get(i);
 			totalPercent += percent;
 		}
