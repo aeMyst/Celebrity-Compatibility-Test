@@ -70,10 +70,11 @@ public class CelebTestController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/QuestionView.fxml"));
-			Scene secondaryScene = new Scene(root,400,700);
-			secondaryScene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+
+			Scene secondaryScene1 = new Scene(root,400,700);
+			secondaryScene1.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 			
-			applicationStage.setScene(secondaryScene);
+			applicationStage.setScene(secondaryScene1);
 			applicationStage.setTitle("Quiz Questions");
 			applicationStage.show();
 		} catch (Exception e) {
@@ -100,12 +101,11 @@ public class CelebTestController {
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
 		
-	     allButtonsPressed += 1;
+	  allButtonsPressed += 1;
 		//this is able to tell me what button was pressed by returning the fx id
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 		
-
 		Question buttonQuestion1 = new Question(id, "PizzaFoodButton");
 		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
@@ -123,9 +123,6 @@ public class CelebTestController {
 		SushiFoodButton.setDisable(buttonQuestion2.isButtonPressed());
 		IceCreamFoodButton.setDisable((buttonQuestion4.isButtonPressed()));
 		PastaFoodButton.setDisable((buttonQuestion3.isButtonPressed()));
-		
-	
-   
 	}
 	
 	//season buttons
@@ -147,7 +144,6 @@ public class CelebTestController {
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 		
-
 		Question buttonQuestion1 = new Question(id, "FallSeasonButton");
 		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
@@ -165,10 +161,6 @@ public class CelebTestController {
 		SpringSeasonButton.setDisable(buttonQuestion3.isButtonPressed());
 		SummerSeasonButton.setDisable((buttonQuestion4.isButtonPressed()));
 		FallSeasonButton.setDisable((buttonQuestion1.isButtonPressed()));
-		
-	
-	
-		
 	}
 	
 	//colour buttons
@@ -189,8 +181,7 @@ public class CelebTestController {
 		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-		
-
+	
 		Question buttonQuestion1 = new Question(id, "RedColourButton");
 		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
@@ -208,8 +199,6 @@ public class CelebTestController {
 		BlueColourButton.setDisable(buttonQuestion4.isButtonPressed());
 		YellowColourButton.setDisable((buttonQuestion3.isButtonPressed()));
 		RedColourButton.setDisable((buttonQuestion1.isButtonPressed()));
-		
-
 	}
 	
 	//music buttons
@@ -230,10 +219,8 @@ public class CelebTestController {
 		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-		
 		//System.out.println(id);
-		
-		
+    
 		Question buttonQuestion1 = new Question(id, "RapMusicButton");
 		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
@@ -252,13 +239,10 @@ public class CelebTestController {
 		ClassicalMusicButton.setDisable((buttonQuestion3.isButtonPressed()));
 		IndieMusicButton.setDisable((buttonQuestion4.isButtonPressed()));
 		
-				
-		
 		System.out.println(kwList);
 		System.out.println(tsList);
 		System.out.println(jloList);
 		System.out.println(jbList);
-
 	}
 	
 	//animal buttons
@@ -275,7 +259,6 @@ public class CelebTestController {
 		String id = btn.getId();
 		//System.out.println(id);
 		
-
 		Question buttonQuestion1 = new Question(id, "DogAnimalButton", 5.0);
 		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
@@ -287,7 +270,6 @@ public class CelebTestController {
 		
 		DogAnimalButton.setDisable((buttonQuestion1.isButtonPressed()));
 		CatAnimalButton.setDisable(buttonQuestion2.isButtonPressed());
-		
 	}
 	
 	@FXML
@@ -335,6 +317,9 @@ public class CelebTestController {
 			jbList.add(10.0);
 			//you match with Justin bieber who is Pisces
 		}	
+		if (signSelected.equals(null) || signSelected.equals("")) {
+			//there is an error, display such error.
+		}
 	}
 	
 	@FXML
@@ -346,9 +331,8 @@ public class CelebTestController {
 
 	@FXML
 	private Button DoneButton;
-
-	@FXML 
-  
+ 
+ 
 		//Spontaneous Slider Method
 		void sponSlider (double sliderValue) {
 		answerAllQuestions = true;
@@ -565,6 +549,17 @@ public class CelebTestController {
 	
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
+		//Changes screen to final view scene
+/*		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+		root = loader.load();
+				
+		FinalViewController finalViewController = loader.getController();
+				
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show(); */
+		
 		System.out.println(jbList);
 		System.out.println(jloList);
 		System.out.println(tsList);
@@ -577,21 +572,13 @@ public class CelebTestController {
         } else {
         	buttonsPressed = true;
         }
-		
 
-		//calling zodiac method
-      
-
-  	        // Testing Slider Methods 
+  	    // Testing Slider Methods 
 		double valueSpon = SpontaneousSlider.getValue();
 		sponSlider(valueSpon);
 		
 		double valueIntro = IntroExtroSlider.getValue();
 		introSlider(valueIntro);
-		
-		//checking calculate age method
-	
-		
 
 		// testing person name
 		if (nameTextField.getText().equals("")) {
@@ -630,7 +617,8 @@ public class CelebTestController {
         }else {
 		String sign = ZodiacSignChoiceBox.getValue();
 		 answerZodaic = true;
-		getZodiacSignAnswer(sign);}
+		getZodiacSignAnswer(sign);
+		}
 		
 		  
 		System.out.println("---Our Final list Results---");
@@ -648,34 +636,33 @@ public class CelebTestController {
 		double kw = calculateCompatibility(kwList);
 		   
 		
-	   if (buttonsPressed == true &&  answerZodaic == true && answerName == true
-			&&   answerAge == true) {
-		//Changes screen to final view scene
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
-		root = loader.load();
+	    if (buttonsPressed == true &&  answerZodaic == true && answerName == true && answerAge == true) {
+		   //Changes screen to final view scene
+		   FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+		   root = loader1.load();
 				
-		FinalViewController finalViewController = loader.getController();
+		   FinalViewController finalViewController = loader1.getController();
 
-			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
-			stage.setScene(scene);
-			stage.show();
+		   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		   scene = new Scene(root);
+		   scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
+		   stage.setScene(scene);
+		   stage.show();
 
 
-		// final compatibility scores
-		System.out.println("Justin Bieber Compatibility: " + jb);
-		System.out.println("Jennifer Lopez Compatibility: " + jlo);
-		System.out.println("Taylor Swift Compatibility: " + ts);
-		System.out.println("Kanye West Compatibility: " + kw);
+		   // final compatibility scores
+		   System.out.println("Justin Bieber Compatibility: " + jb);
+		   System.out.println("Jennifer Lopez Compatibility: " + jlo);
+		   System.out.println("Taylor Swift Compatibility: " + ts);
+		   System.out.println("Kanye West Compatibility: " + kw);
 		
-		//creating the bar graph & pieChart
-		finalViewController.createBarGraph(jb, jlo, kw, ts);
-		finalViewController.createPieChart(jb, jlo, kw, ts);
-		finalViewController.setLabel(jb, jlo, kw, ts, nameTextField.getText());
+		   //creating the bar graph & pieChart
+		   finalViewController.createBarGraph(jb, jlo, kw, ts);
+		   finalViewController.createPieChart(jb, jlo, kw, ts);
+		   finalViewController.setLabel(jb, jlo, kw, ts, nameTextField.getText());
 
 	} else {
-		System.out.println("failed");
+		 System.out.println("failed");
 		 mainErrorLabel.setTextFill(Color.DARKRED);
 		 mainErrorLabel.setText("Please Answer All Questions");
 	}
