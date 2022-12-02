@@ -53,6 +53,9 @@ public class Question {
 	 */
 
 	// Question class constructors
+	Question(String answer){
+		this.answer = answer;
+	}
 	Question(String id, String answer) { //constructor for button questions
 		this.id = id; 
 		this.answer = answer;	    	    							
@@ -62,14 +65,14 @@ public class Question {
 		this.answer = answer;
 		this.maxValue = maxValue; //double check maxValues, why do we need to overwrite for 5%? shouldn't they be 10%?
 	}
-	Question(double multiplier, double weight) {
+	Question(double multiplier, double weight) { //constructor for slider questions
 		this.multiplier = multiplier;
 		this.weight = weight;
 	}
 	
 	
 	// class methods
-	public void match(){ //match method determines what user has clicked vs. actually match
+	public void matchButtons(){ //match method determines what user has clicked vs. actually match
 		if (id.equals(answer))  {
 			setPercentage(maxValue);
 			setButtonPressed(false);
