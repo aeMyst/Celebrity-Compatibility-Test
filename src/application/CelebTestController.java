@@ -41,10 +41,7 @@ public class CelebTestController {
 	ArrayList<Double> jloList = new ArrayList<Double>();
 	ArrayList<Double> tsList = new ArrayList<Double>();
 	ArrayList<Double> kwList = new ArrayList<Double>();	
-	
-	
-	
-		
+
 	@FXML
 	private TextField nameTextField;
 	
@@ -101,11 +98,12 @@ public class CelebTestController {
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
 		
-	  allButtonsPressed += 1;
+	    allButtonsPressed += 1;
 		//this is able to tell me what button was pressed by returning the fx id
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 		
+		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "PizzaFoodButton");
 		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
@@ -119,6 +117,7 @@ public class CelebTestController {
 		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
+		//using class method isButtonPressed, it will determine which button we need to disable
 		PizzaFoodButton.setDisable((buttonQuestion1.isButtonPressed()));
 		SushiFoodButton.setDisable(buttonQuestion2.isButtonPressed());
 		IceCreamFoodButton.setDisable((buttonQuestion4.isButtonPressed()));
@@ -140,10 +139,14 @@ public class CelebTestController {
 	
 	@FXML
 	void setSeasonAnswer (ActionEvent event) {
+		
 		allButtonsPressed += 1;
+		
+		//this is able to tell me what button was pressed by returning the fx id
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 		
+		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "FallSeasonButton");
 		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
@@ -157,6 +160,7 @@ public class CelebTestController {
 		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
+		//using class method isButtonPressed, it will determine which button we need to disable
 		WinterSeasonButton.setDisable((buttonQuestion2.isButtonPressed()));
 		SpringSeasonButton.setDisable(buttonQuestion3.isButtonPressed());
 		SummerSeasonButton.setDisable((buttonQuestion4.isButtonPressed()));
@@ -178,10 +182,14 @@ public class CelebTestController {
 	
 	@FXML
 	void setColourAnswer (ActionEvent event) {
+		
 		allButtonsPressed += 1;
+		
+		//this is able to tell me what button was pressed by returning the fx id
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 	
+		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "RedColourButton");
 		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
@@ -195,6 +203,7 @@ public class CelebTestController {
 		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
+		//using class method isButtonPressed, it will determine which button we need to disable
 		GreenColourButton.setDisable((buttonQuestion2.isButtonPressed()));
 		BlueColourButton.setDisable(buttonQuestion4.isButtonPressed());
 		YellowColourButton.setDisable((buttonQuestion3.isButtonPressed()));
@@ -216,11 +225,14 @@ public class CelebTestController {
 	
 	@FXML
 	void setMusicAnswer (ActionEvent event) {
+		
 		allButtonsPressed += 1;
+		
+		//this is able to tell me what button was pressed by returning the fx id
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-		//System.out.println(id);
-    
+
+		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "RapMusicButton");
 		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
@@ -234,15 +246,12 @@ public class CelebTestController {
 		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
+		//using class method isButtonPressed, it will determine which button we need to disable
 		RapMusicButton.setDisable((buttonQuestion1.isButtonPressed()));
 		PopMusicButton.setDisable(buttonQuestion2.isButtonPressed());
 		ClassicalMusicButton.setDisable((buttonQuestion3.isButtonPressed()));
 		IndieMusicButton.setDisable((buttonQuestion4.isButtonPressed()));
-		
-		System.out.println(kwList);
-		System.out.println(tsList);
-		System.out.println(jloList);
-		System.out.println(jbList);
+
 	}
 	
 	//animal buttons
@@ -254,11 +263,14 @@ public class CelebTestController {
 	
 	@FXML
 	void setAnimalAnswer (ActionEvent event) {
+		
 		allButtonsPressed += 1;
+		
+		//this is able to tell me what button was pressed by returning the fx id
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-		//System.out.println(id);
-		
+
+		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "DogAnimalButton", 5.0);
 		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
@@ -268,6 +280,7 @@ public class CelebTestController {
 		jloList.add(buttonQuestion2.getPercentage());
 		jbList.add(buttonQuestion2.getPercentage());
 		
+		//using class method isButtonPressed, it will determine which button we need to disable
 		DogAnimalButton.setDisable((buttonQuestion1.isButtonPressed()));
 		CatAnimalButton.setDisable(buttonQuestion2.isButtonPressed());
 	}
@@ -334,43 +347,42 @@ public class CelebTestController {
  
  
 		//Spontaneous Slider Method
-		void sponSlider (double sliderValue) {
+	void sponSlider (double sliderValue) {
 		answerAllQuestions = true;
 	
-			if (sliderValue >= 0 && sliderValue <= 2.5) {
-				jloList.add(10.0);			
-			}
-			if (sliderValue >= 2.5 && sliderValue <= 5) {
-				jbList.add(10.0);			
-			}
-			if (sliderValue >= 5 && sliderValue <= 7.5) {
-				tsList.add(10.0);			
-			}
-			if (sliderValue >= 7.5 && sliderValue <= 10) {
-				kwList.add(10.0);
-						
-			}
+		if (sliderValue >= 0 && sliderValue <= 2.5) {
+			jloList.add(10.0);			
 		}
+		if (sliderValue >= 2.5 && sliderValue <= 5) {
+			jbList.add(10.0);			
+		}
+		if (sliderValue >= 5 && sliderValue <= 7.5) {
+			tsList.add(10.0);			
+		}
+		if (sliderValue >= 7.5 && sliderValue <= 10) {
+			kwList.add(10.0);			
+		}
+	}
 		//Intro/Extro Slider Method 
-		void introSlider (double sliderValue) {
+	void introSlider (double sliderValue) {
 			answerAllQuestions = true;
 	
-			if (sliderValue >= 0 && sliderValue <= 2.5) {
-				tsList.add(10.0);
+		if (sliderValue >= 0 && sliderValue <= 2.5) {
+			tsList.add(10.0);
 						
-			}
-			if (sliderValue >= 2.5 && sliderValue <= 5) {
-				jloList.add(10.0);
+		}
+		if (sliderValue >= 2.5 && sliderValue <= 5) {
+			jloList.add(10.0);
 						
-			}
-			if (sliderValue >= 5 && sliderValue <= 7.5) {
-				jbList.add(10.0);
-						
-			}
-			if (sliderValue >= 7.5 && sliderValue <= 10) {
-				kwList.add(10.0);
-						
-			}	
+		}
+		if (sliderValue >= 5 && sliderValue <= 7.5) {
+			jbList.add(10.0);
+					
+		}
+		if (sliderValue >= 7.5 && sliderValue <= 10) {
+			kwList.add(10.0);
+					
+		}	
 	}
 
 	String verifyNames(String personName) {
