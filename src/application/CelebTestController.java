@@ -16,6 +16,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class CelebTestController {
@@ -24,6 +25,18 @@ public class CelebTestController {
 	private Parent root;
 	private Stage stage;
 	private Scene scene; 
+	
+	boolean answerAllQuestions = false;
+	
+	boolean answerZodaic = false;
+	
+	boolean answerName = false;
+	
+	boolean answerAge = false;
+	
+	double allButtonsPressed = 0;
+	
+	boolean buttonsPressed = false;
 	
 	ArrayList<Double> jbList = new ArrayList<Double>();
 	ArrayList<Double> jloList = new ArrayList<Double>();
@@ -44,6 +57,11 @@ public class CelebTestController {
 	private Label ageErrorLabel;
 
 	@FXML
+	
+	private Label mainErrorLabel;
+
+
+	@FXML
     	private Button startButton;
    
 	@FXML
@@ -51,7 +69,7 @@ public class CelebTestController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/QuestionView.fxml"));
-			Scene secondaryScene = new Scene(root,300,700);
+			Scene secondaryScene = new Scene(root,400,700);
 			secondaryScene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 			
 			applicationStage.setScene(secondaryScene);
@@ -81,44 +99,33 @@ public class CelebTestController {
 	
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
+		
+	     allButtonsPressed += 1;
 		//this is able to tell me what button was pressed by returning the fx id
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-		//System.out.println(id);
+		
 
-		if (id.equals("PizzaFoodButton")) {
-			jloList.add(10.0);
-			PizzaFoodButton.setStyle("-fx-background-color: White");
-			//if this button gets pressed I am disabling all the other ones so it is impossible to 
-			//click another
-			SushiFoodButton.setDisable(true);
-			IceCreamFoodButton.setDisable(true);
-			PastaFoodButton.setDisable(true);
-		}
-		if (id.equals("SushiFoodButton")) {
-			jbList.add(10.0);
-			SushiFoodButton.setStyle("-fx-background-color: White");
-			
-			PizzaFoodButton.setDisable(true);
-			IceCreamFoodButton.setDisable(true);
-			PastaFoodButton.setDisable(true);
-		}
-		if (id.equals("PastaFoodButton")) {
-			kwList.add(10.0);
-			PastaFoodButton.setStyle("-fx-background-color: White");
-			
-			SushiFoodButton.setDisable(true);
-			IceCreamFoodButton.setDisable(true);
-			PizzaFoodButton.setDisable(true);
-		}
-		if (id.equals("IceCreamFoodButton")) {
-			tsList.add(10.0);
-			IceCreamFoodButton.setStyle("-fx-background-color: White");
-			
-			SushiFoodButton.setDisable(true);
-			PizzaFoodButton.setDisable(true);
-			PastaFoodButton.setDisable(true);
-		}
+		Question buttonQuestion1 = new Question(id, "PizzaFoodButton");
+		buttonQuestion1.match();
+		kwList.add(buttonQuestion1.getPercentage());
+		Question buttonQuestion2 = new Question(id, "SushiFoodButton");
+		buttonQuestion2.match();
+		jloList.add(buttonQuestion2.getPercentage());
+		Question buttonQuestion3 = new Question(id, "PastaFoodButton");
+		buttonQuestion3.match();
+		jbList.add(buttonQuestion3.getPercentage());
+		Question buttonQuestion4 = new Question(id,"IceCreamFoodButton");
+		buttonQuestion4.match();
+		tsList.add(buttonQuestion4.getPercentage());
+		
+		PizzaFoodButton.setDisable((buttonQuestion1.isButtonPressed()));
+		SushiFoodButton.setDisable(buttonQuestion2.isButtonPressed());
+		IceCreamFoodButton.setDisable((buttonQuestion4.isButtonPressed()));
+		PastaFoodButton.setDisable((buttonQuestion3.isButtonPressed()));
+		
+	
+   
 	}
 	
 	//season buttons
@@ -136,42 +143,31 @@ public class CelebTestController {
 	
 	@FXML
 	void setSeasonAnswer (ActionEvent event) {
+		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
+		
 
-		if (id.equals("FallSeasonButton")) {
-			jbList.add(10.0);
-			FallSeasonButton.setStyle("-fx-background-color: Coral");
-			//if this button gets pressed I am disabling all the other ones so it is impossible to 
-			//click another
-			WinterSeasonButton.setDisable(true);
-			SpringSeasonButton.setDisable(true);
-			SummerSeasonButton.setDisable(true);
-		}
-		if (id.equals("WinterSeasonButton")) {
-			kwList.add(10.0);
-			WinterSeasonButton.setStyle("-fx-background-color: Turquoise");
-			
-			FallSeasonButton.setDisable(true);
-			SpringSeasonButton.setDisable(true);
-			SummerSeasonButton.setDisable(true);
-		}
-		if (id.equals("SpringSeasonButton")) {
-			tsList.add(10.0);
-			SpringSeasonButton.setStyle("-fx-background-color: Pink");
-			
-			WinterSeasonButton.setDisable(true);
-			FallSeasonButton.setDisable(true);
-			SummerSeasonButton.setDisable(true);
-		}
-		if (id.equals("SummerSeasonButton")) {
-			jloList.add(10.0);
-			SummerSeasonButton.setStyle("-fx-background-color: Khaki");
-			
-			WinterSeasonButton.setDisable(true);
-			SpringSeasonButton.setDisable(true);
-			FallSeasonButton.setDisable(true);
-		}
+		Question buttonQuestion1 = new Question(id, "FallSeasonButton");
+		buttonQuestion1.match();
+		kwList.add(buttonQuestion1.getPercentage());
+		Question buttonQuestion2 = new Question(id, "WinterSeasonButton");
+		buttonQuestion2.match();
+		jloList.add(buttonQuestion2.getPercentage());
+		Question buttonQuestion3 = new Question(id,"SpringSeasonButton");
+		buttonQuestion3.match();
+		jbList.add(buttonQuestion3.getPercentage());
+		Question buttonQuestion4 = new Question(id,"SummerSeasonButton");
+		buttonQuestion4.match();
+		tsList.add(buttonQuestion4.getPercentage());
+		
+		WinterSeasonButton.setDisable((buttonQuestion2.isButtonPressed()));
+		SpringSeasonButton.setDisable(buttonQuestion3.isButtonPressed());
+		SummerSeasonButton.setDisable((buttonQuestion4.isButtonPressed()));
+		FallSeasonButton.setDisable((buttonQuestion1.isButtonPressed()));
+		
+	
+	
 		
 	}
 	
@@ -190,42 +186,30 @@ public class CelebTestController {
 	
 	@FXML
 	void setColourAnswer (ActionEvent event) {
+		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
+		
 
-		if (id.equals("RedColourButton")) {
-			kwList.add(10.0);
-			RedColourButton.setStyle("-fx-background-color: firebrick");
-			//if this button gets pressed I am disabling all the other ones so it is impossible to 
-			//click another
-			GreenColourButton.setDisable(true);
-			BlueColourButton.setDisable(true);
-			YellowColourButton.setDisable(true);
-		}
-		if (id.equals("GreenColourButton")) {
-			jbList.add(10.0);
-			GreenColourButton.setStyle("-fx-background-color: mediumseagreen");
-			
-			RedColourButton.setDisable(true);
-			BlueColourButton.setDisable(true);
-			YellowColourButton.setDisable(true);
-		}
-		if (id.equals("YellowColourButton")) {
-			tsList.add(10.0);
-			YellowColourButton.setStyle("-fx-background-color: Khaki");
-			
-			GreenColourButton.setDisable(true);
-			BlueColourButton.setDisable(true);
-			RedColourButton.setDisable(true);
-		}
-		if (id.equals("BlueColourButton")) {
-			jloList.add(10.0);
-			BlueColourButton.setStyle("-fx-background-color: Turquoise");
-			
-			GreenColourButton.setDisable(true);
-			RedColourButton.setDisable(true);
-			YellowColourButton.setDisable(true);
-		}
+		Question buttonQuestion1 = new Question(id, "RedColourButton");
+		buttonQuestion1.match();
+		kwList.add(buttonQuestion1.getPercentage());
+		Question buttonQuestion2 = new Question(id, "GreenColourButton");
+		buttonQuestion2.match();
+		jloList.add(buttonQuestion2.getPercentage());
+		Question buttonQuestion3 = new Question(id,"YellowColourButton");
+		buttonQuestion3.match();
+		jbList.add(buttonQuestion3.getPercentage());
+		Question buttonQuestion4 = new Question(id,"BlueColourButton");
+		buttonQuestion4.match();
+		tsList.add(buttonQuestion4.getPercentage());
+		
+		GreenColourButton.setDisable((buttonQuestion2.isButtonPressed()));
+		BlueColourButton.setDisable(buttonQuestion4.isButtonPressed());
+		YellowColourButton.setDisable((buttonQuestion3.isButtonPressed()));
+		RedColourButton.setDisable((buttonQuestion1.isButtonPressed()));
+		
+
 	}
 	
 	//music buttons
@@ -243,43 +227,40 @@ public class CelebTestController {
 	
 	@FXML
 	void setMusicAnswer (ActionEvent event) {
+		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
+		
+		//System.out.println(id);
+		
+		
+		Question buttonQuestion1 = new Question(id, "RapMusicButton");
+		buttonQuestion1.match();
+		kwList.add(buttonQuestion1.getPercentage());
+		Question buttonQuestion2 = new Question(id, "PopMusicButton");
+		buttonQuestion2.match();
+		jloList.add(buttonQuestion2.getPercentage());
+		Question buttonQuestion3 = new Question(id,"ClassicalMusicButton");
+		buttonQuestion3.match();
+		jbList.add(buttonQuestion3.getPercentage());
+		Question buttonQuestion4 = new Question(id,"IndieMusicButton");
+		buttonQuestion4.match();
+		tsList.add(buttonQuestion4.getPercentage());
+		
+		RapMusicButton.setDisable((buttonQuestion1.isButtonPressed()));
+		PopMusicButton.setDisable(buttonQuestion2.isButtonPressed());
+		ClassicalMusicButton.setDisable((buttonQuestion3.isButtonPressed()));
+		IndieMusicButton.setDisable((buttonQuestion4.isButtonPressed()));
+		
+				
+		
+		System.out.println(kwList);
+		System.out.println(tsList);
+		System.out.println(jloList);
+		System.out.println(jbList);
 
-		if (id.equals("RapMusicButton")) {
-			kwList.add(10.0);
-			RapMusicButton.setStyle("-fx-background-color: White");
-			//if this button gets pressed I am disabling all the other ones so it is impossible to 
-			//click another
-			PopMusicButton.setDisable(true);
-			IndieMusicButton.setDisable(true);
-			ClassicalMusicButton.setDisable(true);
 		}
-		if (id.equals("PopMusicButton")) {
-			jbList.add(10.0);
-			PopMusicButton.setStyle("-fx-background-color: White");
-			
-			RapMusicButton.setDisable(true);
-			IndieMusicButton.setDisable(true);
-			ClassicalMusicButton.setDisable(true);
-		}
-		if (id.equals("IndieMusicButton")) {
-			tsList.add(10.0);
-			IndieMusicButton.setStyle("-fx-background-color: White");
-			
-			PopMusicButton.setDisable(true);
-			RapMusicButton.setDisable(true);
-			ClassicalMusicButton.setDisable(true);
-		}
-		if (id.equals("ClassicalMusicButton")) {
-			jloList.add(10.0);
-			ClassicalMusicButton.setStyle("-fx-background-color: White");
-			
-			PopMusicButton.setDisable(true);
-			IndieMusicButton.setDisable(true);
-			RapMusicButton.setDisable(true);
-		}
-	}
+
 	
 	//animal buttons
 	@FXML 
@@ -290,27 +271,24 @@ public class CelebTestController {
 	
 	@FXML
 	void setAnimalAnswer (ActionEvent event) {
+		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 		//System.out.println(id);
-
-		if (id.equals("CatAnimalButton")) {
-			//there are two celebs who like cats so I split the percentage in half equally
-			jbList.add(5.0);
-			jloList.add(5.0);
 		
-			CatAnimalButton.setStyle("-fx-background-color: White");
-			//if this button gets pressed I am disabling all the other ones so it is impossible to 
-			//click another
-			DogAnimalButton.setDisable(true);
-		}
-		if (id.equals("DogAnimalButton")) {
-			tsList.add(5.0);
-			kwList.add(5.0);
-			DogAnimalButton.setStyle("-fx-background-color: White");
-			
-			CatAnimalButton.setDisable(true);
-		}
+
+		Question buttonQuestion1 = new Question(id, "DogAnimalButton", 5.0);
+		buttonQuestion1.match();
+		kwList.add(buttonQuestion1.getPercentage());
+		tsList.add(buttonQuestion1.getPercentage());
+		Question buttonQuestion2 = new Question(id, "CatAnimalButton", 5.0);
+		buttonQuestion2.match();
+		jloList.add(buttonQuestion2.getPercentage());
+		jbList.add(buttonQuestion2.getPercentage());
+		
+		DogAnimalButton.setDisable((buttonQuestion1.isButtonPressed()));
+		CatAnimalButton.setDisable(buttonQuestion2.isButtonPressed());
+		
 	}
 	
 	@FXML
@@ -374,6 +352,7 @@ public class CelebTestController {
   
 		//Spontaneous Slider Method
 		void sponSlider (double sliderValue) {
+		answerAllQuestions = true;
 	
 			if (sliderValue >= 0 && sliderValue <= 2.5) {
 				jloList.add(10.0);			
@@ -391,6 +370,7 @@ public class CelebTestController {
 		}
 		//Intro/Extro Slider Method 
 		void introSlider (double sliderValue) {
+			answerAllQuestions = true;
 	
 			if (sliderValue >= 0 && sliderValue <= 2.5) {
 				tsList.add(10.0);
@@ -414,19 +394,23 @@ public class CelebTestController {
 		// initialization of variables
 		boolean validName = true;
 		char invalidChar = Character.MIN_VALUE;
+	
 		
 		for (char c : personName.toCharArray()) {
 			// if the current character c has an ASCII table value of the following, do this
    	  		if  ((c >= '!' && c <= '@') || (c >= '[' && c <= '`') || (c >= '{' && c <= '~') ) {
    	  			validName = false;
    	  			invalidChar = c;
+   	  	
    	  		} 
    	  		if (!(validName)) {
+   	  		    nameErrorLabel.setTextFill(Color.DARKRED);
    	  			nameErrorLabel.setText("Do not use " + invalidChar + " in your name. Please enter a valid name.");
    	  		} 
 	    }
 		if (validName) {
 			nameErrorLabel.setText("");
+			
 			return personName;
 		} else {
 			return "";
@@ -435,6 +419,7 @@ public class CelebTestController {
 	
 	
 	void calculateNames(String personName) {
+		
 		// inialization of variables
 		double charCountJB = 0;
 		double charCountKW = 0;
@@ -527,19 +512,24 @@ public class CelebTestController {
 		   	  	if  (!(c >= '0' && c <= '9')) {
 		   	  		validAge = false;
 		   	  		invalidChar = c;
+		   	 	  
 		   	  	} else {
 		   	  		validAge = true;
 		   	  	}
 		   	  	if (!(validAge)) {
 		   	  		ageErrorLabel.setText("Do not use " + invalidChar + " in your Age. Please enter a valid Age.");
+		   	 	   
 		   	  	} 
 			}
 			if (validAge) {
+				answerAllQuestions = true;
 				Double doubleAge = Double.parseDouble(personAge);	
 				if (doubleAge < 16) { // must be 16+
-					ageErrorLabel.setText("Sorry, you are too young to take this test. Please try again.");
+					ageErrorLabel.setTextFill(Color.DARKRED);				
+					ageErrorLabel.setText("Sorry, must be 16+");
 				} else if (doubleAge > 60) { //must be 60-
-					ageErrorLabel.setText("Sorry, unfortunately you are too old to take this test (60 or less). Please try again.");
+					ageErrorLabel.setTextFill(Color.DARKRED);
+					ageErrorLabel.setText("Sorry, must be 60-");
 				} else {
 					age = age + doubleAge;
 					ageErrorLabel.setText("");
@@ -566,6 +556,7 @@ public class CelebTestController {
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
 		
+		
 		for (int i=0; i<celebList.size(); i++ ) {
 			double percent = celebList.get(i);
 			totalPercent += percent;
@@ -575,22 +566,22 @@ public class CelebTestController {
 	
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
-		//Changes screen to final view scene
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
-		root = loader.load();
-				
-		FinalViewController finalViewController = loader.getController();
-
-			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
-			stage.setScene(scene);
-			stage.show();
-
+		System.out.println(jbList);
+		System.out.println(jloList);
+		System.out.println(tsList);
+		System.out.println(kwList);
+		
+		System.out.println(allButtonsPressed);
+		
+        if(allButtonsPressed <5) {
+        	buttonsPressed = false;
+        } else {
+        	buttonsPressed = true;
+        }
+		
 
 		//calling zodiac method
-		String sign = ZodiacSignChoiceBox.getValue();
-		getZodiacSignAnswer(sign);
+      
 
   	        // Testing Slider Methods 
 		double valueSpon = SpontaneousSlider.getValue();
@@ -600,15 +591,17 @@ public class CelebTestController {
 		introSlider(valueIntro);
 		
 		//checking calculate age method
-		Double age = Double.parseDouble(ageTextField.getText());
-		calculateAge(age);
+	
+		
 
 		// testing person name
 		if (nameTextField.getText().equals("")) {
-			nameErrorLabel.setText("Please enter your first and last name.");
+			nameErrorLabel.setText("Please enter your full name.");
+			answerName = false;
 		} else {
 			String personName = nameTextField.getText();
 			String verifiedPersonName = verifyNames(personName);
+			answerName = true;
 			if (verifiedPersonName.equals("")) {
 				System.out.print('\n' + verifiedPersonName + '\n');
 			} else {
@@ -622,17 +615,32 @@ public class CelebTestController {
 		// testing person age
 		if (ageTextField.getText().equals("")) {
 			ageErrorLabel.setText("Please enter your age.");
+			answerAge = false;
+			
 		} else {
 			String personAge = ageTextField.getText();
 			double verifiedPersonAge = verifyAge(personAge);
+			answerAge = true;
+			
 			System.out.print('\n' + "User is: "  + verifiedPersonAge + " Years old" + '\n');
 			calculateAge(verifiedPersonAge);
 		}
+		
+		if( ZodiacSignChoiceBox.getValue() == null) {
+			 answerZodaic = false;
+        }else {
+		String sign = ZodiacSignChoiceBox.getValue();
+		 answerZodaic = true;
+		getZodiacSignAnswer(sign);}
+		
+		  
 		System.out.println("---Our Final list Results---");
 		System.out.println("Justin Bieber List: " + jbList);
 		System.out.println("Jennifer Lopez List: " + jloList);
 		System.out.println("Taylor Swift list: " + tsList);
 		System.out.println("Kanye West list: " + kwList);
+		
+		
 		
 		//calculating final compatibility
 		double jb = calculateCompatibility(jbList);
@@ -640,6 +648,22 @@ public class CelebTestController {
 		double ts = calculateCompatibility(tsList);
 		double kw = calculateCompatibility(kwList);
 		   
+		
+	   if (buttonsPressed == true &&  answerZodaic == true && answerName == true
+			&&   answerAge == true) {
+		//Changes screen to final view scene
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+		root = loader.load();
+				
+		FinalViewController finalViewController = loader.getController();
+
+			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
+			stage.setScene(scene);
+			stage.show();
+
+
 		// final compatibility scores
 		System.out.println("Justin Bieber Compatibility: " + jb);
 		System.out.println("Jennifer Lopez Compatibility: " + jlo);
@@ -650,8 +674,15 @@ public class CelebTestController {
 		finalViewController.createBarGraph(jb, jlo, kw, ts);
 		finalViewController.createPieChart(jb, jlo, kw, ts);
 		finalViewController.setLabel(jb, jlo, kw, ts, nameTextField.getText());
+
+	} else {
+		System.out.println("failed");
+		 mainErrorLabel.setTextFill(Color.DARKRED);
+		 mainErrorLabel.setText("Please Answer All Questions");
+	}
+	   
 	}
 
 
-
 }
+
