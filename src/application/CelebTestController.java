@@ -293,8 +293,6 @@ public class CelebTestController {
 	
 	
 	void getZodiacSignAnswer (String signSelected) {
-		
-
 		if(signSelected.equals("Sagittarius")) {
 			jloList.add(10.0);
 			//match with Jennifer Lopez who is Leo
@@ -346,43 +344,26 @@ public class CelebTestController {
 	private Button DoneButton;
  
  
-		//Spontaneous Slider Method
-	void sponSlider (double sliderValue) {
+	//Spontaneous Slider Method
+	void findSpontaneousMatch (double sliderPercentage) {
 		answerAllQuestions = true;
-	
-		if (sliderValue >= 0 && sliderValue <= 2.5) {
-			jloList.add(10.0);			
-		}
-		if (sliderValue >= 2.5 && sliderValue <= 5) {
-			jbList.add(10.0);			
-		}
-		if (sliderValue >= 5 && sliderValue <= 7.5) {
-			tsList.add(10.0);			
-		}
-		if (sliderValue >= 7.5 && sliderValue <= 10) {
-			kwList.add(10.0);			
-		}
+		
+		if (sliderPercentage >= 0 && sliderPercentage <= 2.5) jloList.add(sliderPercentage);			
+		else if (sliderPercentage > 2.5 && sliderPercentage < 5) jbList.add(sliderPercentage);			
+		else if (sliderPercentage > 5 && sliderPercentage < 7.5) tsList.add(sliderPercentage);			
+		else if (sliderPercentage >= 7.5 && sliderPercentage <= 10) kwList.add(sliderPercentage);		
+		else answerAllQuestions = false;
 	}
-		//Intro/Extro Slider Method 
-	void introSlider (double sliderValue) {
-			answerAllQuestions = true;
 	
-		if (sliderValue >= 0 && sliderValue <= 2.5) {
-			tsList.add(10.0);
-						
-		}
-		if (sliderValue >= 2.5 && sliderValue <= 5) {
-			jloList.add(10.0);
-						
-		}
-		if (sliderValue >= 5 && sliderValue <= 7.5) {
-			jbList.add(10.0);
-					
-		}
-		if (sliderValue >= 7.5 && sliderValue <= 10) {
-			kwList.add(10.0);
-					
-		}	
+	//Intro and Extro Slider Method 
+	void findIntrovertExtrovertMatch(double sliderPercentage) {
+		answerAllQuestions = true;
+		
+		if (sliderPercentage >= 0 && sliderPercentage <= 3.75) tsList.add(sliderPercentage);
+		else if (sliderPercentage > 3.75 && sliderPercentage < 7.5) jloList.add(sliderPercentage);
+		else if (sliderPercentage > 7.5 && sliderPercentage < 11.25) jbList.add(sliderPercentage);
+		else if (sliderPercentage >= 11.25 && sliderPercentage <= 15.0) kwList.add(sliderPercentage);
+		else answerAllQuestions = false;
 	}
 
 	String verifyNames(String personName) {
@@ -548,9 +529,9 @@ public class CelebTestController {
 		}
 
 	}
+	
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
-		
 		
 		for (int i=0; i<celebList.size(); i++ ) {
 			double percent = celebList.get(i);
@@ -561,36 +542,24 @@ public class CelebTestController {
 	
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
-		//Changes screen to final view scene
-/*		FXMLLoader loader = new FXMLLoader(getClass().getResource("FinalView.fxml"));
-		root = loader.load();
-				
-		FinalViewController finalViewController = loader.getController();
-				
-		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show(); */
 		
-		System.out.println(jbList);
-		System.out.println(jloList);
-		System.out.println(tsList);
-		System.out.println(kwList);
-		
-		System.out.println(allButtonsPressed);
-		
-        if(allButtonsPressed <5) {
+		System.out.println("Total Value of allButtonsPressed: " + allButtonsPressed);
+        if(allButtonsPressed < 5) {
         	buttonsPressed = false;
         } else {
         	buttonsPressed = true;
         }
 
-  	    // Testing Slider Methods 
-		double valueSpon = SpontaneousSlider.getValue();
-		sponSlider(valueSpon);
+  	    // Calling Spontaneous Slider Methods 
+		double valueSpontaneousSlider = SpontaneousSlider.getValue();
+		Question spontaneousSliderQuestion = new Question(valueSpontaneousSlider, 10.0);
+		findIntrovertExtrovertMatch(spontaneousSliderQuestion.getPercentage());
 		
-		double valueIntro = IntroExtroSlider.getValue();
-		introSlider(valueIntro);
+		// Calling Introvert or Extrovert Slider Methods 
+		double valueIntrovertExtrovertSlider = IntroExtroSlider.getValue();
+		Question IntrovertExtrovertSlider = new Question(valueIntrovertExtrovertSlider, 15.0);
+		findIntrovertExtrovertMatch(IntrovertExtrovertSlider.getPercentage());
+		
 
 		// testing person name
 		if (nameTextField.getText().equals("")) {
@@ -632,7 +601,7 @@ public class CelebTestController {
 		getZodiacSignAnswer(sign);
 		}
 		
-		  
+		// prints all final data collected from all questions in a list  
 		System.out.println("---Our Final list Results---");
 		System.out.println("Justin Bieber List: " + jbList);
 		System.out.println("Jennifer Lopez List: " + jloList);
@@ -641,7 +610,7 @@ public class CelebTestController {
 		
 		
 		
-		//calculating final compatibility
+		// calculating final compatibility
 		double jb = calculateCompatibility(jbList);
 		double jlo = calculateCompatibility(jloList);
 		double ts = calculateCompatibility(tsList);
