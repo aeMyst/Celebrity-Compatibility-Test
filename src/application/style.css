@@ -1,11 +1,6 @@
 
 #rooter{
-    -fx-background-image: url(https://wallpapercave.com/wp/wp3288221.jpg);
-}
-
-
-@font-face {
-    src: url(Montserrat-Regular.ttf),
+   -fx-background-color: linear-gradient(to bottom, #6a5acd, coral);
 }
 
 
@@ -32,7 +27,7 @@
 
 .choice-box .menu-item > .label { -fx-text-fill: black; }
 
-.choice-box { -fx-background-color: violet; }
+.choice-box { -fx-background-color: #6a5acd; }
 
 
 .slider .thumb{

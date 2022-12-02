@@ -40,7 +40,8 @@ public class CelebTestController {
 	ArrayList<Double> jbList = new ArrayList<Double>();
 	ArrayList<Double> jloList = new ArrayList<Double>();
 	ArrayList<Double> tsList = new ArrayList<Double>();
-	ArrayList<Double> kwList = new ArrayList<Double>();
+	ArrayList<Double> kwList = new ArrayList<Double>();	
+	
 	
 	
 		
@@ -100,48 +101,28 @@ public class CelebTestController {
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
 		
-	     allButtonsPressed += 1;
+	  allButtonsPressed += 1;
 		//this is able to tell me what button was pressed by returning the fx id
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-		//System.out.println(id);
-
-		if (id.equals("PizzaFoodButton")) {
-			jloList.add(10.0);
-			PizzaFoodButton.setStyle("-fx-background-color: White");
-			//if this button gets pressed I am disabling all the other ones so it is impossible to 
-			//click another
-			SushiFoodButton.setDisable(true);
-			IceCreamFoodButton.setDisable(true);
-			PastaFoodButton.setDisable(true);
-		}
-		if (id.equals("SushiFoodButton")) {
-			jbList.add(10.0);
-			SushiFoodButton.setStyle("-fx-background-color: White");
-			
-			PizzaFoodButton.setDisable(true);
-			IceCreamFoodButton.setDisable(true);
-			PastaFoodButton.setDisable(true);
-		}
-		if (id.equals("PastaFoodButton")) {
-			kwList.add(10.0);
-			PastaFoodButton.setStyle("-fx-background-color: White");
-			
-			SushiFoodButton.setDisable(true);
-			IceCreamFoodButton.setDisable(true);
-			PizzaFoodButton.setDisable(true);
-		}
-		if (id.equals("IceCreamFoodButton")) {
-			tsList.add(10.0);
-			IceCreamFoodButton.setStyle("-fx-background-color: White");
-			
-			SushiFoodButton.setDisable(true);
-			PizzaFoodButton.setDisable(true);
-			PastaFoodButton.setDisable(true);
-		}
-		if (id.equals("")) {
-			//do something
-		}
+		
+		Question buttonQuestion1 = new Question(id, "PizzaFoodButton");
+		buttonQuestion1.match();
+		kwList.add(buttonQuestion1.getPercentage());
+		Question buttonQuestion2 = new Question(id, "SushiFoodButton");
+		buttonQuestion2.match();
+		jloList.add(buttonQuestion2.getPercentage());
+		Question buttonQuestion3 = new Question(id, "PastaFoodButton");
+		buttonQuestion3.match();
+		jbList.add(buttonQuestion3.getPercentage());
+		Question buttonQuestion4 = new Question(id,"IceCreamFoodButton");
+		buttonQuestion4.match();
+		tsList.add(buttonQuestion4.getPercentage());
+		
+		PizzaFoodButton.setDisable((buttonQuestion1.isButtonPressed()));
+		SushiFoodButton.setDisable(buttonQuestion2.isButtonPressed());
+		IceCreamFoodButton.setDisable((buttonQuestion4.isButtonPressed()));
+		PastaFoodButton.setDisable((buttonQuestion3.isButtonPressed()));
 	}
 	
 	//season buttons
@@ -162,43 +143,24 @@ public class CelebTestController {
 		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-
-		if (id.equals("FallSeasonButton")) {
-			jbList.add(10.0);
-			FallSeasonButton.setStyle("-fx-background-color: Orange");
-			//if this button gets pressed I am disabling all the other ones so it is impossible to 
-			//click another
-			WinterSeasonButton.setDisable(true);
-			SpringSeasonButton.setDisable(true);
-			SummerSeasonButton.setDisable(true);
-		}
-		if (id.equals("WinterSeasonButton")) {
-			kwList.add(10.0);
-			WinterSeasonButton.setStyle("-fx-background-color: Turquoise");
-			
-			FallSeasonButton.setDisable(true);
-			SpringSeasonButton.setDisable(true);
-			SummerSeasonButton.setDisable(true);
-		}
-		if (id.equals("SpringSeasonButton")) {
-			tsList.add(10.0);
-			SpringSeasonButton.setStyle("-fx-background-color: Pink");
-			
-			WinterSeasonButton.setDisable(true);
-			FallSeasonButton.setDisable(true);
-			SummerSeasonButton.setDisable(true);
-		}
-		if (id.equals("SummerSeasonButton")) {
-			jloList.add(10.0);
-			SummerSeasonButton.setStyle("-fx-background-color: Yellow");
-			
-			WinterSeasonButton.setDisable(true);
-			SpringSeasonButton.setDisable(true);
-			FallSeasonButton.setDisable(true);
-		}
-		if (id.equals("")) {
-			//do something
-		}
+		
+		Question buttonQuestion1 = new Question(id, "FallSeasonButton");
+		buttonQuestion1.match();
+		kwList.add(buttonQuestion1.getPercentage());
+		Question buttonQuestion2 = new Question(id, "WinterSeasonButton");
+		buttonQuestion2.match();
+		jloList.add(buttonQuestion2.getPercentage());
+		Question buttonQuestion3 = new Question(id,"SpringSeasonButton");
+		buttonQuestion3.match();
+		jbList.add(buttonQuestion3.getPercentage());
+		Question buttonQuestion4 = new Question(id,"SummerSeasonButton");
+		buttonQuestion4.match();
+		tsList.add(buttonQuestion4.getPercentage());
+		
+		WinterSeasonButton.setDisable((buttonQuestion2.isButtonPressed()));
+		SpringSeasonButton.setDisable(buttonQuestion3.isButtonPressed());
+		SummerSeasonButton.setDisable((buttonQuestion4.isButtonPressed()));
+		FallSeasonButton.setDisable((buttonQuestion1.isButtonPressed()));
 	}
 	
 	//colour buttons
@@ -219,43 +181,24 @@ public class CelebTestController {
 		allButtonsPressed += 1;
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
-
-		if (id.equals("RedColourButton")) {
-			kwList.add(10.0);
-			RedColourButton.setStyle("-fx-background-color: Red");
-			//if this button gets pressed I am disabling all the other ones so it is impossible to 
-			//click another
-			GreenColourButton.setDisable(true);
-			BlueColourButton.setDisable(true);
-			YellowColourButton.setDisable(true);
-		}
-		if (id.equals("GreenColourButton")) {
-			jbList.add(10.0);
-			GreenColourButton.setStyle("-fx-background-color: Green");
-			
-			RedColourButton.setDisable(true);
-			BlueColourButton.setDisable(true);
-			YellowColourButton.setDisable(true);
-		}
-		if (id.equals("YellowColourButton")) {
-			tsList.add(10.0);
-			YellowColourButton.setStyle("-fx-background-color: Yellow");
-			
-			GreenColourButton.setDisable(true);
-			BlueColourButton.setDisable(true);
-			RedColourButton.setDisable(true);
-		}
-		if (id.equals("BlueColourButton")) {
-			jloList.add(10.0);
-			BlueColourButton.setStyle("-fx-background-color: Turquoise");
-			
-			GreenColourButton.setDisable(true);
-			RedColourButton.setDisable(true);
-			YellowColourButton.setDisable(true);
-		}
-		if (id.equals("")) {
-			//do something
-		}
+	
+		Question buttonQuestion1 = new Question(id, "RedColourButton");
+		buttonQuestion1.match();
+		kwList.add(buttonQuestion1.getPercentage());
+		Question buttonQuestion2 = new Question(id, "GreenColourButton");
+		buttonQuestion2.match();
+		jloList.add(buttonQuestion2.getPercentage());
+		Question buttonQuestion3 = new Question(id,"YellowColourButton");
+		buttonQuestion3.match();
+		jbList.add(buttonQuestion3.getPercentage());
+		Question buttonQuestion4 = new Question(id,"BlueColourButton");
+		buttonQuestion4.match();
+		tsList.add(buttonQuestion4.getPercentage());
+		
+		GreenColourButton.setDisable((buttonQuestion2.isButtonPressed()));
+		BlueColourButton.setDisable(buttonQuestion4.isButtonPressed());
+		YellowColourButton.setDisable((buttonQuestion3.isButtonPressed()));
+		RedColourButton.setDisable((buttonQuestion1.isButtonPressed()));
 	}
 	
 	//music buttons
@@ -277,47 +220,29 @@ public class CelebTestController {
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 		//System.out.println(id);
-
-		if (id.equals("RapMusicButton")) {
-			kwList.add(10.0);
-			//celebDictionary.put("Kanye West", 10.0);
-			RapMusicButton.setStyle("-fx-background-color: White");
-			//if this button gets pressed I am disabling all the other ones so it is impossible to 
-			//click another
-			PopMusicButton.setDisable(true);
-			IndieMusicButton.setDisable(true);
-			ClassicalMusicButton.setDisable(true);
-		}
-		if (id.equals("PopMusicButton")) {
-			jbList.add(10.0);
-			//celebDictionary.put("Justin Beiber", 10.0);
-			PopMusicButton.setStyle("-fx-background-color: White");
-			
-			RapMusicButton.setDisable(true);
-			IndieMusicButton.setDisable(true);
-			ClassicalMusicButton.setDisable(true);
-		}
-		if (id.equals("IndieMusicButton")) {
-			tsList.add(10.0);
-			//celebDictionary.put("Taylor Swift", 10.0);
-			IndieMusicButton.setStyle("-fx-background-color: White");
-			
-			PopMusicButton.setDisable(true);
-			RapMusicButton.setDisable(true);
-			ClassicalMusicButton.setDisable(true);
-		}
-		if (id.equals("ClassicalMusicButton")) {
-			jloList.add(10.0);
-			//celebDictionary.put("Jennifer Lopez", 10.0);
-			ClassicalMusicButton.setStyle("-fx-background-color: White");
-			
-			PopMusicButton.setDisable(true);
-			IndieMusicButton.setDisable(true);
-			RapMusicButton.setDisable(true);
-		}
-		if (id.equals("")) {
-			//do something
-		}
+    
+		Question buttonQuestion1 = new Question(id, "RapMusicButton");
+		buttonQuestion1.match();
+		kwList.add(buttonQuestion1.getPercentage());
+		Question buttonQuestion2 = new Question(id, "PopMusicButton");
+		buttonQuestion2.match();
+		jloList.add(buttonQuestion2.getPercentage());
+		Question buttonQuestion3 = new Question(id,"ClassicalMusicButton");
+		buttonQuestion3.match();
+		jbList.add(buttonQuestion3.getPercentage());
+		Question buttonQuestion4 = new Question(id,"IndieMusicButton");
+		buttonQuestion4.match();
+		tsList.add(buttonQuestion4.getPercentage());
+		
+		RapMusicButton.setDisable((buttonQuestion1.isButtonPressed()));
+		PopMusicButton.setDisable(buttonQuestion2.isButtonPressed());
+		ClassicalMusicButton.setDisable((buttonQuestion3.isButtonPressed()));
+		IndieMusicButton.setDisable((buttonQuestion4.isButtonPressed()));
+		
+		System.out.println(kwList);
+		System.out.println(tsList);
+		System.out.println(jloList);
+		System.out.println(jbList);
 	}
 	
 	//animal buttons
@@ -333,29 +258,18 @@ public class CelebTestController {
 		Button btn = (Button) event.getSource();
 		String id = btn.getId();
 		//System.out.println(id);
-
-		if (id.equals("CatAnimalButton")) {
-			//there are two celebs who like cats so I split the percentage in half equally
-			jbList.add(5.0);
-			jloList.add(5.0);
-			
 		
-			CatAnimalButton.setStyle("-fx-background-color: White");
-			//if this button gets pressed I am disabling all the other ones so it is impossible to 
-			//click another
-			DogAnimalButton.setDisable(true);
-		} 
-		if (id.equals("DogAnimalButton")) {
-			tsList.add(5.0);
-			kwList.add(5.0);
-			DogAnimalButton.setStyle("-fx-background-color: White");
-			
-			
-			CatAnimalButton.setDisable(true);
-		}
-		if (id.equals("")) {
-			//do something
-		}
+		Question buttonQuestion1 = new Question(id, "DogAnimalButton", 5.0);
+		buttonQuestion1.match();
+		kwList.add(buttonQuestion1.getPercentage());
+		tsList.add(buttonQuestion1.getPercentage());
+		Question buttonQuestion2 = new Question(id, "CatAnimalButton", 5.0);
+		buttonQuestion2.match();
+		jloList.add(buttonQuestion2.getPercentage());
+		jbList.add(buttonQuestion2.getPercentage());
+		
+		DogAnimalButton.setDisable((buttonQuestion1.isButtonPressed()));
+		CatAnimalButton.setDisable(buttonQuestion2.isButtonPressed());
 	}
 	
 	@FXML
@@ -668,7 +582,7 @@ public class CelebTestController {
 
 		// testing person name
 		if (nameTextField.getText().equals("")) {
-			nameErrorLabel.setText("Please enter your first and last name.");
+			nameErrorLabel.setText("Please enter your full name.");
 			answerName = false;
 		} else {
 			String personName = nameTextField.getText();
