@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -42,6 +43,7 @@ public class CelebTestController {
 	ArrayList<Double> tsList = new ArrayList<Double>();
 	ArrayList<Double> kwList = new ArrayList<Double>();	
 
+
 	@FXML
 	private TextField nameTextField;
 	
@@ -53,11 +55,11 @@ public class CelebTestController {
 	
 	@FXML
 	private Label ageErrorLabel;
-	
+
 	@FXML
 	
 	private Label mainErrorLabel;
-   
+
 
 	@FXML
     	private Button startButton;
@@ -77,8 +79,9 @@ public class CelebTestController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
     }
+	
 
 	
 	//food buttons
@@ -252,7 +255,8 @@ public class CelebTestController {
 		ClassicalMusicButton.setDisable((buttonQuestion3.isButtonPressed()));
 		IndieMusicButton.setDisable((buttonQuestion4.isButtonPressed()));
 
-	}
+		}
+
 	
 	//animal buttons
 	@FXML 
