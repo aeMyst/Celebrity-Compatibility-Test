@@ -40,6 +40,12 @@ public class Question {
 	public void setId(String id) {
 		this.id = id;
 	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
 	public boolean isButtonPressed() {
 		return this.buttonPressed;
 	}
@@ -70,9 +76,8 @@ public class Question {
 		this.weight = weight;
 	}
 	
-	
 	// class methods
-	public void matchButtons(){ //match method determines what user has clicked vs. actually match
+	public void match(){ //match method determines what user has clicked vs. actually match
 		if (id.equals(answer))  {
 			setPercentage(maxValue);
 			setButtonPressed(false);
@@ -80,9 +85,9 @@ public class Question {
 			setPercentage(0); 
 		}				
 	}
-	
 	public double calculatePercentage() { //calculates percentage based on user input
 		double finalPercentage = this.multiplier * 10 * (getWeight()/100);
 		return finalPercentage;
 	}
+	
 }

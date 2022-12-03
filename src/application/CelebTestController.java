@@ -26,15 +26,10 @@ public class CelebTestController {
 	private Scene scene; 
 	
 	boolean answerAllQuestions = false;
-	
 	boolean answerZodaic = false;
-	
 	boolean answerName = false;
-	
 	boolean answerAge = false;
-	
 	double allButtonsPressed = 0;
-	
 	boolean buttonsPressed = false;
 	
 	ArrayList<Double> jbList = new ArrayList<Double>();
@@ -105,16 +100,16 @@ public class CelebTestController {
 		
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "PizzaFoodButton");
-		buttonQuestion1.matchButtons();
+		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "SushiFoodButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id, "PastaFoodButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"IceCreamFoodButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -148,16 +143,16 @@ public class CelebTestController {
 		
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "FallSeasonButton");
-		buttonQuestion1.matchButtons();
+		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "WinterSeasonButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id,"SpringSeasonButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"SummerSeasonButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -191,16 +186,16 @@ public class CelebTestController {
 	
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "RedColourButton");
-		buttonQuestion1.matchButtons();
+		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "GreenColourButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id,"YellowColourButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"BlueColourButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -234,16 +229,16 @@ public class CelebTestController {
 
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "RapMusicButton");
-		buttonQuestion1.matchButtons();
+		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "PopMusicButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id,"ClassicalMusicButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"IndieMusicButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -272,11 +267,11 @@ public class CelebTestController {
 
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "DogAnimalButton", 5.0);
-		buttonQuestion1.matchButtons();
+		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
 		tsList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "CatAnimalButton", 5.0);
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		jbList.add(buttonQuestion2.getPercentage());
 		
@@ -365,154 +360,7 @@ public class CelebTestController {
 		else if (sliderPercentage >= 11.25 && sliderPercentage <= 15.0) kwList.add(sliderPercentage);
 		else answerAllQuestions = false;
 	}
-
-	String verifyNames(String personName) {
-		// initialization of variables
-		boolean validName = true;
-		char invalidChar = Character.MIN_VALUE;
 	
-		
-		for (char c : personName.toCharArray()) {
-			// if the current character c has an ASCII table value of the following, do this
-   	  		if  ((c >= '!' && c <= '@') || (c >= '[' && c <= '`') || (c >= '{' && c <= '~') ) {
-   	  			validName = false;
-   	  			invalidChar = c;
-   	  	
-   	  		} 
-   	  		if (!(validName)) {
-   	  		    nameErrorLabel.setTextFill(Color.DARKRED);
-   	  			nameErrorLabel.setText("Do not use " + invalidChar + " in your name. Please enter a valid name.");
-   	  		} 
-	    }
-		if (validName) {
-			nameErrorLabel.setText("");
-			
-			return personName;
-		} else {
-			return "";
-		}
-	}
-	
-	
-	void calculateNames(String personName) {
-		
-		// inialization of variables
-		double charCountJB = 0;
-		double charCountKW = 0;
-		double charCountJL = 0;
-		double charCountTS = 0;
-		
-		String jb = "jenniferlopez";
-		String kw = "kanyewest";		
-		String jl = "jenniferlopez";
-		String ts = "taylorswift";
-		
-		// to test matching, all characters should be in lowercase and removing white spaces
-		personName = personName.toLowerCase();
-		personName = personName.replaceAll("\\s", "");
-		
-		// loop for removing duplicate letters in order to test similar letters
-		for (int i = 0; i < personName.length(); i++) {
-			for (int j = 0; j < i; j++) {
-				if (personName.charAt(i) == personName.charAt(j)) {
-					char[] chars = personName.toCharArray();
-					chars[j] = '*';
-					personName = String.valueOf(chars);
-					System.out.println("person name after changes: " + personName);
-				}
-			}
-		}
-		System.out.println("person name after removing: " + personName);
-		
-		
-		
-		// loop for testing character match (Justin Bieber)
-		for (int i = 0; i < personName.length(); i++) { 
-			for (int p = 0; p < jb.length(); p++) {
-				if (personName.charAt(i) == jb.charAt(p)) {
-					charCountJB += 1; 
-				}	
-			}
-		}
-		//-1 for the white space
-		//charCountJB = charCountJB-1;
-		System.out.print("Justin Bieber " + charCountJB + '\n');
-		
-		// loop for testing character match (Kanye West)
-		for (int i = 0; i < personName.length(); i++) { 
-			for (int p = 0; p < kw.length(); p++) {
-				if (personName.charAt(i) == kw.charAt(p)) {
-					charCountKW += 1; 
-				}	
-			}	
-		}
-		//charCountKW = charCountKW-1;
-		System.out.print("Kanye West " + charCountKW + '\n');
-		
-		// loop for testing character match (Jennifer Lopez)
-		for (int i = 0; i < personName.length(); i++) { 
-			for (int p = 0; p < jl.length(); p++) {
-				if (personName.charAt(i) == jl.charAt(p)) {
-					charCountJL += 1; 
-				}	
-			}	
-		}
-		//charCountJL = charCountJL-1;
-		System.out.print("Jennifer Lopez " + charCountJL + '\n');
-		
-		// loop for testing character match (Taylor Swift)
-		for (int i = 0; i < personName.length(); i++) { 
-			for (int p = 0; p < ts.length(); p++) {
-				if (personName.charAt(i) == ts.charAt(p)) {
-					charCountTS += 1; 
-				}	
-			}	
-		}
-		System.out.print("Taylor Swift " + charCountTS + '\n');
-		
-		// adding all counting elements to my lists
-		jbList.add(charCountJB);
-		kwList.add(charCountKW);
-		jloList.add(charCountJL);
-		tsList.add(charCountTS);
-	}
-	
-	double verifyAge(String personAge) {
-			// initialization of variables
-			boolean validAge = true;
-			char invalidChar = Character.MIN_VALUE;
-			double age = 0.0;
-				
-			for (char c : personAge.toCharArray()) {
-				// testing if inputed age is actually a number
-		   	  	if  (!(c >= '0' && c <= '9')) {
-		   	  		validAge = false;
-		   	  		invalidChar = c;
-		   	 	  
-		   	  	} else {
-		   	  		validAge = true;
-		   	  	}
-		   	  	if (!(validAge)) {
-		   	  		ageErrorLabel.setText("Do not use " + invalidChar + " in your Age. Please enter a valid Age.");
-		   	 	   
-		   	  	} 
-			}
-			if (validAge) {
-				answerAllQuestions = true;
-				Double doubleAge = Double.parseDouble(personAge);	
-				if (doubleAge < 16) { // must be 16+
-					ageErrorLabel.setTextFill(Color.DARKRED);				
-					ageErrorLabel.setText("Sorry, must be 16+");
-				} else if (doubleAge > 60) { //must be 60-
-					ageErrorLabel.setTextFill(Color.DARKRED);
-					ageErrorLabel.setText("Sorry, must be 60-");
-				} else {
-					age = age + doubleAge;
-					ageErrorLabel.setText("");
-				}
-			}
-			return age;
-	}
 	void calculateAge(double age) {
 	
 		if(age<=50 && age>40) {
@@ -533,7 +381,7 @@ public class CelebTestController {
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
 		
-		for (int i=0; i<celebList.size(); i++) {
+		for (int i = 0; i < celebList.size(); i++) {
 			double percent = celebList.get(i);
 			totalPercent += percent;
 		}
@@ -542,6 +390,11 @@ public class CelebTestController {
 	
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
+		nameErrorLabel.setText("");
+		ageErrorLabel.setText("");
+		
+		nameErrorLabel.setTextFill(Color.DARKRED);
+		ageErrorLabel.setTextFill(Color.DARKRED);
 		
 		System.out.println("Total Value of allButtonsPressed: " + allButtonsPressed);
         if(allButtonsPressed < 5) {
@@ -560,46 +413,45 @@ public class CelebTestController {
 		Question IntrovertExtrovertSlider = new Question(valueIntrovertExtrovertSlider, 15.0);
 		findIntrovertExtrovertMatch(IntrovertExtrovertSlider.getPercentage());
 		
-
-		// testing person name
-		if (nameTextField.getText().equals("")) {
-			nameErrorLabel.setText("Please enter your full name.");
-			answerName = false;
-		} else {
-			String personName = nameTextField.getText();
-			String verifiedPersonName = verifyNames(personName);
-			answerName = true;
-			if (verifiedPersonName.equals("")) {
-				System.out.print('\n' + verifiedPersonName + '\n');
-			} else {
-				System.out.print('\n' + verifiedPersonName + '\n');
-				calculateNames(verifiedPersonName);
-			}	
-			System.out.print('\n' + "---Split---");
-			
-		}
-
-		// testing person age
-		if (ageTextField.getText().equals("")) {
-			ageErrorLabel.setText("Please enter your age.");
-			answerAge = false;
-			
-		} else {
-			String personAge = ageTextField.getText();
-			double verifiedPersonAge = verifyAge(personAge);
-			answerAge = true;
-			
-			System.out.print('\n' + "User is: "  + verifiedPersonAge + " Years old" + '\n');
-			calculateAge(verifiedPersonAge);
+		// calling choicebox methods to test choicebox answer
+		if( ZodiacSignChoiceBox.getValue() == null) {
+			answerZodaic = false;
+		}else {
+			answerZodaic = true;
+			String sign = ZodiacSignChoiceBox.getValue();
+			getZodiacSignAnswer(sign);
 		}
 		
-		if( ZodiacSignChoiceBox.getValue() == null) {
-			 answerZodaic = false;
-        }else {
-        	String sign = ZodiacSignChoiceBox.getValue();
-        	answerZodaic = true;
-        	getZodiacSignAnswer(sign);
+		// testing person name
+		try {
+			if (nameTextField.getText().equals("")) { //to test whether user entered anything at all first
+				nameErrorLabel.setText("Please enter your full name.");
+				answerName = false;
+			} else {
+				TextFieldQuestion nameQuestion = new TextFieldQuestion(nameTextField.getText());
+				nameQuestion.verifyNames(); //this is where it will throw an error if detected
+				answerName = true;
+			}
+		} catch (InvalidNameException ine) {
+			answerName = false;
+			nameErrorLabel.setText(ine.getMessage());
 		}
+		
+		// testing person age
+		try {
+			if (ageTextField.getText().equals("")) {
+				ageErrorLabel.setText("Please enter your age.");
+				answerAge = false;	
+			} else {
+				TextFieldQuestion ageQuestion = new TextFieldQuestion(ageTextField.getText());
+				ageQuestion.verifyAge(); //this is where it will throw an error if detected
+				answerAge = true;
+			}
+		} catch (InvalidAgeException iae) {
+			answerAge = false;
+			ageErrorLabel.setText(iae.getMessage());
+		}
+		
 		
 		// prints all final data collected from all questions in a list  
 		System.out.println("---Our Final list Results---");
@@ -608,46 +460,43 @@ public class CelebTestController {
 		System.out.println("Taylor Swift list: " + tsList);
 		System.out.println("Kanye West list: " + kwList);
 
-		// calculating final compatibility
-		double jb = calculateCompatibility(jbList);
-		double jlo = calculateCompatibility(jloList);
-		double ts = calculateCompatibility(tsList);
-		double kw = calculateCompatibility(kwList);
-		   
-		
 	    if (buttonsPressed == true &&  answerZodaic == true && answerName == true && answerAge == true) {
-		   //Changes screen to final view scene
-		   FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FinalView.fxml"));
-		   root = loader1.load();
+	    	// calculating final compatibility
+	    	double jb = calculateCompatibility(jbList);
+			double jlo = calculateCompatibility(jloList);
+			double ts = calculateCompatibility(tsList);
+			double kw = calculateCompatibility(kwList);
+		   
+			//Changes screen to final view scene
+		    FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+		    root = loader1.load();
 				
-		   FinalViewController finalViewController = loader1.getController();
+		    FinalViewController finalViewController = loader1.getController();
 
-		   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		   scene = new Scene(root);
-		   scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
-		   stage.setScene(scene);
-		   stage.show();
+		    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		    scene = new Scene(root);
+		    scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
+		    stage.setScene(scene);
+		    stage.show();
 
 
-		   // final compatibility scores
-		   System.out.println("Justin Bieber Compatibility: " + jb);
-		   System.out.println("Jennifer Lopez Compatibility: " + jlo);
-		   System.out.println("Taylor Swift Compatibility: " + ts);
-		   System.out.println("Kanye West Compatibility: " + kw);
+		    // final compatibility scores
+		    System.out.println("Justin Bieber Compatibility: " + jb);
+		    System.out.println("Jennifer Lopez Compatibility: " + jlo);
+		    System.out.println("Taylor Swift Compatibility: " + ts);
+		    System.out.println("Kanye West Compatibility: " + kw);
 		
-		   //creating the bar graph & pieChart
-		   finalViewController.createBarGraph(jb, jlo, kw, ts);
-		   finalViewController.createPieChart(jb, jlo, kw, ts);
-		   finalViewController.setLabel(jb, jlo, kw, ts, nameTextField.getText());
+		    //creating the bar graph & pieChart
+		    finalViewController.createBarGraph(jb, jlo, kw, ts);
+		    finalViewController.createPieChart(jb, jlo, kw, ts);
+		    finalViewController.setLabel(jb, jlo, kw, ts, nameTextField.getText());
 
-	} else {
-		 System.out.println("failed");
-		 mainErrorLabel.setTextFill(Color.DARKRED);
-		 mainErrorLabel.setText("Please Answer All Questions");
+	    } else {
+		  System.out.println("failed");
+		  mainErrorLabel.setTextFill(Color.DARKRED);
+		  mainErrorLabel.setText("Please Answer All Questions");
+	    }
+	    
 	}
-	   
-	}
-
-
 }
 
