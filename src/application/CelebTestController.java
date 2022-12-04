@@ -108,16 +108,16 @@ public class CelebTestController {
 		
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "PizzaFoodButton");
-		buttonQuestion1.matchButtons();
+		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "SushiFoodButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id, "PastaFoodButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"IceCreamFoodButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -151,16 +151,16 @@ public class CelebTestController {
 		
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "FallSeasonButton");
-		buttonQuestion1.matchButtons();
+		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "WinterSeasonButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id,"SpringSeasonButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"SummerSeasonButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -194,16 +194,16 @@ public class CelebTestController {
 	
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "RedColourButton");
-		buttonQuestion1.matchButtons();
+		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "GreenColourButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id,"YellowColourButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"BlueColourButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -237,16 +237,16 @@ public class CelebTestController {
 
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "RapMusicButton");
-		buttonQuestion1.matchButtons();
+		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "PopMusicButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id,"ClassicalMusicButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"IndieMusicButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -276,11 +276,11 @@ public class CelebTestController {
 
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "DogAnimalButton", 5.0);
-		buttonQuestion1.matchButtons();
+		buttonQuestion1.match();
 		kwList.add(buttonQuestion1.getPercentage());
 		tsList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "CatAnimalButton", 5.0);
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		jbList.add(buttonQuestion2.getPercentage());
 		
@@ -347,28 +347,6 @@ public class CelebTestController {
 	@FXML
 	private Button DoneButton;
  
- 
-	//Spontaneous Slider Method
-	void findSpontaneousMatch (double sliderPercentage) {
-		answerAllQuestions = true;
-		
-		if (sliderPercentage >= 0 && sliderPercentage <= 2.5) jloList.add(sliderPercentage);			
-		else if (sliderPercentage > 2.5 && sliderPercentage < 5) jbList.add(sliderPercentage);			
-		else if (sliderPercentage > 5 && sliderPercentage < 7.5) tsList.add(sliderPercentage);			
-		else if (sliderPercentage >= 7.5 && sliderPercentage <= 10) kwList.add(sliderPercentage);		
-		else answerAllQuestions = false;
-	}
-	
-	//Intro and Extro Slider Method 
-	void findIntrovertExtrovertMatch(double sliderPercentage) {
-		answerAllQuestions = true;
-		
-		if (sliderPercentage >= 0 && sliderPercentage <= 3.75) tsList.add(sliderPercentage);
-		else if (sliderPercentage > 3.75 && sliderPercentage < 7.5) jloList.add(sliderPercentage);
-		else if (sliderPercentage > 7.5 && sliderPercentage < 11.25) jbList.add(sliderPercentage);
-		else if (sliderPercentage >= 11.25 && sliderPercentage <= 15.0) kwList.add(sliderPercentage);
-		else answerAllQuestions = false;
-	}
 
 	String verifyNames(String personName) {
 		// initialization of variables
@@ -553,16 +531,64 @@ public class CelebTestController {
         } else {
         	buttonsPressed = true;
         }
-
-  	    // Calling Spontaneous Slider Methods 
-		double valueSpontaneousSlider = SpontaneousSlider.getValue();
-		Question spontaneousSliderQuestion = new Question(valueSpontaneousSlider, 10.0);
-		findIntrovertExtrovertMatch(spontaneousSliderQuestion.getPercentage());
 		
-		// Calling Introvert or Extrovert Slider Methods 
-		double valueIntrovertExtrovertSlider = IntroExtroSlider.getValue();
-		Question IntrovertExtrovertSlider = new Question(valueIntrovertExtrovertSlider, 15.0);
-		findIntrovertExtrovertMatch(IntrovertExtrovertSlider.getPercentage());
+        answerAllQuestions = true;
+		
+        //Checking Spontaneous slider to see who matches with who
+        
+		double value = SpontaneousSlider.getValue();
+		
+		RangeQuestion sliderQuestion1 = new RangeQuestion ((value>= 0 && value <= 2.5), 10.0);
+		sliderQuestion1.match();
+		jloList.add(sliderQuestion1.getSliderPercentage());
+	
+		RangeQuestion sliderQuestion2 = new RangeQuestion ((value>= 2.5 && value <= 5), 10.0);
+		sliderQuestion2.match();
+		jbList.add(sliderQuestion2.getSliderPercentage());
+	
+		
+		RangeQuestion sliderQuestion3 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
+		sliderQuestion3.match();
+		tsList.add(sliderQuestion3.getSliderPercentage());
+		
+		
+		RangeQuestion sliderQuestion4 = new RangeQuestion ((value>= 7.5 && value <= 10), 10.0);
+		sliderQuestion4.match();
+		kwList.add(sliderQuestion4.getSliderPercentage());
+		
+		
+	    //Checking introextro slider to see who matches with who
+        
+			double introExtroValue = IntroExtroSlider.getValue();
+			
+			RangeQuestion sliderQuestion5 = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 10.0);
+			sliderQuestion5.match();
+			tsList.add(sliderQuestion5.getSliderPercentage());
+		
+			RangeQuestion sliderQuestion6 = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 10.0);
+			sliderQuestion6.match();
+			jloList.add(sliderQuestion6.getSliderPercentage());
+			
+			
+			RangeQuestion sliderQuestion7 = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
+			sliderQuestion7.match();
+			jbList.add(sliderQuestion7.getSliderPercentage());
+		
+			
+			RangeQuestion sliderQuestion8 = new RangeQuestion ((introExtroValue>= 7.5 && introExtroValue <= 10), 10.0);
+			sliderQuestion8.match();
+			kwList.add(sliderQuestion8.getSliderPercentage());
+			
+			System.out.println(jbList);
+			System.out.println(jloList);
+			System.out.println(tsList);
+			System.out.println(kwList);
+			
+	
+		
+		
+		
+	
 		
 
 		// testing person name
@@ -634,10 +660,10 @@ public class CelebTestController {
 
 
 		   // final compatibility scores
-		   System.out.println("Justin Bieber Compatibility: " + jb);
-		   System.out.println("Jennifer Lopez Compatibility: " + jlo);
-		   System.out.println("Taylor Swift Compatibility: " + ts);
-		   System.out.println("Kanye West Compatibility: " + kw);
+		  // System.out.println("Justin Bieber Compatibility: " + jb);
+		  // System.out.println("Jennifer Lopez Compatibility: " + jlo);
+		  // System.out.println("Taylor Swift Compatibility: " + ts);
+		  // System.out.println("Kanye West Compatibility: " + kw);
 		
 		   //creating the bar graph & pieChart
 		   finalViewController.createBarGraph(jb, jlo, kw, ts);
@@ -648,7 +674,9 @@ public class CelebTestController {
 		 System.out.println("failed");
 		 mainErrorLabel.setTextFill(Color.DARKRED);
 		 mainErrorLabel.setText("Please Answer All Questions");
+		
 	}
+		
 	   
 	}
 
