@@ -32,11 +32,12 @@ public class CelebTestController {
 	boolean answerAge = false;
 	double allButtonsPressed = 0;
 	boolean buttonsPressed = false;
+
 	
 	ArrayList<Double> jbList = new ArrayList<Double>();
 	ArrayList<Double> jloList = new ArrayList<Double>();
 	ArrayList<Double> tsList = new ArrayList<Double>();
-	ArrayList<Double> kwList = new ArrayList<Double>();	
+	ArrayList<Double> pitList = new ArrayList<Double>();	
 
 
 	@FXML
@@ -104,7 +105,7 @@ public class CelebTestController {
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "PizzaFoodButton");
 		buttonQuestion1.match();
-		kwList.add(buttonQuestion1.getPercentage());
+		pitList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "SushiFoodButton");
 		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
@@ -147,7 +148,7 @@ public class CelebTestController {
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "FallSeasonButton");
 		buttonQuestion1.match();
-		kwList.add(buttonQuestion1.getPercentage());
+		pitList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "WinterSeasonButton");
 		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
@@ -190,7 +191,7 @@ public class CelebTestController {
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "RedColourButton");
 		buttonQuestion1.match();
-		kwList.add(buttonQuestion1.getPercentage());
+		pitList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "GreenColourButton");
 		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
@@ -233,7 +234,7 @@ public class CelebTestController {
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "RapMusicButton");
 		buttonQuestion1.match();
-		kwList.add(buttonQuestion1.getPercentage());
+		pitList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "PopMusicButton");
 		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
@@ -272,7 +273,7 @@ public class CelebTestController {
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "DogAnimalButton", 5.0);
 		buttonQuestion1.match();
-		kwList.add(buttonQuestion1.getPercentage());
+		pitList.add(buttonQuestion1.getPercentage());
 		tsList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "CatAnimalButton", 5.0);
 		buttonQuestion2.match();
@@ -356,7 +357,7 @@ public class CelebTestController {
 				nameQuestion.verifyNames(); //this is where it will throw an error if detected
 				nameQuestion.calculateNames();
 				jbList.add((double) nameQuestion.getJustinBieberCount());
-				kwList.add((double) nameQuestion.getKanyeWestCount());
+				pitList.add((double) nameQuestion.getKanyeWestCount());
 				jloList.add((double) nameQuestion.getJenniferLopezCount());
 				tsList.add((double) nameQuestion.getTaylorSwiftCount());
 				answerName = true;
@@ -377,7 +378,7 @@ public class CelebTestController {
 				ageQuestion.verifyAge(); //this is where it will throw an error if detected
 				RangeQuestion rangeAgeQuestion1 = new RangeQuestion ((age<=50 && age>40), 10.0);
 				rangeAgeQuestion1.match();
-				kwList.add(rangeAgeQuestion1.getSliderPercentage());
+				pitList.add(rangeAgeQuestion1.getSliderPercentage());
 				
 				RangeQuestion rangeAgeQuestion2 = new RangeQuestion ((age<=30 && age >= 16), 10.0);
 				rangeAgeQuestion2.match();
@@ -413,11 +414,11 @@ public class CelebTestController {
 	    	
 	    	Question zodiac2 = new Question (zodiacSign, "Aquarius");
 	    	zodiac2.match();
-	    	kwList.add(zodiac2.getPercentage());
+	    	pitList.add(zodiac2.getPercentage());
 	    	
 	    	Question zodiac3 = new Question (zodiacSign, "Libra");
 	    	zodiac3.match();
-	    	kwList.add(zodiac3.getPercentage());
+	    	pitList.add(zodiac3.getPercentage());
 	    	
 	    	Question zodiac4 = new Question (zodiacSign, "Aries");
 	    	zodiac4.match();
@@ -460,7 +461,7 @@ public class CelebTestController {
 			
 			RangeQuestion sliderQuestion4 = new RangeQuestion ((value>= 7.5 && value <= 10), 10.0);
 			sliderQuestion4.match();
-			kwList.add(sliderQuestion4.getSliderPercentage());
+			pitList.add(sliderQuestion4.getSliderPercentage());
 			
 			
 		    //Calculating Intro/Extro compatibility. 
@@ -492,13 +493,13 @@ public class CelebTestController {
 			System.out.println("Justin Bieber List: " + jbList);
 			System.out.println("Jennifer Lopez List: " + jloList);
 			System.out.println("Taylor Swift list: " + tsList);
-			System.out.println("Kanye West list: " + kwList);
+			System.out.println("Kanye West list: " + pitList);
 	    	
 			// calculating final compatibility
 	    	double jb = calculateCompatibility(jbList);
 			double jlo = calculateCompatibility(jloList);
 			double ts = calculateCompatibility(tsList);
-			double kw = calculateCompatibility(kwList);
+			double pit = calculateCompatibility(pitList);
 		   
 			//Changes screen to final view scene
 		    FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FinalView.fxml"));
@@ -512,25 +513,17 @@ public class CelebTestController {
 		    stage.setScene(scene);
 		    stage.show();
 
-
-
-		   // final compatibility scores
-		  // System.out.println("Justin Bieber Compatibility: " + jb);
-		  // System.out.println("Jennifer Lopez Compatibility: " + jlo);
-		  // System.out.println("Taylor Swift Compatibility: " + ts);
-		  // System.out.println("Kanye West Compatibility: " + kw);
-
 		    // final compatibility scores
 		    System.out.println("Justin Bieber Compatibility: " + jb);
 		    System.out.println("Jennifer Lopez Compatibility: " + jlo);
 		    System.out.println("Taylor Swift Compatibility: " + ts);
-		    System.out.println("Kanye West Compatibility: " + kw);
+		    System.out.println("Pitbull Compatibility: " + pit);
 
 		
 		    //creating the bar graph & pieChart
-		    finalViewController.createBarGraph(jb, jlo, kw, ts);
-		    finalViewController.createPieChart(jb, jlo, kw, ts);
-		    finalViewController.setLabel(jb, jlo, kw, ts, nameTextField.getText());
+		    finalViewController.createBarGraph(jb, jlo, pit, ts);
+		    finalViewController.createPieChart(jb, jlo, pit, ts);
+		    finalViewController.setLabel(jb, jlo, pit, ts, nameTextField.getText());
 
 
 	} else {

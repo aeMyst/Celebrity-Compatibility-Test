@@ -3,7 +3,7 @@ package application;
 public class TextFieldQuestion extends Question{
 	// instance variables
 	private String justinBieber = "jenniferlopez";
-	private String kanyeWest = "kanyewest";		
+	private String pitbull = "pitbull";		
 	private String jenniferLopez = "jenniferlopez";
 	private String taylorSwift = "taylorswift";
 	
@@ -16,8 +16,8 @@ public class TextFieldQuestion extends Question{
 	public String getJustinBieber() {
 		return justinBieber;
 	}
-	public String getKanyeWest() {
-		return kanyeWest;
+	public String getPitbull() {
+		return pitbull;
 	}
 	public String getJenniferLopez() {
 		return jenniferLopez;
@@ -116,7 +116,7 @@ public class TextFieldQuestion extends Question{
 		String nameAfterChanges = removeDuplicateLettersHelper(super.getAnswer());
 		//now call a count method for each celebrity
 		justinBieberCount = characterMatchCount(nameAfterChanges, getJustinBieber());
-		kanyeWestCount = characterMatchCount(nameAfterChanges, getKanyeWest());
+		kanyeWestCount = characterMatchCount(nameAfterChanges, getPitbull());
 		jenniferLopezCount = characterMatchCount(nameAfterChanges, getJenniferLopez());
 		taylorSwiftCount = characterMatchCount(nameAfterChanges, getTaylorSwift());
 	}
