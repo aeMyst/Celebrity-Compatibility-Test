@@ -29,14 +29,14 @@ public class FinalViewController{
 	@FXML
 	private Button restartButton;
 	
-	public void createBarGraph(double jbData, double jloData, double kwData, double tsData) {
+	public void createBarGraph(double jbData, double jloData, double pitData, double tsData) {
 		XYChart.Series series = new XYChart.Series<>();
 		
 		series.setName("Celebrity Compatibility Results in %");
 
 		series.getData().add(new XYChart.Data<>( "Justin Bieber",  jbData));
 		series.getData().add(new XYChart.Data<>( "Jennifer Lopez",  jloData));
-		series.getData().add(new XYChart.Data<>( "Kanye West", kwData));
+		series.getData().add(new XYChart.Data<>( "Pitbull", pitData));
 		series.getData().add(new XYChart.Data<>( "Taylor Swift", tsData));	
 		
 		barChart.getData().addAll(series);
@@ -54,22 +54,22 @@ public class FinalViewController{
 
 	}
 
-	public void createPieChart(double jbData, double jloData, double kwData, double tsData)	{
+	public void createPieChart(double jbData, double jloData, double pitData, double tsData)	{
 		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
 				new PieChart.Data("Justin Bieber" , jbData),
 				new PieChart.Data("Jennnifer Lopez" , jloData),
-				new PieChart.Data("Kanye West" , kwData),
+				new PieChart.Data("Pitbull" , pitData),
 				new PieChart.Data("Taylor Swift" , tsData));
 		
 		pieChart.setData(pieChartData);
 	}
 	
-	public void setLabel(double jbData, double jloData, double kwData, double tsData, String name) {
+	public void setLabel(double jbData, double jloData, double pitData, double tsData, String name) {
 		DisplayCompatibilityScoreLabel.setText(String.format("Justin Bieber: %.2f"
 				+ "    Jennifer Lopez: %.2f"
-				+ "    Kanye West: %.2f"
+				+ "    Pitbull: %.2f"
 				+ "    Taylor Swift: %.2f", 
-				jbData, jloData, kwData, tsData));
+				jbData, jloData, pitData, tsData));
 		
 		congratsLabel.setText(String.format("Congratulations %s" + "!", name));
 	}
