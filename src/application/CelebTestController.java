@@ -27,21 +27,17 @@ public class CelebTestController {
 	private Scene scene; 
 	
 	boolean answerAllQuestions = false;
-	
 	boolean answerZodaic = false;
-	
 	boolean answerName = false;
-	
 	boolean answerAge = false;
-	
 	double allButtonsPressed = 0;
-	
 	boolean buttonsPressed = false;
+
 	
 	ArrayList<Double> jbList = new ArrayList<Double>();
 	ArrayList<Double> jloList = new ArrayList<Double>();
 	ArrayList<Double> tsList = new ArrayList<Double>();
-	ArrayList<Double> kwList = new ArrayList<Double>();	
+	ArrayList<Double> pitList = new ArrayList<Double>();	
 
 
 	@FXML
@@ -70,7 +66,7 @@ public class CelebTestController {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/QuestionView.fxml"));
 
-			Scene secondaryScene1 = new Scene(root,400,700);
+			Scene secondaryScene1 = new Scene(root,650,700);
 			secondaryScene1.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 			
 			applicationStage.setScene(secondaryScene1);
@@ -108,16 +104,16 @@ public class CelebTestController {
 		
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "PizzaFoodButton");
-		buttonQuestion1.matchButtons();
-		kwList.add(buttonQuestion1.getPercentage());
+		buttonQuestion1.match();
+		pitList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "SushiFoodButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id, "PastaFoodButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"IceCreamFoodButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -151,16 +147,16 @@ public class CelebTestController {
 		
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "FallSeasonButton");
-		buttonQuestion1.matchButtons();
-		kwList.add(buttonQuestion1.getPercentage());
+		buttonQuestion1.match();
+		pitList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "WinterSeasonButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id,"SpringSeasonButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"SummerSeasonButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -194,16 +190,16 @@ public class CelebTestController {
 	
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "RedColourButton");
-		buttonQuestion1.matchButtons();
-		kwList.add(buttonQuestion1.getPercentage());
+		buttonQuestion1.match();
+		pitList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "GreenColourButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id,"YellowColourButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"BlueColourButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -237,16 +233,16 @@ public class CelebTestController {
 
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "RapMusicButton");
-		buttonQuestion1.matchButtons();
-		kwList.add(buttonQuestion1.getPercentage());
+		buttonQuestion1.match();
+		pitList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "PopMusicButton");
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		Question buttonQuestion3 = new Question(id,"ClassicalMusicButton");
-		buttonQuestion3.matchButtons();
+		buttonQuestion3.match();
 		jbList.add(buttonQuestion3.getPercentage());
 		Question buttonQuestion4 = new Question(id,"IndieMusicButton");
-		buttonQuestion4.matchButtons();
+		buttonQuestion4.match();
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
@@ -276,11 +272,11 @@ public class CelebTestController {
 
 		//calling objects for question class for each button
 		Question buttonQuestion1 = new Question(id, "DogAnimalButton", 5.0);
-		buttonQuestion1.matchButtons();
-		kwList.add(buttonQuestion1.getPercentage());
+		buttonQuestion1.match();
+		pitList.add(buttonQuestion1.getPercentage());
 		tsList.add(buttonQuestion1.getPercentage());
 		Question buttonQuestion2 = new Question(id, "CatAnimalButton", 5.0);
-		buttonQuestion2.matchButtons();
+		buttonQuestion2.match();
 		jloList.add(buttonQuestion2.getPercentage());
 		jbList.add(buttonQuestion2.getPercentage());
 		
@@ -294,48 +290,7 @@ public class CelebTestController {
 	
 	@FXML
 	private ChoiceBox<String> ZodiacSignChoiceBox;
-	
-	
-	void getZodiacSignAnswer (String signSelected) {
-		if(signSelected.equals("Sagittarius")) {
-			jloList.add(10.0);
-			//match with Jennifer Lopez who is Leo
-		}
 
-		if(signSelected.equals("Aquarius")) {
-			kwList.add(10.0);
-			//you match with Kanye cause he is Gemini
-		}
-	
-		if(signSelected.equals("Libra")) {
-			kwList.add(10.0);
-			//match with Kanye who is Gemini
-		}
-		if(signSelected.equals("Aries")) {
-			tsList.add(10.0);
-			//match with taylor swift who is sagittarus
-		}
-		if(signSelected.equals("Scorpio")) {
-			jbList.add(10.0);
-			//match with Justin who is Pisces 
-		}
-	
-		if(signSelected.equals("Gemini")) {
-			tsList.add(10.0);
-			//match with Taylor swift who is sagittarus
-		}
-		if(signSelected.equals("Leo")) {
-			tsList.add(10.0);
-			//you match with Taylor Swift who is a Sagittarus 
-		}
-		if(signSelected.equals("Cancer")) {
-			jbList.add(10.0);
-			//you match with Justin bieber who is Pisces
-		}	
-		if (signSelected.equals(null) || signSelected.equals("")) {
-			//there is an error, display such error.
-		}
-	}
 	
 	@FXML
 	private Slider IntroExtroSlider;
@@ -347,197 +302,12 @@ public class CelebTestController {
 	@FXML
 	private Button DoneButton;
  
- 
-	//Spontaneous Slider Method
-	void findSpontaneousMatch (double sliderPercentage) {
-		answerAllQuestions = true;
-		
-		if (sliderPercentage >= 0 && sliderPercentage <= 2.5) jloList.add(sliderPercentage);			
-		else if (sliderPercentage > 2.5 && sliderPercentage < 5) jbList.add(sliderPercentage);			
-		else if (sliderPercentage > 5 && sliderPercentage < 7.5) tsList.add(sliderPercentage);			
-		else if (sliderPercentage >= 7.5 && sliderPercentage <= 10) kwList.add(sliderPercentage);		
-		else answerAllQuestions = false;
-	}
-	
-	//Intro and Extro Slider Method 
-	void findIntrovertExtrovertMatch(double sliderPercentage) {
-		answerAllQuestions = true;
-		
-		if (sliderPercentage >= 0 && sliderPercentage <= 3.75) tsList.add(sliderPercentage);
-		else if (sliderPercentage > 3.75 && sliderPercentage < 7.5) jloList.add(sliderPercentage);
-		else if (sliderPercentage > 7.5 && sliderPercentage < 11.25) jbList.add(sliderPercentage);
-		else if (sliderPercentage >= 11.25 && sliderPercentage <= 15.0) kwList.add(sliderPercentage);
-		else answerAllQuestions = false;
-	}
 
-	String verifyNames(String personName) {
-		// initialization of variables
-		boolean validName = true;
-		char invalidChar = Character.MIN_VALUE;
-	
-		
-		for (char c : personName.toCharArray()) {
-			// if the current character c has an ASCII table value of the following, do this
-   	  		if  ((c >= '!' && c <= '@') || (c >= '[' && c <= '`') || (c >= '{' && c <= '~') ) {
-   	  			validName = false;
-   	  			invalidChar = c;
-   	  	
-   	  		} 
-   	  		if (!(validName)) {
-   	  		    nameErrorLabel.setTextFill(Color.DARKRED);
-   	  			nameErrorLabel.setText("Do not use " + invalidChar + " in your name. Please enter a valid name.");
-   	  		} 
-	    }
-		if (validName) {
-			nameErrorLabel.setText("");
-			
-			return personName;
-		} else {
-			return "";
-		}
-	}
-	
-	
-	void calculateNames(String personName) {
-		
-		// inialization of variables
-		double charCountJB = 0;
-		double charCountKW = 0;
-		double charCountJL = 0;
-		double charCountTS = 0;
-		
-		String jb = "jenniferlopez";
-		String kw = "kanyewest";		
-		String jl = "jenniferlopez";
-		String ts = "taylorswift";
-		
-		// to test matching, all characters should be in lowercase and removing white spaces
-		personName = personName.toLowerCase();
-		personName = personName.replaceAll("\\s", "");
-		
-		// loop for removing duplicate letters in order to test similar letters
-		for (int i = 0; i < personName.length(); i++) {
-			for (int j = 0; j < i; j++) {
-				if (personName.charAt(i) == personName.charAt(j)) {
-					char[] chars = personName.toCharArray();
-					chars[j] = '*';
-					personName = String.valueOf(chars);
-					System.out.println("person name after changes: " + personName);
-				}
-			}
-		}
-		System.out.println("person name after removing: " + personName);
-		
-		
-		
-		// loop for testing character match (Justin Bieber)
-		for (int i = 0; i < personName.length(); i++) { 
-			for (int p = 0; p < jb.length(); p++) {
-				if (personName.charAt(i) == jb.charAt(p)) {
-					charCountJB += 1; 
-				}	
-			}
-		}
-		//-1 for the white space
-		//charCountJB = charCountJB-1;
-		System.out.print("Justin Bieber " + charCountJB + '\n');
-		
-		// loop for testing character match (Kanye West)
-		for (int i = 0; i < personName.length(); i++) { 
-			for (int p = 0; p < kw.length(); p++) {
-				if (personName.charAt(i) == kw.charAt(p)) {
-					charCountKW += 1; 
-				}	
-			}	
-		}
-		//charCountKW = charCountKW-1;
-		System.out.print("Kanye West " + charCountKW + '\n');
-		
-		// loop for testing character match (Jennifer Lopez)
-		for (int i = 0; i < personName.length(); i++) { 
-			for (int p = 0; p < jl.length(); p++) {
-				if (personName.charAt(i) == jl.charAt(p)) {
-					charCountJL += 1; 
-				}	
-			}	
-		}
-		//charCountJL = charCountJL-1;
-		System.out.print("Jennifer Lopez " + charCountJL + '\n');
-		
-		// loop for testing character match (Taylor Swift)
-		for (int i = 0; i < personName.length(); i++) { 
-			for (int p = 0; p < ts.length(); p++) {
-				if (personName.charAt(i) == ts.charAt(p)) {
-					charCountTS += 1; 
-				}	
-			}	
-		}
-		System.out.print("Taylor Swift " + charCountTS + '\n');
-		
-		// adding all counting elements to my lists
-		jbList.add(charCountJB);
-		kwList.add(charCountKW);
-		jloList.add(charCountJL);
-		tsList.add(charCountTS);
-	}
-	
-	double verifyAge(String personAge) {
-			// initialization of variables
-			boolean validAge = true;
-			char invalidChar = Character.MIN_VALUE;
-			double age = 0.0;
-				
-			for (char c : personAge.toCharArray()) {
-				// testing if inputed age is actually a number
-		   	  	if  (!(c >= '0' && c <= '9')) {
-		   	  		validAge = false;
-		   	  		invalidChar = c;
-		   	 	  
-		   	  	} else {
-		   	  		validAge = true;
-		   	  	}
-		   	  	if (!(validAge)) {
-		   	  		ageErrorLabel.setText("Do not use " + invalidChar + " in your Age. Please enter a valid Age.");
-		   	 	   
-		   	  	} 
-			}
-			if (validAge) {
-				answerAllQuestions = true;
-				Double doubleAge = Double.parseDouble(personAge);	
-				if (doubleAge < 16) { // must be 16+
-					ageErrorLabel.setTextFill(Color.DARKRED);				
-					ageErrorLabel.setText("Sorry, must be 16+");
-				} else if (doubleAge > 60) { //must be 60-
-					ageErrorLabel.setTextFill(Color.DARKRED);
-					ageErrorLabel.setText("Sorry, must be 60-");
-				} else {
-					age = age + doubleAge;
-					ageErrorLabel.setText("");
-				}
-			}
-			return age;
-	}
-	void calculateAge(double age) {
-	
-		if(age<=50 && age>40) {
-			kwList.add(10.0);
-		}
-		if(age<=30 && age >= 18) {
-			jbList.add(10.0);
-		}
-		if(age>30 && age<=40) {
-			tsList.add(10.0);
-		}
-		if(age<=60 && age>50 ) {
-			jloList.add(10.0);
-		}
-
-	}
 	
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
 		
-		for (int i=0; i<celebList.size(); i++) {
+		for (int i = 0; i < celebList.size(); i++) {
 			double percent = celebList.get(i);
 			totalPercent += percent;
 		}
@@ -546,7 +316,15 @@ public class CelebTestController {
 	
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
+		nameErrorLabel.setText("");
+		ageErrorLabel.setText("");
+		mainErrorLabel.setText("");
 		
+		mainErrorLabel.setTextFill(Color.DARKRED);  
+		nameErrorLabel.setTextFill(Color.DARKRED);
+		ageErrorLabel.setTextFill(Color.DARKRED);
+		
+		// testing if all buttons were pressed
 		System.out.println("Total Value of allButtonsPressed: " + allButtonsPressed);
         if(allButtonsPressed < 5) {
         	buttonsPressed = false;
@@ -554,104 +332,211 @@ public class CelebTestController {
         	buttonsPressed = true;
         }
 
-  	    // Calling Spontaneous Slider Methods 
-		double valueSpontaneousSlider = SpontaneousSlider.getValue();
-		Question spontaneousSliderQuestion = new Question(valueSpontaneousSlider, 10.0);
-		findIntrovertExtrovertMatch(spontaneousSliderQuestion.getPercentage());
 		
-		// Calling Introvert or Extrovert Slider Methods 
-		double valueIntrovertExtrovertSlider = IntroExtroSlider.getValue();
-		Question IntrovertExtrovertSlider = new Question(valueIntrovertExtrovertSlider, 15.0);
-		findIntrovertExtrovertMatch(IntrovertExtrovertSlider.getPercentage());
+        if( ZodiacSignChoiceBox.getValue() == null) {
+			answerZodaic = false;
+		}else {
+			answerZodaic = true;
+		}
+    	
+		// Calling Spontaneous Slider Methods 
+	
+        answerAllQuestions = true;
 		
+        //Checking Spontaneous slider to see who matches with who
+        
+
 
 		// testing person name
-		if (nameTextField.getText().equals("")) {
-			nameErrorLabel.setText("Please enter your full name.");
-			answerName = false;
-		} else {
-			String personName = nameTextField.getText();
-			String verifiedPersonName = verifyNames(personName);
-			answerName = true;
-			if (verifiedPersonName.equals("")) {
-				System.out.print('\n' + verifiedPersonName + '\n');
+		try {
+			if (nameTextField.getText().equals("")) { //to test whether user entered anything at all first
+				nameErrorLabel.setText("Please enter your full name.");
+				answerName = false;
 			} else {
-				System.out.print('\n' + verifiedPersonName + '\n');
-				calculateNames(verifiedPersonName);
-			}	
-			System.out.print('\n' + "---Split---");
-			
+				TextFieldQuestion nameQuestion = new TextFieldQuestion(nameTextField.getText());
+				nameQuestion.verifyNames(); //this is where it will throw an error if detected
+				nameQuestion.calculateNames();
+				jbList.add((double) nameQuestion.getJustinBieberCount());
+				pitList.add((double) nameQuestion.getKanyeWestCount());
+				jloList.add((double) nameQuestion.getJenniferLopezCount());
+				tsList.add((double) nameQuestion.getTaylorSwiftCount());
+				answerName = true;
+			}
+		} catch (InvalidNameException ine) {
+			answerName = false;
+			nameErrorLabel.setText(ine.getMessage());
 		}
-
+		
 		// testing person age
-		if (ageTextField.getText().equals("")) {
-			ageErrorLabel.setText("Please enter your age.");
-			answerAge = false;
-			
-		} else {
-			String personAge = ageTextField.getText();
-			double verifiedPersonAge = verifyAge(personAge);
-			answerAge = true;
-			
-			System.out.print('\n' + "User is: "  + verifiedPersonAge + " Years old" + '\n');
-			calculateAge(verifiedPersonAge);
-		}
-		
-		if( ZodiacSignChoiceBox.getValue() == null) {
-			 answerZodaic = false;
-        }else {
-        	String sign = ZodiacSignChoiceBox.getValue();
-        	answerZodaic = true;
-        	getZodiacSignAnswer(sign);
-		}
-		
-		// prints all final data collected from all questions in a list  
-		System.out.println("---Our Final list Results---");
-		System.out.println("Justin Bieber List: " + jbList);
-		System.out.println("Jennifer Lopez List: " + jloList);
-		System.out.println("Taylor Swift list: " + tsList);
-		System.out.println("Kanye West list: " + kwList);
-
-		// calculating final compatibility
-		double jb = calculateCompatibility(jbList);
-		double jlo = calculateCompatibility(jloList);
-		double ts = calculateCompatibility(tsList);
-		double kw = calculateCompatibility(kwList);
-		   
-		
-	    if (buttonsPressed == true &&  answerZodaic == true && answerName == true && answerAge == true) {
-		   //Changes screen to final view scene
-		   FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FinalView.fxml"));
-		   root = loader1.load();
+		try {
+			if (ageTextField.getText().equals("")) {
+				ageErrorLabel.setText("Please enter your age.");
+				answerAge = false;	
+			} else {
+				double age = Double.parseDouble(ageTextField.getText());
+				TextFieldQuestion ageQuestion = new TextFieldQuestion(ageTextField.getText());
+				ageQuestion.verifyAge(); //this is where it will throw an error if detected
+				RangeQuestion rangeAgeQuestion1 = new RangeQuestion ((age<=50 && age>40), 10.0);
+				rangeAgeQuestion1.match();
+				pitList.add(rangeAgeQuestion1.getSliderPercentage());
 				
-		   FinalViewController finalViewController = loader1.getController();
+				RangeQuestion rangeAgeQuestion2 = new RangeQuestion ((age<=30 && age >= 16), 10.0);
+				rangeAgeQuestion2.match();
+				jbList.add(rangeAgeQuestion2.getSliderPercentage());
+				
+			
+				RangeQuestion rangeAgeQuestion3 = new RangeQuestion ((age>30 && age<=40), 10.0);
+				rangeAgeQuestion3.match();
+				tsList.add(rangeAgeQuestion3.getSliderPercentage());
+			
+				
+				RangeQuestion rangeAgeQuestion4 = new RangeQuestion ((age<=60 && age>50), 10.0);
+				rangeAgeQuestion4.match();
+				jloList.add(rangeAgeQuestion4.getSliderPercentage());
+				answerAge = true;
+			}
+		} catch (InvalidAgeException iae) {
+			answerAge = false;
+			ageErrorLabel.setText(iae.getMessage());
+		}
 
-		   stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		   scene = new Scene(root);
-		   scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
-		   stage.setScene(scene);
-		   stage.show();
+	    if (buttonsPressed == true &&  answerZodaic == true && answerName == true && answerAge == true) {
+			
+	    	//testing slider methods to see what value to add to who's list
+	
+			
+			//testing choicebox to see what value to add to who's list
+	    	String zodiacSign = ZodiacSignChoiceBox.getValue();
+	    	
+	    	Question zodiac1 = new Question (zodiacSign, "Sagittarius");
+	    	zodiac1.match();
+	    	jloList.add(zodiac1.getPercentage());
+	    	
+	    	Question zodiac2 = new Question (zodiacSign, "Aquarius");
+	    	zodiac2.match();
+	    	pitList.add(zodiac2.getPercentage());
+	    	
+	    	Question zodiac3 = new Question (zodiacSign, "Libra");
+	    	zodiac3.match();
+	    	pitList.add(zodiac3.getPercentage());
+	    	
+	    	Question zodiac4 = new Question (zodiacSign, "Aries");
+	    	zodiac4.match();
+	    	tsList.add(zodiac4.getPercentage());
+	    	
+	    	Question zodiac5 = new Question (zodiacSign, "Scorpio");
+	    	zodiac5.match();
+	    	jbList.add(zodiac5.getPercentage());
+	    	
+	    	Question zodiac6 = new Question (zodiacSign, "Gemini");
+	    	zodiac6.match();
+	    	tsList.add(zodiac6.getPercentage());
+	    	
+	    	Question zodiac7 = new Question (zodiacSign, "Leo");
+	    	zodiac7.match();
+	    	tsList.add(zodiac7.getPercentage());
+	    	
+	    	Question zodiac8 = new Question (zodiacSign, "Cancer");
+	    	zodiac3.match();
+	    	jbList.add(zodiac8.getPercentage());
+	    	
+	    	
+	    	//Calculating Spontaneous Slider Match
 
-
-		   // final compatibility scores
-		   System.out.println("Justin Bieber Compatibility: " + jb);
-		   System.out.println("Jennifer Lopez Compatibility: " + jlo);
-		   System.out.println("Taylor Swift Compatibility: " + ts);
-		   System.out.println("Kanye West Compatibility: " + kw);
+			double value = SpontaneousSlider.getValue();
+			
+			RangeQuestion sliderQuestion1 = new RangeQuestion ((value>= 0 && value <= 2.5), 10.0);
+			sliderQuestion1.match();
+			jloList.add(sliderQuestion1.getSliderPercentage());
 		
-		   //creating the bar graph & pieChart
-		   finalViewController.createBarGraph(jb, jlo, kw, ts);
-		   finalViewController.createPieChart(jb, jlo, kw, ts);
-		   finalViewController.setLabel(jb, jlo, kw, ts, nameTextField.getText());
+			RangeQuestion sliderQuestion2 = new RangeQuestion ((value>= 2.5 && value <= 5), 10.0);
+			sliderQuestion2.match();
+			jbList.add(sliderQuestion2.getSliderPercentage());
+		
+			
+			RangeQuestion sliderQuestion3 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
+			sliderQuestion3.match();
+			tsList.add(sliderQuestion3.getSliderPercentage());
+			
+			
+			RangeQuestion sliderQuestion4 = new RangeQuestion ((value>= 7.5 && value <= 10), 10.0);
+			sliderQuestion4.match();
+			pitList.add(sliderQuestion4.getSliderPercentage());
+			
+			
+		    //Calculating Intro/Extro compatibility. 
+	        
+				double introExtroValue = IntroExtroSlider.getValue();
+				
+				RangeQuestion sliderQuestion5 = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 10.0);
+				sliderQuestion5.match();
+				tsList.add(sliderQuestion5.getSliderPercentage());
+			
+				RangeQuestion sliderQuestion6 = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 10.0);
+				sliderQuestion6.match();
+				jloList.add(sliderQuestion6.getSliderPercentage());
+				
+				
+				RangeQuestion sliderQuestion7 = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
+				sliderQuestion7.match();
+				jbList.add(sliderQuestion7.getSliderPercentage());
+				
+				RangeQuestion sliderQuestion8 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
+				sliderQuestion8.match();
+				tsList.add(sliderQuestion8.getSliderPercentage());
+	    	
+			//String sign = ZodiacSignChoiceBox.getValue();
+			//getZodiacSignAnswer(sign);
+			
+			// prints all final data collected from all questions in a list  
+			System.out.println("---Our Final list Results---");
+			System.out.println("Justin Bieber List: " + jbList);
+			System.out.println("Jennifer Lopez List: " + jloList);
+			System.out.println("Taylor Swift list: " + tsList);
+			System.out.println("Kanye West list: " + pitList);
+	    	
+			// calculating final compatibility
+	    	double jb = calculateCompatibility(jbList);
+			double jlo = calculateCompatibility(jloList);
+			double ts = calculateCompatibility(tsList);
+			double pit = calculateCompatibility(pitList);
+		   
+			//Changes screen to final view scene
+		    FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+		    root = loader1.load();
+				
+		    FinalViewController finalViewController = loader1.getController();
+
+		    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		    scene = new Scene(root);
+		    scene.getStylesheets().add(getClass().getResource("laststyle.css").toExternalForm());
+		    stage.setScene(scene);
+		    stage.show();
+
+		    // final compatibility scores
+		    System.out.println("Justin Bieber Compatibility: " + jb);
+		    System.out.println("Jennifer Lopez Compatibility: " + jlo);
+		    System.out.println("Taylor Swift Compatibility: " + ts);
+		    System.out.println("Pitbull Compatibility: " + pit);
+
+		
+		    //creating the bar graph & pieChart
+		    finalViewController.createBarGraph(jb, jlo, pit, ts);
+		    finalViewController.createPieChart(jb, jlo, pit, ts);
+		    finalViewController.setLabel(jb, jlo, pit, ts, nameTextField.getText());
+
 
 	} else {
 		 System.out.println("failed");
 		 mainErrorLabel.setTextFill(Color.DARKRED);
 		 mainErrorLabel.setText("Please Answer All Questions");
-	}
-	   
-	}
 
+		}
+			    
+		
+				
+	}
+		
 
 }
 
