@@ -63,7 +63,7 @@ public class CelebTestController {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/QuestionView.fxml"));
 
-			Scene secondaryScene1 = new Scene(root,400,700);
+			Scene secondaryScene1 = new Scene(root,650,700);
 			secondaryScene1.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 			
 			applicationStage.setScene(secondaryScene1);
@@ -366,7 +366,7 @@ public class CelebTestController {
 		if(age<=50 && age>40) {
 			kwList.add(10.0);
 		}
-		if(age<=30 && age >= 18) {
+		if(age<=30 && age >= 16) {
 			jbList.add(10.0);
 		}
 		if(age>30 && age<=40) {
@@ -375,7 +375,6 @@ public class CelebTestController {
 		if(age<=60 && age>50 ) {
 			jloList.add(10.0);
 		}
-
 	}
 	
 	double calculateCompatibility(ArrayList<Double> celebList) {
@@ -392,36 +391,34 @@ public class CelebTestController {
 	void changeToFinal(ActionEvent event) throws IOException {
 		nameErrorLabel.setText("");
 		ageErrorLabel.setText("");
+		mainErrorLabel.setText("");
 		
+		mainErrorLabel.setTextFill(Color.DARKRED);  
 		nameErrorLabel.setTextFill(Color.DARKRED);
 		ageErrorLabel.setTextFill(Color.DARKRED);
 		
+		// testing if all buttons were pressed
 		System.out.println("Total Value of allButtonsPressed: " + allButtonsPressed);
         if(allButtonsPressed < 5) {
         	buttonsPressed = false;
         } else {
         	buttonsPressed = true;
         }
-
-  	    // Calling Spontaneous Slider Methods 
-		double valueSpontaneousSlider = SpontaneousSlider.getValue();
-		Question spontaneousSliderQuestion = new Question(valueSpontaneousSlider, 10.0);
-		findIntrovertExtrovertMatch(spontaneousSliderQuestion.getPercentage());
 		
-		// Calling Introvert or Extrovert Slider Methods 
-		double valueIntrovertExtrovertSlider = IntroExtroSlider.getValue();
-		Question IntrovertExtrovertSlider = new Question(valueIntrovertExtrovertSlider, 15.0);
-		findIntrovertExtrovertMatch(IntrovertExtrovertSlider.getPercentage());
-		
-		// calling choicebox methods to test choicebox answer
-		if( ZodiacSignChoiceBox.getValue() == null) {
+        if( ZodiacSignChoiceBox.getValue() == null) {
 			answerZodaic = false;
 		}else {
 			answerZodaic = true;
-			String sign = ZodiacSignChoiceBox.getValue();
-			getZodiacSignAnswer(sign);
 		}
+    	
+		// Calling Spontaneous Slider Methods 
+		double valueSpontaneousSlider = SpontaneousSlider.getValue();
+		Question spontaneousSliderQuestion = new Question(valueSpontaneousSlider, 10.0);
 		
+		// calling Introvert and Extrovert Slider methods
+		double valueIntrovertExtrovertSlider = IntroExtroSlider.getValue();
+		Question IntrovertExtrovertSlider = new Question(valueIntrovertExtrovertSlider, 15.0);
+
 		// testing person name
 		try {
 			if (nameTextField.getText().equals("")) { //to test whether user entered anything at all first
@@ -430,6 +427,11 @@ public class CelebTestController {
 			} else {
 				TextFieldQuestion nameQuestion = new TextFieldQuestion(nameTextField.getText());
 				nameQuestion.verifyNames(); //this is where it will throw an error if detected
+				nameQuestion.calculateNames();
+				jbList.add((double) nameQuestion.getJustinBieberCount());
+				kwList.add((double) nameQuestion.getKanyeWestCount());
+				jloList.add((double) nameQuestion.getJenniferLopezCount());
+				tsList.add((double) nameQuestion.getTaylorSwiftCount());
 				answerName = true;
 			}
 		} catch (InvalidNameException ine) {
@@ -451,17 +453,25 @@ public class CelebTestController {
 			answerAge = false;
 			ageErrorLabel.setText(iae.getMessage());
 		}
-		
-		
-		// prints all final data collected from all questions in a list  
-		System.out.println("---Our Final list Results---");
-		System.out.println("Justin Bieber List: " + jbList);
-		System.out.println("Jennifer Lopez List: " + jloList);
-		System.out.println("Taylor Swift list: " + tsList);
-		System.out.println("Kanye West list: " + kwList);
 
 	    if (buttonsPressed == true &&  answerZodaic == true && answerName == true && answerAge == true) {
-	    	// calculating final compatibility
+			
+	    	//testing slider methods to see what value to add to who's list
+	    	findIntrovertExtrovertMatch(spontaneousSliderQuestion.getPercentage());
+			findIntrovertExtrovertMatch(IntrovertExtrovertSlider.getPercentage());
+			
+			//testing choicebox to see what value to add to who's list
+			String sign = ZodiacSignChoiceBox.getValue();
+			getZodiacSignAnswer(sign);
+			
+			// prints all final data collected from all questions in a list  
+			System.out.println("---Our Final list Results---");
+			System.out.println("Justin Bieber List: " + jbList);
+			System.out.println("Jennifer Lopez List: " + jloList);
+			System.out.println("Taylor Swift list: " + tsList);
+			System.out.println("Kanye West list: " + kwList);
+	    	
+			// calculating final compatibility
 	    	double jb = calculateCompatibility(jbList);
 			double jlo = calculateCompatibility(jloList);
 			double ts = calculateCompatibility(tsList);
@@ -479,7 +489,6 @@ public class CelebTestController {
 		    stage.setScene(scene);
 		    stage.show();
 
-
 		    // final compatibility scores
 		    System.out.println("Justin Bieber Compatibility: " + jb);
 		    System.out.println("Jennifer Lopez Compatibility: " + jlo);
@@ -492,7 +501,7 @@ public class CelebTestController {
 		    finalViewController.setLabel(jb, jlo, kw, ts, nameTextField.getText());
 
 	    } else {
-		  System.out.println("failed");
+		  System.out.println("There was a question that failed");
 		  mainErrorLabel.setTextFill(Color.DARKRED);
 		  mainErrorLabel.setText("Please Answer All Questions");
 	    }

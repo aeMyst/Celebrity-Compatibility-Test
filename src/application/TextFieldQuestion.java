@@ -59,7 +59,7 @@ public class TextFieldQuestion extends Question{
 	}
 	
 	// class methods
-	public String verifyNames() throws InvalidNameException {
+	public void verifyNames() throws InvalidNameException {
 		// initialization of variables
 		boolean validName = true;
 		char invalidChar = Character.MIN_VALUE;
@@ -75,18 +75,14 @@ public class TextFieldQuestion extends Question{
    	  		    throw new InvalidNameException(String.format("Do not use %c in your name. Make sure to enter a real name.", invalidChar));
    	  		} 
 	    }
-		if (validName) {
-			return super.getAnswer();
-		} else {
+		if (!validName) {
 			super.setAnswer("");
-			return "";
 		}
 	}
-	public double verifyAge() throws InvalidAgeException {
+	public void verifyAge() throws InvalidAgeException {
 		// initialization of variables
 		boolean validAge = true;
 		char invalidChar = Character.MIN_VALUE;
-		double age = 0.0;
 		
 		for (char c : super.getAnswer().toCharArray()) {
 			// testing if inputed age is actually a number
@@ -107,11 +103,8 @@ public class TextFieldQuestion extends Question{
 			} else if (doubleAge > 60) { //must be 60-
 				super.setAnswer("");
 				throw new InvalidAgeException("Sorry, must be 60-. Please try again.");
-			} else {
-				age = age + doubleAge;
-			}
+			} 
 		}
-		return age;
 	}
 	
 	public void calculateNames() {
