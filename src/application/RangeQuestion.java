@@ -1,6 +1,6 @@
 package application;
 
-public class RangeQuestion extends Question{
+public class RangeQuestion extends TextFieldQuestion{
 	
 	private boolean condition = true;
 	

@@ -58,6 +58,10 @@ public class TextFieldQuestion extends Question{
 		super(answer);
 	}
 	
+	 TextFieldQuestion(double weight) {
+			super(weight);
+		// TODO Auto-generated constructor stub
+	}
 	// class methods
 	public void verifyNames() throws InvalidNameException {
 		// initialization of variables
@@ -150,7 +154,7 @@ public class TextFieldQuestion extends Question{
 	
 	@Override
 	public void match() {
-
+		
 		
 	}
 

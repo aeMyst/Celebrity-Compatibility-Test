@@ -289,48 +289,7 @@ public class CelebTestController {
 	
 	@FXML
 	private ChoiceBox<String> ZodiacSignChoiceBox;
-	
-	
-	void getZodiacSignAnswer (String signSelected) {
-		if(signSelected.equals("Sagittarius")) {
-			jloList.add(10.0);
-			//match with Jennifer Lopez who is Leo
-		}
 
-		if(signSelected.equals("Aquarius")) {
-			kwList.add(10.0);
-			//you match with Kanye cause he is Gemini
-		}
-	
-		if(signSelected.equals("Libra")) {
-			kwList.add(10.0);
-			//match with Kanye who is Gemini
-		}
-		if(signSelected.equals("Aries")) {
-			tsList.add(10.0);
-			//match with taylor swift who is sagittarus
-		}
-		if(signSelected.equals("Scorpio")) {
-			jbList.add(10.0);
-			//match with Justin who is Pisces 
-		}
-	
-		if(signSelected.equals("Gemini")) {
-			tsList.add(10.0);
-			//match with Taylor swift who is sagittarus
-		}
-		if(signSelected.equals("Leo")) {
-			tsList.add(10.0);
-			//you match with Taylor Swift who is a Sagittarus 
-		}
-		if(signSelected.equals("Cancer")) {
-			jbList.add(10.0);
-			//you match with Justin bieber who is Pisces
-		}	
-		if (signSelected.equals(null) || signSelected.equals("")) {
-			//there is an error, display such error.
-		}
-	}
 	
 	@FXML
 	private Slider IntroExtroSlider;
@@ -343,22 +302,6 @@ public class CelebTestController {
 	private Button DoneButton;
  
 
-
-	void calculateAge(double age) {
-	
-		if(age<=50 && age>40) {
-			kwList.add(10.0);
-		}
-		if(age<=30 && age >= 16) {
-			jbList.add(10.0);
-		}
-		if(age>30 && age<=40) {
-			tsList.add(10.0);
-		}
-		if(age<=60 && age>50 ) {
-			jloList.add(10.0);
-		}
-	}
 	
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
@@ -401,56 +344,8 @@ public class CelebTestController {
 		
         //Checking Spontaneous slider to see who matches with who
         
-		double value = SpontaneousSlider.getValue();
-		
-		RangeQuestion sliderQuestion1 = new RangeQuestion ((value>= 0 && value <= 2.5), 10.0);
-		sliderQuestion1.match();
-		jloList.add(sliderQuestion1.getSliderPercentage());
-	
-		RangeQuestion sliderQuestion2 = new RangeQuestion ((value>= 2.5 && value <= 5), 10.0);
-		sliderQuestion2.match();
-		jbList.add(sliderQuestion2.getSliderPercentage());
-	
-		
-		RangeQuestion sliderQuestion3 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
-		sliderQuestion3.match();
-		tsList.add(sliderQuestion3.getSliderPercentage());
-		
-		
-		RangeQuestion sliderQuestion4 = new RangeQuestion ((value>= 7.5 && value <= 10), 10.0);
-		sliderQuestion4.match();
-		kwList.add(sliderQuestion4.getSliderPercentage());
-		
-		
-	    //Checking introextro slider to see who matches with who
-        
-			double introExtroValue = IntroExtroSlider.getValue();
-			
-			RangeQuestion sliderQuestion5 = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 10.0);
-			sliderQuestion5.match();
-			tsList.add(sliderQuestion5.getSliderPercentage());
-		
-			RangeQuestion sliderQuestion6 = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 10.0);
-			sliderQuestion6.match();
-			jloList.add(sliderQuestion6.getSliderPercentage());
-			
-			
-			RangeQuestion sliderQuestion7 = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
-			sliderQuestion7.match();
-			jbList.add(sliderQuestion7.getSliderPercentage());
-		
-			
-			RangeQuestion sliderQuestion8 = new RangeQuestion ((introExtroValue>= 7.5 && introExtroValue <= 10), 10.0);
-			sliderQuestion8.match();
-			kwList.add(sliderQuestion8.getSliderPercentage());
-			
-			System.out.println(jbList);
-			System.out.println(jloList);
-			System.out.println(tsList);
-			System.out.println(kwList);
-			
-	
-	
+
+
 		// testing person name
 		try {
 			if (nameTextField.getText().equals("")) { //to test whether user entered anything at all first
@@ -477,8 +372,26 @@ public class CelebTestController {
 				ageErrorLabel.setText("Please enter your age.");
 				answerAge = false;	
 			} else {
+				double age = Double.parseDouble(ageTextField.getText());
 				TextFieldQuestion ageQuestion = new TextFieldQuestion(ageTextField.getText());
 				ageQuestion.verifyAge(); //this is where it will throw an error if detected
+				RangeQuestion rangeAgeQuestion1 = new RangeQuestion ((age<=50 && age>40), 10.0);
+				rangeAgeQuestion1.match();
+				kwList.add(rangeAgeQuestion1.getSliderPercentage());
+				
+				RangeQuestion rangeAgeQuestion2 = new RangeQuestion ((age<=30 && age >= 16), 10.0);
+				rangeAgeQuestion2.match();
+				jbList.add(rangeAgeQuestion2.getSliderPercentage());
+				
+			
+				RangeQuestion rangeAgeQuestion3 = new RangeQuestion ((age>30 && age<=40), 10.0);
+				rangeAgeQuestion3.match();
+				tsList.add(rangeAgeQuestion3.getSliderPercentage());
+			
+				
+				RangeQuestion rangeAgeQuestion4 = new RangeQuestion ((age<=60 && age>50), 10.0);
+				rangeAgeQuestion4.match();
+				jloList.add(rangeAgeQuestion4.getSliderPercentage());
 				answerAge = true;
 			}
 		} catch (InvalidAgeException iae) {
@@ -492,8 +405,87 @@ public class CelebTestController {
 	
 			
 			//testing choicebox to see what value to add to who's list
-			String sign = ZodiacSignChoiceBox.getValue();
-			getZodiacSignAnswer(sign);
+	    	String zodiacSign = ZodiacSignChoiceBox.getValue();
+	    	
+	    	Question zodiac1 = new Question (zodiacSign, "Sagittarius");
+	    	zodiac1.match();
+	    	jloList.add(zodiac1.getPercentage());
+	    	
+	    	Question zodiac2 = new Question (zodiacSign, "Aquarius");
+	    	zodiac2.match();
+	    	kwList.add(zodiac2.getPercentage());
+	    	
+	    	Question zodiac3 = new Question (zodiacSign, "Libra");
+	    	zodiac3.match();
+	    	kwList.add(zodiac3.getPercentage());
+	    	
+	    	Question zodiac4 = new Question (zodiacSign, "Aries");
+	    	zodiac4.match();
+	    	tsList.add(zodiac4.getPercentage());
+	    	
+	    	Question zodiac5 = new Question (zodiacSign, "Scorpio");
+	    	zodiac5.match();
+	    	jbList.add(zodiac5.getPercentage());
+	    	
+	    	Question zodiac6 = new Question (zodiacSign, "Gemini");
+	    	zodiac6.match();
+	    	tsList.add(zodiac6.getPercentage());
+	    	
+	    	Question zodiac7 = new Question (zodiacSign, "Leo");
+	    	zodiac7.match();
+	    	tsList.add(zodiac7.getPercentage());
+	    	
+	    	Question zodiac8 = new Question (zodiacSign, "Cancer");
+	    	zodiac3.match();
+	    	jbList.add(zodiac8.getPercentage());
+	    	
+	    	
+	    	//Calculating Spontaneous Slider Match
+
+			double value = SpontaneousSlider.getValue();
+			
+			RangeQuestion sliderQuestion1 = new RangeQuestion ((value>= 0 && value <= 2.5), 10.0);
+			sliderQuestion1.match();
+			jloList.add(sliderQuestion1.getSliderPercentage());
+		
+			RangeQuestion sliderQuestion2 = new RangeQuestion ((value>= 2.5 && value <= 5), 10.0);
+			sliderQuestion2.match();
+			jbList.add(sliderQuestion2.getSliderPercentage());
+		
+			
+			RangeQuestion sliderQuestion3 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
+			sliderQuestion3.match();
+			tsList.add(sliderQuestion3.getSliderPercentage());
+			
+			
+			RangeQuestion sliderQuestion4 = new RangeQuestion ((value>= 7.5 && value <= 10), 10.0);
+			sliderQuestion4.match();
+			kwList.add(sliderQuestion4.getSliderPercentage());
+			
+			
+		    //Calculating Intro/Extro compatibility. 
+	        
+				double introExtroValue = IntroExtroSlider.getValue();
+				
+				RangeQuestion sliderQuestion5 = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 10.0);
+				sliderQuestion5.match();
+				tsList.add(sliderQuestion5.getSliderPercentage());
+			
+				RangeQuestion sliderQuestion6 = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 10.0);
+				sliderQuestion6.match();
+				jloList.add(sliderQuestion6.getSliderPercentage());
+				
+				
+				RangeQuestion sliderQuestion7 = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
+				sliderQuestion7.match();
+				jbList.add(sliderQuestion7.getSliderPercentage());
+				
+				RangeQuestion sliderQuestion8 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
+				sliderQuestion8.match();
+				tsList.add(sliderQuestion8.getSliderPercentage());
+	    	
+			//String sign = ZodiacSignChoiceBox.getValue();
+			//getZodiacSignAnswer(sign);
 			
 			// prints all final data collected from all questions in a list  
 			System.out.println("---Our Final list Results---");
