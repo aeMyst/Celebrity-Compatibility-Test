@@ -357,7 +357,7 @@ public class CelebTestController {
 				nameQuestion.verifyNames(); //this is where it will throw an error if detected
 				nameQuestion.calculateNames();
 				jbList.add((double) nameQuestion.getJustinBieberCount());
-				pitList.add((double) nameQuestion.getKanyeWestCount());
+				pitList.add((double) nameQuestion.getPitBullCount());
 				jloList.add((double) nameQuestion.getJenniferLopezCount());
 				tsList.add((double) nameQuestion.getTaylorSwiftCount());
 				answerName = true;

@@ -8,7 +8,7 @@ public class TextFieldQuestion extends Question{
 	private String taylorSwift = "taylorswift";
 	
 	private int justinBieberCount;
-	private int kanyeWestCount;
+	private int pitbullCount;
 	private int jenniferLopezCount;
 	private int taylorSwiftCount;
 
@@ -31,11 +31,11 @@ public class TextFieldQuestion extends Question{
 	public void setJustinBieberCount(int justinBieberCount) {
 		this.justinBieberCount = justinBieberCount;
 	}
-	public int getKanyeWestCount() {
-		return kanyeWestCount;
+	public int getPitBullCount() {
+		return pitbullCount;
 	}
-	public void setKanyeWestCount(int kanyeWestCount) {
-		this.kanyeWestCount = kanyeWestCount;
+	public void setKanyeWestCount(int pitbullCount) {
+		this.pitbullCount = pitbullCount;
 	}
 	public int getJenniferLopezCount() {
 		return jenniferLopezCount;
@@ -116,7 +116,7 @@ public class TextFieldQuestion extends Question{
 		String nameAfterChanges = removeDuplicateLettersHelper(super.getAnswer());
 		//now call a count method for each celebrity
 		justinBieberCount = characterMatchCount(nameAfterChanges, getJustinBieber());
-		kanyeWestCount = characterMatchCount(nameAfterChanges, getPitbull());
+		pitbullCount = characterMatchCount(nameAfterChanges, getPitbull());
 		jenniferLopezCount = characterMatchCount(nameAfterChanges, getJenniferLopez());
 		taylorSwiftCount = characterMatchCount(nameAfterChanges, getTaylorSwift());
 	}
