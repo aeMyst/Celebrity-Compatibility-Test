@@ -18,7 +18,7 @@ public class RangeQuestion extends TextFieldQuestion{
 	@Override
 	public void match(){ //match method determines what user has clicked vs. actually match
 		if (this.condition)  {
-			super.setPercentage(10);
+			super.setPercentage(super.getWeight());
 		} else {
 			setPercentage(0); 
 		}				

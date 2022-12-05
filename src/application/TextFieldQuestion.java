@@ -2,7 +2,7 @@ package application;
 
 public class TextFieldQuestion extends Question{
 	// instance variables
-	private String justinBieber = "jenniferlopez";
+	private String justinBieber = "justinbieber";
 	private String pitbull = "pitbullperez";		
 	private String jenniferLopez = "jenniferlopez";
 	private String taylorSwift = "taylorswift";

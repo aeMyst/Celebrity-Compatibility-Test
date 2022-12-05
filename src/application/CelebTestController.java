@@ -148,15 +148,16 @@ public class CelebTestController {
 		//calling objects for question class for each button
 		Question buttonQuestionPizza = new Question(id, "PizzaFoodButton");
 		buttonQuestionPizza.match();
-		pitbullList.add(buttonQuestionPizza.getPercentage());
+		jenniferLopezList.add(buttonQuestionPizza.getPercentage());
 		
 		Question buttonQuestionSushi = new Question(id, "SushiFoodButton");
 		buttonQuestionSushi.match();
-		jenniferLopezList.add(buttonQuestionSushi.getPercentage());
+		justinBieberList.add(buttonQuestionSushi.getPercentage());
+		
 		
 		Question buttonQuestionPasta = new Question(id, "PastaFoodButton");
 		buttonQuestionPasta.match();
-		justinBieberList.add(buttonQuestionPasta.getPercentage());
+		pitbullList.add(buttonQuestionPasta.getPercentage());
 		
 		Question buttonQuestionIceCream = new Question(id,"IceCreamFoodButton");
 		buttonQuestionIceCream.match();
@@ -182,19 +183,21 @@ public class CelebTestController {
 		//calling objects for question class for each button
 		Question buttonQuestionFall = new Question(id, "FallSeasonButton");
 		buttonQuestionFall.match();
-		pitbullList.add(buttonQuestionFall.getPercentage());
+		justinBieberList.add(buttonQuestionFall.getPercentage());
 		
 		Question buttonQuestionWinter = new Question(id, "WinterSeasonButton");
 		buttonQuestionWinter.match();
-		jenniferLopezList.add(buttonQuestionWinter.getPercentage());
+		pitbullList.add(buttonQuestionWinter.getPercentage());
+		
 		
 		Question buttonQuestionSpring = new Question(id,"SpringSeasonButton");
 		buttonQuestionSpring.match();
-		justinBieberList.add(buttonQuestionSpring.getPercentage());
+		taylorSwiftList.add(buttonQuestionSpring.getPercentage());
+		
 		
 		Question buttonQuestionSummer = new Question(id,"SummerSeasonButton");
 		buttonQuestionSummer.match();
-		taylorSwiftList.add(buttonQuestionSummer.getPercentage());
+		jenniferLopezList.add(buttonQuestionSummer.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
 		FallSeasonButton.setDisable((buttonQuestionFall.isButtonPressed()));
@@ -220,15 +223,16 @@ public class CelebTestController {
 		
 		Question buttonQuestionGreen = new Question(id, "GreenColourButton");
 		buttonQuestionGreen.match();
-		jenniferLopezList.add(buttonQuestionGreen.getPercentage());
+		justinBieberList.add(buttonQuestionGreen.getPercentage());
+		
 		
 		Question buttonQuestionYellow = new Question(id,"YellowColourButton");
 		buttonQuestionYellow.match();
-		justinBieberList.add(buttonQuestionYellow.getPercentage());
+		taylorSwiftList.add(buttonQuestionYellow.getPercentage());
 		
 		Question buttonQuestionBlue = new Question(id,"BlueColourButton");
 		buttonQuestionBlue.match();
-		taylorSwiftList.add(buttonQuestionBlue.getPercentage());
+		jenniferLopezList.add(buttonQuestionBlue.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
 		RedColourButton.setDisable((buttonQuestionRed.isButtonPressed()));
@@ -254,11 +258,11 @@ public class CelebTestController {
 		
 		Question buttonQuestionPop = new Question(id, "PopMusicButton");
 		buttonQuestionPop.match();
-		jenniferLopezList.add(buttonQuestionPop.getPercentage());
+		justinBieberList.add(buttonQuestionPop.getPercentage());
 		
 		Question buttonQuestionClassical = new Question(id,"ClassicalMusicButton");
 		buttonQuestionClassical.match();
-		justinBieberList.add(buttonQuestionClassical.getPercentage());
+		jenniferLopezList.add(buttonQuestionClassical.getPercentage());
 		
 		Question buttonQuestionIndie = new Question(id,"IndieMusicButton");
 		buttonQuestionIndie.match();
@@ -462,20 +466,20 @@ public class CelebTestController {
 		    //Calculating Introvert and Extrovert compatibility
 			double introExtroValue = IntroExtroSlider.getValue();
 				
-			RangeQuestion introExtroSliderTaylorSwift = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 10.0);
+			RangeQuestion introExtroSliderTaylorSwift = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 15.0);
 			introExtroSliderTaylorSwift.match();
 			taylorSwiftList.add(introExtroSliderTaylorSwift.getSliderPercentage());
 			
-			RangeQuestion introExtroSliderJenniferLopez = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 10.0);
+			RangeQuestion introExtroSliderJenniferLopez = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 15.0);
 			introExtroSliderJenniferLopez.match();
 			jenniferLopezList.add(introExtroSliderJenniferLopez.getSliderPercentage());
 				
 				
-			RangeQuestion introExtroSliderJustinBieber = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
+			RangeQuestion introExtroSliderJustinBieber = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 15.0);
 			introExtroSliderJustinBieber.match();
 			justinBieberList.add(introExtroSliderJustinBieber.getSliderPercentage());
 				
-			RangeQuestion introExtrosliderPitbull = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
+			RangeQuestion introExtrosliderPitbull = new RangeQuestion ((introExtroValue>= 7.5 && introExtroValue <= 10), 15.0);
 			introExtrosliderPitbull.match();
 			pitbullList.add(introExtrosliderPitbull.getSliderPercentage());
 	    	
@@ -510,13 +514,11 @@ public class CelebTestController {
 		    System.out.println("Taylor Swift Compatibility: " + finalScoreTaylorSwift);
 		    System.out.println("Pitbull Perez Compatibility: " + finalScorePitbull);
 
-		
 		    //creating the bar graph & pieChart by passing data to finalViewController
 		    finalViewController.createBarGraph(finalScoreJustinBieber, finalScoreJenniferLopez, finalScorePitbull, finalScoreTaylorSwift);
 		    finalViewController.createPieChart(finalScoreJustinBieber, finalScoreJenniferLopez, finalScorePitbull, finalScoreTaylorSwift);
 		    finalViewController.setLabel(finalScoreJustinBieber, finalScoreJenniferLopez, finalScorePitbull, finalScoreTaylorSwift, 
 		    		nameTextField.getText());
-
 
 	} else { // if some questions were not answered, set the mainErrorLabel to remind user to answer all questions
 		 mainErrorLabel.setText("Please Answer All Questions");
