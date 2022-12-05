@@ -27,6 +27,11 @@ public class TextFieldQuestion extends Question{
 	private int taylorSwiftCount;
 
 	// getter methods to access encapsulated instance variables
+	
+	/** Gets the question's percentage correct.
+	 * @return percentage A double containing the question's 
+	 *      percentage correct.
+	*/
 	public String getJustinBieber() {
 		return justinBieber;
 	}
@@ -50,7 +55,7 @@ public class TextFieldQuestion extends Question{
 		return pitbullCount;
 	}
 	
-	public void setPitbullCount(int kanyeWestCount) {
+	public void setPitbullCount(int pitbullCount) {
 		this.pitbullCount = pitbullCount;
 
 	}

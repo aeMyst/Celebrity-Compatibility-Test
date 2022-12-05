@@ -13,7 +13,7 @@ package application;
  *
 */
 
-public class RangeQuestion extends TextFieldQuestion{
+public class RangeQuestion extends Question{
 	// encapsulated instance variable
 	private boolean condition = true;
 	
