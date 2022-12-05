@@ -15,11 +15,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class CelebTestController {
+public class CelebTestController { // 2 test cases right and complete
+	// instance variables
 	Stage applicationStage;
 	
 	private Parent root;
@@ -33,33 +33,91 @@ public class CelebTestController {
 	double allButtonsPressed = 0;
 	boolean buttonsPressed = false;
 
-	
-	ArrayList<Double> jbList = new ArrayList<Double>();
-	ArrayList<Double> jloList = new ArrayList<Double>();
-	ArrayList<Double> tsList = new ArrayList<Double>();
-	ArrayList<Double> pitList = new ArrayList<Double>();	
+	// arrayList's for each celebrity
+	ArrayList<Double> justinBieberList = new ArrayList<Double>();
+	ArrayList<Double> jenniferLopezList = new ArrayList<Double>();
+	ArrayList<Double> taylorSwiftList = new ArrayList<Double>();
+	ArrayList<Double> pitbullList = new ArrayList<Double>();	
 
-
+	// start button
 	@FXML
-	private TextField nameTextField;
+	private Button startButton;
 	
+	// error labels
+	@FXML
+	private Label ageErrorLabel;
+	@FXML
+	private Label mainErrorLabel;
 	@FXML
 	private Label nameErrorLabel;
 	
+	// textfield questions
+	@FXML
+	private TextField nameTextField;
 	@FXML
 	private TextField ageTextField;
+
+	// food buttons
+	@FXML 
+	private Button PizzaFoodButton;
+	@FXML 
+	private Button PastaFoodButton;
+	@FXML 
+	private Button SushiFoodButton;
+	@FXML 
+	private Button IceCreamFoodButton;
+
+	// season buttons
+	@FXML 
+	private Button FallSeasonButton;
+	@FXML 
+	private Button WinterSeasonButton;
+	@FXML 
+	private Button SpringSeasonButton;
+	@FXML 
+	private Button SummerSeasonButton;
+
+	// colour buttons
+	@FXML 
+	private Button RedColourButton;
+	@FXML 
+	private Button GreenColourButton;
+	@FXML 
+	private Button BlueColourButton;
+	@FXML 
+	private Button YellowColourButton;
 	
-	@FXML
-	private Label ageErrorLabel;
-
-	@FXML
+	// music buttons
+	@FXML 
+	private Button RapMusicButton;
+	@FXML 
+	private Button PopMusicButton;
+	@FXML 
+	private Button IndieMusicButton;
+	@FXML 
+	private Button ClassicalMusicButton;
 	
-	private Label mainErrorLabel;
-
-
+	// animal buttons
+	@FXML 
+	private Button CatAnimalButton;
+	@FXML 
+	private Button DogAnimalButton;
+	
+	// slider questions
 	@FXML
-    	private Button startButton;
-   
+	private Slider SpontaneousSlider;
+	@FXML
+	private Slider IntroExtroSlider;
+	
+	// choicebox question
+	@FXML
+	private ChoiceBox<String> ZodiacSignChoiceBox;
+	
+	// done button
+	@FXML
+	private Button DoneButton;
+	
+	// method to change to questions scene after clicking start button
 	@FXML
     void changeToQuestions(ActionEvent event) {
 		try {
@@ -78,22 +136,7 @@ public class CelebTestController {
 
     }
 	
-
-	
-	//food buttons
-	@FXML 
-	private Button PizzaFoodButton;
-	
-	@FXML 
-	private Button PastaFoodButton;
-	
-	@FXML 
-	private Button SushiFoodButton;
-	
-	@FXML 
-	private Button IceCreamFoodButton;
-	
-	
+	// method to call Question class for food buttons
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
 		
@@ -103,39 +146,31 @@ public class CelebTestController {
 		String id = btn.getId();
 		
 		//calling objects for question class for each button
-		Question buttonQuestion1 = new Question(id, "PizzaFoodButton");
-		buttonQuestion1.match();
-		pitList.add(buttonQuestion1.getPercentage());
-		Question buttonQuestion2 = new Question(id, "SushiFoodButton");
-		buttonQuestion2.match();
-		jloList.add(buttonQuestion2.getPercentage());
-		Question buttonQuestion3 = new Question(id, "PastaFoodButton");
-		buttonQuestion3.match();
-		jbList.add(buttonQuestion3.getPercentage());
-		Question buttonQuestion4 = new Question(id,"IceCreamFoodButton");
-		buttonQuestion4.match();
-		tsList.add(buttonQuestion4.getPercentage());
+		Question buttonQuestionPizza = new Question(id, "PizzaFoodButton");
+		buttonQuestionPizza.match();
+		jenniferLopezList.add(buttonQuestionPizza.getPercentage());
+		
+		Question buttonQuestionSushi = new Question(id, "SushiFoodButton");
+		buttonQuestionSushi.match();
+		justinBieberList.add(buttonQuestionSushi.getPercentage());
+		
+		
+		Question buttonQuestionPasta = new Question(id, "PastaFoodButton");
+		buttonQuestionPasta.match();
+		pitbullList.add(buttonQuestionPasta.getPercentage());
+		
+		Question buttonQuestionIceCream = new Question(id,"IceCreamFoodButton");
+		buttonQuestionIceCream.match();
+		taylorSwiftList.add(buttonQuestionIceCream.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
-		PizzaFoodButton.setDisable((buttonQuestion1.isButtonPressed()));
-		SushiFoodButton.setDisable(buttonQuestion2.isButtonPressed());
-		IceCreamFoodButton.setDisable((buttonQuestion4.isButtonPressed()));
-		PastaFoodButton.setDisable((buttonQuestion3.isButtonPressed()));
+		PizzaFoodButton.setDisable((buttonQuestionPizza.isButtonPressed()));
+		SushiFoodButton.setDisable(buttonQuestionSushi.isButtonPressed());
+		IceCreamFoodButton.setDisable((buttonQuestionIceCream.isButtonPressed()));
+		PastaFoodButton.setDisable((buttonQuestionPasta.isButtonPressed()));
 	}
 	
-	//season buttons
-	@FXML 
-	private Button FallSeasonButton;
-	
-	@FXML 
-	private Button WinterSeasonButton;
-	
-	@FXML 
-	private Button SpringSeasonButton;
-	
-	@FXML 
-	private Button SummerSeasonButton;
-	
+	// method to call Question class for season buttons
 	@FXML
 	void setSeasonAnswer (ActionEvent event) {
 		
@@ -146,39 +181,32 @@ public class CelebTestController {
 		String id = btn.getId();
 		
 		//calling objects for question class for each button
-		Question buttonQuestion1 = new Question(id, "FallSeasonButton");
-		buttonQuestion1.match();
-		pitList.add(buttonQuestion1.getPercentage());
-		Question buttonQuestion2 = new Question(id, "WinterSeasonButton");
-		buttonQuestion2.match();
-		jloList.add(buttonQuestion2.getPercentage());
-		Question buttonQuestion3 = new Question(id,"SpringSeasonButton");
-		buttonQuestion3.match();
-		jbList.add(buttonQuestion3.getPercentage());
-		Question buttonQuestion4 = new Question(id,"SummerSeasonButton");
-		buttonQuestion4.match();
-		tsList.add(buttonQuestion4.getPercentage());
+		Question buttonQuestionFall = new Question(id, "FallSeasonButton");
+		buttonQuestionFall.match();
+		justinBieberList.add(buttonQuestionFall.getPercentage());
+		
+		Question buttonQuestionWinter = new Question(id, "WinterSeasonButton");
+		buttonQuestionWinter.match();
+		pitbullList.add(buttonQuestionWinter.getPercentage());
+		
+		
+		Question buttonQuestionSpring = new Question(id,"SpringSeasonButton");
+		buttonQuestionSpring.match();
+		taylorSwiftList.add(buttonQuestionSpring.getPercentage());
+		
+		
+		Question buttonQuestionSummer = new Question(id,"SummerSeasonButton");
+		buttonQuestionSummer.match();
+		jenniferLopezList.add(buttonQuestionSummer.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
-		FallSeasonButton.setDisable((buttonQuestion1.isButtonPressed()));
-		WinterSeasonButton.setDisable((buttonQuestion2.isButtonPressed()));
-		SpringSeasonButton.setDisable(buttonQuestion3.isButtonPressed());
-		SummerSeasonButton.setDisable((buttonQuestion4.isButtonPressed()));
+		FallSeasonButton.setDisable((buttonQuestionFall.isButtonPressed()));
+		WinterSeasonButton.setDisable((buttonQuestionWinter.isButtonPressed()));
+		SpringSeasonButton.setDisable(buttonQuestionSpring.isButtonPressed());
+		SummerSeasonButton.setDisable((buttonQuestionSummer.isButtonPressed()));
 	}
 	
-	//colour buttons
-	@FXML 
-	private Button RedColourButton;
-	
-	@FXML 
-	private Button GreenColourButton;
-	
-	@FXML 
-	private Button BlueColourButton;
-	
-	@FXML 
-	private Button YellowColourButton;
-	
+	// method to call Question class for color buttons
 	@FXML
 	void setColourAnswer (ActionEvent event) {
 		
@@ -189,39 +217,31 @@ public class CelebTestController {
 		String id = btn.getId();
 	
 		//calling objects for question class for each button
-		Question buttonQuestion1 = new Question(id, "RedColourButton");
-		buttonQuestion1.match();
-		pitList.add(buttonQuestion1.getPercentage());
-		Question buttonQuestion2 = new Question(id, "GreenColourButton");
-		buttonQuestion2.match();
-		jloList.add(buttonQuestion2.getPercentage());
-		Question buttonQuestion3 = new Question(id,"YellowColourButton");
-		buttonQuestion3.match();
-		jbList.add(buttonQuestion3.getPercentage());
-		Question buttonQuestion4 = new Question(id,"BlueColourButton");
-		buttonQuestion4.match();
-		tsList.add(buttonQuestion4.getPercentage());
+		Question buttonQuestionRed = new Question(id, "RedColourButton");
+		buttonQuestionRed.match();
+		pitbullList.add(buttonQuestionRed.getPercentage());
+		
+		Question buttonQuestionGreen = new Question(id, "GreenColourButton");
+		buttonQuestionGreen.match();
+		justinBieberList.add(buttonQuestionGreen.getPercentage());
+		
+		
+		Question buttonQuestionYellow = new Question(id,"YellowColourButton");
+		buttonQuestionYellow.match();
+		taylorSwiftList.add(buttonQuestionYellow.getPercentage());
+		
+		Question buttonQuestionBlue = new Question(id,"BlueColourButton");
+		buttonQuestionBlue.match();
+		jenniferLopezList.add(buttonQuestionBlue.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
-		RedColourButton.setDisable((buttonQuestion1.isButtonPressed()));
-		GreenColourButton.setDisable((buttonQuestion2.isButtonPressed()));
-		YellowColourButton.setDisable((buttonQuestion3.isButtonPressed()));
-		BlueColourButton.setDisable(buttonQuestion4.isButtonPressed());
+		RedColourButton.setDisable((buttonQuestionRed.isButtonPressed()));
+		GreenColourButton.setDisable((buttonQuestionGreen.isButtonPressed()));
+		YellowColourButton.setDisable((buttonQuestionYellow.isButtonPressed()));
+		BlueColourButton.setDisable(buttonQuestionBlue.isButtonPressed());
 	}
 	
-	//music buttons
-	@FXML 
-	private Button RapMusicButton;
-	 
-	@FXML 
-	private Button PopMusicButton;
-	
-	@FXML 
-	private Button IndieMusicButton;
-	
-	@FXML 
-	private Button ClassicalMusicButton;
-	
+	// method to call Question class for music buttons
 	@FXML
 	void setMusicAnswer (ActionEvent event) {
 		
@@ -232,35 +252,31 @@ public class CelebTestController {
 		String id = btn.getId();
 
 		//calling objects for question class for each button
-		Question buttonQuestion1 = new Question(id, "RapMusicButton");
-		buttonQuestion1.match();
-		pitList.add(buttonQuestion1.getPercentage());
-		Question buttonQuestion2 = new Question(id, "PopMusicButton");
-		buttonQuestion2.match();
-		jloList.add(buttonQuestion2.getPercentage());
-		Question buttonQuestion3 = new Question(id,"ClassicalMusicButton");
-		buttonQuestion3.match();
-		jbList.add(buttonQuestion3.getPercentage());
-		Question buttonQuestion4 = new Question(id,"IndieMusicButton");
-		buttonQuestion4.match();
-		tsList.add(buttonQuestion4.getPercentage());
+		Question buttonQuestionRap = new Question(id, "RapMusicButton");
+		buttonQuestionRap.match();
+		pitbullList.add(buttonQuestionRap.getPercentage());
+		
+		Question buttonQuestionPop = new Question(id, "PopMusicButton");
+		buttonQuestionPop.match();
+		justinBieberList.add(buttonQuestionPop.getPercentage());
+		
+		Question buttonQuestionClassical = new Question(id,"ClassicalMusicButton");
+		buttonQuestionClassical.match();
+		jenniferLopezList.add(buttonQuestionClassical.getPercentage());
+		
+		Question buttonQuestionIndie = new Question(id,"IndieMusicButton");
+		buttonQuestionIndie.match();
+		taylorSwiftList.add(buttonQuestionIndie.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
-		RapMusicButton.setDisable((buttonQuestion1.isButtonPressed()));
-		PopMusicButton.setDisable(buttonQuestion2.isButtonPressed());
-		ClassicalMusicButton.setDisable((buttonQuestion3.isButtonPressed()));
-		IndieMusicButton.setDisable((buttonQuestion4.isButtonPressed()));
+		RapMusicButton.setDisable((buttonQuestionRap.isButtonPressed()));
+		PopMusicButton.setDisable(buttonQuestionPop.isButtonPressed());
+		ClassicalMusicButton.setDisable((buttonQuestionClassical.isButtonPressed()));
+		IndieMusicButton.setDisable((buttonQuestionIndie.isButtonPressed()));
 
 		}
 
-	
-	//animal buttons
-	@FXML 
-	private Button CatAnimalButton;
-	
-	@FXML 
-	private Button DogAnimalButton;
-	
+	// method to call Question class for animal buttons
 	@FXML
 	void setAnimalAnswer (ActionEvent event) {
 		
@@ -271,39 +287,22 @@ public class CelebTestController {
 		String id = btn.getId();
 
 		//calling objects for question class for each button
-		Question buttonQuestion1 = new Question(id, "DogAnimalButton", 5.0);
-		buttonQuestion1.match();
-		pitList.add(buttonQuestion1.getPercentage());
-		tsList.add(buttonQuestion1.getPercentage());
-		Question buttonQuestion2 = new Question(id, "CatAnimalButton", 5.0);
-		buttonQuestion2.match();
-		jloList.add(buttonQuestion2.getPercentage());
-		jbList.add(buttonQuestion2.getPercentage());
+		Question buttonQuestionDog = new Question(id, "DogAnimalButton", 5.0);
+		buttonQuestionDog.match();
+		pitbullList.add(buttonQuestionDog.getPercentage());
+		taylorSwiftList.add(buttonQuestionDog.getPercentage());
+		
+		Question buttonQuestionCat = new Question(id, "CatAnimalButton", 5.0);
+		buttonQuestionCat.match();
+		jenniferLopezList.add(buttonQuestionCat.getPercentage());
+		justinBieberList.add(buttonQuestionCat.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
-		DogAnimalButton.setDisable((buttonQuestion1.isButtonPressed()));
-		CatAnimalButton.setDisable(buttonQuestion2.isButtonPressed());
+		DogAnimalButton.setDisable((buttonQuestionDog.isButtonPressed()));
+		CatAnimalButton.setDisable(buttonQuestionCat.isButtonPressed());
 	}
-	
-	@FXML
-	private Slider SpontaneousSlider;
-	
-	@FXML
-	private ChoiceBox<String> ZodiacSignChoiceBox;
-
-	
-	@FXML
-	private Slider IntroExtroSlider;
-	
-	@FXML
-	private Label DisplayCompatibilityScoreLabel;
-	
-
-	@FXML
-	private Button DoneButton;
  
-
-	
+	// method that calculates the total compatibility score from passed celebrity list
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
 		
@@ -314,198 +313,194 @@ public class CelebTestController {
 		return totalPercent;
 	}
 	
+	/* method that changes to final scene and displays final scores in data on graphs.
+	 * Also makes objects for textfield questions, choicebox question, and slider questions.
+	 */
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
+		//initialization of error labels to nothing
 		nameErrorLabel.setText("");
 		ageErrorLabel.setText("");
 		mainErrorLabel.setText("");
 		
+		//setting error labels to color red
 		mainErrorLabel.setTextFill(Color.DARKRED);  
 		nameErrorLabel.setTextFill(Color.DARKRED);
 		ageErrorLabel.setTextFill(Color.DARKRED);
 		
 		// testing if all buttons were pressed
-		System.out.println("Total Value of allButtonsPressed: " + allButtonsPressed);
         if(allButtonsPressed < 5) {
         	buttonsPressed = false;
         } else {
         	buttonsPressed = true;
         }
 
-		
+		// testing if user has inputed an answer for choicebox
         if( ZodiacSignChoiceBox.getValue() == null) {
 			answerZodaic = false;
 		}else {
 			answerZodaic = true;
 		}
-    	
-		// Calling Spontaneous Slider Methods 
-	
-        answerAllQuestions = true;
-		
-        //Checking Spontaneous slider to see who matches with who
-        
 
-
-		// testing person name
+		// testing person name using try, catch java methods
 		try {
 			if (nameTextField.getText().equals("")) { //to test whether user entered anything at all first
 				nameErrorLabel.setText("Please enter your full name.");
+				
 				answerName = false;
 			} else {
 				TextFieldQuestion nameQuestion = new TextFieldQuestion(nameTextField.getText());
+				
 				nameQuestion.verifyNames(); //this is where it will throw an error if detected
 				nameQuestion.calculateNames();
-				jbList.add((double) nameQuestion.getJustinBieberCount());
-				pitList.add((double) nameQuestion.getKanyeWestCount());
-				jloList.add((double) nameQuestion.getJenniferLopezCount());
-				tsList.add((double) nameQuestion.getTaylorSwiftCount());
+				
+				justinBieberList.add((double) nameQuestion.getJustinBieberCount());
+				pitbullList.add((double) nameQuestion.getPitbullCount());
+				jenniferLopezList.add((double) nameQuestion.getJenniferLopezCount());
+				taylorSwiftList.add((double) nameQuestion.getTaylorSwiftCount());
+				
 				answerName = true;
 			}
-		} catch (InvalidNameException ine) {
+		} catch (InvalidNameException ine) { //catches an invalidNameException if thrown
 			answerName = false;
 			nameErrorLabel.setText(ine.getMessage());
 		}
 		
-		// testing person age
+		// testing person age using try, catch java methods
 		try {
-			if (ageTextField.getText().equals("")) {
+			if (ageTextField.getText().equals("")) { //to test whether user entered anything at all first
 				ageErrorLabel.setText("Please enter your age.");
+				
 				answerAge = false;	
 			} else {
 				double age = Double.parseDouble(ageTextField.getText());
 				TextFieldQuestion ageQuestion = new TextFieldQuestion(ageTextField.getText());
 				ageQuestion.verifyAge(); //this is where it will throw an error if detected
-				RangeQuestion rangeAgeQuestion1 = new RangeQuestion ((age<=50 && age>40), 10.0);
-				rangeAgeQuestion1.match();
-				pitList.add(rangeAgeQuestion1.getSliderPercentage());
 				
-				RangeQuestion rangeAgeQuestion2 = new RangeQuestion ((age<=30 && age >= 16), 10.0);
-				rangeAgeQuestion2.match();
-				jbList.add(rangeAgeQuestion2.getSliderPercentage());
+				RangeQuestion rangeAgePitBull = new RangeQuestion ((age<=50 && age>40), 10.0);
+				rangeAgePitBull.match();
+				pitbullList.add(rangeAgePitBull.getSliderPercentage());
+				
+				RangeQuestion rangeAgeJustinBieber = new RangeQuestion ((age<=30 && age >= 16), 10.0);
+				rangeAgeJustinBieber.match();
+				justinBieberList.add(rangeAgeJustinBieber.getSliderPercentage());
 				
 			
-				RangeQuestion rangeAgeQuestion3 = new RangeQuestion ((age>30 && age<=40), 10.0);
-				rangeAgeQuestion3.match();
-				tsList.add(rangeAgeQuestion3.getSliderPercentage());
+				RangeQuestion rangeAgeTaylorSwift = new RangeQuestion ((age>30 && age<=40), 10.0);
+				rangeAgeTaylorSwift.match();
+				taylorSwiftList.add(rangeAgeTaylorSwift.getSliderPercentage());
 			
 				
-				RangeQuestion rangeAgeQuestion4 = new RangeQuestion ((age<=60 && age>50), 10.0);
-				rangeAgeQuestion4.match();
-				jloList.add(rangeAgeQuestion4.getSliderPercentage());
+				RangeQuestion rangeAgeJenniferLopez = new RangeQuestion ((age<=60 && age>50), 10.0);
+				rangeAgeJenniferLopez.match();
+				jenniferLopezList.add(rangeAgeJenniferLopez.getSliderPercentage());
+				
 				answerAge = true;
 			}
-		} catch (InvalidAgeException iae) {
+		} catch (InvalidAgeException iae) { //catches an invalidAgeException if thrown
 			answerAge = false;
 			ageErrorLabel.setText(iae.getMessage());
 		}
-
+		
+		// condition that checks to see if all questions have been answered
 	    if (buttonsPressed == true &&  answerZodaic == true && answerName == true && answerAge == true) {
-			
-	    	//testing slider methods to see what value to add to who's list
-	
 			
 			//testing choicebox to see what value to add to who's list
 	    	String zodiacSign = ZodiacSignChoiceBox.getValue();
 	    	
-	    	Question zodiac1 = new Question (zodiacSign, "Sagittarius");
-	    	zodiac1.match();
-	    	jloList.add(zodiac1.getPercentage());
+	    	Question zodiacSagittarius = new Question (zodiacSign, "Sagittarius");
+	    	zodiacSagittarius.match();
+	    	jenniferLopezList.add(zodiacSagittarius.getPercentage());
 	    	
-	    	Question zodiac2 = new Question (zodiacSign, "Aquarius");
-	    	zodiac2.match();
-	    	pitList.add(zodiac2.getPercentage());
+	    	Question zodiacAquarius = new Question (zodiacSign, "Aquarius");
+	    	zodiacAquarius.match();
+	    	pitbullList.add(zodiacAquarius.getPercentage());
 	    	
-	    	Question zodiac3 = new Question (zodiacSign, "Libra");
-	    	zodiac3.match();
-	    	pitList.add(zodiac3.getPercentage());
+	    	Question zodiacLibra = new Question (zodiacSign, "Libra");
+	    	zodiacLibra.match();
+	    	pitbullList.add(zodiacLibra.getPercentage());
 	    	
-	    	Question zodiac4 = new Question (zodiacSign, "Aries");
-	    	zodiac4.match();
-	    	tsList.add(zodiac4.getPercentage());
+	    	Question zodiacAries = new Question (zodiacSign, "Aries");
+	    	zodiacAries.match();
+	    	taylorSwiftList.add(zodiacAries.getPercentage());
 	    	
-	    	Question zodiac5 = new Question (zodiacSign, "Scorpio");
-	    	zodiac5.match();
-	    	jbList.add(zodiac5.getPercentage());
+	    	Question zodiacScorpio = new Question (zodiacSign, "Scorpio");
+	    	zodiacScorpio.match();
+	    	justinBieberList.add(zodiacScorpio.getPercentage());
 	    	
-	    	Question zodiac6 = new Question (zodiacSign, "Gemini");
-	    	zodiac6.match();
-	    	tsList.add(zodiac6.getPercentage());
+	    	Question zodiacGemini = new Question (zodiacSign, "Gemini");
+	    	zodiacGemini.match();
+	    	taylorSwiftList.add(zodiacGemini.getPercentage());
 	    	
-	    	Question zodiac7 = new Question (zodiacSign, "Leo");
-	    	zodiac7.match();
-	    	tsList.add(zodiac7.getPercentage());
+	    	Question zodiacLeo = new Question (zodiacSign, "Leo");
+	    	zodiacLeo.match();
+	    	taylorSwiftList.add(zodiacLeo.getPercentage());
 	    	
-	    	Question zodiac8 = new Question (zodiacSign, "Cancer");
-	    	zodiac3.match();
-	    	jbList.add(zodiac8.getPercentage());
+	    	Question zodiacCancer = new Question (zodiacSign, "Cancer");
+	    	zodiacCancer.match();
+	    	justinBieberList.add(zodiacCancer.getPercentage());
 	    	
 	    	
-	    	//Calculating Spontaneous Slider Match
-
-			double value = SpontaneousSlider.getValue();
+	    	// Calculating Spontaneous Slider Match
+			double spontaneousValue = SpontaneousSlider.getValue();
 			
-			RangeQuestion sliderQuestion1 = new RangeQuestion ((value>= 0 && value <= 2.5), 10.0);
-			sliderQuestion1.match();
-			jloList.add(sliderQuestion1.getSliderPercentage());
+			RangeQuestion spontaneousSliderJenniferLopez = new RangeQuestion ((spontaneousValue>= 0 && spontaneousValue <= 2.5), 10.0);
+			spontaneousSliderJenniferLopez.match();
+			jenniferLopezList.add(spontaneousSliderJenniferLopez.getSliderPercentage());
 		
-			RangeQuestion sliderQuestion2 = new RangeQuestion ((value>= 2.5 && value <= 5), 10.0);
-			sliderQuestion2.match();
-			jbList.add(sliderQuestion2.getSliderPercentage());
+			RangeQuestion spontaneousSliderJustinBieber = new RangeQuestion ((spontaneousValue>= 2.5 && spontaneousValue <= 5), 10.0);
+			spontaneousSliderJustinBieber.match();
+			justinBieberList.add(spontaneousSliderJustinBieber.getSliderPercentage());
 		
 			
-			RangeQuestion sliderQuestion3 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
-			sliderQuestion3.match();
-			tsList.add(sliderQuestion3.getSliderPercentage());
+			RangeQuestion spontaneousSliderTaylorSwift = new RangeQuestion ((spontaneousValue>= 5 && spontaneousValue <= 7.5), 10.0);
+			spontaneousSliderTaylorSwift.match();
+			taylorSwiftList.add(spontaneousSliderTaylorSwift.getSliderPercentage());
 			
 			
-			RangeQuestion sliderQuestion4 = new RangeQuestion ((value>= 7.5 && value <= 10), 10.0);
-			sliderQuestion4.match();
-			pitList.add(sliderQuestion4.getSliderPercentage());
+			RangeQuestion spontaneousSliderPitbull = new RangeQuestion ((spontaneousValue>= 7.5 && spontaneousValue <= 10), 10.0);
+			spontaneousSliderPitbull.match();
+			pitbullList.add(spontaneousSliderPitbull.getSliderPercentage());
 			
 			
-		    //Calculating Intro/Extro compatibility. 
-	        
-				double introExtroValue = IntroExtroSlider.getValue();
+		    //Calculating Introvert and Extrovert compatibility
+			double introExtroValue = IntroExtroSlider.getValue();
 				
-				RangeQuestion sliderQuestion5 = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 10.0);
-				sliderQuestion5.match();
-				tsList.add(sliderQuestion5.getSliderPercentage());
+			RangeQuestion introExtroSliderTaylorSwift = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 15.0);
+			introExtroSliderTaylorSwift.match();
+			taylorSwiftList.add(introExtroSliderTaylorSwift.getSliderPercentage());
 			
-				RangeQuestion sliderQuestion6 = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 10.0);
-				sliderQuestion6.match();
-				jloList.add(sliderQuestion6.getSliderPercentage());
+			RangeQuestion introExtroSliderJenniferLopez = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 15.0);
+			introExtroSliderJenniferLopez.match();
+			jenniferLopezList.add(introExtroSliderJenniferLopez.getSliderPercentage());
 				
 				
-				RangeQuestion sliderQuestion7 = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
-				sliderQuestion7.match();
-				jbList.add(sliderQuestion7.getSliderPercentage());
+			RangeQuestion introExtroSliderJustinBieber = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 15.0);
+			introExtroSliderJustinBieber.match();
+			justinBieberList.add(introExtroSliderJustinBieber.getSliderPercentage());
 				
-				RangeQuestion sliderQuestion8 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
-				sliderQuestion8.match();
-				tsList.add(sliderQuestion8.getSliderPercentage());
+			RangeQuestion introExtrosliderPitbull = new RangeQuestion ((introExtroValue>= 7.5 && introExtroValue <= 10), 15.0);
+			introExtrosliderPitbull.match();
+			pitbullList.add(introExtrosliderPitbull.getSliderPercentage());
 	    	
-			//String sign = ZodiacSignChoiceBox.getValue();
-			//getZodiacSignAnswer(sign);
-			
 			// prints all final data collected from all questions in a list  
 			System.out.println("---Our Final list Results---");
-			System.out.println("Justin Bieber List: " + jbList);
-			System.out.println("Jennifer Lopez List: " + jloList);
-			System.out.println("Taylor Swift list: " + tsList);
-			System.out.println("Kanye West list: " + pitList);
+			System.out.println("Justin Bieber List: " + justinBieberList);
+			System.out.println("Jennifer Lopez List: " + jenniferLopezList);
+			System.out.println("Taylor Swift list: " + taylorSwiftList);
+			System.out.println("PitBull Perez list: " + pitbullList);
 	    	
 			// calculating final compatibility
-	    	double jb = calculateCompatibility(jbList);
-			double jlo = calculateCompatibility(jloList);
-			double ts = calculateCompatibility(tsList);
-			double pit = calculateCompatibility(pitList);
+	    	double finalScoreJustinBieber = calculateCompatibility(justinBieberList);
+			double finalScoreJenniferLopez = calculateCompatibility(jenniferLopezList);
+			double finalScoreTaylorSwift = calculateCompatibility(taylorSwiftList);
+			double finalScorePitbull = calculateCompatibility(pitbullList);
 		   
 			//Changes screen to final view scene
-		    FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FinalView.fxml"));
-		    root = loader1.load();
+		    FXMLLoader loaderFinal = new FXMLLoader(getClass().getResource("FinalView.fxml"));
+		    root = loaderFinal.load();
 				
-		    FinalViewController finalViewController = loader1.getController();
+		    FinalViewController finalViewController = loaderFinal.getController();
 
 		    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		    scene = new Scene(root);
@@ -514,29 +509,20 @@ public class CelebTestController {
 		    stage.show();
 
 		    // final compatibility scores
-		    System.out.println("Justin Bieber Compatibility: " + jb);
-		    System.out.println("Jennifer Lopez Compatibility: " + jlo);
-		    System.out.println("Taylor Swift Compatibility: " + ts);
-		    System.out.println("Pitbull Compatibility: " + pit);
+		    System.out.println("Justin Bieber Compatibility: " + finalScoreJustinBieber);
+		    System.out.println("Jennifer Lopez Compatibility: " + finalScoreJenniferLopez);
+		    System.out.println("Taylor Swift Compatibility: " + finalScoreTaylorSwift);
+		    System.out.println("Pitbull Perez Compatibility: " + finalScorePitbull);
 
-		
-		    //creating the bar graph & pieChart
-		    finalViewController.createBarGraph(jb, jlo, pit, ts);
-		    finalViewController.createPieChart(jb, jlo, pit, ts);
-		    finalViewController.setLabel(jb, jlo, pit, ts, nameTextField.getText());
+		    //creating the bar graph & pieChart by passing data to finalViewController
+		    finalViewController.createBarGraph(finalScoreJustinBieber, finalScoreJenniferLopez, finalScorePitbull, finalScoreTaylorSwift);
+		    finalViewController.createPieChart(finalScoreJustinBieber, finalScoreJenniferLopez, finalScorePitbull, finalScoreTaylorSwift);
+		    finalViewController.setLabel(finalScoreJustinBieber, finalScoreJenniferLopez, finalScorePitbull, finalScoreTaylorSwift, 
+		    		nameTextField.getText());
 
-
-	} else {
-		 System.out.println("failed");
-		 mainErrorLabel.setTextFill(Color.DARKRED);
+	} else { // if some questions were not answered, set the mainErrorLabel to remind user to answer all questions
 		 mainErrorLabel.setText("Please Answer All Questions");
-
-		}
-			    
-		
-				
-	}
-		
-
+		}		
+	}	
 }
 
