@@ -42,8 +42,6 @@ public class FinalViewController{
 	public void createBarGraph(double justinBieberData, double jenniferLopezData, double pitbullData, double taylorSwiftData) {
 		XYChart.Series series = new XYChart.Series<>();
 		
-		series.setName("Celebrity Compatibility Results in %");
-
 		series.getData().add(new XYChart.Data<>( "Justin Bieber",  justinBieberData));
 		series.getData().add(new XYChart.Data<>( "Jennifer Lopez",  jenniferLopezData));
 		series.getData().add(new XYChart.Data<>( "Pitbull Perez", pitbullData));
@@ -61,15 +59,13 @@ public class FinalViewController{
 		n.setStyle("-fx-bar-fill: turquoise");
 		n = barChart.lookup(".data3.chart-bar");
 		n.setStyle("-fx-bar-fill: orchid");
-		
-
 	}
 
 	// method that creates our pieGraph in final scene with passed in data
 	public void createPieChart(double justinBieberData, double jenniferLopezData, double pitbullData, double taylorSwiftData)	{
 		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
 				new PieChart.Data("Justin Bieber" , justinBieberData),
-				new PieChart.Data("Jennnifer Lopez" , jenniferLopezData),
+				new PieChart.Data("Jennifer Lopez" , jenniferLopezData),
 				new PieChart.Data("Pitbull Perez" , pitbullData),
 				new PieChart.Data("Taylor Swift" , taylorSwiftData));
 		
