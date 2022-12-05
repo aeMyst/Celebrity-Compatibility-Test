@@ -9,7 +9,7 @@ package application;
  * Can match a users input with the wanted answer, and then sets the total percentage the user got correct
  *  to the total weight of the question. Ex) User input a correct answer and the answers weight is 
  *  out of 10 points, sets the total percentage correct to 10. 
- * As well as can be utilized to see if the widget has been accessed or not (if the user actually 
+ * This class can also be utilized to see if the widget has been accessed or not (if the user actually 
  *   answered the question).
  *
 */
@@ -23,7 +23,6 @@ public class Question {
 	private String answer;
 	private boolean widgetUsed = true; 
 
-	 
 	// setter and getter methods to access encapsulated instance variables
 	
 	/** Gets the question's percentage correct.
@@ -57,6 +56,7 @@ public class Question {
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
+
 		
 	/** Gets the question's answer.
 	 * @return answer A string containing the question's answer.	
@@ -87,7 +87,8 @@ public class Question {
 	private void setWidgetUsed(boolean widgetUsed) {
 		this.widgetUsed = widgetUsed;
 	}
-	
+
+	// Question class constructors
 	/** Creates a question with the specified answer.
 	 * @param answer The answer specified question.
 	*/
@@ -121,6 +122,7 @@ public class Question {
 	Question(double weight){
 		this.weight = weight;
 	}
+	
 
 	
     /**
@@ -138,6 +140,4 @@ public class Question {
 		}				
 	}
 
-	
-	
 }

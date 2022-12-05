@@ -7,16 +7,17 @@ package application;
  * 
  * Creates a range question that extends the question class. 
  * Takes a range condition as well as a user's input. If the user's input correctly matches 
- *  the wanted range, sets sets the total percentage the user got correct
- *  out of the total weight of the question.
+ *  the wanted range, sets the total percentage the user got correct
+ *  to the total weight of the question.
  *  
  *
 */
 
 public class RangeQuestion extends TextFieldQuestion{
-	
+	// encapsulated instance variable
 	private boolean condition = true;
 	
+
 	/** Creates a range question with the specified range the input can fall into,
 	 *  as well as the total weight of the question.
 	 * @param range Range the user's input can fall into. 
@@ -38,7 +39,7 @@ public class RangeQuestion extends TextFieldQuestion{
      */
 	 public void match(){ 
 			if (this.condition)  {
-				super.setPercentage(10);
+				super.setPercentage(super.getWeight());
 				System.out.println("hi");
 			
 			} else {
@@ -53,7 +54,6 @@ public class RangeQuestion extends TextFieldQuestion{
 		return super.getPercentage();
 	 }
 	 
-	
 	}
 
 

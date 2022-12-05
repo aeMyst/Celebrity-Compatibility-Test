@@ -1,6 +1,5 @@
 package application;
 
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,66 +13,23 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class FinalViewController{
+	// data charts
 	@FXML 
 	private BarChart<?, ?> barChart;
-	
 	@FXML
 	private PieChart pieChart; 
 	
+	// final scene labels
 	@FXML
 	private Label DisplayCompatibilityScoreLabel;
-	
 	@FXML
 	private Label congratsLabel;
 	
+	//restart button
 	@FXML
 	private Button restartButton;
 	
-	public void createBarGraph(double jbData, double jloData, double pitData, double tsData) {
-		XYChart.Series series = new XYChart.Series<>();
-		
-		series.setName("Celebrity Compatibility Results in %");
-
-		series.getData().add(new XYChart.Data<>( "Justin Bieber",  jbData));
-		series.getData().add(new XYChart.Data<>( "Jennifer Lopez",  jloData));
-		series.getData().add(new XYChart.Data<>( "Pitbull", pitData));
-		series.getData().add(new XYChart.Data<>( "Taylor Swift", tsData));	
-		
-		barChart.getData().addAll(series);
-		barChart.setLegendVisible(false);
-		
-		 Node n = barChart.lookup(".data0.chart-bar");
-		    n.setStyle("-fx-bar-fill: darkcyan");
-		    n = barChart.lookup(".data1.chart-bar");
-		    n.setStyle("-fx-bar-fill: mediumorchid");
-		    n = barChart.lookup(".data2.chart-bar");
-		    n.setStyle("-fx-bar-fill: turquoise");
-		    n = barChart.lookup(".data3.chart-bar");
-		    n.setStyle("-fx-bar-fill: orchid");
-		
-
-	}
-
-	public void createPieChart(double jbData, double jloData, double pitData, double tsData)	{
-		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-				new PieChart.Data("Justin Bieber" , jbData),
-				new PieChart.Data("Jennnifer Lopez" , jloData),
-				new PieChart.Data("Mr.Worldwide" , pitData),
-				new PieChart.Data("Taylor Swift" , tsData));
-		
-		pieChart.setData(pieChartData);
-	}
-	
-	public void setLabel(double jbData, double jloData, double pitData, double tsData, String name) {
-		DisplayCompatibilityScoreLabel.setText(String.format("Justin Bieber: %.2f"
-				+ "    Jennifer Lopez: %.2f"
-				+ "    Pitbull: %.2f"
-				+ "    Taylor Swift: %.2f", 
-				jbData, jloData, pitData, tsData));
-		
-		congratsLabel.setText(String.format("Congratulations %s" + "!", name));
-	}
-	
+	// fxml method that closes and creates a new scene
 	@FXML
 	void restart(ActionEvent event) {
 		Stage stage = (Stage) restartButton.getScene().getWindow();
@@ -82,5 +38,50 @@ public class FinalViewController{
 		new main().start(newStage);
 	}
 	
+	// method that creates our barGraph in final scene with passed in data
+	public void createBarGraph(double justinBieberData, double jenniferLopezData, double pitbullData, double taylorSwiftData) {
+		XYChart.Series series = new XYChart.Series<>();
+		
+		series.getData().add(new XYChart.Data<>( "Justin Bieber",  justinBieberData));
+		series.getData().add(new XYChart.Data<>( "Jennifer Lopez",  jenniferLopezData));
+		series.getData().add(new XYChart.Data<>( "Pitbull Perez", pitbullData));
+		series.getData().add(new XYChart.Data<>( "Taylor Swift", taylorSwiftData));	
+		
+		barChart.getData().addAll(series);
+		barChart.setLegendVisible(false);
+		
+		//styling barchart colors
+		Node n = barChart.lookup(".data0.chart-bar");
+		n.setStyle("-fx-bar-fill: darkcyan");
+		n = barChart.lookup(".data1.chart-bar");
+		n.setStyle("-fx-bar-fill: mediumorchid");
+		n = barChart.lookup(".data2.chart-bar");
+		n.setStyle("-fx-bar-fill: turquoise");
+		n = barChart.lookup(".data3.chart-bar");
+		n.setStyle("-fx-bar-fill: orchid");
+	}
+
+	// method that creates our pieGraph in final scene with passed in data
+	public void createPieChart(double justinBieberData, double jenniferLopezData, double pitbullData, double taylorSwiftData)	{
+		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+
+				new PieChart.Data("Justin Bieber" , justinBieberData),
+				new PieChart.Data("Jennifer Lopez" , jenniferLopezData),
+				new PieChart.Data("Mr.WorldWide" , pitbullData),
+				new PieChart.Data("Taylor Swift" , taylorSwiftData));
+
+		
+		pieChart.setData(pieChartData);
+	}
 	
+	// method that sets our DisplayCompatibilityScoreLabel with final scores collected and our congratsLabel with userName
+	public void setLabel(double justinBieberData, double jenniferLopezData, double pitbullData, double taylorSwiftData, String userName) {
+		DisplayCompatibilityScoreLabel.setText(String.format("Justin Bieber: %.2f"
+				+ "    Jennifer Lopez: %.2f"
+				+ "    Pitbull: %.2f"
+				+ "    Taylor Swift: %.2f", 
+				justinBieberData, jenniferLopezData, pitbullData, taylorSwiftData));
+		
+		congratsLabel.setText(String.format("Congratulations %s" + "!", userName));
+	}
 }

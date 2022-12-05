@@ -16,8 +16,8 @@ package application;
 */
 public class TextFieldQuestion extends Question{
 	// instance variables
-	private String justinBieber = "jenniferlopez";
-	private String pitbull = "pitbull";		
+	private String justinBieber = "justinbieber";
+	private String pitbull = "pitbullperez";		
 	private String jenniferLopez = "jenniferlopez";
 	private String taylorSwift = "taylorswift";
 	
@@ -45,11 +45,14 @@ public class TextFieldQuestion extends Question{
 	public void setJustinBieberCount(int justinBieberCount) {
 		this.justinBieberCount = justinBieberCount;
 	}
+
 	public int getPitBullCount() {
 		return pitbullCount;
 	}
-	public void setKanyeWestCount(int pitbullCount) {
+	
+	public void setPitbullCount(int kanyeWestCount) {
 		this.pitbullCount = pitbullCount;
+
 	}
 	public int getJenniferLopezCount() {
 		return jenniferLopezCount;
@@ -64,19 +67,19 @@ public class TextFieldQuestion extends Question{
 		this.taylorSwiftCount = taylorSwiftCount;
 	}
 	
-	// constructors that pass to parent constructors
+	// constructors that pass to parent constructors using super keyword
 	TextFieldQuestion(String id, String answer) {
 		super(id, answer);
 	}
 	TextFieldQuestion(String answer){
 		super(answer);
 	}
-	
 	 TextFieldQuestion(double weight) {
-			super(weight);
-		// TODO Auto-generated constructor stub
+		super(weight);
 	}
+	 
 	// class methods
+	// class method that verifies user's name input; if error, throw InvalidNameException
 	public void verifyNames() throws InvalidNameException {
 		// initialization of variables
 		boolean validName = true;
@@ -97,6 +100,8 @@ public class TextFieldQuestion extends Question{
 			super.setAnswer("");
 		}
 	}
+	
+	// class method that verifies user's age input; if error, throw InvalidAgeException
 	public void verifyAge() throws InvalidAgeException {
 		// initialization of variables
 		boolean validAge = true;
@@ -125,15 +130,19 @@ public class TextFieldQuestion extends Question{
 		}
 	}
 	
+	// method that calculates names and sets the count for each celebrity using helper methods
 	public void calculateNames() {
 		//first call removeDuplicateLettersHelper to remove duplicate letters
 		String nameAfterChanges = removeDuplicateLettersHelper(super.getAnswer());
+		
 		//now call a count method for each celebrity
 		justinBieberCount = characterMatchCount(nameAfterChanges, getJustinBieber());
 		pitbullCount = characterMatchCount(nameAfterChanges, getPitbull());
 		jenniferLopezCount = characterMatchCount(nameAfterChanges, getJenniferLopez());
 		taylorSwiftCount = characterMatchCount(nameAfterChanges, getTaylorSwift());
 	}
+	
+	// method that removes any duplicate letters within user's name
 	private String removeDuplicateLettersHelper(String name) {
 		// to test matching, all characters should be in lowercase and removing white spaces
 		name = name.toLowerCase();
@@ -146,18 +155,22 @@ public class TextFieldQuestion extends Question{
 					char[] chars = name.toCharArray();
 					chars[j] = '*';
 					name = String.valueOf(chars);
-					System.out.println("person name after changes: " + name);
 				}
 			}
 		}
-		System.out.println("person name after removing: " + name);
 		return name;
 	}
+	
+	// method that counts the characters between user's name and celebrities name
 	private int characterMatchCount(String nameAfterChanges, String celebrityName) {
+		//initialization of our count
 		int count = 0;
 		
+		//loop for every character in name by index i
 		for (int i = 0; i < nameAfterChanges.length(); i++) { 
+			//nested loop for every character in celebrity name by index j
 			for (int p = 0; p < celebrityName.length(); p++) {
+				//if name at index i is the same as celebrity name at index j, add to count
 				if (nameAfterChanges.charAt(i) == celebrityName.charAt(p)) {
 					count++; 
 				}	
@@ -165,11 +178,4 @@ public class TextFieldQuestion extends Question{
 		}
 		return count;
 	}
-	
-	@Override
-	public void match() {
-		
-		
-	}
-
 }
