@@ -117,10 +117,10 @@ public class CelebTestController {
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
-		PizzaFoodButton.setDisable((buttonQuestion1.isButtonPressed()));
-		SushiFoodButton.setDisable(buttonQuestion2.isButtonPressed());
-		IceCreamFoodButton.setDisable((buttonQuestion4.isButtonPressed()));
-		PastaFoodButton.setDisable((buttonQuestion3.isButtonPressed()));
+		PizzaFoodButton.setDisable((buttonQuestion1.isWidgetUsed()));
+		SushiFoodButton.setDisable(buttonQuestion2.isWidgetUsed());
+		IceCreamFoodButton.setDisable((buttonQuestion4.isWidgetUsed()));
+		PastaFoodButton.setDisable((buttonQuestion3.isWidgetUsed()));
 	}
 	
 	//season buttons
@@ -160,10 +160,10 @@ public class CelebTestController {
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
-		FallSeasonButton.setDisable((buttonQuestion1.isButtonPressed()));
-		WinterSeasonButton.setDisable((buttonQuestion2.isButtonPressed()));
-		SpringSeasonButton.setDisable(buttonQuestion3.isButtonPressed());
-		SummerSeasonButton.setDisable((buttonQuestion4.isButtonPressed()));
+		FallSeasonButton.setDisable((buttonQuestion1.isWidgetUsed()));
+		WinterSeasonButton.setDisable((buttonQuestion2.isWidgetUsed()));
+		SpringSeasonButton.setDisable(buttonQuestion3.isWidgetUsed());
+		SummerSeasonButton.setDisable((buttonQuestion4.isWidgetUsed()));
 	}
 	
 	//colour buttons
@@ -203,10 +203,10 @@ public class CelebTestController {
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
-		RedColourButton.setDisable((buttonQuestion1.isButtonPressed()));
-		GreenColourButton.setDisable((buttonQuestion2.isButtonPressed()));
-		YellowColourButton.setDisable((buttonQuestion3.isButtonPressed()));
-		BlueColourButton.setDisable(buttonQuestion4.isButtonPressed());
+		RedColourButton.setDisable((buttonQuestion1.isWidgetUsed()));
+		GreenColourButton.setDisable((buttonQuestion2.isWidgetUsed()));
+		YellowColourButton.setDisable((buttonQuestion3.isWidgetUsed()));
+		BlueColourButton.setDisable(buttonQuestion4.isWidgetUsed());
 	}
 	
 	//music buttons
@@ -246,10 +246,10 @@ public class CelebTestController {
 		tsList.add(buttonQuestion4.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
-		RapMusicButton.setDisable((buttonQuestion1.isButtonPressed()));
-		PopMusicButton.setDisable(buttonQuestion2.isButtonPressed());
-		ClassicalMusicButton.setDisable((buttonQuestion3.isButtonPressed()));
-		IndieMusicButton.setDisable((buttonQuestion4.isButtonPressed()));
+		RapMusicButton.setDisable((buttonQuestion1.isWidgetUsed()));
+		PopMusicButton.setDisable(buttonQuestion2.isWidgetUsed());
+		ClassicalMusicButton.setDisable((buttonQuestion3.isWidgetUsed()));
+		IndieMusicButton.setDisable((buttonQuestion4.isWidgetUsed()));
 
 		}
 
@@ -281,8 +281,8 @@ public class CelebTestController {
 		jbList.add(buttonQuestion2.getPercentage());
 		
 		//using class method isButtonPressed, it will determine which button we need to disable
-		DogAnimalButton.setDisable((buttonQuestion1.isButtonPressed()));
-		CatAnimalButton.setDisable(buttonQuestion2.isButtonPressed());
+		DogAnimalButton.setDisable((buttonQuestion1.isWidgetUsed()));
+		CatAnimalButton.setDisable(buttonQuestion2.isWidgetUsed());
 	}
 	
 	@FXML
