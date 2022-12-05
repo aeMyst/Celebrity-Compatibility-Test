@@ -59,28 +59,21 @@ public class TextFieldQuestion extends Question{
 	}
 
 	/** Gets the matching percentage of this celeb.
-	 * @return justinBieberCount An int containing matching
+	 * @return justinBieberCount An int containing the matching
 	 * percentage of this celeb.
 	*/
 	public int getJustinBieberCount() {
 		return justinBieberCount;
-	}
-	public void setJustinBieberCount(int justinBieberCount) {
-		this.justinBieberCount = justinBieberCount;
-	}
+	}	
 
 	/** Gets the matching percentage of this celeb.
-	 * @return pitbullCount An int containing matching
+	 * @return pitbullCount An int containing the matching
 	 * percentage of this celeb.
 	*/
 	public int getPitBullCount() {
 		return pitbullCount;
 	}
 	
-	public void setPitbullCount(int pitbullCount) {
-		this.pitbullCount = pitbullCount;
-
-	}
 	
 	/** Gets the matching percentage of this celeb.
 	 * @return jenniferLopezCount An int containing matching
@@ -88,9 +81,6 @@ public class TextFieldQuestion extends Question{
 	*/
 	public int getJenniferLopezCount() {
 		return jenniferLopezCount;
-	}
-	public void setJenniferLopezCount(int jenniferLopezCount) {
-		this.jenniferLopezCount = jenniferLopezCount;
 	}
 	
 	/** Gets the matching percentage of this celeb.
@@ -100,10 +90,9 @@ public class TextFieldQuestion extends Question{
 	public int getTaylorSwiftCount() {
 		return taylorSwiftCount;
 	}
-	public void setTaylorSwiftCount(int taylorSwiftCount) {
-		this.taylorSwiftCount = taylorSwiftCount;
-	}
 	
+
+	//constructors 
 	
 	/** Creates a textfield question with the specified
 	 *  users input and the answer to the question. 
