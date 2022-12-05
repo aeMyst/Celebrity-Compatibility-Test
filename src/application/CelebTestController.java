@@ -325,7 +325,6 @@ public class CelebTestController {
 		ageErrorLabel.setTextFill(Color.DARKRED);
 		
 		// testing if all buttons were pressed
-		System.out.println("Total Value of allButtonsPressed: " + allButtonsPressed);
         if(allButtonsPressed < 5) {
         	buttonsPressed = false;
         } else {
