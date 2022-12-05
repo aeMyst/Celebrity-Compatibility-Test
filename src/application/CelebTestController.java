@@ -18,7 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class CelebTestController {
+public class CelebTestController { // 2 test cases right and complete
 	// instance variables
 	Stage applicationStage;
 	
