@@ -25,7 +25,7 @@
          </children></HBox>
       <HBox prefHeight="31.0" prefWidth="283.0">
          <children>
-            <TextField fx:id="nameTextField">
+            <TextField fx:id="nameTextField" promptText="Ex: Peter Tran">
                <HBox.margin>
                   <Insets left="70.0" />
                </HBox.margin></TextField>
@@ -44,7 +44,7 @@
          </children></HBox>
       <HBox prefHeight="32.0" prefWidth="283.0">
          <children>
-            <TextField fx:id="ageTextField">
+            <TextField fx:id="ageTextField" promptText="Ex: 19">
                <HBox.margin>
                   <Insets left="70.0" />
                </HBox.margin></TextField>
