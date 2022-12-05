@@ -64,10 +64,12 @@ public class FinalViewController{
 	// method that creates our pieGraph in final scene with passed in data
 	public void createPieChart(double justinBieberData, double jenniferLopezData, double pitbullData, double taylorSwiftData)	{
 		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+
 				new PieChart.Data("Justin Bieber" , justinBieberData),
 				new PieChart.Data("Jennifer Lopez" , jenniferLopezData),
-				new PieChart.Data("Pitbull Perez" , pitbullData),
+				new PieChart.Data("Mr.WorldWide" , pitbullData),
 				new PieChart.Data("Taylor Swift" , taylorSwiftData));
+
 		
 		pieChart.setData(pieChartData);
 	}
