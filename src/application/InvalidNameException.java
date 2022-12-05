@@ -21,5 +21,4 @@ public class InvalidNameException extends Exception {
 			boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}
-
 }

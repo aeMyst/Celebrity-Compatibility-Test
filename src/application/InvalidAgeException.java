@@ -20,5 +20,4 @@ public class InvalidAgeException extends Exception {
 	public InvalidAgeException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}
-
 }

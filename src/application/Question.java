@@ -10,7 +10,6 @@ public class Question {
 	private double sliderValue;
 	private boolean widgetUsed = true; 
 
-	 
 	// setter and getter methods to access encapsulated instance variables
 	public double getSliderValue() {
 		return this.sliderValue;
@@ -33,7 +32,6 @@ public class Question {
 	public String getId() {
 		return id;
 	}
-	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -49,11 +47,6 @@ public class Question {
 	public void setButtonPressed(boolean buttonPressed) {
 		this.widgetUsed = buttonPressed;
 	}
-	
-	/*to include the OO approach, we should be trying to open the file from the
-	 * constructors and setting the values from the file to the instance variables.
-	 * This way we can be specific with data collection towards certain questions
-	 */
 
 	// Question class constructors
 	Question(String answer){
@@ -66,12 +59,9 @@ public class Question {
 	Question(String id, String answer, double weight) { //constructor for dog and cat button question
 		this.id = id; 
 		this.answer = answer;
-		this.weight = weight; //double check maxValues, why do we need to overwrite for 5%? shouldn't they be 10%?
+		this.weight = weight;
 	}
-	//constructor for slider questions
-
-	
-	Question(double weight){
+	Question(double weight){ //constructor for slider questions
 		this.weight = weight;
 	}
 
@@ -85,11 +75,4 @@ public class Question {
 			setPercentage(0); 
 		}				
 	}
-
-	//public double calculatePercentage() { //calculates percentage based on user input
-	//	double finalPercentage = this.multiplier * 10 * (getWeight()/100);
-	//	return finalPercentage;
-	//}
-
-	
 }
