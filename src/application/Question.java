@@ -109,7 +109,7 @@ public class Question {
 	 * @param id  Users input/answer to the question.
 	 * @param answer  The answer to specified question.
 	 * @param weight Specified total weight of question towards total weight.
-	*/
+	 */
 	Question(String id, String answer, double weight) { 
 		this.id = id; 
 		this.answer = answer;
