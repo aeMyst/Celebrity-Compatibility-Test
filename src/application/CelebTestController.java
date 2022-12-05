@@ -32,33 +32,90 @@ public class CelebTestController {
 	double allButtonsPressed = 0;
 	boolean buttonsPressed = false;
 
-	
 	ArrayList<Double> jbList = new ArrayList<Double>();
 	ArrayList<Double> jloList = new ArrayList<Double>();
 	ArrayList<Double> tsList = new ArrayList<Double>();
 	ArrayList<Double> pitList = new ArrayList<Double>();	
 
-
+	// start button
 	@FXML
-	private TextField nameTextField;
+	private Button startButton;
 	
+	// error labels
+	@FXML
+	private Label ageErrorLabel;
+	@FXML
+	private Label mainErrorLabel;
 	@FXML
 	private Label nameErrorLabel;
 	
+	// textfield questions
+	@FXML
+	private TextField nameTextField;
 	@FXML
 	private TextField ageTextField;
+
+	// food buttons
+	@FXML 
+	private Button PizzaFoodButton;
+	@FXML 
+	private Button PastaFoodButton;
+	@FXML 
+	private Button SushiFoodButton;
+	@FXML 
+	private Button IceCreamFoodButton;
+
+	// season buttons
+	@FXML 
+	private Button FallSeasonButton;
+	@FXML 
+	private Button WinterSeasonButton;
+	@FXML 
+	private Button SpringSeasonButton;
+	@FXML 
+	private Button SummerSeasonButton;
+
+	// colour buttons
+	@FXML 
+	private Button RedColourButton;
+	@FXML 
+	private Button GreenColourButton;
+	@FXML 
+	private Button BlueColourButton;
+	@FXML 
+	private Button YellowColourButton;
 	
-	@FXML
-	private Label ageErrorLabel;
-
-	@FXML
+	// music buttons
+	@FXML 
+	private Button RapMusicButton;
+	@FXML 
+	private Button PopMusicButton;
+	@FXML 
+	private Button IndieMusicButton;
+	@FXML 
+	private Button ClassicalMusicButton;
 	
-	private Label mainErrorLabel;
-
-
+	// animal buttons
+	@FXML 
+	private Button CatAnimalButton;
+	@FXML 
+	private Button DogAnimalButton;
+	
+	// slider questions
 	@FXML
-    	private Button startButton;
-   
+	private Slider SpontaneousSlider;
+	@FXML
+	private Slider IntroExtroSlider;
+	
+	// choicebox question
+	@FXML
+	private ChoiceBox<String> ZodiacSignChoiceBox;
+	
+	// done button
+	@FXML
+	private Button DoneButton;
+	
+	// method to change to questions scene after clicking start button
 	@FXML
     void changeToQuestions(ActionEvent event) {
 		try {
@@ -77,22 +134,7 @@ public class CelebTestController {
 
     }
 	
-
-	
-	//food buttons
-	@FXML 
-	private Button PizzaFoodButton;
-	
-	@FXML 
-	private Button PastaFoodButton;
-	
-	@FXML 
-	private Button SushiFoodButton;
-	
-	@FXML 
-	private Button IceCreamFoodButton;
-	
-	
+	// method to call Question class for food buttons
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
 		
@@ -122,19 +164,7 @@ public class CelebTestController {
 		PastaFoodButton.setDisable((buttonQuestion3.isButtonPressed()));
 	}
 	
-	//season buttons
-	@FXML 
-	private Button FallSeasonButton;
-	
-	@FXML 
-	private Button WinterSeasonButton;
-	
-	@FXML 
-	private Button SpringSeasonButton;
-	
-	@FXML 
-	private Button SummerSeasonButton;
-	
+	// method to call Question class for season buttons
 	@FXML
 	void setSeasonAnswer (ActionEvent event) {
 		
@@ -165,19 +195,7 @@ public class CelebTestController {
 		SummerSeasonButton.setDisable((buttonQuestion4.isButtonPressed()));
 	}
 	
-	//colour buttons
-	@FXML 
-	private Button RedColourButton;
-	
-	@FXML 
-	private Button GreenColourButton;
-	
-	@FXML 
-	private Button BlueColourButton;
-	
-	@FXML 
-	private Button YellowColourButton;
-	
+	// method to call Question class for color buttons
 	@FXML
 	void setColourAnswer (ActionEvent event) {
 		
@@ -208,19 +226,7 @@ public class CelebTestController {
 		BlueColourButton.setDisable(buttonQuestion4.isButtonPressed());
 	}
 	
-	//music buttons
-	@FXML 
-	private Button RapMusicButton;
-	 
-	@FXML 
-	private Button PopMusicButton;
-	
-	@FXML 
-	private Button IndieMusicButton;
-	
-	@FXML 
-	private Button ClassicalMusicButton;
-	
+	// method to call Question class for music buttons
 	@FXML
 	void setMusicAnswer (ActionEvent event) {
 		
@@ -252,14 +258,7 @@ public class CelebTestController {
 
 		}
 
-	
-	//animal buttons
-	@FXML 
-	private Button CatAnimalButton;
-	
-	@FXML 
-	private Button DogAnimalButton;
-	
+	// method to call Question class for animal buttons
 	@FXML
 	void setAnimalAnswer (ActionEvent event) {
 		
@@ -283,26 +282,8 @@ public class CelebTestController {
 		DogAnimalButton.setDisable((buttonQuestion1.isButtonPressed()));
 		CatAnimalButton.setDisable(buttonQuestion2.isButtonPressed());
 	}
-	
-	@FXML
-	private Slider SpontaneousSlider;
-	
-	@FXML
-	private ChoiceBox<String> ZodiacSignChoiceBox;
-
-	
-	@FXML
-	private Slider IntroExtroSlider;
-	
-	@FXML
-	private Label DisplayCompatibilityScoreLabel;
-	
-
-	@FXML
-	private Button DoneButton;
  
-
-	
+	// method that calculates the total compatibility score from passed celebrity list
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
 		
@@ -313,12 +294,17 @@ public class CelebTestController {
 		return totalPercent;
 	}
 	
+	/* method that changes to final scene and displays final scores in data on graphs.
+	 * Also makes objects for textfield questions, choicebox question, and slider questions.
+	 */
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
+		//initialization of error labels to nothing
 		nameErrorLabel.setText("");
 		ageErrorLabel.setText("");
 		mainErrorLabel.setText("");
 		
+		//setting error labels to color red
 		mainErrorLabel.setTextFill(Color.DARKRED);  
 		nameErrorLabel.setTextFill(Color.DARKRED);
 		ageErrorLabel.setTextFill(Color.DARKRED);
@@ -331,162 +317,154 @@ public class CelebTestController {
         	buttonsPressed = true;
         }
 
-		
+		// testing if user has inputed an answer for choicebox
         if( ZodiacSignChoiceBox.getValue() == null) {
 			answerZodaic = false;
 		}else {
 			answerZodaic = true;
 		}
-    	
-		// Calling Spontaneous Slider Methods 
-	
-        answerAllQuestions = true;
-		
-        //Checking Spontaneous slider to see who matches with who
-        
 
-
-		// testing person name
+		// testing person name using try, catch java methods
 		try {
 			if (nameTextField.getText().equals("")) { //to test whether user entered anything at all first
 				nameErrorLabel.setText("Please enter your full name.");
+				
 				answerName = false;
 			} else {
 				TextFieldQuestion nameQuestion = new TextFieldQuestion(nameTextField.getText());
+				
 				nameQuestion.verifyNames(); //this is where it will throw an error if detected
 				nameQuestion.calculateNames();
+				
 				jbList.add((double) nameQuestion.getJustinBieberCount());
 				pitList.add((double) nameQuestion.getKanyeWestCount());
 				jloList.add((double) nameQuestion.getJenniferLopezCount());
 				tsList.add((double) nameQuestion.getTaylorSwiftCount());
+				
 				answerName = true;
 			}
-		} catch (InvalidNameException ine) {
+		} catch (InvalidNameException ine) { //catches an invalidNameException if thrown
 			answerName = false;
 			nameErrorLabel.setText(ine.getMessage());
 		}
 		
-		// testing person age
+		// testing person age using try, catch java methods
 		try {
-			if (ageTextField.getText().equals("")) {
+			if (ageTextField.getText().equals("")) { //to test whether user entered anything at all first
 				ageErrorLabel.setText("Please enter your age.");
+				
 				answerAge = false;	
 			} else {
 				double age = Double.parseDouble(ageTextField.getText());
 				TextFieldQuestion ageQuestion = new TextFieldQuestion(ageTextField.getText());
 				ageQuestion.verifyAge(); //this is where it will throw an error if detected
-				RangeQuestion rangeAgeQuestion1 = new RangeQuestion ((age<=50 && age>40), 10.0);
-				rangeAgeQuestion1.match();
-				pitList.add(rangeAgeQuestion1.getSliderPercentage());
 				
-				RangeQuestion rangeAgeQuestion2 = new RangeQuestion ((age<=30 && age >= 16), 10.0);
-				rangeAgeQuestion2.match();
-				jbList.add(rangeAgeQuestion2.getSliderPercentage());
+				RangeQuestion rangeAgePitBull = new RangeQuestion ((age<=50 && age>40), 10.0);
+				rangeAgePitBull.match();
+				pitList.add(rangeAgePitBull.getSliderPercentage());
+				
+				RangeQuestion rangeAgeJustinBieber = new RangeQuestion ((age<=30 && age >= 16), 10.0);
+				rangeAgeJustinBieber.match();
+				jbList.add(rangeAgeJustinBieber.getSliderPercentage());
 				
 			
-				RangeQuestion rangeAgeQuestion3 = new RangeQuestion ((age>30 && age<=40), 10.0);
-				rangeAgeQuestion3.match();
-				tsList.add(rangeAgeQuestion3.getSliderPercentage());
+				RangeQuestion rangeAgeTaylorSwift = new RangeQuestion ((age>30 && age<=40), 10.0);
+				rangeAgeTaylorSwift.match();
+				tsList.add(rangeAgeTaylorSwift.getSliderPercentage());
 			
 				
-				RangeQuestion rangeAgeQuestion4 = new RangeQuestion ((age<=60 && age>50), 10.0);
-				rangeAgeQuestion4.match();
-				jloList.add(rangeAgeQuestion4.getSliderPercentage());
+				RangeQuestion rangeAgeJenniferLopez = new RangeQuestion ((age<=60 && age>50), 10.0);
+				rangeAgeJenniferLopez.match();
+				jloList.add(rangeAgeJenniferLopez.getSliderPercentage());
+				
 				answerAge = true;
 			}
-		} catch (InvalidAgeException iae) {
+		} catch (InvalidAgeException iae) { //catches an invalidAgeException if thrown
 			answerAge = false;
 			ageErrorLabel.setText(iae.getMessage());
 		}
-
+		
+		// condition that checks to see if all questions have been answered
 	    if (buttonsPressed == true &&  answerZodaic == true && answerName == true && answerAge == true) {
-			
-	    	//testing slider methods to see what value to add to who's list
-	
 			
 			//testing choicebox to see what value to add to who's list
 	    	String zodiacSign = ZodiacSignChoiceBox.getValue();
 	    	
-	    	Question zodiac1 = new Question (zodiacSign, "Sagittarius");
-	    	zodiac1.match();
-	    	jloList.add(zodiac1.getPercentage());
+	    	Question zodiacSagittarius = new Question (zodiacSign, "Sagittarius");
+	    	zodiacSagittarius.match();
+	    	jloList.add(zodiacSagittarius.getPercentage());
 	    	
-	    	Question zodiac2 = new Question (zodiacSign, "Aquarius");
-	    	zodiac2.match();
-	    	pitList.add(zodiac2.getPercentage());
+	    	Question zodiacAquarius = new Question (zodiacSign, "Aquarius");
+	    	zodiacAquarius.match();
+	    	pitList.add(zodiacAquarius.getPercentage());
 	    	
-	    	Question zodiac3 = new Question (zodiacSign, "Libra");
-	    	zodiac3.match();
-	    	pitList.add(zodiac3.getPercentage());
+	    	Question zodiacLibra = new Question (zodiacSign, "Libra");
+	    	zodiacLibra.match();
+	    	pitList.add(zodiacLibra.getPercentage());
 	    	
-	    	Question zodiac4 = new Question (zodiacSign, "Aries");
-	    	zodiac4.match();
-	    	tsList.add(zodiac4.getPercentage());
+	    	Question zodiacAries = new Question (zodiacSign, "Aries");
+	    	zodiacAries.match();
+	    	tsList.add(zodiacAries.getPercentage());
 	    	
-	    	Question zodiac5 = new Question (zodiacSign, "Scorpio");
-	    	zodiac5.match();
-	    	jbList.add(zodiac5.getPercentage());
+	    	Question zodiacScorpio = new Question (zodiacSign, "Scorpio");
+	    	zodiacScorpio.match();
+	    	jbList.add(zodiacScorpio.getPercentage());
 	    	
-	    	Question zodiac6 = new Question (zodiacSign, "Gemini");
-	    	zodiac6.match();
-	    	tsList.add(zodiac6.getPercentage());
+	    	Question zodiacGemini = new Question (zodiacSign, "Gemini");
+	    	zodiacGemini.match();
+	    	tsList.add(zodiacGemini.getPercentage());
 	    	
-	    	Question zodiac7 = new Question (zodiacSign, "Leo");
-	    	zodiac7.match();
-	    	tsList.add(zodiac7.getPercentage());
+	    	Question zodiacLeo = new Question (zodiacSign, "Leo");
+	    	zodiacLeo.match();
+	    	tsList.add(zodiacLeo.getPercentage());
 	    	
-	    	Question zodiac8 = new Question (zodiacSign, "Cancer");
-	    	zodiac3.match();
-	    	jbList.add(zodiac8.getPercentage());
+	    	Question zodiacCancer = new Question (zodiacSign, "Cancer");
+	    	zodiacCancer.match();
+	    	jbList.add(zodiacCancer.getPercentage());
 	    	
 	    	
-	    	//Calculating Spontaneous Slider Match
-
-			double value = SpontaneousSlider.getValue();
+	    	// Calculating Spontaneous Slider Match
+			double spontaneousValue = SpontaneousSlider.getValue();
 			
-			RangeQuestion sliderQuestion1 = new RangeQuestion ((value>= 0 && value <= 2.5), 10.0);
-			sliderQuestion1.match();
-			jloList.add(sliderQuestion1.getSliderPercentage());
+			RangeQuestion spontaneousSliderJenniferLopez = new RangeQuestion ((spontaneousValue>= 0 && spontaneousValue <= 2.5), 10.0);
+			spontaneousSliderJenniferLopez.match();
+			jloList.add(spontaneousSliderJenniferLopez.getSliderPercentage());
 		
-			RangeQuestion sliderQuestion2 = new RangeQuestion ((value>= 2.5 && value <= 5), 10.0);
-			sliderQuestion2.match();
-			jbList.add(sliderQuestion2.getSliderPercentage());
+			RangeQuestion spontaneousSliderJustinBieber = new RangeQuestion ((spontaneousValue>= 2.5 && spontaneousValue <= 5), 10.0);
+			spontaneousSliderJustinBieber.match();
+			jbList.add(spontaneousSliderJustinBieber.getSliderPercentage());
 		
 			
-			RangeQuestion sliderQuestion3 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
-			sliderQuestion3.match();
-			tsList.add(sliderQuestion3.getSliderPercentage());
+			RangeQuestion spontaneousSliderTaylorSwift = new RangeQuestion ((spontaneousValue>= 5 && spontaneousValue <= 7.5), 10.0);
+			spontaneousSliderTaylorSwift.match();
+			tsList.add(spontaneousSliderTaylorSwift.getSliderPercentage());
 			
 			
-			RangeQuestion sliderQuestion4 = new RangeQuestion ((value>= 7.5 && value <= 10), 10.0);
-			sliderQuestion4.match();
-			pitList.add(sliderQuestion4.getSliderPercentage());
+			RangeQuestion spontaneousSliderPitbull = new RangeQuestion ((spontaneousValue>= 7.5 && spontaneousValue <= 10), 10.0);
+			spontaneousSliderPitbull.match();
+			pitList.add(spontaneousSliderPitbull.getSliderPercentage());
 			
 			
-		    //Calculating Intro/Extro compatibility. 
-	        
-				double introExtroValue = IntroExtroSlider.getValue();
+		    //Calculating Introvert and Extrovert compatibility
+			double introExtroValue = IntroExtroSlider.getValue();
 				
-				RangeQuestion sliderQuestion5 = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 10.0);
-				sliderQuestion5.match();
-				tsList.add(sliderQuestion5.getSliderPercentage());
+			RangeQuestion introExtroSliderTaylorSwift = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 10.0);
+			introExtroSliderTaylorSwift.match();
+			tsList.add(introExtroSliderTaylorSwift.getSliderPercentage());
 			
-				RangeQuestion sliderQuestion6 = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 10.0);
-				sliderQuestion6.match();
-				jloList.add(sliderQuestion6.getSliderPercentage());
+			RangeQuestion introExtroSliderJenniferLopez = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 10.0);
+			introExtroSliderJenniferLopez.match();
+			jloList.add(introExtroSliderJenniferLopez.getSliderPercentage());
 				
 				
-				RangeQuestion sliderQuestion7 = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
-				sliderQuestion7.match();
-				jbList.add(sliderQuestion7.getSliderPercentage());
+			RangeQuestion introExtroSliderJustinBieber = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
+			introExtroSliderJustinBieber.match();
+			jbList.add(introExtroSliderJustinBieber.getSliderPercentage());
 				
-				RangeQuestion sliderQuestion8 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
-				sliderQuestion8.match();
-				tsList.add(sliderQuestion8.getSliderPercentage());
+			RangeQuestion introExtrosliderPitbull = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
+			introExtrosliderPitbull.match();
+			pitList.add(introExtrosliderPitbull.getSliderPercentage());
 	    	
-			//String sign = ZodiacSignChoiceBox.getValue();
-			//getZodiacSignAnswer(sign);
-			
 			// prints all final data collected from all questions in a list  
 			System.out.println("---Our Final list Results---");
 			System.out.println("Justin Bieber List: " + jbList);
@@ -526,16 +504,8 @@ public class CelebTestController {
 
 
 	} else {
-		 System.out.println("failed");
-		 mainErrorLabel.setTextFill(Color.DARKRED);
 		 mainErrorLabel.setText("Please Answer All Questions");
-
-		}
-			    
-		
-				
-	}
-		
-
+		}		
+	}	
 }
 
