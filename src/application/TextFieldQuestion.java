@@ -1,5 +1,19 @@
 package application;
 
+/** Represents a textfield question.
+ * @author Jaimie Marchuk
+ * @author Peter Tran 
+ * @author Julii Ruta 
+ * 
+ *Creates a question that takes an input from a textfield GUI. 
+ *Has a method that can test the textfield input and match it's compatibility with
+ * a specific celeb name. 
+ *Can also verify the user input of the name to see if it contains any
+ * invalid characters. 
+ *Also has the ability to check if an age value is input into the choicebox, and whether 
+ * this age has any invalid characters/falls into the correct age range for a test/quiz. 
+ *
+*/
 public class TextFieldQuestion extends Question{
 	// instance variables
 	private String justinBieber = "jenniferlopez";

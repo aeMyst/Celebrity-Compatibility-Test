@@ -466,24 +466,24 @@ public class CelebTestController {
 			
 		    //Calculating Intro/Extro compatibility. 
 	        
-				double introExtroValue = IntroExtroSlider.getValue();
-				
-				RangeQuestion sliderQuestion5 = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 10.0);
-				sliderQuestion5.match();
-				tsList.add(sliderQuestion5.getRangePercentage());
-			
-				RangeQuestion sliderQuestion6 = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 10.0);
-				sliderQuestion6.match();
-				jloList.add(sliderQuestion6.getRangePercentage());
-				
-				
-				RangeQuestion sliderQuestion7 = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
-				sliderQuestion7.match();
-				jbList.add(sliderQuestion7.getRangePercentage());
-				
-				RangeQuestion sliderQuestion8 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
-				sliderQuestion8.match();
-				tsList.add(sliderQuestion8.getRangePercentage());
+			double introExtroValue = IntroExtroSlider.getValue();
+
+			RangeQuestion sliderQuestion5 = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 10.0);
+			sliderQuestion5.match();
+			tsList.add(sliderQuestion5.getRangePercentage());
+
+			RangeQuestion sliderQuestion6 = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 10.0);
+			sliderQuestion6.match();
+			jloList.add(sliderQuestion6.getRangePercentage());
+
+
+			RangeQuestion sliderQuestion7 = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
+			sliderQuestion7.match();
+			jbList.add(sliderQuestion7.getRangePercentage());
+
+			RangeQuestion sliderQuestion8 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
+			sliderQuestion8.match();
+			tsList.add(sliderQuestion8.getRangePercentage());
 	    	
 			//String sign = ZodiacSignChoiceBox.getValue();
 			//getZodiacSignAnswer(sign);

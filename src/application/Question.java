@@ -7,7 +7,7 @@ package application;
  * 
  * Creates a question that can be input into a GUI application or just generally used in a test.
  * Can match a users input with the wanted answer, and then sets the total percentage the user got correct
- *  out of the total weight of the question. Ex) User input a correct answer and the answers weight is 
+ *  to the total weight of the question. Ex) User input a correct answer and the answers weight is 
  *  out of 10 points, sets the total percentage correct to 10. 
  * As well as can be utilized to see if the widget has been accessed or not (if the user actually 
  *   answered the question).
