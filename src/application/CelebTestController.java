@@ -378,21 +378,21 @@ public class CelebTestController {
 				ageQuestion.verifyAge(); //this is where it will throw an error if detected
 				RangeQuestion rangeAgeQuestion1 = new RangeQuestion ((age<=50 && age>40), 10.0);
 				rangeAgeQuestion1.match();
-				pitList.add(rangeAgeQuestion1.getSliderPercentage());
+				pitList.add(rangeAgeQuestion1.getRangePercentage());
 				
 				RangeQuestion rangeAgeQuestion2 = new RangeQuestion ((age<=30 && age >= 16), 10.0);
 				rangeAgeQuestion2.match();
-				jbList.add(rangeAgeQuestion2.getSliderPercentage());
+				jbList.add(rangeAgeQuestion2.getRangePercentage());
 				
 			
 				RangeQuestion rangeAgeQuestion3 = new RangeQuestion ((age>30 && age<=40), 10.0);
 				rangeAgeQuestion3.match();
-				tsList.add(rangeAgeQuestion3.getSliderPercentage());
+				tsList.add(rangeAgeQuestion3.getRangePercentage());
 			
 				
 				RangeQuestion rangeAgeQuestion4 = new RangeQuestion ((age<=60 && age>50), 10.0);
 				rangeAgeQuestion4.match();
-				jloList.add(rangeAgeQuestion4.getSliderPercentage());
+				jloList.add(rangeAgeQuestion4.getRangePercentage());
 				answerAge = true;
 			}
 		} catch (InvalidAgeException iae) {
@@ -447,21 +447,21 @@ public class CelebTestController {
 			
 			RangeQuestion sliderQuestion1 = new RangeQuestion ((value>= 0 && value <= 2.5), 10.0);
 			sliderQuestion1.match();
-			jloList.add(sliderQuestion1.getSliderPercentage());
+			jloList.add(sliderQuestion1.getRangePercentage());
 		
 			RangeQuestion sliderQuestion2 = new RangeQuestion ((value>= 2.5 && value <= 5), 10.0);
 			sliderQuestion2.match();
-			jbList.add(sliderQuestion2.getSliderPercentage());
+			jbList.add(sliderQuestion2.getRangePercentage());
 		
 			
 			RangeQuestion sliderQuestion3 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
 			sliderQuestion3.match();
-			tsList.add(sliderQuestion3.getSliderPercentage());
+			tsList.add(sliderQuestion3.getRangePercentage());
 			
 			
 			RangeQuestion sliderQuestion4 = new RangeQuestion ((value>= 7.5 && value <= 10), 10.0);
 			sliderQuestion4.match();
-			pitList.add(sliderQuestion4.getSliderPercentage());
+			pitList.add(sliderQuestion4.getRangePercentage());
 			
 			
 		    //Calculating Intro/Extro compatibility. 
@@ -470,20 +470,20 @@ public class CelebTestController {
 				
 				RangeQuestion sliderQuestion5 = new RangeQuestion ((introExtroValue>= 0 && introExtroValue <= 2.5), 10.0);
 				sliderQuestion5.match();
-				tsList.add(sliderQuestion5.getSliderPercentage());
+				tsList.add(sliderQuestion5.getRangePercentage());
 			
 				RangeQuestion sliderQuestion6 = new RangeQuestion ((introExtroValue>= 2.5 && introExtroValue <= 5), 10.0);
 				sliderQuestion6.match();
-				jloList.add(sliderQuestion6.getSliderPercentage());
+				jloList.add(sliderQuestion6.getRangePercentage());
 				
 				
 				RangeQuestion sliderQuestion7 = new RangeQuestion ((introExtroValue>= 5 && introExtroValue <= 7.5), 10.0);
 				sliderQuestion7.match();
-				jbList.add(sliderQuestion7.getSliderPercentage());
+				jbList.add(sliderQuestion7.getRangePercentage());
 				
 				RangeQuestion sliderQuestion8 = new RangeQuestion ((value>= 5 && value <= 7.5), 10.0);
 				sliderQuestion8.match();
-				tsList.add(sliderQuestion8.getSliderPercentage());
+				tsList.add(sliderQuestion8.getRangePercentage());
 	    	
 			//String sign = ZodiacSignChoiceBox.getValue();
 			//getZodiacSignAnswer(sign);

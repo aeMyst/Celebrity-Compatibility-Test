@@ -58,15 +58,16 @@ public class Question {
 		this.weight = weight;
 	}
 		
-	/** Sets the question's answer.
-	 * @param answer A string containing the question's answer	
+	/** Gets the question's answer.
+	 * @return answer A string containing the question's answer.	
 	*/
 	protected String getAnswer() {
 		return answer;
 	}
 	
-	/** Gets the question's answer.
-	 * @return answer A string containing the question's answer.	
+	
+	/** Sets the question's answer.
+	 * @param answer A string containing the question's answer	
 	*/
 	protected void setAnswer(String answer) {
 		this.answer = answer;
