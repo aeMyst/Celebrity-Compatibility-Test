@@ -39,6 +39,8 @@ public class CelebTestController {
 	boolean animalButton = false;
 	
 	double allButtonsPressed = 0;
+	int spontaneousTestCheck = 0;
+	int introExtroTestCheck = 0;
 
 	// arrayList's for each celebrity
 	ArrayList<Double> justinBieberList = new ArrayList<Double>();
@@ -57,6 +59,10 @@ public class CelebTestController {
 	private Label mainErrorLabel;
 	@FXML
 	private Label nameErrorLabel;
+	@FXML
+	private Label SpontaneousCheck;
+	@FXML
+	private Label IntroExtroCheck;
 	
 	// textfield questions
 	@FXML
@@ -355,11 +361,34 @@ public class CelebTestController {
 		nameErrorLabel.setText("");
 		ageErrorLabel.setText("");
 		mainErrorLabel.setText("");
+		SpontaneousCheck.setText("");
+		IntroExtroCheck.setText("");
 		
 		//setting error labels to color red
 		mainErrorLabel.setTextFill(Color.DARKRED);  
 		nameErrorLabel.setTextFill(Color.DARKRED);
 		ageErrorLabel.setTextFill(Color.DARKRED);
+		SpontaneousCheck.setTextFill(Color.DARKRED);
+		IntroExtroCheck.setTextFill(Color.DARKRED);
+		
+		// initializing variables for slider testing for 0 input
+		double testSpontaneousValue = SpontaneousSlider.getValue();
+		double testIntroExtroValue = IntroExtroSlider.getValue();			
+		
+		// if user entered a 0 on first attempt, then check if user wants to enter something else
+		if (testSpontaneousValue == 0 & spontaneousTestCheck == 0) {
+			SpontaneousCheck.setText("Are you sure you want to enter 0? If so, please proceed.");
+		}
+		// if user entered a 0 on first attempt, then check if user wants to enter something else
+		if (testIntroExtroValue == 0 & introExtroTestCheck == 0) {
+			IntroExtroCheck.setText("Are you sure you want to enter 0? If so, please proceed.");
+		}
+		
+		spontaneousTestCheck++;
+		introExtroTestCheck++;
+		
+		System.out.println("Spontaneous " + spontaneousTestCheck);
+		System.out.println("intro extro " + introExtroTestCheck);
 
 		// testing if user has inputed an answer for choicebox
         if( ZodiacSignChoiceBox.getValue() == null) {
@@ -431,7 +460,9 @@ public class CelebTestController {
 		}
 		
 		// condition that checks to see if all questions have been answered
-	    if (allButtonsPressed >= 5 == true &&  answerZodaic == true && answerName == true && answerAge == true) {
+	    if (allButtonsPressed >= 5 == true &&  answerZodaic == true && answerName == true && answerAge == true
+	    		&& spontaneousTestCheck > 1
+	    		&& introExtroTestCheck > 1) {
 			
 			//testing choicebox to see what value to add to who's list
 	    	String zodiacSign = ZodiacSignChoiceBox.getValue();
