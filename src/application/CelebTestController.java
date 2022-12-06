@@ -377,18 +377,16 @@ public class CelebTestController {
 		
 		// if user entered a 0 on first attempt, then check if user wants to enter something else
 		if (testSpontaneousValue == 0 & spontaneousTestCheck == 0) {
-			SpontaneousCheck.setText("Are you sure you want to enter 0? If so, please proceed.");
+			SpontaneousCheck.setText("Are you sure you want to enter a 0 value? If so, please proceed.");
 		}
 		// if user entered a 0 on first attempt, then check if user wants to enter something else
 		if (testIntroExtroValue == 0 & introExtroTestCheck == 0) {
-			IntroExtroCheck.setText("Are you sure you want to enter 0? If so, please proceed.");
+			IntroExtroCheck.setText("Are you sure you want to enter a 0 value? If so, please proceed.");
 		}
 		
+		//adding to spontaneousTestCheck & introExtroTestCheck
 		spontaneousTestCheck++;
 		introExtroTestCheck++;
-		
-		System.out.println("Spontaneous " + spontaneousTestCheck);
-		System.out.println("intro extro " + introExtroTestCheck);
 
 		// testing if user has inputed an answer for choicebox
         if( ZodiacSignChoiceBox.getValue() == null) {
