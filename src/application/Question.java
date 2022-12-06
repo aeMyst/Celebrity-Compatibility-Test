@@ -9,6 +9,23 @@ public class Question {
 	private String answer;
 	private double sliderValue;
 	private boolean widgetUsed = true; 
+	
+	// Question class constructors
+	public Question(String answer){
+		this.answer = answer;
+	}
+	public Question(String id, String answer) { //constructor for button questions
+		this.id = id; 
+		this.answer = answer;	    	    							
+	}
+	public Question(String id, String answer, double weight) { //constructor for dog and cat button question
+		this.id = id; 
+		this.answer = answer;
+		this.weight = weight;
+	}
+	public Question(double weight){ //constructor for slider questions
+		this.weight = weight;
+	}
 
 	// setter and getter methods to access encapsulated instance variables
 	public double getSliderValue() {
@@ -48,22 +65,6 @@ public class Question {
 		this.widgetUsed = buttonPressed;
 	}
 
-	// Question class constructors
-	Question(String answer){
-		this.answer = answer;
-	}
-	Question(String id, String answer) { //constructor for button questions
-		this.id = id; 
-		this.answer = answer;	    	    							
-	}
-	Question(String id, String answer, double weight) { //constructor for dog and cat button question
-		this.id = id; 
-		this.answer = answer;
-		this.weight = weight;
-	}
-	Question(double weight){ //constructor for slider questions
-		this.weight = weight;
-	}
 
 	
 	// class methods

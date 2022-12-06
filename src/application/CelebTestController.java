@@ -30,7 +30,7 @@ public class CelebTestController { // 2 test cases right and complete
 	boolean answerZodaic = false;
 	boolean answerName = false;
 	boolean answerAge = false;
-	double allButtonsPressed = 0;
+	int allButtonsPressed = 0;
 	boolean buttonsPressed = false;
 
 	// arrayList's for each celebrity

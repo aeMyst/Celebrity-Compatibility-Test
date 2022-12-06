@@ -11,7 +11,18 @@ public class TextFieldQuestion extends Question{
 	private int pitbullCount;
 	private int jenniferLopezCount;
 	private int taylorSwiftCount;
-
+	
+	// constructors that pass to parent constructors using super keyword
+	TextFieldQuestion(String id, String answer) {
+		super(id, answer);
+	}
+	TextFieldQuestion(String answer){
+		super(answer);
+	}
+	 TextFieldQuestion(double weight) {
+		super(weight);
+	}
+	 
 	// getter methods to access encapsulated instance variables
 	public String getJustinBieber() {
 		return justinBieber;
@@ -49,17 +60,7 @@ public class TextFieldQuestion extends Question{
 	public void setTaylorSwiftCount(int taylorSwiftCount) {
 		this.taylorSwiftCount = taylorSwiftCount;
 	}
-	
-	// constructors that pass to parent constructors using super keyword
-	TextFieldQuestion(String id, String answer) {
-		super(id, answer);
-	}
-	TextFieldQuestion(String answer){
-		super(answer);
-	}
-	 TextFieldQuestion(double weight) {
-		super(weight);
-	}
+
 	 
 	// class methods
 	// class method that verifies user's name input; if error, throw InvalidNameException
