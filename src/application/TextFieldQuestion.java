@@ -1,5 +1,17 @@
 package application;
 
+/** Represents a textfield question.
+ * @author Jaimie Marchuk
+ * @author Peter Tran 
+ * @author Julii Ruta 
+ * 
+ *Creates a question that takes an input from a textfield GUI. 
+ *Best used for a name or age input. 
+ *Calculates the matching percentage of a user's name to the celebrities 
+ * names, as well as verifies if the inputed name is valid. 
+ *Also verifies if an inputed age is valid. 
+ *
+*/
 public class TextFieldQuestion extends Question{
 	// instance variables
 	private String justinBieber = "justinbieber";
@@ -13,56 +25,105 @@ public class TextFieldQuestion extends Question{
 	private int taylorSwiftCount;
 
 	// getter methods to access encapsulated instance variables
+	
+	/** Gets the name of this celeb.
+	 * @return justinBieber A string containing the
+	 * name of this celeb.
+	*/
 	public String getJustinBieber() {
 		return justinBieber;
 	}
+	
+	/** Gets the name of this celeb.
+	 * @return pitbull A string containing the
+	 * name of this celeb.
+	*/
 	public String getPitbull() {
 		return pitbull;
 	}
+	
+	/** Gets the name of this celeb.
+	 * @return justinBieber A string containing the
+	 * name of this celeb.
+	*/
 	public String getJenniferLopez() {
 		return jenniferLopez;
 	}
+	
+	/** Gets the name of this celeb.
+	 * @return taylorSwift A string containing the
+	 * name of this celeb.
+	*/
 	public String getTaylorSwift() {
 		return taylorSwift;
 	}
+
+	/** Gets the matching percentage of this celeb.
+	 * @return justinBieberCount An int containing the matching
+	 * percentage of this celeb.
+	*/
 	public int getJustinBieberCount() {
 		return justinBieberCount;
-	}
-	public void setJustinBieberCount(int justinBieberCount) {
-		this.justinBieberCount = justinBieberCount;
-	}
-	public int getPitbullCount() {
+	}	
+
+	/** Gets the matching percentage of this celeb.
+	 * @return pitbullCount An int containing the matching
+	 * percentage of this celeb.
+	*/
+	public int getPitBullCount() {
 		return pitbullCount;
 	}
-	public void setPitbullCount(int kanyeWestCount) {
-		this.pitbullCount = kanyeWestCount;
-	}
+	
+	
+	/** Gets the matching percentage of this celeb.
+	 * @return jenniferLopezCount An int containing matching
+	 * percentage of this celeb.
+	*/
 	public int getJenniferLopezCount() {
 		return jenniferLopezCount;
 	}
-	public void setJenniferLopezCount(int jenniferLopezCount) {
-		this.jenniferLopezCount = jenniferLopezCount;
-	}
+	
+	/** Gets the matching percentage of this celeb.
+	 * @return taylorSwiftCount An int containing matching
+	 * percentage of this celeb.
+	*/
 	public int getTaylorSwiftCount() {
 		return taylorSwiftCount;
 	}
-	public void setTaylorSwiftCount(int taylorSwiftCount) {
-		this.taylorSwiftCount = taylorSwiftCount;
-	}
 	
-	// constructors that pass to parent constructors using super keyword
+
+	//constructors 
+	
+	/** Creates a textfield question with the specified
+	 *  users input and the answer to the question. 
+	 * @param id  Users input/answer to the question.
+	 * @param answer  The answer to specified question.
+	*/
 	TextFieldQuestion(String id, String answer) {
 		super(id, answer);
 	}
+	
+	/** Creates a textfield question with the specified
+	 *  answer to the question. 
+	 * @param answer The answer to specified question.
+	*/
 	TextFieldQuestion(String answer){
 		super(answer);
 	}
+	
+	/** Creates a textfield question with the total weight of the question.
+	 * @param weight Specified total weight of question towards total weight.
+	*/
 	 TextFieldQuestion(double weight) {
 		super(weight);
 	}
 	 
-	// class methods
-	// class method that verifies user's name input; if error, throw InvalidNameException
+	 
+	 /**
+	  * A method that verifies a user's name input. If any invalid 
+	  *  characters are found, throws an exception. 
+	  *  @throws InvalidNameException
+	  */
 	public void verifyNames() throws InvalidNameException {
 		// initialization of variables
 		boolean validName = true;
@@ -84,7 +145,13 @@ public class TextFieldQuestion extends Question{
 		}
 	}
 	
-	// class method that verifies user's age input; if error, throw InvalidAgeException
+
+	/**
+     * A method that verifies a user's age input. If any invalid 
+     *  characters are found, or the age does not fall into the 
+     *  proper range, throws an exception. 
+     *  @throws InvalidAgeException 
+     */
 	public void verifyAge() throws InvalidAgeException {
 		// initialization of variables
 		boolean validAge = true;
@@ -113,7 +180,12 @@ public class TextFieldQuestion extends Question{
 		}
 	}
 	
-	// method that calculates names and sets the count for each celebrity using helper methods
+	
+	/**
+	 * A method that calculates the matching percentage of a user's name to 
+	 *  all of the celebrities names, as well as set's the matching percentage
+	 *  for each celebrity. 
+	 */
 	public void calculateNames() {
 		//first call removeDuplicateLettersHelper to remove duplicate letters
 		String nameAfterChanges = removeDuplicateLettersHelper(super.getAnswer());
@@ -125,7 +197,12 @@ public class TextFieldQuestion extends Question{
 		taylorSwiftCount = characterMatchCount(nameAfterChanges, getTaylorSwift());
 	}
 	
-	// method that removes any duplicate letters within user's name
+	
+	/**
+	 * A method that removes any duplicate
+	 *  letters in a user's inputted name. 
+	 * @return name A string with any duplicate letters removed. 
+	 */
 	private String removeDuplicateLettersHelper(String name) {
 		// to test matching, all characters should be in lowercase and removing white spaces
 		name = name.toLowerCase();
@@ -144,7 +221,12 @@ public class TextFieldQuestion extends Question{
 		return name;
 	}
 	
-	// method that counts the characters between user's name and celebrities name
+	
+	/**
+	 * A method that counts the matching characters between the user's
+	 *  name and a celebrities name. 
+	 *  @return count An int containing the number of matching characters. 
+	 */
 	private int characterMatchCount(String nameAfterChanges, String celebrityName) {
 		//initialization of our count
 		int count = 0;
