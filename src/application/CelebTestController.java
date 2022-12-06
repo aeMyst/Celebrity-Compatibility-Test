@@ -167,8 +167,8 @@ public class CelebTestController { // 2 test cases right and complete
 
 		PizzaFoodButton.setDisable((buttonQuestionPizza.isWidgetUsed()));
 		SushiFoodButton.setDisable(buttonQuestionSushi.isWidgetUsed());
-		IceCreamFoodButton.setDisable((buttonQuestionPasta.isWidgetUsed()));
-		PastaFoodButton.setDisable((buttonQuestionIceCream.isWidgetUsed()));
+		IceCreamFoodButton.setDisable((buttonQuestionIceCream.isWidgetUsed()));
+		PastaFoodButton.setDisable((buttonQuestionPasta.isWidgetUsed()));
 
 	}
 	
@@ -312,7 +312,11 @@ public class CelebTestController { // 2 test cases right and complete
 
 	}
  
-	// method that calculates the total compatibility score from passed celebrity list
+
+	/**
+	 * Method that calculates the total compatibility score from passed celebrity list
+	 * 
+	 */
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
 		
@@ -323,8 +327,12 @@ public class CelebTestController { // 2 test cases right and complete
 		return totalPercent;
 	}
 	
-	/* method that changes to final scene and displays final scores in data on graphs.
-	 * Also makes objects for textfield questions, choicebox question, and slider questions.
+	
+	
+	/**
+	 * Method that changes to final scene and displays final scores in data on graphs.
+	 * Also makes objects for textfield questions, choicebox question, and slider questions. 
+	 * 
 	 */
 	@FXML 
 	void changeToFinal(ActionEvent event) throws IOException {
