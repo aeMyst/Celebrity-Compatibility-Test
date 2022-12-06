@@ -37,8 +37,10 @@ public class FinalViewController{
 		Stage newStage = new Stage();
 		new main().start(newStage);
 	}
-	
-	// method that creates our barGraph in final scene with passed in data
+
+	/**
+     * Method that creates our barGraph in final scene with passed in data
+     */
 	public void createBarGraph(double justinBieberData, double jenniferLopezData, double pitbullData, double taylorSwiftData) {
 		XYChart.Series series = new XYChart.Series<>();
 		
@@ -61,7 +63,11 @@ public class FinalViewController{
 		n.setStyle("-fx-bar-fill: orchid");
 	}
 
-	// method that creates our pieGraph in final scene with passed in data
+	
+	
+	/**
+     * Method that creates our pieGraph in final scene with passed in data
+     */
 	public void createPieChart(double justinBieberData, double jenniferLopezData, double pitbullData, double taylorSwiftData)	{
 		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
 
@@ -74,7 +80,12 @@ public class FinalViewController{
 		pieChart.setData(pieChartData);
 	}
 	
-	// method that sets our DisplayCompatibilityScoreLabel with final scores collected and our congratsLabel with userName
+
+	
+	/**
+     * Method that sets our DisplayCompatibilityScoreLabel with 
+     * final scores collected and our congratsLabel with the user's name.
+     */
 	public void setLabel(double justinBieberData, double jenniferLopezData, double pitbullData, double taylorSwiftData, String userName) {
 		DisplayCompatibilityScoreLabel.setText(String.format("Justin Bieber: %.2f"
 				+ "    Jennifer Lopez: %.2f"
