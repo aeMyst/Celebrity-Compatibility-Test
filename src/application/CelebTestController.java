@@ -18,20 +18,27 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class CelebTestController { // 2 test cases right and complete
+public class CelebTestController {
 	// instance variables
 	Stage applicationStage;
 	
+	// instance variables of stage
 	private Parent root;
 	private Stage stage;
 	private Scene scene; 
 	
-	boolean answerAllQuestions = false;
+	// boolean variables to for button press testing
 	boolean answerZodaic = false;
 	boolean answerName = false;
 	boolean answerAge = false;
+	
+	boolean foodButton = false;
+	boolean seasonButton = false;
+	boolean colourButton = false;
+	boolean musicButton = false;
+	boolean animalButton = false;
+	
 	double allButtonsPressed = 0;
-	boolean buttonsPressed = false;
 
 	// arrayList's for each celebrity
 	ArrayList<Double> justinBieberList = new ArrayList<Double>();
@@ -141,35 +148,37 @@ public class CelebTestController { // 2 test cases right and complete
 	void setFoodAnswer (ActionEvent event) {
 		
 	    allButtonsPressed += 1;
-		//this is able to tell me what button was pressed by returning the fx id
-		Button btn = (Button) event.getSource();
-		String id = btn.getId();
 		
-		//calling objects for question class for each button
-		Question buttonQuestionPizza = new Question(id, "PizzaFoodButton");
-		buttonQuestionPizza.match();
-		jenniferLopezList.add(buttonQuestionPizza.getPercentage());
-		
-		Question buttonQuestionSushi = new Question(id, "SushiFoodButton");
-		buttonQuestionSushi.match();
-		justinBieberList.add(buttonQuestionSushi.getPercentage());
-		
-		
-		Question buttonQuestionPasta = new Question(id, "PastaFoodButton");
-		buttonQuestionPasta.match();
-		pitbullList.add(buttonQuestionPasta.getPercentage());
-		
-		Question buttonQuestionIceCream = new Question(id,"IceCreamFoodButton");
-		buttonQuestionIceCream.match();
-		taylorSwiftList.add(buttonQuestionIceCream.getPercentage());
-		
-		//using class method isWidgetUsed, it will determine which button we need to disable
-
-		PizzaFoodButton.setDisable((buttonQuestionPizza.isWidgetUsed()));
-		SushiFoodButton.setDisable(buttonQuestionSushi.isWidgetUsed());
-		IceCreamFoodButton.setDisable((buttonQuestionIceCream.isWidgetUsed()));
-		PastaFoodButton.setDisable((buttonQuestionPasta.isWidgetUsed()));
-
+	    if (foodButton == false) {
+	    	 //this is able to tell me what button was pressed by returning the fx id
+			Button btn = (Button) event.getSource();
+			String id = btn.getId();
+			
+			//calling objects for question class for each button
+			Question buttonQuestionPizza = new Question(id, "PizzaFoodButton");
+			buttonQuestionPizza.match();
+			jenniferLopezList.add(buttonQuestionPizza.getPercentage());
+			
+			Question buttonQuestionSushi = new Question(id, "SushiFoodButton");
+			buttonQuestionSushi.match();
+			justinBieberList.add(buttonQuestionSushi.getPercentage());
+			
+			Question buttonQuestionPasta = new Question(id, "PastaFoodButton");
+			buttonQuestionPasta.match();
+			pitbullList.add(buttonQuestionPasta.getPercentage());
+			
+			Question buttonQuestionIceCream = new Question(id,"IceCreamFoodButton");
+			buttonQuestionIceCream.match();
+			taylorSwiftList.add(buttonQuestionIceCream.getPercentage());
+			
+			//using class method isWidgetUsed, it will determine which button we need to disable
+			PizzaFoodButton.setDisable((buttonQuestionPizza.isWidgetUsed()));
+			SushiFoodButton.setDisable(buttonQuestionSushi.isWidgetUsed());
+			IceCreamFoodButton.setDisable((buttonQuestionIceCream.isWidgetUsed()));
+			PastaFoodButton.setDisable((buttonQuestionPasta.isWidgetUsed()));
+			
+			foodButton = true;
+	    }
 	}
 	
 	// method to call Question class for season buttons
@@ -178,36 +187,39 @@ public class CelebTestController { // 2 test cases right and complete
 		
 		allButtonsPressed += 1;
 		
-		//this is able to tell me what button was pressed by returning the fx id
-		Button btn = (Button) event.getSource();
-		String id = btn.getId();
-		
-		//calling objects for question class for each button
-		Question buttonQuestionFall = new Question(id, "FallSeasonButton");
-		buttonQuestionFall.match();
-		justinBieberList.add(buttonQuestionFall.getPercentage());
-		
-		Question buttonQuestionWinter = new Question(id, "WinterSeasonButton");
-		buttonQuestionWinter.match();
-		pitbullList.add(buttonQuestionWinter.getPercentage());
-		
-		
-		Question buttonQuestionSpring = new Question(id,"SpringSeasonButton");
-		buttonQuestionSpring.match();
-		taylorSwiftList.add(buttonQuestionSpring.getPercentage());
-		
-		
-		Question buttonQuestionSummer = new Question(id,"SummerSeasonButton");
-		buttonQuestionSummer.match();
-		jenniferLopezList.add(buttonQuestionSummer.getPercentage());
-		
-		//using class method isWidgetUsed, it will determine which button we need to disable
+		if (seasonButton == false) {
+			//this is able to tell me what button was pressed by returning the fx id
+			Button btn = (Button) event.getSource();
+			String id = btn.getId();
+			
+			//calling objects for question class for each button
+			Question buttonQuestionFall = new Question(id, "FallSeasonButton");
+			buttonQuestionFall.match();
+			justinBieberList.add(buttonQuestionFall.getPercentage());
+			
+			Question buttonQuestionWinter = new Question(id, "WinterSeasonButton");
+			buttonQuestionWinter.match();
+			pitbullList.add(buttonQuestionWinter.getPercentage());
+			
+			
+			Question buttonQuestionSpring = new Question(id,"SpringSeasonButton");
+			buttonQuestionSpring.match();
+			taylorSwiftList.add(buttonQuestionSpring.getPercentage());
+			
+			
+			Question buttonQuestionSummer = new Question(id,"SummerSeasonButton");
+			buttonQuestionSummer.match();
+			jenniferLopezList.add(buttonQuestionSummer.getPercentage());
+			
+			//using class method isWidgetUsed, it will determine which button we need to disable
 
-		FallSeasonButton.setDisable((buttonQuestionFall.isWidgetUsed()));
-		WinterSeasonButton.setDisable((buttonQuestionWinter.isWidgetUsed()));
-		SpringSeasonButton.setDisable(buttonQuestionSpring.isWidgetUsed());
-		SummerSeasonButton.setDisable((buttonQuestionSummer.isWidgetUsed()));
+			FallSeasonButton.setDisable((buttonQuestionFall.isWidgetUsed()));
+			WinterSeasonButton.setDisable((buttonQuestionWinter.isWidgetUsed()));
+			SpringSeasonButton.setDisable(buttonQuestionSpring.isWidgetUsed());
+			SummerSeasonButton.setDisable((buttonQuestionSummer.isWidgetUsed()));
 
+			seasonButton = true;
+		}
 	}
 	
 	// method to call Question class for color buttons
@@ -216,35 +228,38 @@ public class CelebTestController { // 2 test cases right and complete
 		
 		allButtonsPressed += 1;
 		
-		//this is able to tell me what button was pressed by returning the fx id
-		Button btn = (Button) event.getSource();
-		String id = btn.getId();
-	
-		//calling objects for question class for each button
-		Question buttonQuestionRed = new Question(id, "RedColourButton");
-		buttonQuestionRed.match();
-		pitbullList.add(buttonQuestionRed.getPercentage());
+		if (colourButton == false) {
+			//this is able to tell me what button was pressed by returning the fx id
+			Button btn = (Button) event.getSource();
+			String id = btn.getId();
 		
-		Question buttonQuestionGreen = new Question(id, "GreenColourButton");
-		buttonQuestionGreen.match();
-		justinBieberList.add(buttonQuestionGreen.getPercentage());
-		
-		
-		Question buttonQuestionYellow = new Question(id,"YellowColourButton");
-		buttonQuestionYellow.match();
-		taylorSwiftList.add(buttonQuestionYellow.getPercentage());
-		
-		Question buttonQuestionBlue = new Question(id,"BlueColourButton");
-		buttonQuestionBlue.match();
-		jenniferLopezList.add(buttonQuestionBlue.getPercentage());
-		
-		//using class method isWidgetUsed, it will determine which button we need to disable
+			//calling objects for question class for each button
+			Question buttonQuestionRed = new Question(id, "RedColourButton");
+			buttonQuestionRed.match();
+			pitbullList.add(buttonQuestionRed.getPercentage());
+			
+			Question buttonQuestionGreen = new Question(id, "GreenColourButton");
+			buttonQuestionGreen.match();
+			justinBieberList.add(buttonQuestionGreen.getPercentage());
+			
+			
+			Question buttonQuestionYellow = new Question(id,"YellowColourButton");
+			buttonQuestionYellow.match();
+			taylorSwiftList.add(buttonQuestionYellow.getPercentage());
+			
+			Question buttonQuestionBlue = new Question(id,"BlueColourButton");
+			buttonQuestionBlue.match();
+			jenniferLopezList.add(buttonQuestionBlue.getPercentage());
+			
+			//using class method isWidgetUsed, it will determine which button we need to disable
 
-		RedColourButton.setDisable((buttonQuestionRed.isWidgetUsed()));
-		GreenColourButton.setDisable((buttonQuestionGreen.isWidgetUsed()));
-		YellowColourButton.setDisable((buttonQuestionYellow.isWidgetUsed()));
-		BlueColourButton.setDisable(buttonQuestionBlue.isWidgetUsed());
+			RedColourButton.setDisable((buttonQuestionRed.isWidgetUsed()));
+			GreenColourButton.setDisable((buttonQuestionGreen.isWidgetUsed()));
+			YellowColourButton.setDisable((buttonQuestionYellow.isWidgetUsed()));
+			BlueColourButton.setDisable(buttonQuestionBlue.isWidgetUsed());
 
+			colourButton = true;
+		}
 	}
 	
 	// method to call Question class for music buttons
@@ -253,36 +268,38 @@ public class CelebTestController { // 2 test cases right and complete
 		
 		allButtonsPressed += 1;
 		
-		//this is able to tell me what button was pressed by returning the fx id
-		Button btn = (Button) event.getSource();
-		String id = btn.getId();
+		if (musicButton == false) {
+			//this is able to tell me what button was pressed by returning the fx id
+			Button btn = (Button) event.getSource();
+			String id = btn.getId();
 
-		//calling objects for question class for each button
-		Question buttonQuestionRap = new Question(id, "RapMusicButton");
-		buttonQuestionRap.match();
-		pitbullList.add(buttonQuestionRap.getPercentage());
-		
-		Question buttonQuestionPop = new Question(id, "PopMusicButton");
-		buttonQuestionPop.match();
-		justinBieberList.add(buttonQuestionPop.getPercentage());
-		
-		Question buttonQuestionClassical = new Question(id,"ClassicalMusicButton");
-		buttonQuestionClassical.match();
-		jenniferLopezList.add(buttonQuestionClassical.getPercentage());
-		
-		Question buttonQuestionIndie = new Question(id,"IndieMusicButton");
-		buttonQuestionIndie.match();
-		taylorSwiftList.add(buttonQuestionIndie.getPercentage());
-		
-		//using class method isWidgetUsed, it will determine which button we need to disable
+			//calling objects for question class for each button
+			Question buttonQuestionRap = new Question(id, "RapMusicButton");
+			buttonQuestionRap.match();
+			pitbullList.add(buttonQuestionRap.getPercentage());
+			
+			Question buttonQuestionPop = new Question(id, "PopMusicButton");
+			buttonQuestionPop.match();
+			justinBieberList.add(buttonQuestionPop.getPercentage());
+			
+			Question buttonQuestionClassical = new Question(id,"ClassicalMusicButton");
+			buttonQuestionClassical.match();
+			jenniferLopezList.add(buttonQuestionClassical.getPercentage());
+			
+			Question buttonQuestionIndie = new Question(id,"IndieMusicButton");
+			buttonQuestionIndie.match();
+			taylorSwiftList.add(buttonQuestionIndie.getPercentage());
+			
+			//using class method isWidgetUsed, it will determine which button we need to disable
 
-		RapMusicButton.setDisable((buttonQuestionRap.isWidgetUsed()));
-		PopMusicButton.setDisable(buttonQuestionPop.isWidgetUsed());
-		ClassicalMusicButton.setDisable((buttonQuestionClassical.isWidgetUsed()));
-		IndieMusicButton.setDisable((buttonQuestionIndie.isWidgetUsed()));
+			RapMusicButton.setDisable((buttonQuestionRap.isWidgetUsed()));
+			PopMusicButton.setDisable(buttonQuestionPop.isWidgetUsed());
+			ClassicalMusicButton.setDisable((buttonQuestionClassical.isWidgetUsed()));
+			IndieMusicButton.setDisable((buttonQuestionIndie.isWidgetUsed()));
 
-
+			musicButton = true;
 		}
+	}
 
 	// method to call Question class for animal buttons
 	@FXML
@@ -290,26 +307,29 @@ public class CelebTestController { // 2 test cases right and complete
 		
 		allButtonsPressed += 1;
 		
-		//this is able to tell me what button was pressed by returning the fx id
-		Button btn = (Button) event.getSource();
-		String id = btn.getId();
+		if (animalButton == false) {
+			//this is able to tell me what button was pressed by returning the fx id
+			Button btn = (Button) event.getSource();
+			String id = btn.getId();
 
-		//calling objects for question class for each button
-		Question buttonQuestionDog = new Question(id, "DogAnimalButton", 5.0);
-		buttonQuestionDog.match();
-		pitbullList.add(buttonQuestionDog.getPercentage());
-		taylorSwiftList.add(buttonQuestionDog.getPercentage());
-		
-		Question buttonQuestionCat = new Question(id, "CatAnimalButton", 5.0);
-		buttonQuestionCat.match();
-		jenniferLopezList.add(buttonQuestionCat.getPercentage());
-		justinBieberList.add(buttonQuestionCat.getPercentage());
-		
-		//using class method isWidgetUsed, it will determine which button we need to disable
+			//calling objects for question class for each button
+			Question buttonQuestionDog = new Question(id, "DogAnimalButton", 5.0);
+			buttonQuestionDog.match();
+			pitbullList.add(buttonQuestionDog.getPercentage());
+			taylorSwiftList.add(buttonQuestionDog.getPercentage());
+			
+			Question buttonQuestionCat = new Question(id, "CatAnimalButton", 5.0);
+			buttonQuestionCat.match();
+			jenniferLopezList.add(buttonQuestionCat.getPercentage());
+			justinBieberList.add(buttonQuestionCat.getPercentage());
+			
+			//using class method isWidgetUsed, it will determine which button we need to disable
 
-		DogAnimalButton.setDisable((buttonQuestionDog.isWidgetUsed()));
-		CatAnimalButton.setDisable(buttonQuestionCat.isWidgetUsed());
-
+			DogAnimalButton.setDisable((buttonQuestionDog.isWidgetUsed()));
+			CatAnimalButton.setDisable(buttonQuestionCat.isWidgetUsed());
+			
+			animalButton = true;
+		}
 	}
  
 
@@ -345,13 +365,6 @@ public class CelebTestController { // 2 test cases right and complete
 		mainErrorLabel.setTextFill(Color.DARKRED);  
 		nameErrorLabel.setTextFill(Color.DARKRED);
 		ageErrorLabel.setTextFill(Color.DARKRED);
-		
-		// testing if all buttons were pressed
-        if(allButtonsPressed < 5) {
-        	buttonsPressed = false;
-        } else {
-        	buttonsPressed = true;
-        }
 
 		// testing if user has inputed an answer for choicebox
         if( ZodiacSignChoiceBox.getValue() == null) {
@@ -372,13 +385,13 @@ public class CelebTestController { // 2 test cases right and complete
 				nameQuestion.verifyNames(); //this is where it will throw an error if detected
 				nameQuestion.calculateNames();
 
-				
-				justinBieberList.add((double) nameQuestion.getJustinBieberCount());
-				pitbullList.add((double) nameQuestion.getPitBullCount());
-				jenniferLopezList.add((double) nameQuestion.getJenniferLopezCount());
-				taylorSwiftList.add((double) nameQuestion.getTaylorSwiftCount());
-				
-
+				if (answerName == false) {
+					justinBieberList.add((double) nameQuestion.getJustinBieberCount());
+					pitbullList.add((double) nameQuestion.getPitBullCount());
+					jenniferLopezList.add((double) nameQuestion.getJenniferLopezCount());
+					taylorSwiftList.add((double) nameQuestion.getTaylorSwiftCount());
+					
+				}
 				answerName = true;
 			}
 		} catch (InvalidNameException ine) { //catches an invalidNameException if thrown
@@ -393,30 +406,28 @@ public class CelebTestController { // 2 test cases right and complete
 				
 				answerAge = false;	
 			} else {
-				double age = Double.parseDouble(ageTextField.getText());
 				TextFieldQuestion ageQuestion = new TextFieldQuestion(ageTextField.getText());
 				ageQuestion.verifyAge(); //this is where it will throw an error if detected
+				double age = Double.parseDouble(ageTextField.getText());
 
-				
 				RangeQuestion rangeAgePitBull = new RangeQuestion ((age<=50 && age>40), 10.0);
 				rangeAgePitBull.match();
-				pitbullList.add(rangeAgePitBull.getRangePercentage());
 				
 				RangeQuestion rangeAgeJustinBieber = new RangeQuestion ((age<=30 && age >= 16), 10.0);
 				rangeAgeJustinBieber.match();
-				justinBieberList.add(rangeAgeJustinBieber.getRangePercentage());
-				
 			
 				RangeQuestion rangeAgeTaylorSwift = new RangeQuestion ((age>30 && age<=40), 10.0);
 				rangeAgeTaylorSwift.match();
-				taylorSwiftList.add(rangeAgeTaylorSwift.getRangePercentage());
-			
-				
+
 				RangeQuestion rangeAgeJenniferLopez = new RangeQuestion ((age<=60 && age>50), 10.0);
 				rangeAgeJenniferLopez.match();
-				jenniferLopezList.add(rangeAgeJenniferLopez.getRangePercentage());
 				
-
+				if (answerAge == false) {
+					pitbullList.add(rangeAgePitBull.getRangePercentage());
+					justinBieberList.add(rangeAgeJustinBieber.getRangePercentage());
+					taylorSwiftList.add(rangeAgeTaylorSwift.getRangePercentage());
+					jenniferLopezList.add(rangeAgeJenniferLopez.getRangePercentage());
+				}
 				answerAge = true;
 			}
 		} catch (InvalidAgeException iae) { //catches an invalidAgeException if thrown
@@ -425,7 +436,7 @@ public class CelebTestController { // 2 test cases right and complete
 		}
 		
 		// condition that checks to see if all questions have been answered
-	    if (buttonsPressed == true &&  answerZodaic == true && answerName == true && answerAge == true) {
+	    if (allButtonsPressed >= 5 == true &&  answerZodaic == true && answerName == true && answerAge == true) {
 			
 			//testing choicebox to see what value to add to who's list
 	    	String zodiacSign = ZodiacSignChoiceBox.getValue();
@@ -466,7 +477,6 @@ public class CelebTestController { // 2 test cases right and complete
 	    	// Calculating Spontaneous Slider Match
 			double spontaneousValue = SpontaneousSlider.getValue();
 			
-
 			RangeQuestion spontaneousSliderJenniferLopez = new RangeQuestion ((spontaneousValue>= 0 && spontaneousValue <= 2.5), 10.0);
 			spontaneousSliderJenniferLopez.match();
 			jenniferLopezList.add(spontaneousSliderJenniferLopez.getRangePercentage());
@@ -537,6 +547,8 @@ public class CelebTestController { // 2 test cases right and complete
 		    System.out.println("Jennifer Lopez Compatibility: " + finalScoreJenniferLopez);
 		    System.out.println("Taylor Swift Compatibility: " + finalScoreTaylorSwift);
 		    System.out.println("Pitbull Perez Compatibility: " + finalScorePitbull);
+		    
+		    System.out.println("---test split---");
 
 		    //creating the bar graph & pieChart by passing data to finalViewController
 		    finalViewController.createBarGraph(finalScoreJustinBieber, finalScoreJenniferLopez, finalScorePitbull, finalScoreTaylorSwift);

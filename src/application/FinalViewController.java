@@ -63,8 +63,6 @@ public class FinalViewController{
 		n.setStyle("-fx-bar-fill: orchid");
 	}
 
-	
-	
 	/**
      * Method that creates our pieGraph in final scene with passed in data
      */
