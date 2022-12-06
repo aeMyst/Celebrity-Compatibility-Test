@@ -146,11 +146,10 @@ public class CelebTestController {
 	// method to call Question class for food buttons
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
-		
-	    allButtonsPressed += 1;
-		
+
 	    if (foodButton == false) {
-	    	 //this is able to tell me what button was pressed by returning the fx id
+	    	allButtonsPressed += 1;
+	    	//this is able to tell me what button was pressed by returning the fx id
 			Button btn = (Button) event.getSource();
 			String id = btn.getId();
 			
@@ -184,10 +183,9 @@ public class CelebTestController {
 	// method to call Question class for season buttons
 	@FXML
 	void setSeasonAnswer (ActionEvent event) {
-		
-		allButtonsPressed += 1;
-		
+
 		if (seasonButton == false) {
+			allButtonsPressed += 1;
 			//this is able to tell me what button was pressed by returning the fx id
 			Button btn = (Button) event.getSource();
 			String id = btn.getId();
@@ -226,9 +224,8 @@ public class CelebTestController {
 	@FXML
 	void setColourAnswer (ActionEvent event) {
 		
-		allButtonsPressed += 1;
-		
 		if (colourButton == false) {
+			allButtonsPressed += 1;
 			//this is able to tell me what button was pressed by returning the fx id
 			Button btn = (Button) event.getSource();
 			String id = btn.getId();
@@ -266,9 +263,8 @@ public class CelebTestController {
 	@FXML
 	void setMusicAnswer (ActionEvent event) {
 		
-		allButtonsPressed += 1;
-		
 		if (musicButton == false) {
+			allButtonsPressed += 1;
 			//this is able to tell me what button was pressed by returning the fx id
 			Button btn = (Button) event.getSource();
 			String id = btn.getId();
@@ -305,9 +301,8 @@ public class CelebTestController {
 	@FXML
 	void setAnimalAnswer (ActionEvent event) {
 		
-		allButtonsPressed += 1;
-		
 		if (animalButton == false) {
+			allButtonsPressed += 1;
 			//this is able to tell me what button was pressed by returning the fx id
 			Button btn = (Button) event.getSource();
 			String id = btn.getId();
