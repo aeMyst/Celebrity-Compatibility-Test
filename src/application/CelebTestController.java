@@ -384,11 +384,9 @@ public class CelebTestController {
 			IntroExtroCheck.setText("Are you sure you want to enter a 0 value? If so, please proceed.");
 		}
 		
+		//adding to spontaneousTestCheck & introExtroTestCheck
 		spontaneousTestCheck++;
 		introExtroTestCheck++;
-		
-		System.out.println("Spontaneous " + spontaneousTestCheck);
-		System.out.println("intro extro " + introExtroTestCheck);
 
 		// testing if user has inputed an answer for choicebox
         if( ZodiacSignChoiceBox.getValue() == null) {
