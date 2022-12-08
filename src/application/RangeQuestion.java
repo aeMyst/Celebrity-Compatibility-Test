@@ -28,8 +28,6 @@ public class RangeQuestion extends Question{
 		this.condition =range ;
 	} 
 	
-	
-	 
 	@Override
 	 /**
      * Matches the user's input to the question's range.  
@@ -40,8 +38,6 @@ public class RangeQuestion extends Question{
 	 public void match(){ 
 			if (this.condition)  {
 				super.setPercentage(super.getWeight());
-				System.out.println("hi");
-			
 			} else {
 				setPercentage(0); 
 			}				

@@ -302,6 +302,15 @@
                   <Insets left="35.0" />
                </HBox.margin></Label>
          </children></HBox>
+      <HBox>
+         <children>
+            <Label alignment="TOP_LEFT" text="(0 being most introverted, 10 being most extroverted)">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
          <children>
             <Slider fx:id="IntroExtroSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
@@ -312,6 +321,11 @@
                   <Insets left="70.0" />
                </HBox.margin>
             </Slider>
+            <Label fx:id="IntroExtroCheck">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="27.0" prefWidth="283.0">
@@ -355,6 +369,15 @@
                   <Insets left="75.0" />
                </HBox.margin></Label>
          </children></HBox>
+      <HBox>
+         <children>
+            <Label text="(0 being least spontaenous, 10 being most spontaneous)">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
       <HBox prefHeight="45.0" prefWidth="283.0">
          <children>
             <Slider fx:id="SpontaneousSlider" majorTickUnit="1.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true">
@@ -365,6 +388,11 @@
                   <Insets left="70.0" />
                </HBox.margin>
             </Slider>
+            <Label fx:id="SpontaneousCheck">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
       <Button fx:id="DoneButton" mnemonicParsing="false" onAction="#changeToFinal" text="Calculate Compatibility" textAlignment="CENTER">
@@ -375,7 +403,7 @@
             <Insets />
          </opaqueInsets>
          <VBox.margin>
-            <Insets left="80.0" />
+            <Insets left="55.0" />
          </VBox.margin>
       </Button>
       <Label fx:id="mainErrorLabel" alignment="TOP_LEFT" prefHeight="21.0" prefWidth="253.0" textFill="#dd0d0d">
