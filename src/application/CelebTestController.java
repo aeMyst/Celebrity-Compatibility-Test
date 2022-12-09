@@ -265,7 +265,11 @@ public class CelebTestController {
 		}
 	}
 	
-	// method to call Question class for music buttons
+	/**
+	 * Method that creates instances of the Question class to add the
+	 * calculated compatibility from the music button to the celebrities
+	 * lists. 
+	 */
 	@FXML
 	void setMusicAnswer (ActionEvent event) {
 		
