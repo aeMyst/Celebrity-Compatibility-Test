@@ -378,10 +378,14 @@ public class CelebTestController {
 		// if user entered a 0 on first attempt, then check if user wants to enter something else
 		if (testSpontaneousValue == 0 & spontaneousTestCheck == 0) {
 			SpontaneousCheck.setText("Are you sure you want to enter a 0 value? If so, please proceed.");
+		} else {
+			spontaneousTestCheck++;
 		}
 		// if user entered a 0 on first attempt, then check if user wants to enter something else
 		if (testIntroExtroValue == 0 & introExtroTestCheck == 0) {
 			IntroExtroCheck.setText("Are you sure you want to enter a 0 value? If so, please proceed.");
+		} else {
+			introExtroTestCheck++;
 		}
 		
 		//adding to spontaneousTestCheck & introExtroTestCheck
