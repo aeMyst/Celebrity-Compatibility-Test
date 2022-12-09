@@ -130,7 +130,9 @@ public class CelebTestController {
 	@FXML
 	private Button DoneButton;
 	
-	// method to change to questions scene after clicking start button
+	/**
+	 * Method that changes the Welcome scene to the QuestionView scene. 
+	 */
 	@FXML
     void changeToQuestions(ActionEvent event) {
 		try {
