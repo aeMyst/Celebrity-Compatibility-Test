@@ -186,7 +186,11 @@ public class CelebTestController {
 	    }
 	}
 	
-	// method to call Question class for season buttons
+	/**
+	 * Method that creates instances of the Question class to add the
+	 * calculated compatibility from the season button to the celebrities
+	 * lists. 
+	 */
 	@FXML
 	void setSeasonAnswer (ActionEvent event) {
 
