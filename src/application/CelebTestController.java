@@ -304,6 +304,12 @@ public class CelebTestController {
 	}
 
 	// method to call Question class for animal buttons
+
+	/**
+	 * Method that creates instances of the Question class to calculate the
+	 * compatibility 
+	 * 
+	 */
 	@FXML
 	void setAnimalAnswer (ActionEvent event) {
 		
@@ -336,7 +342,8 @@ public class CelebTestController {
 
 	/**
 	 * Method that calculates the total compatibility score from passed celebrity list
-	 * 
+	 * @return totalPercent A double containing the total percent compatibility
+	 *  of the user to the list of celebrities'. 
 	 */
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
