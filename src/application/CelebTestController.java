@@ -130,7 +130,9 @@ public class CelebTestController {
 	@FXML
 	private Button DoneButton;
 	
-	// method to change to questions scene after clicking start button
+	/**
+	 * Method that changes the Welcome scene to the QuestionView scene. 
+	 */
 	@FXML
     void changeToQuestions(ActionEvent event) {
 		try {
@@ -149,7 +151,11 @@ public class CelebTestController {
 
     }
 	
-	// method to call Question class for food buttons
+	/**
+	 * Method that creates instances of the Question class to add the
+	 * calculated compatibility from the food button to the celebrities
+	 * lists. 
+	 */
 	@FXML
 	void setFoodAnswer (ActionEvent event) {
 
@@ -186,7 +192,11 @@ public class CelebTestController {
 	    }
 	}
 	
-	// method to call Question class for season buttons
+	/**
+	 * Method that creates instances of the Question class to add the
+	 * calculated compatibility from the season button to the celebrities
+	 * lists. 
+	 */
 	@FXML
 	void setSeasonAnswer (ActionEvent event) {
 
@@ -226,7 +236,11 @@ public class CelebTestController {
 		}
 	}
 	
-	// method to call Question class for color buttons
+	/**
+	 * Method that creates instances of the Question class to add the
+	 * calculated compatibility from the colour button to the celebrities
+	 * lists. 
+	 */
 	@FXML
 	void setColourAnswer (ActionEvent event) {
 		
@@ -265,7 +279,11 @@ public class CelebTestController {
 		}
 	}
 	
-	// method to call Question class for music buttons
+	/**
+	 * Method that creates instances of the Question class to add the
+	 * calculated compatibility from the music button to the celebrities
+	 * lists. 
+	 */
 	@FXML
 	void setMusicAnswer (ActionEvent event) {
 		
@@ -303,7 +321,13 @@ public class CelebTestController {
 		}
 	}
 
-	// method to call Question class for animal buttons
+
+
+	/**
+	 * Method that creates instances of the Question class to add the
+	 * calculated compatibility from the animal button to the celebrities
+	 * lists. 
+	 */
 	@FXML
 	void setAnimalAnswer (ActionEvent event) {
 		
@@ -336,7 +360,8 @@ public class CelebTestController {
 
 	/**
 	 * Method that calculates the total compatibility score from passed celebrity list
-	 * 
+	 * @return totalPercent A double containing the total percent compatibility
+	 *  of the user to the list of celebrities'. 
 	 */
 	double calculateCompatibility(ArrayList<Double> celebList) {
 		double totalPercent = 0.0;
